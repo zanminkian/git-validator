@@ -1,5 +1,11 @@
 # @zanminkian/git-hooks
 
+## 0.1.2
+
+### Patch Changes
+
+- f165e26: chore(git-hooks): lock deps version
+
 ## 0.1.0
 
 ### Patch Changes
