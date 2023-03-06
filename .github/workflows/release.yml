@@ -25,14 +25,17 @@ jobs:
 
       - name: Install Dependencies
         run: npm i pnpm -g && pnpm i
+      - name: Setup NPM Config
+        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release Pull Request or Publish to npm
         # https://github.com/changesets/action
         uses: changesets/action@v1
         with:
-          publish: pnpm changeset publish # 或者自定义，如`pnpm run release`
+          publish: pnpm -r publish --access=public # 或者其他，如`pnpm changeset publish`
           commit: 'chore: release'
           title: 'chore: release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
