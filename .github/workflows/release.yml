@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master # 如果你的主分支是`master`的话
+
+concurrency: ${{ github.workflow }}-${{ github.ref }} # 控制并发，相当于java的synchronize
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: Install Dependencies
+        run: npm i pnpm -g && pnpm i
+
+      - name: Create Release Pull Request or Publish to npm
+        # https://github.com/changesets/action
+        uses: changesets/action@v1
+        with:
+          publish: pnpm changeset publish # 或者自定义，如`pnpm run release`
+          commit: 'chore: release'
+          title: 'chore: release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

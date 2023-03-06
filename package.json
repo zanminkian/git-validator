@@ -6,7 +6,11 @@
     "pnpm": "^7.0.0",
     "node": ">=16.0.0"
   },
+  "scripts": {
+    "postinstall": "git-hooks install"
+  },
   "devDependencies": {
-    "@changesets/cli": "^2.26.0"
+    "@changesets/cli": "^2.26.0",
+    "@zanminkian/git-hooks": "*"
   }
 }
