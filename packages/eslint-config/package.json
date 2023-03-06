@@ -1,0 +1,23 @@
+{
+  "name": "@zanminkian/eslint-config",
+  "version": "0.1.0",
+  "description": "Opinionated eslint config presets.",
+  "author": "hellozmj@qq.com",
+  "license": "MIT",
+  "homepage": "https://github.com/zanminkian/git-hooks",
+  "keywords": [
+    "opinionated",
+    "strict",
+    "eslint",
+    "config",
+    "eslint-config"
+  ],
+  "exports": "./index.js",
+  "dependencies": {
+    "@antfu/eslint-config": "^0.36.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.35.0",
+    "typescript": "^4.9.5"
+  }
+}
