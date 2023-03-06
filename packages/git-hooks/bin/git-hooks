@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-var-requires */
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+const { format, lint, install } = require('../cli')
+
+// eslint-disable-next-line  no-unused-expressions
+yargs(hideBin(process.argv))
+  .usage('git-hooks <command> [options]')
+  .strictCommands()
+  .strictOptions()
+  .demandCommand(1)
+  .command({
+    command: 'format [dir]',
+    describe: 'Format code',
+    builder: y => y.positional('dir', {
+      type: 'string',
+      describe: 'Dir path to format code',
+    }),
+    handler: ({ dir }) => process.exit(format(dir).status),
+  })
+  .command({
+    command: 'lint [dir]',
+    describe: 'Check code',
+    builder: y => y.positional('dir', {
+      type: 'string',
+      describe: 'Dir Path to check code',
+    }),
+    handler: ({ dir }) => process.exit(lint(dir).status),
+  })
+  .command({
+    command: 'install',
+    describe: 'Install git-hooks config files',
+    handler: () => install(),
+  })
+  .argv

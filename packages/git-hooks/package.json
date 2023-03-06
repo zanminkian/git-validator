@@ -1,0 +1,26 @@
+{
+  "name": "@zanminkian/git-hooks",
+  "version": "0.1.0",
+  "description": "A bundle of opinionated git hooks. All in one!",
+  "author": "hellozmj@qq.com",
+  "license": "MIT",
+  "homepage": "https://github.com/zanminkian/git-hooks",
+  "keywords": [
+    "opinionated",
+    "git",
+    "hooks",
+    "git-hooks"
+  ],
+  "bin": {
+    "git-hooks": "bin/git-hooks",
+    "lint-staged": "bin/lint-staged"
+  },
+  "dependencies": {
+    "@zanminkian/eslint-config": "*",
+    "cosmiconfig": "^8.1.0",
+    "eslint": "^8.35.0",
+    "git-commit-msg-linter": "^4.8.3",
+    "lint-staged": "^13.1.2",
+    "yargs": "^17.7.1"
+  }
+}
