@@ -16,7 +16,7 @@
     "lint-staged": "bin/lint-staged"
   },
   "dependencies": {
-    "@zanminkian/eslint-config": "workspace:^",
+    "@zanminkian/eslint-config": "^0.1.0",
     "cosmiconfig": "^8.1.0",
     "eslint": "^8.35.0",
     "git-commit-msg-linter": "^4.8.3",
