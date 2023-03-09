@@ -1,5 +1,13 @@
 # @zanminkian/git-hooks
 
+## 0.1.3
+
+### Patch Changes
+
+- c354166: docs(git-hooks): update README
+- Updated dependencies [9deec0b]
+  - @zanminkian/eslint-config@0.1.1
+
 ## 0.1.2
 
 ### Patch Changes
