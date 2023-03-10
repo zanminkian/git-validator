@@ -9,8 +9,9 @@
     "opinionated",
     "git",
     "hooks",
-    "git-hooks",
-    "pre-commit"
+    "pre-commit",
+    "husky",
+    "lint-staged"
   ],
   "bin": {
     "git-hooks": "bin/git-hooks",

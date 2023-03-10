@@ -6,6 +6,8 @@
 
 A bundle of opinionated git hooks. All in one!
 
+Drop `husky`, `eslint`, `lint-staged` and `commitlint` in your project.
+
 ## Feature
 
 - Easy to use. Just install it. It will lint your staged code and committed message automatically before git commit.
