@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
-const { format, lint, install } = require('../cli')
+const { format, lint, install } = require('../src/cli')
 
 // eslint-disable-next-line  no-unused-expressions
 yargs(hideBin(process.argv))
