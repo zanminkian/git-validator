@@ -1,5 +1,14 @@
 # @zanminkian/git-hooks
 
+## 0.1.5
+
+### Patch Changes
+
+- 8534b8d: docs: add badge
+- 2038b1c: refactor(git-hooks): replace `yargs` with `commander`
+- Updated dependencies [8534b8d]
+  - @zanminkian/eslint-config@0.1.3
+
 ## 0.1.4
 
 ### Patch Changes

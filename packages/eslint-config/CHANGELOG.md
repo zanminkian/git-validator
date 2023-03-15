@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.1.3
+
+### Patch Changes
+
+- 8534b8d: docs: add badge
+
 ## 0.1.2
 
 ### Patch Changes
