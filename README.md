@@ -4,6 +4,7 @@
 [![](https://img.shields.io/npm/v/@zanminkian/git-hooks.svg)](https://www.npmjs.com/package/@zanminkian/git-hooks)
 [![](https://img.shields.io/npm/dm/@zanminkian/git-hooks.svg)](https://www.npmjs.com/package/@zanminkian/git-hooks)
 [![](https://img.shields.io/librariesio/release/npm/@zanminkian/git-hooks)](https://www.npmjs.com/package/@zanminkian/git-hooks)
+[![](https://packagephobia.com/badge?p=@zanminkian/git-hooks)](https://packagephobia.com/result?p=@zanminkian/git-hooks)
 
 A bundle of opinionated git hooks. All in one!
 
