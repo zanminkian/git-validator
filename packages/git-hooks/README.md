@@ -19,7 +19,7 @@ Drop `husky`, `eslint`, `lint-staged` and `commitlint` in your project.
 
 Setup scripts in your `package.json`.
 
-- `git-hooks install`: Install the hook files to `.git/hooks` directory, in order to check your code and committed message after running `git commit` command.
+- `git-hooks install`: Install the hook files to `{PROJECT_ROOT}/.git/hooks` directory, in order to check your code and committed message after running `git commit` command.
 - `git-hooks format`: Check and format all the files of your project. Use `eslint --fix` command under the hood.
 - `git-hooks lint`: Check all the files of your project. Use `eslint` command under the hood.
 
@@ -40,6 +40,26 @@ pnpm add -D @zanminkian/git-hooks
 ```
 
 After that, you can commit your code in your project. The invalid code and the invalid committed message will be blocked automatically.
+
+## Advanced usage
+
+### Work with `husky`
+
+This library can work by standalone. But if you have husky 5 or greater installed, because husky will ignore the `.git/hooks/commit-msg` and `.git/hooks/pre-commit`, `.husky/commit-msg` and `.husky/pre-commit` need to be added manually:
+
+```sh
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+.git/hooks/commit-msg $1
+```
+
+```sh
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+.git/hooks/pre-commit $1
+```
 
 ## How it works
 
