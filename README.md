@@ -17,12 +17,18 @@ Drop `husky`, `eslint`, `lint-staged` and `commitlint` in your project.
 
 ## Usage
 
-Setup `postinstall` script in your `package.json`.
+Setup scripts in your `package.json`.
+
+- `git-hooks install`: Install the hook files to `.git/hooks` directory, in order to check your code and committed message after running `git commit` command.
+- `git-hooks format`: Check and format all the files of your project. Use `eslint --fix` command under the hood.
+- `git-hooks lint`: Check all the files of your project. Use `eslint` command under the hood.
 
 ```json
 {
   "scripts": {
-    "postinstall": "git-hooks install"
+    "postinstall": "git-hooks install",
+    "format": "git-hooks format",
+    "lint": "git-hooks lint"
   }
 }
 ```
@@ -33,7 +39,7 @@ And then install it.
 pnpm add -D @zanminkian/git-hooks
 ```
 
-After that, `@zanminkian/git-hooks` will check your code and your commit message when you commit your code.
+After that, you can commit your code in your project. The invalid code and the invalid committed message will be blocked automatically.
 
 ## How it works
 
