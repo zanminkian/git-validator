@@ -1,6 +1,6 @@
 {
   "name": "@zanminkian/git-hooks",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A bundle of opinionated git hooks. All in one!",
   "author": "hellozmj@qq.com",
   "license": "MIT",
