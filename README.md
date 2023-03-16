@@ -12,7 +12,8 @@ Drop `husky`, `eslint`, `lint-staged` and `commitlint` in your project.
 
 ## Feature
 
-- Easy to use. Just install it. It will lint your staged code and committed message automatically before git commit.
+- All in one. Just install **ONE** npm package.
+- Easy to use. Only 2 step: setup scripts and then install.
 - Zero Configs. Reasonable default settings for enterprise app.
 
 ## Usage
