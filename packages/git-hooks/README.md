@@ -61,6 +61,19 @@ This library can work by standalone. But if you have husky 5 or greater installe
 .git/hooks/pre-commit $1
 ```
 
+### Customize eslint config
+
+We use eslint to lint and format the code under the hood. If your don't like the built-in eslint config, you can add your own `.eslintrc.js` to the root of your project. Here is example for you.
+
+```js
+module.exports = {
+  extends: '@zanminkian',
+  rules: {
+    // write your rules here
+  }
+}
+```
+
 ## How it works
 
 After running `git-hooks install`, it will write `commit-msg` file and `pre-commit` file to `{PROJECT_ROOT}/.git/hooks` directory.
