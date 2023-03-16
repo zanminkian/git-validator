@@ -1,5 +1,14 @@
 # @zanminkian/git-hooks
 
+## 0.1.6
+
+### Patch Changes
+
+- aa10f97: docs: update feature in README
+- 7f3ff97: docs: update README to tell how to work with husky
+- 7c029cf: docs: update README to tell how to customize eslint config
+- b0c7ada: docs: update README
+
 ## 0.1.5
 
 ### Patch Changes
