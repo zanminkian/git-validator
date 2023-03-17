@@ -14,8 +14,8 @@
     "lint-staged"
   ],
   "bin": {
-    "git-hooks": "bin/git-hooks",
-    "lint-staged": "bin/lint-staged"
+    "git-hooks": "./bin/git-hooks.js",
+    "lint-staged": "./bin/lint-staged.js"
   },
   "dependencies": {
     "@zanminkian/eslint-config": "^0.1.3",

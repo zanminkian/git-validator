@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { Command } = require('commander')
 const { format, lint, install } = require('../src/cli')
 
