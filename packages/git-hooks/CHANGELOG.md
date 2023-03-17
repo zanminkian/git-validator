@@ -1,5 +1,15 @@
 # @zanminkian/git-hooks
 
+## 0.2.0
+
+### Minor Changes
+
+- a25f21d: refactor(git-hooks): ship to esm
+
+### Patch Changes
+
+- 0165803: refactor(git-hooks): add `.js` extension to bin file
+
 ## 0.1.6
 
 ### Patch Changes
