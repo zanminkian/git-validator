@@ -1,5 +1,6 @@
 {
   "name": "@zanminkian/git-hooks",
+  "type": "module",
   "version": "0.1.6",
   "description": "A bundle of opinionated git hooks. All in one!",
   "author": "hellozmj@qq.com",

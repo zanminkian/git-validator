@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const { Command } = require('commander')
-const { format, lint, install } = require('../src/cli')
+import { Command } from 'commander'
+import { format, install, lint } from '../src/cli.js'
 
 const program = new Command().name('git-hooks')
 
