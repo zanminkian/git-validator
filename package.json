@@ -7,7 +7,9 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "postinstall": "git-hooks install"
+    "postinstall": "git-hooks install",
+    "format": "git-hooks format",
+    "lint": "git-hooks lint"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",

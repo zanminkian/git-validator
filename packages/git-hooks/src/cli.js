@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import process from 'node:process'
 import { spawnSync } from 'node:child_process'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
