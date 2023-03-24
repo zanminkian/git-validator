@@ -12,7 +12,7 @@
     "lint": "git-hooks lint"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.0",
+    "@changesets/cli": "^2.26.1",
     "@zanminkian/git-hooks": "*"
   }
 }
