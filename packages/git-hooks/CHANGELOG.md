@@ -1,5 +1,14 @@
 # @zanminkian/git-hooks
 
+## 0.2.1
+
+### Patch Changes
+
+- 2265f5f: chore: upgrade deps
+- Updated dependencies [55990b5]
+- Updated dependencies [2265f5f]
+  - @zanminkian/eslint-config@0.1.4
+
 ## 0.2.0
 
 ### Minor Changes

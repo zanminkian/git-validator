@@ -1,5 +1,12 @@
 # @zanminkian/eslint-config
 
+## 0.1.4
+
+### Patch Changes
+
+- 55990b5: feat(eslint-config): prefer non global object of node
+- 2265f5f: chore: upgrade deps
+
 ## 0.1.3
 
 ### Patch Changes
