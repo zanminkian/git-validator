@@ -24,7 +24,7 @@ jobs:
           node-version: 16.x
 
       - name: Install Dependencies
-        run: npm i pnpm -g && pnpm i
+        run: corepack enable && pnpm i
 
       - name: Create Release Pull Request or Publish to npm
         # https://github.com/changesets/action
