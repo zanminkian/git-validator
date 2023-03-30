@@ -14,7 +14,7 @@ function writePreCommit(dir = process.cwd()) {
   ]
   const preCommitPath = resolve(process.cwd(), dir, '.git', 'hooks', 'pre-commit')
   fs.writeFileSync(preCommitPath, preCommitContents.join('\n'))
-  fs.chmodSync(preCommitPath, 777)
+  fs.chmodSync(preCommitPath, '777')
 }
 
 function writeCommitMsg() {
