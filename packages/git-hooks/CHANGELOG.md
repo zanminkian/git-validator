@@ -1,5 +1,11 @@
 # @zanminkian/git-hooks
 
+## 0.2.2
+
+### Patch Changes
+
+- d3e70be: fix(git-hooks): change `777` to `'777'` to fix permission error
+
 ## 0.2.1
 
 ### Patch Changes
