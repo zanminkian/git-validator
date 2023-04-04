@@ -1,5 +1,12 @@
 # @zanminkian/eslint-config
 
+## 0.1.6
+
+### Patch Changes
+
+- d783322: chore(eslint-config): upgrade deps
+- a4fadb4: refactor(eslint-config): remove `eslint-plugin-node`
+
 ## 0.1.5
 
 ### Patch Changes
