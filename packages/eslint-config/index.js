@@ -8,6 +8,6 @@ module.exports = {
     // We have to add this because of [this](https://github.com/antfu/eslint-config/pull/145)
     'dot-notation': 'off',
     // https://github.com/antfu/eslint-config/pull/159
-    'node/prefer-global/process': ['error', 'never'],
+    'n/prefer-global/process': ['error', 'never'],
   },
 }
