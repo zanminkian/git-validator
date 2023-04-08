@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.1.7
+
+### Patch Changes
+
+- b3b63c3: chore: upgrade deps
+
 ## 0.1.6
 
 ### Patch Changes
