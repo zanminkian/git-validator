@@ -16,6 +16,6 @@
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
     "@zanminkian/git-hooks": "*",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.4"
   }
 }

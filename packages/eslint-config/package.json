@@ -17,6 +17,6 @@
     "@antfu/eslint-config": "^0.38.4"
   },
   "devDependencies": {
-    "eslint": "^8.37.0"
+    "eslint": "^8.38.0"
   }
 }
