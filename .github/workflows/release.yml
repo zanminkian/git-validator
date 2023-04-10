@@ -3,9 +3,9 @@ name: Release
 on:
   push:
     branches:
-      - master # 如果你的主分支是`master`的话
+      - master
 
-concurrency: ${{ github.workflow }}-${{ github.ref }} # 控制并发，相当于java的synchronize
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
@@ -30,7 +30,7 @@ jobs:
         # https://github.com/changesets/action
         uses: changesets/action@v1
         with:
-          publish: pnpm changeset publish # 或者自定义，如`pnpm run release`
+          publish: pnpm release
           commit: 'chore: release'
           title: 'chore: release'
         env:
