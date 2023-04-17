@@ -6,23 +6,23 @@
 [![](https://img.shields.io/librariesio/release/npm/@zanminkian/git-hooks)](https://www.npmjs.com/package/@zanminkian/git-hooks)
 [![](https://packagephobia.com/badge?p=@zanminkian/git-hooks)](https://packagephobia.com/result?p=@zanminkian/git-hooks)
 
-A bundle of opinionated git hooks. All in one!
+This is a bundle of opinionated git hooks, all in one!
 
-Drop `husky`, `eslint`, `lint-staged` and `commitlint` in your project.
+Replace `husky`, `eslint`, `lint-staged`, and `commitlint` in your project with this npm package.
 
-## Feature
+## Features
 
-- All in one. Just install **ONE** npm package.
-- Easy to use. Only 2 step: setup scripts and then install.
-- Zero Configs. Reasonable default settings for enterprise app.
+- Unified package: Just **ONE** npm package to install replacing multiple.
+- Simple to use: Only two steps required; setting up scripts and installation.
+- Zero Configuration: Sensible default settings suitable for enterprise apps.
 
 ## Usage
 
-Setup scripts in your `package.json`.
+Set up the following scripts in your `package.json`:
 
-- `git-hooks install`: Install the hook files to `{PROJECT_ROOT}/.git/hooks` directory, in order to check your code and committed message after running `git commit` command.
-- `git-hooks format`: Check and format all the files of your project. Use `eslint --fix` command under the hood.
-- `git-hooks lint`: Check all the files of your project. Use `eslint` command under the hood.
+- `git-hooks install`: Installs hook files to `{PROJECT_ROOT}/.git/hooks` directory, which will check your code and commit messages after running the `git commit` command.
+- `git-hooks format`: Checks and formats all project files using the `eslint --fix` command.
+- `git-hooks lint`: Checks all project files using the `eslint` command.
 
 ```json
 {
@@ -34,19 +34,19 @@ Setup scripts in your `package.json`.
 }
 ```
 
-And then install it.
+Next, install the package:
 
 ```sh
 pnpm add -D @zanminkian/git-hooks
 ```
 
-After that, you can commit your code in your project. The invalid code and the invalid committed message will be blocked automatically.
+Now you can commit code to your project. Invalid code or commit messages will be automatically blocked.
 
-## Advanced usage
+## Advanced Usage
 
-### Work with `husky`
+### Working with `husky`
 
-This library can work by standalone. But if you have husky 5 or greater installed, because husky will ignore the `.git/hooks/commit-msg` and `.git/hooks/pre-commit`, `.husky/commit-msg` and `.husky/pre-commit` need to be added manually:
+This library can work as a standalone package. However, if you have Husky 5 or a later version installed, you'll need to manually add `.husky/commit-msg` and `.husky/pre-commit`, as Husky will ignore the `.git/hooks/commit-msg` and `.git/hooks/pre-commit`:
 
 ```sh
 #!/usr/bin/env sh
@@ -62,9 +62,9 @@ This library can work by standalone. But if you have husky 5 or greater installe
 .git/hooks/pre-commit $1
 ```
 
-### Customize eslint config
+### Customizing eslint Config
 
-We use eslint to lint and format the code under the hood. If your don't like the built-in eslint config, you can add your own `.eslintrc.js` to the root of your project. Here is example for you.
+Under the hood, we use `eslint` to lint and format code. If you want to use a different eslint config, add your own `.eslintrc.js` at the root of your project. Here's an example:
 
 ```js
 module.exports = {
@@ -75,12 +75,12 @@ module.exports = {
 }
 ```
 
-## How it works
+## How it Works
 
-After running `git-hooks install`, it will write `commit-msg` file and `pre-commit` file to `{PROJECT_ROOT}/.git/hooks` directory.
+Running `git-hooks install` writes `commit-msg` and `pre-commit` files to the `{PROJECT_ROOT}/.git/hooks` directory.
 
-- The `commit-msg` file will lint your git commit message before git commit.
-- The `pre-commit` file will lint your staged code before git commit.
+- The `commit-msg` file lints your git commit message before the commit is made.
+- The `pre-commit` file lints your staged code before the commit is made.
 
 ## License
 
