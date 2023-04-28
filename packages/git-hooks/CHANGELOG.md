@@ -1,5 +1,12 @@
 # @zanminkian/git-hooks
 
+## 0.2.7
+
+### Patch Changes
+
+- 7ea56d3: refactor(git-hooks): clean code
+- 11ba570: feat(git-hooks): support `--pre-push` when installing
+
 ## 0.2.6
 
 ### Patch Changes
