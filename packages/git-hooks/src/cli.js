@@ -7,14 +7,15 @@ import linter from 'git-commit-msg-linter'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-function writePreCommit(dir = process.cwd()) {
-  const preCommitContents = [
+function writePreCommit() {
+  const content = [
     '#!/bin/sh',
     `echo '{"*":["npx eslint --config ${join(__dirname, 'eslint.config.cjs')} --fix"]}' | npx lint-staged -c -`,
-  ]
-  const preCommitPath = resolve(process.cwd(), dir, '.git', 'hooks', 'pre-commit')
-  fs.writeFileSync(preCommitPath, preCommitContents.join('\n'))
-  fs.chmodSync(preCommitPath, '777')
+  ].join('\n')
+
+  const path = resolve(process.cwd(), '.git', 'hooks', 'pre-commit')
+  fs.writeFileSync(path, content)
+  fs.chmodSync(path, '777')
 }
 
 function writeCommitMsg() {
