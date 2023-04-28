@@ -33,9 +33,11 @@ function writePrePush(cmd) {
   fs.chmodSync(path, '777')
 }
 
-export function install({ prePush }) {
-  writePreCommit()
-  writeCommitMsg()
+export function install({ preCommit, commitMsg, prePush }) {
+  if (preCommit)
+    writePreCommit()
+  if (commitMsg)
+    writeCommitMsg()
   if (prePush)
     writePrePush(prePush)
 }
