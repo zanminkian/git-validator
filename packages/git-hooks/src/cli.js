@@ -21,9 +21,22 @@ function writeCommitMsg() {
   linter.install({ silent: true })
 }
 
-export function install() {
+function writePrePush(cmd) {
+  const content = [
+    '#!/bin/sh',
+    cmd,
+  ].join('\n')
+
+  const path = resolve(process.cwd(), '.git', 'hooks', 'pre-push')
+  fs.writeFileSync(path, content)
+  fs.chmodSync(path, '777')
+}
+
+export function install({ prePush }) {
   writePreCommit()
   writeCommitMsg()
+  if (prePush)
+    writePrePush(prePush)
 }
 
 export function format(dir = process.cwd()) {

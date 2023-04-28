@@ -20,6 +20,7 @@ program
 program
   .command('install')
   .description('install git-hooks config files')
-  .action(() => install())
+  .option('--pre-push <cmd>', 'setup a command to run during the git `pre-push` stage')
+  .action(options => install(options))
 
 program.parse()
