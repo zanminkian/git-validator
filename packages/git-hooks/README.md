@@ -12,9 +12,9 @@ Replace `husky`, `eslint`, `lint-staged`, and `commitlint` in your project with 
 
 ## Features
 
-- Unified package: Just **ONE** npm package to install replacing multiple.
-- Simple to use: Only two steps required; setting up scripts and installation.
-- Zero Configuration: Sensible default settings suitable for enterprise apps.
+- **Unified package**: Just **ONE** npm package to install replacing multiple.
+- **Simple to use**: Only two steps required; setting up scripts and installation.
+- **Zero Configuration**: Sensible default settings suitable for enterprise apps.
 
 ## Usage
 
