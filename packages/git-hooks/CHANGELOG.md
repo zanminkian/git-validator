@@ -1,5 +1,11 @@
 # @zanminkian/git-hooks
 
+## 0.2.8
+
+### Patch Changes
+
+- 0ce7b51: feat(git-hooks): support `--no-pre-commit` and `--no-commit-msg` when installing
+
 ## 0.2.7
 
 ### Patch Changes
