@@ -1,5 +1,14 @@
 # @zanminkian/git-hooks
 
+## 0.2.6
+
+### Patch Changes
+
+- cbd3176: chore: upgrade deps
+- 6085c73: docs: optimize readme by chatgpt
+- Updated dependencies [cbd3176]
+  - @zanminkian/eslint-config@0.1.8
+
 ## 0.2.5
 
 ### Patch Changes
