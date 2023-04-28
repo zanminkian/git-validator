@@ -82,6 +82,17 @@ Running `git-hooks install` writes `commit-msg` and `pre-commit` files to the `{
 - The `commit-msg` file lints your git commit message before the commit is made.
 - The `pre-commit` file lints your staged code before the commit is made.
 
+## Contributing
+
+- Clone this repository.
+- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable` (use `npm i -g corepack` for Node.js < 16.10).
+- Install dependencies using `pnpm install`.
+- Start coding and submit your PR.
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
 ## License
 
 MIT
