@@ -87,7 +87,6 @@ Under the hood, we use `eslint` to lint and format code. If you want to use a di
 
 ```js
 module.exports = {
-  extends: '@zanminkian',
   rules: {
     // write your rules here
   }
