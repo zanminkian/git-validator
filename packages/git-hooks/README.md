@@ -42,6 +42,13 @@ pnpm add -D @zanminkian/git-hooks
 
 Now you can commit code to your project. Invalid code or commit messages will be automatically blocked.
 
+## How it Works
+
+Running `git-hooks install` writes `commit-msg` and `pre-commit` files to the `{PROJECT_ROOT}/.git/hooks` directory.
+
+- The `commit-msg` file lints your git commit message before the commit is made.
+- The `pre-commit` file lints your staged code before the commit is made.
+
 ## Advanced Usage
 
 ### Working with `husky`
@@ -62,6 +69,18 @@ This library can work as a standalone package. However, if you have Husky 5 or a
 .git/hooks/pre-commit $1
 ```
 
+### Setup `pre-push` Stage
+
+Running `git-hooks install` writes `commit-msg` and `pre-commit` files only. As git `pre-push` stage is widely used, you can run `git-hooks install --pre-push <cmd>` to setup git `pre-push` stage additionally.
+
+```json
+{
+  "scripts": {
+    "postinstall": "git-hooks install --pre-push 'npm run test'"
+  }
+}
+```
+
 ### Customizing eslint Config
 
 Under the hood, we use `eslint` to lint and format code. If you want to use a different eslint config, add your own `.eslintrc.js` at the root of your project. Here's an example:
@@ -74,13 +93,6 @@ module.exports = {
   }
 }
 ```
-
-## How it Works
-
-Running `git-hooks install` writes `commit-msg` and `pre-commit` files to the `{PROJECT_ROOT}/.git/hooks` directory.
-
-- The `commit-msg` file lints your git commit message before the commit is made.
-- The `pre-commit` file lints your staged code before the commit is made.
 
 ## Contributing
 
