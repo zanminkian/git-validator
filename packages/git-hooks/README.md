@@ -6,6 +6,8 @@
 [![](https://img.shields.io/librariesio/release/npm/@zanminkian/git-hooks)](https://www.npmjs.com/package/@zanminkian/git-hooks)
 [![](https://packagephobia.com/badge?p=@zanminkian/git-hooks)](https://packagephobia.com/result?p=@zanminkian/git-hooks)
 
+> `@zanminkian/git-hooks` is now `g-hooks`. Use `g-hooks` instead.
+
 This is a bundle of opinionated git hooks, all in one!
 
 Replace `husky`, `eslint`, `lint-staged`, and `commitlint` in your project with this npm package.
