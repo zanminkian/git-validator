@@ -14,9 +14,9 @@
   ],
   "exports": "./index.js",
   "dependencies": {
-    "@antfu/eslint-config": "^0.38.5"
+    "@antfu/eslint-config": "^0.38.6"
   },
   "devDependencies": {
-    "eslint": "^8.39.0"
+    "eslint": "^8.40.0"
   }
 }
