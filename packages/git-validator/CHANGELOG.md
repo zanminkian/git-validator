@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.3.2
+
+### Patch Changes
+
+- 849c8eb: feat(git-validator): use `commitlint` for better expansibility
+
 ## 0.3.1
 
 ### Patch Changes
