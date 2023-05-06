@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.3.1
+
+### Patch Changes
+
+- d3248be: chore: upgrade deps
+- Updated dependencies [d3248be]
+  - @zanminkian/eslint-config@0.1.9
+
 ## 0.3.0
 
 ### Minor Changes
