@@ -4,7 +4,7 @@
   "description": "Opinionated eslint config presets.",
   "author": "hellozmj@qq.com",
   "license": "MIT",
-  "homepage": "https://github.com/zanminkian/git-validator/tree/master/packages/eslint-config",
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-config",
   "keywords": [
     "opinionated",
     "strict",
