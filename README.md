@@ -1,10 +1,10 @@
-# @zanminkian/git-hooks
+# git-validator
 
-[![](https://img.shields.io/npm/l/@zanminkian/git-hooks.svg)](https://github.com/zanminkian/git-hooks/blob/master/LICENSE)
-[![](https://img.shields.io/npm/v/@zanminkian/git-hooks.svg)](https://www.npmjs.com/package/@zanminkian/git-hooks)
-[![](https://img.shields.io/npm/dm/@zanminkian/git-hooks.svg)](https://www.npmjs.com/package/@zanminkian/git-hooks)
-[![](https://img.shields.io/librariesio/release/npm/@zanminkian/git-hooks)](https://www.npmjs.com/package/@zanminkian/git-hooks)
-[![](https://packagephobia.com/badge?p=@zanminkian/git-hooks)](https://packagephobia.com/result?p=@zanminkian/git-hooks)
+[![](https://img.shields.io/npm/l/git-validator.svg)](https://github.com/zanminkian/git-validator/blob/master/LICENSE)
+[![](https://img.shields.io/npm/v/git-validator.svg)](https://www.npmjs.com/package/git-validator)
+[![](https://img.shields.io/npm/dm/git-validator.svg)](https://www.npmjs.com/package/git-validator)
+[![](https://img.shields.io/librariesio/release/npm/git-validator)](https://www.npmjs.com/package/git-validator)
+[![](https://packagephobia.com/badge?p=git-validator)](https://packagephobia.com/result?p=git-validator)
 
 This is a bundle of opinionated git hooks, all in one!
 
@@ -20,16 +20,16 @@ Replace `husky`, `eslint`, `lint-staged`, and `commitlint` in your project with 
 
 Set up the following scripts in your `package.json`:
 
-- `git-hooks install`: Installs hook files to `{PROJECT_ROOT}/.git/hooks` directory, which will check your code and commit messages after running the `git commit` command.
-- `git-hooks format`: Checks and formats all project files using the `eslint --fix` command.
-- `git-hooks lint`: Checks all project files using the `eslint` command.
+- `git-validator install`: Installs hook files to `{PROJECT_ROOT}/.git/hooks` directory, which will check your code and commit messages after running the `git commit` command.
+- `git-validator format`: Checks and formats all project files using the `eslint --fix` command.
+- `git-validator lint`: Checks all project files using the `eslint` command.
 
 ```json
 {
   "scripts": {
-    "postinstall": "git-hooks install",
-    "format": "git-hooks format",
-    "lint": "git-hooks lint"
+    "postinstall": "git-validator install",
+    "format": "git-validator format",
+    "lint": "git-validator lint"
   }
 }
 ```
@@ -37,14 +37,14 @@ Set up the following scripts in your `package.json`:
 Next, install the package:
 
 ```sh
-pnpm add -D @zanminkian/git-hooks
+pnpm add -D git-validator
 ```
 
 Now you can commit code to your project. Invalid code or commit messages will be automatically blocked.
 
 ## How it Works
 
-Running `git-hooks install` writes `commit-msg` and `pre-commit` files to the `{PROJECT_ROOT}/.git/hooks` directory.
+Running `git-validator install` writes `commit-msg` and `pre-commit` files to the `{PROJECT_ROOT}/.git/hooks` directory.
 
 - The `commit-msg` file lints your git commit message before the commit is made.
 - The `pre-commit` file lints your staged code before the commit is made.
@@ -71,12 +71,12 @@ This library can work as a standalone package. However, if you have Husky 5 or a
 
 ### Setup `pre-push` Stage
 
-Running `git-hooks install` writes `commit-msg` and `pre-commit` files only. As git `pre-push` stage is widely used, you can run `git-hooks install --pre-push <cmd>` to setup git `pre-push` stage additionally.
+Running `git-validator install` writes `commit-msg` and `pre-commit` files only. As git `pre-push` stage is widely used, you can run `git-validator install --pre-push <cmd>` to setup git `pre-push` stage additionally.
 
 ```json
 {
   "scripts": {
-    "postinstall": "git-hooks install --pre-push 'npm run test'"
+    "postinstall": "git-validator install --pre-push 'npm run test'"
   }
 }
 ```
