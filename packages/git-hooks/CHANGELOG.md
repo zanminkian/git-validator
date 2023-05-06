@@ -1,5 +1,11 @@
 # @zanminkian/git-hooks
 
+## 0.3.0
+
+### Minor Changes
+
+- 4aa75e7: feat(git-hooks): deprecate it
+
 ## 0.2.8
 
 ### Patch Changes
