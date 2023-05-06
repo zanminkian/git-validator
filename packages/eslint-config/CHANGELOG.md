@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.1.9
+
+### Patch Changes
+
+- d3248be: chore: upgrade deps
+
 ## 0.1.8
 
 ### Patch Changes
