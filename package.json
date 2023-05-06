@@ -9,16 +9,16 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "postinstall": "git-hooks install",
-    "format": "git-hooks format",
-    "lint": "git-hooks lint",
+    "postinstall": "git-validator install",
+    "format": "git-validator format",
+    "lint": "git-validator lint",
     "release": "changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
     "@types/node": "^18.16.2",
-    "@zanminkian/git-hooks": "^0.2.5",
     "@zanminkian/tsconfig": "^0.4.1",
+    "git-validator": "^0.3.0",
     "typescript": "^5.0.4"
   }
 }
