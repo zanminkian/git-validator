@@ -20,9 +20,9 @@ Replace `husky`, `eslint`, `lint-staged`, and `commitlint` in your project with 
 
 Set up the following scripts in your `package.json`:
 
-- `git-validator install`: Installs hook files to `{PROJECT_ROOT}/.git/hooks` directory, which will check your code and commit messages after running the `git commit` command.
-- `git-validator format`: Checks and formats all project files using the `eslint --fix` command under the hood.
-- `git-validator lint`: Checks all project files using the `eslint` command under the hood.
+- `git-validator install`: This command will install hook files to `{PROJECT_ROOT}/.git/hooks` directory, which will check your code and commit messages after running the `git commit` command.
+- `git-validator format`: This command will check and formats all project files using the `eslint --fix` command under the hood.
+- `git-validator lint`: This command will check all project files using the `eslint` command under the hood.
 
 ```json
 {
