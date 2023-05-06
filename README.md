@@ -46,8 +46,13 @@ Now you can commit code to your project. Invalid code or commit messages will be
 
 Running `git-validator install` writes `commit-msg` and `pre-commit` files to the `{PROJECT_ROOT}/.git/hooks` directory.
 
-- The `commit-msg` file lints your git commit message before the commit is made.
-- The `pre-commit` file lints your staged code before the commit is made.
+### `commit-msg` Stage
+
+The `commit-msg` file we wrote lints your git commit message before the commit is made. We use [@commitlint/cli](https://www.npmjs.com/package/@commitlint/cli) with [@commitlint/config-conventional](https://www.npmjs.com/package/@commitlint/config-conventional) config to check the git commit message.
+
+### `pre-commit` Stage
+
+The `pre-commit` file we wrote lints your staged code before the commit is made. We use [eslint](https://www.npmjs.com/package/eslint) with [@zanminkian/eslint-config](https://www.npmjs.com/package/@zanminkian/eslint-config) config to check the committing code.
 
 ## Advanced Usage
 
@@ -83,7 +88,7 @@ Running `git-validator install` writes `commit-msg` and `pre-commit` files only.
 
 ### Customizing eslint Config
 
-Under the hood, we use `eslint` to lint and format code. If you want to use a different eslint config, add your own `.eslintrc.js` at the root of your project. Here's an example:
+Under the hood, we use `@zanminkian/eslint-config` as default eslint config to lint and format code. If you want to use a different eslint config, add your own `.eslintrc.js` at the root of your project.
 
 ```js
 module.exports = {
@@ -93,10 +98,39 @@ module.exports = {
 }
 ```
 
+If you don't want to lint the committing code, adding `--no-pre-commit` option will skip writing `${PROJECT_ROOT}/.git/hooks/pre-commit` file.
+
+```json
+{
+  "scripts": {
+    "postinstall": "git-validator install --no-pre-commit"
+  }
+}
+```
+
+### Customizing commitlint Config
+
+Under the hood, we use `@commitlint/config-conventional` as default commitlint config to check git commit message. If you want to use a different commitlint config, add your own `commitlint.config.js` at the root of your project.
+
+```js
+// You may need to install `@commitlint/config-angular` in the project root first
+module.exports = { extends: ['@commitlint/config-angular'] }
+```
+
+If you don't want to check git commit message, adding `--no-commit-msg` option will skip writing `${PROJECT_ROOT}/.git/hooks/commit-msg` file.
+
+```json
+{
+  "scripts": {
+    "postinstall": "git-validator install --no-commit-msg"
+  }
+}
+```
+
 ## Contributing
 
 - Clone this repository.
-- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable` (use `npm i -g corepack` for Node.js < 16.10).
+- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`.
 - Install dependencies using `pnpm install`.
 - Start coding and submit your PR.
 

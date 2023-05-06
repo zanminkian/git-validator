@@ -16,14 +16,16 @@
   ],
   "bin": {
     "git-validator": "./bin/git-validator.js",
+    "commitlint": "./bin/commitlint.js",
     "lint-staged": "./bin/lint-staged.js"
   },
   "dependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
     "@zanminkian/eslint-config": "^0.1.9",
     "commander": "^10.0.1",
     "cosmiconfig": "^8.1.3",
     "eslint": "^8.40.0",
-    "git-commit-msg-linter": "^4.11.1",
     "lint-staged": "^13.2.2"
   }
 }

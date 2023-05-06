@@ -3,7 +3,6 @@ import process from 'node:process'
 import { spawnSync } from 'node:child_process'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import linter from 'git-commit-msg-linter'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -19,7 +18,14 @@ function writePreCommit() {
 }
 
 function writeCommitMsg() {
-  linter.install({ silent: true })
+  const content = [
+    '#!/bin/sh',
+    `npx commitlint --config ${join(__dirname, 'commitlint.config.cjs')} --edit`,
+  ].join('\n')
+
+  const path = resolve(process.cwd(), '.git', 'hooks', 'commit-msg')
+  fs.writeFileSync(path, content)
+  fs.chmodSync(path, '777')
 }
 
 function writePrePush(cmd) {
