@@ -98,6 +98,13 @@ module.exports = {
 }
 ```
 
+When git committing, it will validate all the staged files by `eslint`. If you don’t want to validate certain specific files, add `.eslintignore` file at the root of your project.
+
+```
+*.md
+__test__/**/*
+```
+
 If you don't want to lint the committing code, adding `--no-pre-commit` option will skip writing `${PROJECT_ROOT}/.git/hooks/pre-commit` file.
 
 ```json
