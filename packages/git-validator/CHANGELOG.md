@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.3.3
+
+### Patch Changes
+
+- 7e8b471: feat(git-validator): add prettier
+
 ## 0.3.2
 
 ### Patch Changes
