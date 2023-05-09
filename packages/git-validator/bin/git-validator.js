@@ -8,13 +8,13 @@ const program = new Command().name('git-validator')
 program
   .command('format')
   .description('format code')
-  .argument('[dir]', 'dir path to format code')
+  .argument('[dir]', 'dir or file path to format code')
   .action(dir => process.exit(format(dir).status))
 
 program
   .command('lint')
   .description('check code')
-  .argument('[dir]', 'dir path to check code')
+  .argument('[dir]', 'dir or file path to check code')
   .action(dir => process.exit(lint(dir).status))
 
 program
