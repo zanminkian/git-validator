@@ -8,7 +8,7 @@
 
 This is a bundle of opinionated git hooks, all in one!
 
-Replace `husky`, `eslint`, `lint-staged`, and `commitlint` in your project with this npm package.
+Replace `husky`, `eslint`, `prettier`, `lint-staged`, and `commitlint` in your project with this npm package.
 
 ## Features
 
