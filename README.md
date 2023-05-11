@@ -95,11 +95,12 @@ Running `git-validator install` writes `commit-msg` and `pre-commit` files only.
 
 ### Customizing Configs
 
-We use `eslint` and `commitlint` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore` and `commitlint.config.js` in the root of project. You can customize them to apply your own rules.
+We use `eslint`, `commitlint` and `lint-staged` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore`, `commitlint.config.js` and `lint-staged.config.js` in the root of project. You can customize them to apply your own rules.
 
-- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`.
+- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`. The default config is `{ extends: '@zanminkian' }`.
 - Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator lint`.
-- Adding `commitlint.config.js` file to apply your committing rules on the `commit-msg` stage.
+- Adding `commitlint.config.js` file to apply your committing rules on the `commit-msg` stage. The default config is `{ extends: ['@commitlint/config-conventional'] }`.
+- Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator lint --fix'] }`.
 
 ### Skip installing
 

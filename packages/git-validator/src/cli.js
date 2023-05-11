@@ -15,7 +15,7 @@ function writeGitHook(file, content) {
 function writePreCommit() {
   const content = [
     '#!/bin/sh',
-    'echo \'{"*":["npx git-validator lint --fix"]}\' | npx lint-staged -c -',
+    `npx lint-staged --config ${join(__dirname, 'lint-staged.config.cjs')}`,
   ].join('\n')
 
   writeGitHook('pre-commit', content)
