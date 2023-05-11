@@ -114,6 +114,15 @@ If you don't want to check git commit message, adding `--no-commit-msg` option w
 }
 ```
 
+## Why hasn’t Prettier been integrated?
+
+There are 2 reasons.
+
+- It’s difficult to control line breaks when using Prettier. Check the [article](https://antfu.me/posts/why-not-prettier) by [Anthony Fu](https://github.com/antfu) for more information.
+- There are some conflicts between prettier and eslint. Although there are some solutions can help. But they are not perfect.
+
+Therefore, I suggest you to use eslint only.
+
 ## Contributing
 
 - Clone this repository.
