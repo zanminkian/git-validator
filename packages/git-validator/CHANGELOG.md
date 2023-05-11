@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.4.1
+
+### Patch Changes
+
+- 86a7064: feat: support customizing lint-staged config
+
 ## 0.4.0
 
 ### Minor Changes
