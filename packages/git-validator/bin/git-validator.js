@@ -3,10 +3,14 @@ import process from 'node:process'
 import { Command } from 'commander'
 import { install, lint } from '../src/cli.js'
 
-const program = new Command().name('git-validator')
+const program = new Command()
 
 program
-  .command('lint')
+  .name('git-validator')
+  .description('lint code using eslint. it\'s the same as running `git-validator lint` command')
+
+program
+  .command('lint', { isDefault: true })
   .description('lint code using eslint')
   .option('--fix', 'automatically fix problems')
   .argument('[dir]', 'dir or file path to lint code')

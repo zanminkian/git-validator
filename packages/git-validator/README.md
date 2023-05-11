@@ -54,12 +54,12 @@ The `commit-msg` file we wrote lints your git commit message before the commit i
 
 The `pre-commit` file we wrote lints your staged code before the commit is made. We use [eslint](https://www.npmjs.com/package/eslint) with [@zanminkian/eslint-config](https://www.npmjs.com/package/@zanminkian/eslint-config) config to check the committing code.
 
-## Commands
+## Built-in Commands
 
 There are some convenient built-in commands within `git-validator`. We encourage you to use them instead of `eslint`.
 
-- `git-validator lint [dir]`: lint code using `eslint` command under the hood.
-- `git-validator lint --fix [dir]` lint and fix code using `eslint --fix` command under the hood.
+- `git-validator [dir]`: lint code using `eslint` command under the hood.
+- `git-validator --fix [dir]` lint and fix code using `eslint --fix` command under the hood.
 
 ## Advanced Usage
 
@@ -97,10 +97,10 @@ Running `git-validator install` writes `commit-msg` and `pre-commit` files only.
 
 We use `eslint`, `commitlint` and `lint-staged` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore`, `commitlint.config.js` and `lint-staged.config.js` in the root of project. You can customize them to apply your own rules.
 
-- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`. The default config is `{ extends: '@zanminkian' }`.
-- Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator lint`.
+- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator`. The default config is `{ extends: '@zanminkian' }`.
+- Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator`.
 - Adding `commitlint.config.js` file to apply your committing rules on the `commit-msg` stage. The default config is `{ extends: ['@commitlint/config-conventional'] }`.
-- Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator lint --fix'] }`.
+- Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator --fix'] }`.
 
 ### Skip installing
 
