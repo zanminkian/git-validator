@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.4.2
+
+### Patch Changes
+
+- cedaae2: feat: shorten the command
+
 ## 0.4.1
 
 ### Patch Changes
