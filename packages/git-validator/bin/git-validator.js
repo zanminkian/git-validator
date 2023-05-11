@@ -1,21 +1,16 @@
 #!/usr/bin/env node
 import process from 'node:process'
 import { Command } from 'commander'
-import { format, install, lint } from '../src/cli.js'
+import { install, lint } from '../src/cli.js'
 
 const program = new Command().name('git-validator')
 
 program
-  .command('format')
-  .description('format code')
-  .argument('[dir]', 'dir or file path to format code')
-  .action(dir => process.exit(format(dir).status))
-
-program
   .command('lint')
-  .description('check code')
-  .argument('[dir]', 'dir or file path to check code')
-  .action(dir => process.exit(lint(dir).status))
+  .description('lint code using eslint')
+  .option('--fix', 'automatically fix problems')
+  .argument('[dir]', 'dir or file path to lint code')
+  .action((dir, options) => process.exit(lint(dir, options).status))
 
 program
   .command('install')

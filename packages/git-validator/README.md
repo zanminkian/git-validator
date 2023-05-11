@@ -8,7 +8,7 @@
 
 This is a bundle of opinionated git hooks, all in one!
 
-Replace `husky`, `eslint`, `prettier`, `lint-staged`, and `commitlint` in your project with this npm package.
+Replace `husky`, `eslint`, `lint-staged` and `commitlint` in your project with this npm package.
 
 ## Features
 
@@ -18,18 +18,18 @@ Replace `husky`, `eslint`, `prettier`, `lint-staged`, and `commitlint` in your p
 
 ## Usage
 
-Set up the following scripts in your `package.json`:
+Installing `git-validator` equals to installing `eslint`, `lint-staged` and `commitlint`. So that you can uninstall them if they have been installed in your project.
 
-- `git-validator install`: This command will install hook files to `{PROJECT_ROOT}/.git/hooks` directory, which will check your code and commit messages after running the `git commit` command.
-- `git-validator format`: This command will check and formats all project files using the `eslint --fix` command under the hood.
-- `git-validator lint`: This command will check all project files using the `eslint` command under the hood.
+```bash
+pnpm remove eslint lint-staged commitlint
+```
+
+Set up `postinstall` script in `package.json` to invoke `git-validator install`.
 
 ```json
 {
   "scripts": {
-    "postinstall": "git-validator install",
-    "format": "git-validator format",
-    "lint": "git-validator lint"
+    "postinstall": "git-validator install"
   }
 }
 ```
@@ -44,7 +44,7 @@ Now you can commit code to your project. Invalid code or commit messages will be
 
 ## How it Works
 
-Running `git-validator install` writes `commit-msg` and `pre-commit` files to the `{PROJECT_ROOT}/.git/hooks` directory.
+Running `git-validator install` writes `commit-msg` and `pre-commit` files to the `{PROJECT_ROOT}/.git/hooks` directory, which will check your code and commit messages after running the `git commit` command.
 
 ### `commit-msg` Stage
 
@@ -53,6 +53,13 @@ The `commit-msg` file we wrote lints your git commit message before the commit i
 ### `pre-commit` Stage
 
 The `pre-commit` file we wrote lints your staged code before the commit is made. We use [eslint](https://www.npmjs.com/package/eslint) with [@zanminkian/eslint-config](https://www.npmjs.com/package/@zanminkian/eslint-config) config to check the committing code.
+
+## Commands
+
+There are some convenient built-in commands within `git-validator`. We encourage you to use them instead of `eslint`.
+
+- `git-validator lint [dir]`: lint code using `eslint` command under the hood.
+- `git-validator lint --fix [dir]` lint and fix code using `eslint --fix` command under the hood.
 
 ## Advanced Usage
 
@@ -86,45 +93,17 @@ Running `git-validator install` writes `commit-msg` and `pre-commit` files only.
 }
 ```
 
-### Customizing eslint Config
+### Customizing Configs
 
-Under the hood, we use `@zanminkian/eslint-config` as default eslint config to lint and format code. If you want to use a different eslint config, add your own `.eslintrc.js` at the root of your project.
+We use `eslint` and `commitlint` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore` and `commitlint.config.js` in the root of project. You can customize them to apply your own rules.
 
-```js
-module.exports = {
-  rules: {
-    // write your rules here
-  }
-}
-```
+- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`.
+- Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator lint`.
+- Adding `commitlint.config.js` file to apply your committing rules on the `commit-msg` stage.
 
-When git committing, it will validate all the staged files by `eslint`. If you don’t want to validate certain specific files, add `.eslintignore` file at the root of your project.
+### Skip installing
 
-```
-*.md
-__test__/**/*
-```
-
-If you don't want to lint the committing code, adding `--no-pre-commit` option will skip writing `${PROJECT_ROOT}/.git/hooks/pre-commit` file.
-
-```json
-{
-  "scripts": {
-    "postinstall": "git-validator install --no-pre-commit"
-  }
-}
-```
-
-### Customizing commitlint Config
-
-Under the hood, we use `@commitlint/config-conventional` as default commitlint config to check git commit message. If you want to use a different commitlint config, add your own `commitlint.config.js` at the root of your project.
-
-```js
-// You may need to install `@commitlint/config-angular` in the project root first
-module.exports = { extends: ['@commitlint/config-angular'] }
-```
-
-If you don't want to check git commit message, adding `--no-commit-msg` option will skip writing `${PROJECT_ROOT}/.git/hooks/commit-msg` file.
+If you don't want to check git commit message, adding `--no-commit-msg` option will skip writing `${PROJECT_ROOT}/.git/hooks/commit-msg` file. As the same, adding `--no-pre-commit` option will skip writing `${PROJECT_ROOT}/.git/hooks/pre-commit` file. Here is an example.
 
 ```json
 {

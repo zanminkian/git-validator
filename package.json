@@ -10,8 +10,8 @@
   },
   "scripts": {
     "postinstall": "git-validator install",
-    "format": "git-validator format",
     "lint": "git-validator lint",
+    "lint:fix": "git-validator lint --fix",
     "release": "changeset publish"
   },
   "devDependencies": {
