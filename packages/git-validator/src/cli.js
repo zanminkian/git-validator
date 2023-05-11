@@ -6,15 +6,19 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
+function writeGitHook(file, content) {
+  const path = resolve(process.cwd(), '.git', 'hooks', file)
+  fs.writeFileSync(path, content)
+  fs.chmodSync(path, '777')
+}
+
 function writePreCommit() {
   const content = [
     '#!/bin/sh',
     `echo '{"*":["npx eslint --config ${join(__dirname, 'eslint.config.cjs')} --fix"]}' | npx lint-staged -c -`,
   ].join('\n')
 
-  const path = resolve(process.cwd(), '.git', 'hooks', 'pre-commit')
-  fs.writeFileSync(path, content)
-  fs.chmodSync(path, '777')
+  writeGitHook('pre-commit', content)
 }
 
 function writeCommitMsg() {
@@ -23,9 +27,7 @@ function writeCommitMsg() {
     `npx commitlint --config ${join(__dirname, 'commitlint.config.cjs')} --edit`,
   ].join('\n')
 
-  const path = resolve(process.cwd(), '.git', 'hooks', 'commit-msg')
-  fs.writeFileSync(path, content)
-  fs.chmodSync(path, '777')
+  writeGitHook('commit-msg', content)
 }
 
 function writePrePush(cmd) {
@@ -34,9 +36,7 @@ function writePrePush(cmd) {
     cmd,
   ].join('\n')
 
-  const path = resolve(process.cwd(), '.git', 'hooks', 'pre-push')
-  fs.writeFileSync(path, content)
-  fs.chmodSync(path, '777')
+  writeGitHook('pre-push', content)
 }
 
 export function install({ preCommit, commitMsg, prePush }) {
