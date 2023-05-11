@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.4.0
+
+### Minor Changes
+
+- 566d909: refactor(git-validator)!: optimize commands
+
 ## 0.3.3
 
 ### Patch Changes
