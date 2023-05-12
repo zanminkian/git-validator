@@ -12,9 +12,9 @@ Replace `husky`, `eslint`, `lint-staged` and `commitlint` in your project with t
 
 ## Features
 
-- **Unified package**: Just **ONE** npm package to install replacing multiple.
-- **Simple to use**: Only two steps required; setting up scripts and installation.
-- **Zero Configuration**: Sensible default settings suitable for enterprise apps.
+- 📦 **Unified package**: Just **ONE** npm package to install replacing multiple.
+- 🚀 **Simple to use**: Only two steps required; setting up scripts and installation.
+- 🔧 **Zero Configuration**: Sensible default settings suitable for enterprise apps.
 
 ## Usage
 
@@ -119,9 +119,9 @@ If you don't want to check git commit message, adding `--no-commit-msg` option w
 There are 2 reasons.
 
 - It’s difficult to control line breaks when using Prettier. Check the [article](https://antfu.me/posts/why-not-prettier) by [Anthony Fu](https://github.com/antfu) for more information.
-- There are some conflicts between prettier and eslint. Although there are some solutions can help. But they are not perfect.
+- There are some conflicts between prettier and eslint. Although there are some solutions that can help, they are not perfect.
 
-Therefore, I suggest you to use eslint only.
+Therefore, we suggest you to use eslint only.
 
 ## Contributing
 
