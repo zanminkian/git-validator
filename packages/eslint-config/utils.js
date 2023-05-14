@@ -1,4 +1,5 @@
 const fs = require('node:fs')
+const process = require('node:process')
 
 const SUPPORTED_EXTENSIONS = [
   'js', 'cjs', 'mjs', 'jsx',
