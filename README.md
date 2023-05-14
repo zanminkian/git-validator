@@ -6,14 +6,14 @@
 [![](https://img.shields.io/librariesio/release/npm/git-validator)](https://www.npmjs.com/package/git-validator)
 [![](https://packagephobia.com/badge?p=git-validator)](https://packagephobia.com/result?p=git-validator)
 
-This is a bundle of opinionated git hooks, all in one!
+## Motivation
 
-Replace `husky`, `eslint`, `lint-staged` and `commitlint` in your project with this npm package.
+In a project, setting up `husky`, `eslint`, `lint-staged` and `commitlint` is too tedious. Too many steps and too many config files. Now, you can replace them in your project with this all-in-one package.
 
 ## Features
 
 - 📦 **Unified package**: Just **ONE** npm package to install replacing multiple.
-- 🚀 **Simple to use**: Only two steps required; setting up scripts and installation.
+- 🚀 **Simple to use**: Only two steps required: setting up scripts and installation.
 - 🔧 **Zero Configuration**: No configuration file is needed, while still allowing customization of `eslint` and `commitlint` rules.
 
 ## Usage
