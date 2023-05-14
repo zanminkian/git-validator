@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.1.10
+
+### Patch Changes
+
+- 73ffcad: feat(eslint-config): ignore all unspported extensions
+
 ## 0.1.9
 
 ### Patch Changes
