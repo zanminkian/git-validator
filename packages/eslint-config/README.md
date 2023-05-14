@@ -28,10 +28,22 @@ module.exports = {
 }
 ```
 
+Config `package.json`
+
+```json
+{
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
+}
+```
+
 ## Main Differences Between `@antfu/eslint-config`
 
 - Support DI projects, such as Nest and Angular.
 - Support [noPropertyAccessFromIndexSignature](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature) in `tsconfig.json`.
+- Support ignoring those files that we cannot lint. It's friendly to `lint-staged`, which means you can set `.lintstagedrc` file as `{"*": "eslint --fix"}`.
 
 ## License
 
