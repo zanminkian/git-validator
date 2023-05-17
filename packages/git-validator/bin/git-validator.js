@@ -13,8 +13,8 @@ program
   .command('lint', { isDefault: true })
   .description('lint code using eslint')
   .option('--fix', 'automatically fix problems')
-  .argument('[dir]', 'dir or file path to lint code')
-  .action((dir, options) => process.exit(lint(dir, options).status))
+  .argument('[paths...]', 'dir or file paths to lint code')
+  .action((paths, options) => process.exit(lint(paths, options).status))
 
 program
   .command('install')

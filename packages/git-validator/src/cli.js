@@ -48,7 +48,9 @@ export function install({ preCommit, commitMsg, prePush }) {
     writePrePush(prePush)
 }
 
-export function lint(dir = process.cwd(), options = {}) {
+export function lint(paths = [], options = {}) {
   const { fix } = options
-  return spawnSync('npx', ['eslint', '--config', join(__dirname, 'eslint.config.cjs'), ...(fix ? ['--fix'] : []), resolve(process.cwd(), dir)], { stdio: 'inherit' })
+  const cwd = process.cwd()
+  const ps = (paths.length === 0 ? [cwd] : paths).map(p => resolve(cwd, p))
+  return spawnSync('npx', ['eslint', '--config', join(__dirname, 'eslint.config.cjs'), ...(fix ? ['--fix'] : []), ...ps], { stdio: 'inherit' })
 }
