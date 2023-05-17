@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.4.3
+
+### Patch Changes
+
+- 5460169: chore: upgrade deps
+- e13f27d: fix(git-validator): fix `git-validator` command that only lint one file
+- 1a29ff5: fix(git-validator): print correct error message if `.git` not exist
+
 ## 0.4.2
 
 ### Patch Changes
