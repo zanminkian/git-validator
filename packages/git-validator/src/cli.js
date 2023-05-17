@@ -7,7 +7,14 @@ import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 function writeGitHook(file, content) {
-  const path = resolve(process.cwd(), '.git', 'hooks', file)
+  const gitPath = resolve(process.cwd(), '.git')
+  if (!fs.existsSync(gitPath))
+    throw new Error('Directory `.git` is not existing. Please run `git init` first.')
+
+  const hooksPath = resolve(gitPath, 'hooks')
+  fs.mkdirSync(hooksPath, { recursive: true })
+
+  const path = resolve(hooksPath, file)
   fs.writeFileSync(path, content)
   fs.chmodSync(path, '777')
 }
