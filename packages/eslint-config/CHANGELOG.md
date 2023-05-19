@@ -1,5 +1,12 @@
 # @zanminkian/eslint-config
 
+## 0.1.11
+
+### Patch Changes
+
+- 02836c5: chore: upgrade deps
+- 881c15a: feat(eslint-config): validate `jsonc` file
+
 ## 0.1.10
 
 ### Patch Changes
