@@ -4,7 +4,7 @@ const process = require('node:process')
 const SUPPORTED_EXTENSIONS = [
   'js', 'cjs', 'mjs', 'jsx',
   'ts', 'cts', 'mts', 'tsx',
-  'json', 'json5',
+  'json', 'json5', 'jsonc',
   'yaml', 'yml',
   'html', 'vue',
   'md',
