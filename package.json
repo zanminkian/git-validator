@@ -16,10 +16,10 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
-    "@types/node": "^20.2.1",
+    "@types/node": "^20.2.5",
     "@zanminkian/tsconfig": "^0.4.2",
     "git-validator": "workspace:^",
-    "typed-jest": "^0.1.0",
+    "typed-jest": "^0.1.1",
     "typescript": "^5.0.4"
   }
 }
