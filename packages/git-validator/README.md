@@ -8,23 +8,23 @@
 
 ## Motivation
 
-In a project, setting up `husky`, `eslint`, `lint-staged` and `commitlint` is too tedious. Too many steps and too many config files. Now, you can replace them in your project with this all-in-one package.
+In a project, setting up `husky`, `eslint`, `lint-staged`, and `commitlint` is too tedious. There are too many steps and too many config files. Now, you can replace them in your project with this all-in-one package.
 
 ## Features
 
-- 📦 **Unified package**: Just **ONE** npm package to install replacing multiple.
+- 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple.
 - 🚀 **Simple to use**: Only two steps required: setting up scripts and installation.
 - 🔧 **Zero Configuration**: No configuration file is needed, while still allowing customization of `eslint` and `commitlint` rules.
 
 ## Usage
 
-Installing `git-validator` equals to installing `eslint`, `lint-staged` and `commitlint`. So that you can uninstall them if they have been installed in your project.
+Installing `git-validator` is equivalent to installing `eslint`, `lint-staged`, and `commitlint`. You can uninstall them if they have already been installed in your project.
 
 ```bash
 pnpm remove eslint lint-staged commitlint
 ```
 
-Set up `postinstall` script in `package.json` to invoke `git-validator install`.
+Set up the `postinstall` script in `package.json` to invoke `git-validator install`.
 
 ```json
 {
@@ -59,7 +59,7 @@ The `pre-commit` file we wrote lints your staged code before the commit is made.
 There are some convenient built-in commands within `git-validator`. We encourage you to use them instead of `eslint`.
 
 - `git-validator [dir]`: lint code using `eslint` command under the hood.
-- `git-validator --fix [dir]` lint and fix code using `eslint --fix` command under the hood.
+- `git-validator --fix [dir]`: lint and fix code using `eslint --fix` command under the hood.
 
 ## Advanced Usage
 
@@ -83,7 +83,7 @@ This library can work as a standalone package. However, if you have Husky 5 or a
 
 ### Setup `pre-push` Stage
 
-Running `git-validator install` writes `commit-msg` and `pre-commit` files only. As git `pre-push` stage is widely used, you can run `git-validator install --pre-push <cmd>` to setup git `pre-push` stage additionally.
+Running `git-validator install` writes `commit-msg` and `pre-commit` files only. As git `pre-push` stage is widely used, you can run `git-validator install --pre-push <cmd>` to set up git `pre-push` stage additionally.
 
 ```json
 {
@@ -95,16 +95,16 @@ Running `git-validator install` writes `commit-msg` and `pre-commit` files only.
 
 ### Customizing Configs
 
-We use `eslint`, `commitlint` and `lint-staged` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore`, `commitlint.config.js` and `lint-staged.config.js` in the root of project. You can customize them to apply your own rules.
+We use `eslint`, `commitlint`, and `lint-staged` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore`, `commitlint.config.js`, and `lint-staged.config.js` in the root of the project. You can customize them to apply your own rules.
 
 - Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator`. The default config is `{ extends: '@zanminkian' }`.
 - Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator`.
 - Adding `commitlint.config.js` file to apply your committing rules on the `commit-msg` stage. The default config is `{ extends: ['@commitlint/config-conventional'] }`.
 - Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator --fix'] }`.
 
-### Skip installing
+### Skipping installation
 
-If you don't want to check git commit message, adding `--no-commit-msg` option will skip writing `${PROJECT_ROOT}/.git/hooks/commit-msg` file. As the same, adding `--no-pre-commit` option will skip writing `${PROJECT_ROOT}/.git/hooks/pre-commit` file. Here is an example.
+If you don't want to check git commit messages, adding the `--no-commit-msg` option will skip writing `${PROJECT_ROOT}/.git/hooks/commit-msg` file. Similarly, adding the `--no-pre-commit` option will skip writing `${PROJECT_ROOT}/.git/hooks/pre-commit` file. Here is an example:
 
 ```json
 {
@@ -121,7 +121,7 @@ There are 2 reasons.
 - It’s difficult to control line breaks when using Prettier. Check the [article](https://antfu.me/posts/why-not-prettier) by [Anthony Fu](https://github.com/antfu) for more information.
 - There are some conflicts between prettier and eslint. Although there are some solutions that can help, they are not perfect.
 
-Therefore, we suggest you to use eslint only.
+Therefore, we suggest you use eslint only.
 
 ## Contributing
 
