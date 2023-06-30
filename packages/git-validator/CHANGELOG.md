@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.4.7
+
+### Patch Changes
+
+- 4a75c02: chore: upgrade deps
+- Updated dependencies [4a75c02]
+  - @zanminkian/eslint-config@0.1.13
+
 ## 0.4.6
 
 ### Patch Changes
