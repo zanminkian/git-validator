@@ -15,11 +15,11 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.1",
-    "@types/node": "^20.2.5",
+    "@changesets/cli": "^2.26.2",
+    "@types/node": "^20.3.2",
     "@zanminkian/tsconfig": "^0.4.2",
     "git-validator": "workspace:^",
     "typed-jest": "^0.1.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.6"
   }
 }
