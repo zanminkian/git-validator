@@ -56,10 +56,12 @@ The `pre-commit` file we wrote lints your staged code before the commit is made.
 
 ## Built-in Commands
 
-There are some convenient built-in commands within `git-validator`. We encourage you to use them instead of `eslint`.
+There are some convenient built-in commands within `git-validator`.
 
-- `git-validator [dir]`: lint code using `eslint` command under the hood.
-- `git-validator --fix [dir]`: lint and fix code using `eslint --fix` command under the hood.
+- `git-validator install`: Install the git hooks.
+- `git-validator [dir]`: Lint code using `eslint` command under the hood. We encourage you to use this instead of `eslint`.
+- `git-validator --fix [dir]`: Lint and fix code using `eslint --fix` command under the hood. We encourage you to use this instead of `eslint --fix`.
+- `git-validator -h`: Print the help for command.
 
 ## Advanced Usage
 
