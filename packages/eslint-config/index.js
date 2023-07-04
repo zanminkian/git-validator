@@ -13,5 +13,7 @@ module.exports = {
     'dot-notation': 'off',
     // https://github.com/antfu/eslint-config/pull/159
     'n/prefer-global/process': ['error', 'never'],
+    // https://github.com/antfu/eslint-config/pull/211
+    '@typescript-eslint/method-signature-style': 'error',
   },
 }
