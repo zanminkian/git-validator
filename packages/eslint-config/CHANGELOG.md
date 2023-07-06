@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.1.14
+
+### Patch Changes
+
+- b46b908: feat(eslin-config): enable `@typescript-eslint/method-signature-style`
+
 ## 0.1.13
 
 ### Patch Changes
