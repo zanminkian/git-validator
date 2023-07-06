@@ -15,5 +15,7 @@ module.exports = {
     'n/prefer-global/process': ['error', 'never'],
     // https://github.com/antfu/eslint-config/pull/211
     '@typescript-eslint/method-signature-style': 'error',
+    // https://github.com/antfu/eslint-config/pull/182
+    'no-plusplus': 'error',
   },
 }
