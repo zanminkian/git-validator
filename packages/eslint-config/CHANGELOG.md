@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.1.15
+
+### Patch Changes
+
+- f044668: feat(eslint-config): enable `no-plusplus`
+
 ## 0.1.14
 
 ### Patch Changes
