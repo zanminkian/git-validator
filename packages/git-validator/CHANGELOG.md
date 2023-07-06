@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.4.8
+
+### Patch Changes
+
+- 01046b0: refactor(git-validator): optimize the config file
+- Updated dependencies [b46b908]
+  - @zanminkian/eslint-config@0.1.14
+
 ## 0.4.7
 
 ### Patch Changes
