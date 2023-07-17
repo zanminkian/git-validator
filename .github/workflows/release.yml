@@ -16,17 +16,17 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js 16.x
-        uses: actions/setup-node@v2
+      - name: Setup Node.js Env
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: lts/*
 
       - name: Install Dependencies
         run: corepack enable && pnpm i
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Create Release Pull Request or Publish
         # https://github.com/changesets/action
         uses: changesets/action@v1
         with:
