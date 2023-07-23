@@ -1,0 +1,20 @@
+{
+  "name": "@zanminkian/eslint-plugin",
+  "version": "0.0.0",
+  "description": "Zanminkian's eslint plugins.",
+  "author": "hellozmj@qq.com",
+  "license": "MIT",
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin",
+  "keywords": [
+    "opinionated",
+    "strict",
+    "eslint",
+    "config",
+    "eslint-config",
+    "eslint-plugin"
+  ],
+  "exports": "./src/index.js",
+  "devDependencies": {
+    "eslint": "^8.45.0"
+  }
+}
