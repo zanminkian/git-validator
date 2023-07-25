@@ -6,11 +6,14 @@
 [![](https://img.shields.io/librariesio/release/npm/@zanminkian/eslint-config)](https://www.npmjs.com/package/@zanminkian/eslint-config)
 [![](https://packagephobia.com/badge?p=@zanminkian/eslint-config)](https://packagephobia.com/result?p=@zanminkian/eslint-config)
 
-Opinionated eslint config presets. Based on `@antfu/eslint-config`.
+Opinionated eslint config presets. Based on [standard.js](https://github.com/standard/standard).
 
 ## Feature
 
-Check [@antfu/eslint-config](https://github.com/antfu/eslint-config#antfueslint-config).
+- Based on [standard.js](https://github.com/standard/standard). Better than it.
+- One-line of config.
+- Designed to work with TypeScript, Nestjs and React out-of-box.
+- Aimed to be used standalone without Prettier.
 
 ## Usage
 
@@ -38,12 +41,6 @@ Config `package.json`
   }
 }
 ```
-
-## Main Differences Between `@antfu/eslint-config`
-
-- Support DI projects, such as Nest and Angular.
-- Support [noPropertyAccessFromIndexSignature](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature) in `tsconfig.json`.
-- Support ignoring those files that we cannot lint. It's friendly to `lint-staged`, which means you can set `.lintstagedrc` file as `{"*": "eslint --fix"}`.
 
 ## License
 
