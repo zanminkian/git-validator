@@ -6,10 +6,11 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-function writeGitHook(file, content) {
+function writeGitHook (file, content) {
   const gitPath = resolve(process.cwd(), '.git')
-  if (!fs.existsSync(gitPath))
+  if (!fs.existsSync(gitPath)) {
     throw new Error('Directory `.git` is not existing. Please run `git init` first.')
+  }
 
   const hooksPath = resolve(gitPath, 'hooks')
   fs.mkdirSync(hooksPath, { recursive: true })
@@ -19,7 +20,7 @@ function writeGitHook(file, content) {
   fs.chmodSync(path, '777')
 }
 
-function writePreCommit() {
+function writePreCommit () {
   const content = [
     '#!/bin/sh',
     `npx lint-staged --config ${join(__dirname, 'lint-staged.config.cjs')}`,
@@ -28,7 +29,7 @@ function writePreCommit() {
   writeGitHook('pre-commit', content)
 }
 
-function writeCommitMsg() {
+function writeCommitMsg () {
   const content = [
     '#!/bin/sh',
     `npx commitlint --config ${join(__dirname, 'commitlint.config.cjs')} --edit`,
@@ -37,7 +38,7 @@ function writeCommitMsg() {
   writeGitHook('commit-msg', content)
 }
 
-function writePrePush(cmd) {
+function writePrePush (cmd) {
   const content = [
     '#!/bin/sh',
     cmd,
@@ -46,16 +47,19 @@ function writePrePush(cmd) {
   writeGitHook('pre-push', content)
 }
 
-export function install({ preCommit, commitMsg, prePush }) {
-  if (preCommit)
+export function install ({ preCommit, commitMsg, prePush }) {
+  if (preCommit) {
     writePreCommit()
-  if (commitMsg)
+  }
+  if (commitMsg) {
     writeCommitMsg()
-  if (prePush)
+  }
+  if (prePush) {
     writePrePush(prePush)
+  }
 }
 
-export function lint(paths = [], options = {}) {
+export function lint (paths = [], options = {}) {
   const { fix } = options
   const cwd = process.cwd()
   const ps = (paths.length === 0 ? [cwd] : paths).map(p => resolve(cwd, p))
