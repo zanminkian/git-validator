@@ -1,5 +1,16 @@
 # git-validator
 
+## 0.5.0
+
+### Minor Changes
+
+- 7b18678: refactor!: remove antfu eslint config
+
+### Patch Changes
+
+- Updated dependencies [7b18678]
+  - @zanminkian/eslint-config@0.2.0
+
 ## 0.4.9
 
 ### Patch Changes
