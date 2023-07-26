@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.2.0
+
+### Minor Changes
+
+- 7b18678: refactor!: remove antfu eslint config
+
 ## 0.1.15
 
 ### Patch Changes
