@@ -1,5 +1,18 @@
 # git-validator
 
+## 0.5.1
+
+### Patch Changes
+
+- 736777d: feat: add `no-const-enum` rule
+- bf1abe4: feat: add `no-export-assignment` rule
+- Updated dependencies [c10ce8c]
+- Updated dependencies [736777d]
+- Updated dependencies [986f92a]
+- Updated dependencies [abb6de1]
+- Updated dependencies [bf1abe4]
+  - @zanminkian/eslint-config@0.2.1
+
 ## 0.5.0
 
 ### Minor Changes
