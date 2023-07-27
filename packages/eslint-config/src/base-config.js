@@ -2,6 +2,10 @@ const standardConfig = require('./standard-config.json')
 
 module.exports = {
   ...standardConfig,
+  plugins: [
+    ...standardConfig.plugins,
+    '@zanminkian',
+  ],
   rules: {
     ...standardConfig.rules,
 

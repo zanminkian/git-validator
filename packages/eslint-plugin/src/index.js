@@ -1,3 +1,7 @@
+const noConstEnum = require('./rules/no-const-enum')
+
 module.exports = {
-  rules: {},
+  rules: {
+    [noConstEnum.ruleName]: noConstEnum.default,
+  },
 }

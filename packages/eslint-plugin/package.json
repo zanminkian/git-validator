@@ -13,9 +13,10 @@
     "eslint-config",
     "eslint-plugin"
   ],
-  "exports": "./src/index.js",
+  "exports": "./dist/index.js",
   "scripts": {
-    "test": "node --test src/**/*"
+    "build": "tsc",
+    "test": "node --test --require ts-node/register src/**/*.spec.ts"
   },
   "dependencies": {
     "@typescript-eslint/utils": "^6.2.0"
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@typescript-eslint/parser": "^6.2.0",
     "@typescript-eslint/rule-tester": "^6.2.0",
-    "eslint": "^8.45.0"
+    "eslint": "^8.45.0",
+    "ts-node": "^10.9.1"
   }
 }

@@ -12,8 +12,9 @@
     "postinstall": "git-validator install",
     "lint": "git-validator",
     "lint:fix": "git-validator --fix",
+    "build": "pnpm -r build",
     "test": "pnpm -r test",
-    "release": "changeset publish"
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
