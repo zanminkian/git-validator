@@ -1,5 +1,6 @@
 const noConstEnum = require('./rules/no-const-enum')
 const noExportAssignment = require('./rules/no-export-assignment')
+const noDeclaresInTsFile = require('./rules/no-declares-in-ts-file')
 
 module.exports = {
   configs: {
@@ -11,6 +12,7 @@ module.exports = {
           rules: {
             [`@zanminkian/${noConstEnum.ruleName}`]: 'error',
             [`@zanminkian/${noExportAssignment.ruleName}`]: 'error',
+            [`@zanminkian/${noDeclaresInTsFile.ruleName}`]: 'error',
           },
         },
         {
@@ -24,5 +26,6 @@ module.exports = {
   rules: {
     [noConstEnum.ruleName]: noConstEnum.default,
     [noExportAssignment.ruleName]: noExportAssignment.default,
+    [noDeclaresInTsFile.ruleName]: noDeclaresInTsFile.default,
   },
 }
