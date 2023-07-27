@@ -1,5 +1,21 @@
 # @zanminkian/eslint-config
 
+## 0.2.1
+
+### Patch Changes
+
+- c10ce8c: feat(eslint-config): enable some rules
+- 736777d: feat: add `no-const-enum` rule
+- 986f92a: feat(eslint-config): disallow commonjs in ts
+- abb6de1: feat(eslint-config): enable `no-implicit-coercion`
+- bf1abe4: feat: add `no-export-assignment` rule
+- Updated dependencies [736777d]
+- Updated dependencies [78ef761]
+- Updated dependencies [7c82625]
+- Updated dependencies [90a8634]
+- Updated dependencies [bf1abe4]
+  - @zanminkian/eslint-plugin@0.1.0
+
 ## 0.2.0
 
 ### Minor Changes
