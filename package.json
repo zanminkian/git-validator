@@ -9,6 +9,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
+    "install": "pnpm build",
     "postinstall": "git-validator install",
     "lint": "git-validator",
     "lint:fix": "git-validator --fix",
