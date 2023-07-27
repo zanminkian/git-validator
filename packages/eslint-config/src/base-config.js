@@ -8,9 +8,10 @@ module.exports = {
   ],
   rules: {
     ...standardConfig.rules,
-
     // override standard config rules
     'comma-dangle': ['error', 'always-multiline'],
     'brace-style': ['error', '1tbs', { allowSingleLine: false }], // https://github.com/standard/eslint-config-standard/pull/281
+
+    'no-implicit-coercion': ['error', { disallowTemplateShorthand: true, allow: ['!!'] }],
   },
 }
