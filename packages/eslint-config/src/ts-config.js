@@ -90,7 +90,6 @@ module.exports = {
             'no-void': ['error', { allowAsStatement: true }],
 
             'import/no-commonjs': ['error', { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false }],
-            '@zanminkian/no-const-enum': 'error',
           },
         },
       ]
