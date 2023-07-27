@@ -89,7 +89,13 @@ module.exports = {
             ...enabledRules,
             'no-void': ['error', { allowAsStatement: true }],
 
+            // ban some syntaxes to reduce mistakes
             'import/no-commonjs': ['error', { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false }],
+            '@typescript-eslint/ban-types': 'error',
+            '@typescript-eslint/method-signature-style': 'error',
+            '@typescript-eslint/no-require-imports': 'error',
+            '@typescript-eslint/no-namespace': 'error',
+            // '@typescript-eslint/consistent-type-imports': 'error',
           },
         },
       ]
