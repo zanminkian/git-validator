@@ -16,11 +16,19 @@ module.exports = {
     // code style for a better readability
     'max-statements-per-line': ['error', { max: 1 }],
     'import/newline-after-import': ['error', { count: 1 }],
+    'unicorn/escape-case': 'error',
+    'unicorn/number-literal-case': 'error',
 
     // ban some syntaxes to reduce mistakes
     'import/no-self-import': 'error',
     'n/prefer-global/process': ['error', 'never'],
     'n/prefer-global/buffer': ['error', 'never'],
+    'unicorn/error-message': 'error',
+    'unicorn/no-instanceof-array': 'error',
+    'unicorn/no-new-buffer': 'error',
+    'unicorn/no-typeof-undefined': 'error',
+    'unicorn/throw-new-error': 'error',
+    'unicorn/prefer-node-protocol': 'error',
     'unicorn/prefer-number-properties': 'error',
     'unicorn/no-new-array': 'error',
     'prefer-exponentiation-operator': 'error',
