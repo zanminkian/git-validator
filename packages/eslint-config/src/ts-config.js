@@ -87,8 +87,9 @@ module.exports = {
           rules: {
             ...disabledRules,
             ...enabledRules,
-
             'no-void': ['error', { allowAsStatement: true }],
+
+            'import/no-commonjs': ['error', { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false }],
           },
         },
       ]
