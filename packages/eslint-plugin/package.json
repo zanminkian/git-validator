@@ -14,7 +14,15 @@
     "eslint-plugin"
   ],
   "exports": "./src/index.js",
+  "scripts": {
+    "test": "node --test src/**/*"
+  },
+  "dependencies": {
+    "@typescript-eslint/utils": "^6.2.0"
+  },
   "devDependencies": {
+    "@typescript-eslint/parser": "^6.2.0",
+    "@typescript-eslint/rule-tester": "^6.2.0",
     "eslint": "^8.45.0"
   }
 }

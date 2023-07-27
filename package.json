@@ -12,6 +12,7 @@
     "postinstall": "git-validator install",
     "lint": "git-validator",
     "lint:fix": "git-validator --fix",
+    "test": "pnpm -r test",
     "release": "changeset publish"
   },
   "devDependencies": {
