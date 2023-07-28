@@ -23,14 +23,10 @@ module.exports = {
     'unicorn/number-literal-case': 'error',
 
     // ban some syntaxes to reduce mistakes
-    'import/first': 'error',
-    'import/no-duplicates': 'error',
     'import/no-self-import': 'error',
     'import/no-dynamic-require': 'error',
     'import/no-mutable-exports': 'error',
-    'import/no-absolute-path': 'error',
     'import/no-named-as-default-member': 'error',
-    'import/no-named-default': 'error',
     'n/prefer-global/process': ['error', 'never'],
     'n/prefer-global/buffer': ['error', 'never'],
     'unicorn/error-message': 'error',
