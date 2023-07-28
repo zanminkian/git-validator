@@ -1,6 +1,7 @@
 import * as noConstEnum from './rules/no-const-enum'
 import * as noDeclaresInTsFile from './rules/no-declares-in-ts-file'
 import * as noExportAssignment from './rules/no-export-assignment'
+import * as noLegacyGetterSetter from './rules/no-legacy-getter-setter'
 import * as noNodeModulesWhenImport from './rules/no-node-modules-when-import'
 
 export const configs = {
@@ -14,12 +15,14 @@ export const configs = {
           [`@zanminkian/${noExportAssignment.ruleName}`]: 'error',
           [`@zanminkian/${noDeclaresInTsFile.ruleName}`]: 'error',
           [`@zanminkian/${noNodeModulesWhenImport.ruleName}`]: 'error',
+          [`@zanminkian/${noLegacyGetterSetter.ruleName}`]: 'error',
         },
       },
       {
         files: ['*.js', '*.cjs', '*.mjs', '*.jsx'],
         rules: {
           [`@zanminkian/${noNodeModulesWhenImport.ruleName}`]: 'error',
+          [`@zanminkian/${noLegacyGetterSetter.ruleName}`]: 'error',
         },
       },
     ],
@@ -31,4 +34,5 @@ export const rules = {
   [noExportAssignment.ruleName]: noExportAssignment.default,
   [noDeclaresInTsFile.ruleName]: noDeclaresInTsFile.default,
   [noNodeModulesWhenImport.ruleName]: noNodeModulesWhenImport.default,
+  [noLegacyGetterSetter.ruleName]: noLegacyGetterSetter.default,
 }
