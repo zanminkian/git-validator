@@ -24,7 +24,7 @@ module.exports = {
 
     // ban some syntaxes to reduce mistakes
     'import/no-self-import': 'error',
-    'import/no-dynamic-require': 'error',
+    'import/no-dynamic-require': 'error', // TODO remove it once we have ban commonjs in js file.
     'import/no-mutable-exports': 'error',
     'import/no-named-as-default-member': 'error',
     'n/prefer-global/process': ['error', 'never'],
