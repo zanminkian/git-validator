@@ -6,6 +6,7 @@ module.exports = {
   plugins: [
     ...standardConfig.plugins,
     'unicorn',
+    'simple-import-sort',
   ],
   rules: {
     ...standardConfig.rules,
@@ -16,11 +17,14 @@ module.exports = {
     // code style for a better readability
     'max-statements-per-line': ['error', { max: 1 }],
     'import/newline-after-import': ['error', { count: 1 }],
-    'import/order': 'error',
+    'simple-import-sort/imports': ['error', { groups: [['^\\u0000', '^node:', '^@?\\w', '^', '^\\.']] }],
+    'simple-import-sort/exports': 'error',
     'unicorn/escape-case': 'error',
     'unicorn/number-literal-case': 'error',
 
     // ban some syntaxes to reduce mistakes
+    'import/first': 'error',
+    'import/no-duplicates': 'error',
     'import/no-self-import': 'error',
     'import/no-dynamic-require': 'error',
     'import/no-mutable-exports': 'error',

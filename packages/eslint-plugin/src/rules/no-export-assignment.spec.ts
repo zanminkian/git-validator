@@ -1,6 +1,6 @@
-import { describe, it, after } from 'node:test'
+import { after, describe, it } from 'node:test'
 import { RuleTester } from '@typescript-eslint/rule-tester'
-import rule, { ruleName, messageId } from './no-export-assignment'
+import rule, { messageId, ruleName } from './no-export-assignment'
 
 const valid = [
   { code: 'export default {}', filename: 'test.ts' },

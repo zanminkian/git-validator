@@ -90,7 +90,7 @@ module.exports = {
             'no-void': ['error', { allowAsStatement: true }],
 
             // ban some syntaxes to reduce mistakes
-            'import/no-commonjs': ['error', { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false }],
+            'import/no-commonjs': ['error', { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false }], // TODO move this rule to base. js file should not use commonjs too.
             '@typescript-eslint/ban-types': 'error',
             '@typescript-eslint/method-signature-style': 'error',
             '@typescript-eslint/no-require-imports': 'error',

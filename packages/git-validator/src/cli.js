@@ -1,7 +1,7 @@
-import fs from 'node:fs'
-import process from 'node:process'
 import { spawnSync } from 'node:child_process'
+import fs from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
