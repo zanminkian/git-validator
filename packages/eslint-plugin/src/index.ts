@@ -1,3 +1,4 @@
+import * as fileExtension from './rules/file-extension'
 import * as noConstEnum from './rules/no-const-enum'
 import * as noDeclaresInTsFile from './rules/no-declares-in-ts-file'
 import * as noExportAssignment from './rules/no-export-assignment'
@@ -8,6 +9,9 @@ import * as preferGlobalThis from './rules/prefer-global-this'
 export const configs = {
   recommended: {
     plugins: ['@zanminkian'],
+    rules: {
+      [`@zanminkian/${fileExtension.ruleName}`]: 'error',
+    },
     overrides: [
       {
         files: ['*.ts', '*.cts', '*.mts', '*.tsx'],
@@ -39,4 +43,5 @@ export const rules = {
   [noNodeModulesWhenImport.ruleName]: noNodeModulesWhenImport.default,
   [noLegacyGetterSetter.ruleName]: noLegacyGetterSetter.default,
   [preferGlobalThis.ruleName]: preferGlobalThis.default,
+  [fileExtension.ruleName]: fileExtension.default,
 }

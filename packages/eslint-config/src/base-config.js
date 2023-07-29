@@ -2,7 +2,6 @@ const standardConfig = require('./standard-config.json')
 
 module.exports = {
   ...standardConfig,
-  extends: ['plugin:@zanminkian/recommended'],
   plugins: [
     ...standardConfig.plugins,
     'unicorn',

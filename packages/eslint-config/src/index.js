@@ -45,6 +45,7 @@ module.exports = {
       // 'md',
     ]),
   ],
+  extends: ['plugin:@zanminkian/recommended'],
   overrides: [
     ...jsConfig.overrides,
     ...tsConfig.overrides,
