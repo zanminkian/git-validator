@@ -1,5 +1,6 @@
 import * as noConstEnum from './rules/no-const-enum'
 import * as noDeclaresInTsFile from './rules/no-declares-in-ts-file'
+import * as noDynamicImport from './rules/no-dynamic-import'
 import * as noExportAssignment from './rules/no-export-assignment'
 import * as noLegacyGetterSetter from './rules/no-legacy-getter-setter'
 import * as noNodeModulesWhenImport from './rules/no-node-modules-when-import'
@@ -18,6 +19,7 @@ export const configs = {
           [`@zanminkian/${noNodeModulesWhenImport.ruleName}`]: 'error',
           [`@zanminkian/${noLegacyGetterSetter.ruleName}`]: 'error',
           [`@zanminkian/${preferGlobalThis.ruleName}`]: 'error',
+          [`@zanminkian/${noDynamicImport.ruleName}`]: 'error',
         },
       },
       {
@@ -26,6 +28,7 @@ export const configs = {
           [`@zanminkian/${noNodeModulesWhenImport.ruleName}`]: 'error',
           [`@zanminkian/${noLegacyGetterSetter.ruleName}`]: 'error',
           [`@zanminkian/${preferGlobalThis.ruleName}`]: 'error',
+          [`@zanminkian/${noDynamicImport.ruleName}`]: 'error',
         },
       },
     ],
@@ -39,4 +42,5 @@ export const rules = {
   [noNodeModulesWhenImport.ruleName]: noNodeModulesWhenImport.default,
   [noLegacyGetterSetter.ruleName]: noLegacyGetterSetter.default,
   [preferGlobalThis.ruleName]: preferGlobalThis.default,
+  [noDynamicImport.ruleName]: noDynamicImport.default,
 }
