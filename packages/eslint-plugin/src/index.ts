@@ -5,6 +5,7 @@ import * as noDynamicImport from './rules/no-dynamic-import'
 import * as noExportAssignment from './rules/no-export-assignment'
 import * as noLegacyGetterSetter from './rules/no-legacy-getter-setter'
 import * as noNodeModulesWhenImport from './rules/no-node-modules-when-import'
+import * as noRelativeParentImports from './rules/no-relative-parent-imports'
 import * as preferGlobalThis from './rules/prefer-global-this'
 
 export const configs = {
@@ -22,6 +23,7 @@ export const configs = {
           [`@zanminkian/${preferGlobalThis.ruleName}`]: 'error',
           [`@zanminkian/${noDynamicImport.ruleName}`]: 'error',
           [`@zanminkian/${noDeclarationFileWhenImport.ruleName}`]: 'error',
+          [`@zanminkian/${noRelativeParentImports.ruleName}`]: 'error',
         },
       },
       {
@@ -32,6 +34,7 @@ export const configs = {
           [`@zanminkian/${preferGlobalThis.ruleName}`]: 'error',
           [`@zanminkian/${noDynamicImport.ruleName}`]: 'error',
           [`@zanminkian/${noDeclarationFileWhenImport.ruleName}`]: 'error',
+          [`@zanminkian/${noRelativeParentImports.ruleName}`]: 'error',
         },
       },
     ],
@@ -47,4 +50,5 @@ export const rules = {
   [preferGlobalThis.ruleName]: preferGlobalThis.default,
   [noDynamicImport.ruleName]: noDynamicImport.default,
   [noDeclarationFileWhenImport.ruleName]: noDeclarationFileWhenImport.default,
+  [noRelativeParentImports.ruleName]: noRelativeParentImports.default,
 }
