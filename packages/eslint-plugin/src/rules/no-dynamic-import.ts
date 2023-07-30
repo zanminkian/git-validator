@@ -3,18 +3,20 @@ import { ESLintUtils } from '@typescript-eslint/utils'
 export const ruleName = 'no-dynamic-import'
 export const messageId = 'noDynamicImport'
 export const defaultOptions = []
+const description = 'Forbid `import()` calls with expressions.'
+const message = '`import()` should be called with string literal.'
 
 export default ESLintUtils.RuleCreator(ruleName => ruleName)<typeof defaultOptions, typeof messageId>({
   name: ruleName,
   meta: {
     type: 'problem',
     docs: {
-      description: 'Forbid `import()` calls with expressions.',
+      description,
       recommended: 'recommended',
     },
     schema: [],
     messages: {
-      [messageId]: '`import()` should be called with string literal.',
+      [messageId]: message,
     },
   },
   defaultOptions,

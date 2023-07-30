@@ -3,18 +3,20 @@ import { ESLintUtils } from '@typescript-eslint/utils'
 export const ruleName = 'no-declaration-file-when-import'
 export const messageId = 'noDeclarationFileWhenImport'
 export const defaultOptions = []
+const description = 'Prevent importing module which ends with `/\\.d(\\.[mc]?[jt]s)?$/`.'
+const message = 'Do not import module which ends with `/\\.d(\\.[mc]?[jt]s)?$/`.'
 
 export default ESLintUtils.RuleCreator(ruleName => ruleName)<typeof defaultOptions, typeof messageId>({
   name: ruleName,
   meta: {
     type: 'problem',
     docs: {
-      description: 'Prevent importing module which ends with `/\\.d(\\.[mc]?[jt]s)?$/`.',
+      description,
       recommended: 'recommended',
     },
     schema: [],
     messages: {
-      [messageId]: 'Do not import module which ends with `/\\.d(\\.[mc]?[jt]s)?$/`.',
+      [messageId]: message,
     },
   },
   defaultOptions,

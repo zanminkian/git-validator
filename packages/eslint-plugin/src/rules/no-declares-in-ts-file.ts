@@ -3,18 +3,20 @@ import { ESLintUtils } from '@typescript-eslint/utils'
 export const ruleName = 'no-declares-in-ts-file'
 export const messageId = 'noDeclaresInTsFile'
 export const defaultOptions = []
+const description = 'Disallow using `declare` statement in ts file.'
+const message = 'Do not use `declare` statement in ts file.'
 
 export default ESLintUtils.RuleCreator(ruleName => ruleName)<typeof defaultOptions, typeof messageId>({
   name: ruleName,
   meta: {
     type: 'problem',
     docs: {
-      description: 'Disallow using `declare` statement in ts file.',
+      description,
       recommended: 'recommended',
     },
     schema: [],
     messages: {
-      [messageId]: 'Do not use `declare` statement in ts file.',
+      [messageId]: message,
     },
   },
   defaultOptions,

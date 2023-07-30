@@ -3,18 +3,20 @@ import { ESLintUtils } from '@typescript-eslint/utils'
 export const ruleName = 'no-export-assignment'
 export const messageId = 'noExportAssignment'
 export const defaultOptions = []
+const description = 'Disallow using `export =` statement.'
+const message = 'Do not use `export =` statement. Use `export default` instead.'
 
 export default ESLintUtils.RuleCreator(ruleName => ruleName)<typeof defaultOptions, typeof messageId>({
   name: ruleName,
   meta: {
     type: 'problem',
     docs: {
-      description: 'Disallow using `export =` statement.',
+      description,
       recommended: 'recommended',
     },
     schema: [],
     messages: {
-      [messageId]: 'Do not use `export =` statement. Use `export default` instead.',
+      [messageId]: message,
     },
   },
   defaultOptions,

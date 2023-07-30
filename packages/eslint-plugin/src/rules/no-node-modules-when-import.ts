@@ -3,18 +3,20 @@ import { ESLintUtils } from '@typescript-eslint/utils'
 export const ruleName = 'no-node-modules-when-import'
 export const messageId = 'noNodeModulesWhenImport'
 export const defaultOptions = []
+const description = 'Prevent importing modules in `node_modules` folder by relative or absolute path.'
+const message = 'Do not import modules in `node_modules` folder by path.'
 
 export default ESLintUtils.RuleCreator(ruleName => ruleName)<typeof defaultOptions, typeof messageId>({
   name: ruleName,
   meta: {
     type: 'problem',
     docs: {
-      description: 'Prevent importing modules in `node_modules` folder by relative or absolute path.',
+      description,
       recommended: 'recommended',
     },
     schema: [],
     messages: {
-      [messageId]: 'Do not import modules in `node_modules` folder by path.',
+      [messageId]: message,
     },
   },
   defaultOptions,
