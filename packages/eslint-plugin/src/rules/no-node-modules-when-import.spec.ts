@@ -7,6 +7,7 @@ const valid = [
   'import "b"',
   'const c = require("c")',
   'require("d")',
+  'import("e")',
 ]
 
 const invalid = [
@@ -14,6 +15,7 @@ const invalid = [
   'import "../node_modules/b"',
   'const c = require("../node_modules/c")',
   'require("../node_modules/d")',
+  'import("../node_modules/e")',
 ]
 
 RuleTester.afterAll = after

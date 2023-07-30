@@ -28,6 +28,14 @@ export default ESLintUtils.RuleCreator(ruleName => ruleName)<typeof defaultOptio
           })
         }
       },
+      ImportExpression: (node) => {
+        if ('value' in node.source && typeof node.source.value === 'string' && node.source.value.includes('/node_modules/')) {
+          context.report({
+            node,
+            messageId,
+          })
+        }
+      },
       CallExpression: (node) => {
         if ('name' in node.callee && node.callee.name === 'require') {
           const arg = node.arguments[0]
