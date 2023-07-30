@@ -41,10 +41,5 @@ module.exports = {
     'no-implicit-coercion': ['error', { disallowTemplateShorthand: true, allow: ['!!'] }],
     'no-invalid-this': 'error',
     'no-plusplus': 'error',
-    'no-restricted-globals': [
-      'error',
-      { name: 'global', message: 'Use `globalThis` instead.' },
-      { name: 'self', message: 'Use `globalThis` instead.' },
-    ],
   },
 }
