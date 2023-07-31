@@ -38,7 +38,7 @@ module.exports = {
     'unicorn/prefer-node-protocol': 'error',
     'unicorn/prefer-number-properties': 'error',
     'unicorn/no-new-array': 'error',
-    'unicorn/no-null': 'error',
+    // 'unicorn/no-null': 'error', // null can be useful when interact with json.
     'prefer-exponentiation-operator': 'error',
     'no-implicit-coercion': ['error', { disallowTemplateShorthand: true, allow: ['!!'] }],
     'no-invalid-this': 'error',
