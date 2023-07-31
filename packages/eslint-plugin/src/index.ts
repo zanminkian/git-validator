@@ -13,22 +13,22 @@ export const configs = {
       {
         files: ['*.ts', '*.cts', '*.mts', '*.tsx'],
         rules: {
+          [`@zanminkian/${importRegex.ruleName}`]: 'error',
           [`@zanminkian/${noConstEnum.ruleName}`]: 'error',
-          [`@zanminkian/${noExportAssignment.ruleName}`]: 'error',
           [`@zanminkian/${noDeclaresInTsFile.ruleName}`]: 'error',
+          [`@zanminkian/${noDynamicImport.ruleName}`]: 'error',
+          [`@zanminkian/${noExportAssignment.ruleName}`]: 'error',
           [`@zanminkian/${noLegacyGetterSetter.ruleName}`]: 'error',
           [`@zanminkian/${preferGlobalThis.ruleName}`]: 'error',
-          [`@zanminkian/${noDynamicImport.ruleName}`]: 'error',
-          [`@zanminkian/${importRegex.ruleName}`]: 'error',
         },
       },
       {
         files: ['*.js', '*.cjs', '*.mjs', '*.jsx'],
         rules: {
+          [`@zanminkian/${importRegex.ruleName}`]: 'error',
+          [`@zanminkian/${noDynamicImport.ruleName}`]: 'error',
           [`@zanminkian/${noLegacyGetterSetter.ruleName}`]: 'error',
           [`@zanminkian/${preferGlobalThis.ruleName}`]: 'error',
-          [`@zanminkian/${noDynamicImport.ruleName}`]: 'error',
-          [`@zanminkian/${importRegex.ruleName}`]: 'error',
         },
       },
     ],
@@ -36,11 +36,11 @@ export const configs = {
 }
 
 export const rules = {
+  [importRegex.ruleName]: importRegex.default,
   [noConstEnum.ruleName]: noConstEnum.default,
-  [noExportAssignment.ruleName]: noExportAssignment.default,
   [noDeclaresInTsFile.ruleName]: noDeclaresInTsFile.default,
+  [noDynamicImport.ruleName]: noDynamicImport.default,
+  [noExportAssignment.ruleName]: noExportAssignment.default,
   [noLegacyGetterSetter.ruleName]: noLegacyGetterSetter.default,
   [preferGlobalThis.ruleName]: preferGlobalThis.default,
-  [noDynamicImport.ruleName]: noDynamicImport.default,
-  [importRegex.ruleName]: importRegex.default,
 }
