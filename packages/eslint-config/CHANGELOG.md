@@ -1,5 +1,20 @@
 # @zanminkian/eslint-config
 
+## 0.2.2
+
+### Patch Changes
+
+- d9a8673: feat(eslint-config): add unicorn rules
+- 1f383c8: feat(eslint-config): enable `unicorn/no-null`
+- bfadfeb: feat(eslint-config): add `import/no-relative-packages` rule
+- f4753e5: feat(eslint-config): add import rules
+- 76313e6: feat(eslint-config): sort imports and exports
+- Updated dependencies [f00fa6f]
+- Updated dependencies [142b4c3]
+- Updated dependencies [9e25788]
+- Updated dependencies [0f2b8f6]
+  - @zanminkian/eslint-plugin@0.1.1
+
 ## 0.2.1
 
 ### Patch Changes

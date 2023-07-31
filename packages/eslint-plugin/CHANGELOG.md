@@ -1,5 +1,14 @@
 # @zanminkian/eslint-plugin
 
+## 0.1.1
+
+### Patch Changes
+
+- f00fa6f: feat(eslint-plugin): add `import-regex` rule to replace some rules
+- 142b4c3: feat(eslint-plugin): add `prefer-global-this` rule
+- 9e25788: feat(eslint-plugin): add `no-dynamic-import` rule
+- 0f2b8f6: feat(eslint-plugin): add `no-legacy-getter-setter` rule
+
 ## 0.1.0
 
 ### Minor Changes
