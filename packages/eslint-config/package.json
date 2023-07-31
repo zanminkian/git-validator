@@ -1,6 +1,6 @@
 {
   "name": "@zanminkian/eslint-config",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Opinionated eslint config presets.",
   "author": "hellozmj@qq.com",
   "license": "MIT",

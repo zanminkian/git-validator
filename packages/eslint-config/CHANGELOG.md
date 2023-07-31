@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.2.3
+
+### Patch Changes
+
+- 77f9a47: feat(eslint-config): remove `unicorn/no-null`
+
 ## 0.2.2
 
 ### Patch Changes
