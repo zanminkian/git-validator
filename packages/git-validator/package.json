@@ -1,7 +1,7 @@
 {
   "name": "git-validator",
   "type": "module",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "An all-in-one tool for project quality improvement.",
   "author": "hellozmj@qq.com",
   "license": "MIT",
