@@ -15,9 +15,9 @@
     "lint-staged"
   ],
   "bin": {
-    "git-validator": "./bin/git-validator.js",
-    "commitlint": "./bin/commitlint.js",
-    "lint-staged": "./bin/lint-staged.js"
+    "git-validator": "./src/bin/git-validator.js",
+    "commitlint": "./src/bin/commitlint.js",
+    "lint-staged": "./src/bin/lint-staged.js"
   },
   "dependencies": {
     "@commitlint/cli": "^17.6.7",

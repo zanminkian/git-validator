@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import process from 'node:process'
 import { Command } from 'commander'
-import { install, lint } from '../src/cli.js'
+import { install, lint } from '../cli.js'
 
 const program = new Command()
 
