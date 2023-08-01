@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['./all-config'],
+  extends: ['./all-config', 'prettier'],
 }
