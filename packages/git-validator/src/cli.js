@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-function writeGitHook (file, content) {
+function writeGitHook(file, content) {
   const gitPath = resolve(process.cwd(), '.git')
   if (!fs.existsSync(gitPath)) {
     throw new Error('Directory `.git` is not existing. Please run `git init` first.')
@@ -20,34 +20,25 @@ function writeGitHook (file, content) {
   fs.chmodSync(path, '777')
 }
 
-function writePreCommit () {
-  const content = [
-    '#!/bin/sh',
-    `npx lint-staged --config ${join(__dirname, 'lint-staged.config.cjs')}`,
-  ].join('\n')
+function writePreCommit() {
+  const content = ['#!/bin/sh', `npx lint-staged --config ${join(__dirname, 'lint-staged.config.cjs')}`].join('\n')
 
   writeGitHook('pre-commit', content)
 }
 
-function writeCommitMsg () {
-  const content = [
-    '#!/bin/sh',
-    `npx commitlint --config ${join(__dirname, 'commitlint.config.cjs')} --edit`,
-  ].join('\n')
+function writeCommitMsg() {
+  const content = ['#!/bin/sh', `npx commitlint --config ${join(__dirname, 'commitlint.config.cjs')} --edit`].join('\n')
 
   writeGitHook('commit-msg', content)
 }
 
-function writePrePush (cmd) {
-  const content = [
-    '#!/bin/sh',
-    cmd,
-  ].join('\n')
+function writePrePush(cmd) {
+  const content = ['#!/bin/sh', cmd].join('\n')
 
   writeGitHook('pre-push', content)
 }
 
-export function install ({ preCommit, commitMsg, prePush }) {
+export function install({ preCommit, commitMsg, prePush }) {
   if (preCommit) {
     writePreCommit()
   }
@@ -59,9 +50,24 @@ export function install ({ preCommit, commitMsg, prePush }) {
   }
 }
 
-export function lint (paths = [], options = {}) {
+export function lint(paths = [], options = {}) {
   const { fix } = options
   const cwd = process.cwd()
-  const ps = (paths.length === 0 ? [cwd] : paths).map(p => resolve(cwd, p))
-  return spawnSync('npx', ['eslint', '--config', join(__dirname, 'eslint.config.cjs'), ...(fix ? ['--fix'] : []), ...ps], { stdio: 'inherit' })
+  const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p))
+  return spawnSync(
+    'npx',
+    ['eslint', '--config', join(__dirname, 'eslint.config.cjs'), ...(fix ? ['--fix'] : []), ...ps],
+    { stdio: 'inherit' },
+  )
+}
+
+export function format(paths = [], options = {}) {
+  const { write } = options
+  const cwd = process.cwd()
+  const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p))
+  return spawnSync(
+    'npx',
+    ['prettier', '--config', join(__dirname, 'prettier.config.cjs'), ...(write ? ['--write'] : []), ...ps],
+    { stdio: 'inherit' },
+  )
 }
