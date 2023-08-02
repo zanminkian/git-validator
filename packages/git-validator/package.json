@@ -26,7 +26,8 @@
     "commander": "^11.0.0",
     "cosmiconfig": "^8.2.0",
     "eslint": "^8.45.0",
-    "lint-staged": "^13.2.3"
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0"
   },
   "devDependencies": {
     "@zanminkian/eslint-plugin": "workspace:^"
