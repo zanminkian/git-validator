@@ -19,28 +19,28 @@ module.exports = {
     'import/newline-after-import': ['error', { count: 1 }],
     'simple-import-sort/imports': ['error', { groups: [['^\\u0000', '^node:', '^@?\\w', '^', '^\\.']] }],
     'simple-import-sort/exports': 'error',
-    'unicorn/escape-case': 'error',
-    'unicorn/number-literal-case': 'error',
+    'unicorn/prefer-node-protocol': 'error',
+    'unicorn/escape-case': 'error', // '\ud834' -> '\uD834'
+    'unicorn/number-literal-case': 'error', // 0XFF -> 0xFF
 
     // ban some syntaxes to reduce mistakes
     'import/no-self-import': 'error',
     'import/no-dynamic-require': 'error', // TODO remove it once we have ban commonjs in js file.
     'import/no-relative-packages': 'error',
-    'import/no-mutable-exports': 'error',
-    'import/no-named-as-default-member': 'error',
+    'import/no-mutable-exports': 'error', // forbid code like `export let count = 3`
+    'import/no-named-as-default-member': 'error', // forbid code like `import foo from './foo.js'; const bar = foo.bar;`
     'n/prefer-global/process': ['error', 'never'],
     'n/prefer-global/buffer': ['error', 'never'],
     'unicorn/error-message': 'error',
     'unicorn/no-instanceof-array': 'error',
+    'unicorn/no-new-array': 'error',
     'unicorn/no-new-buffer': 'error',
     'unicorn/no-typeof-undefined': 'error',
     'unicorn/throw-new-error': 'error',
-    'unicorn/prefer-node-protocol': 'error',
     'unicorn/prefer-number-properties': 'error',
-    'unicorn/no-new-array': 'error',
     // 'unicorn/no-null': 'error', // null can be useful when interact with json.
     'prefer-exponentiation-operator': 'error',
-    'no-implicit-coercion': ['error', { disallowTemplateShorthand: true, allow: ['!!'] }],
+    'no-implicit-coercion': ['error', { disallowTemplateShorthand: true, allow: ['!!'] }], // forbid code like `const num = +str`;
     'no-invalid-this': 'error',
     'no-plusplus': 'error',
   },
