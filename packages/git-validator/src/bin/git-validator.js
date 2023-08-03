@@ -7,21 +7,34 @@ const program = new Command()
 
 program
   .name('git-validator')
-  .description("lint code using eslint. it's the same as running `git-validator lint` command")
+  .description('format & lint code using prettier & eslint')
+  .option('-w, --write', 'edit files in-place when formatting via prettier')
+  .option('-f, --fix', 'automatically fix problems when linting via eslint')
+  .argument('[paths...]', 'dir or file paths to format and lint')
+  .action((paths, options) => {
+    const formatStatus = format(paths, options).status
+    if (formatStatus) {
+      process.exit(formatStatus)
+    }
+    const lintStatus = lint(paths, options).status
+    if (lintStatus) {
+      process.exit(lintStatus)
+    }
+  })
 
 program
   .command('lint')
   .description('lint code using eslint')
-  .option('--fix', 'automatically fix problems')
+  .option('-f, --fix', 'automatically fix problems')
   .argument('[paths...]', 'dir or file paths to lint')
-  .action((paths, options) => process.exit(lint(paths, options).status))
+  .action((paths, options) => process.exit(lint(paths, options).status ?? 0))
 
 program
   .command('format')
   .description('format code using prettier')
-  .option('--write', 'edit files in-place')
+  .option('-w, --write', 'edit files in-place')
   .argument('[paths...]', 'dir or file paths to format')
-  .action((paths, options) => process.exit(format(paths, options).status))
+  .action((paths, options) => process.exit(format(paths, options).status ?? 0))
 
 program
   .command('install')
