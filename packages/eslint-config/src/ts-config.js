@@ -6,10 +6,10 @@ const baseConfig = require('./base-config')
 const tsconfig = fs.existsSync(path.join(process.cwd(), 'tsconfig.eslint.json'))
   ? 'tsconfig.eslint.json'
   : fs.existsSync(path.join(process.cwd(), 'tsconfig.json'))
-    ? 'tsconfig.json'
-    : undefined
+  ? 'tsconfig.json'
+  : undefined
 
-function getTsRules () {
+function getTsRules() {
   if (!tsconfig) return {}
   const baseConfigCopied = JSON.parse(JSON.stringify(baseConfig))
   // https://typescript-eslint.io/rules/#extension-rules
@@ -58,7 +58,10 @@ function getTsRules () {
   ]
   const builtinRuleKeys = allBuiltinRuleKeys.filter((key) => baseConfigCopied.rules[key])
   const disabledRules = builtinRuleKeys.reduce((result, key) => ({ ...result, [key]: 'off' }), {})
-  const enabledRules = builtinRuleKeys.reduce((result, key) => ({ ...result, [`@typescript-eslint/${key}`]: baseConfigCopied.rules[key] }), {})
+  const enabledRules = builtinRuleKeys.reduce(
+    (result, key) => ({ ...result, [`@typescript-eslint/${key}`]: baseConfigCopied.rules[key] }),
+    {},
+  )
   enabledRules['@typescript-eslint/indent'][2].ignoredNodes.push(
     'FunctionExpression > .params[decorators.length > 0]',
     'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
@@ -90,7 +93,10 @@ module.exports = {
             'no-void': ['error', { allowAsStatement: true }],
 
             // ban some syntaxes to reduce mistakes
-            'import/no-commonjs': ['error', { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false }], // TODO move this rule to base. js file should not use commonjs too.
+            'import/no-commonjs': [
+              'error',
+              { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false },
+            ], // TODO move this rule to base. js file should not use commonjs too.
             '@typescript-eslint/ban-types': 'error',
             '@typescript-eslint/method-signature-style': 'error',
             '@typescript-eslint/no-require-imports': 'error',

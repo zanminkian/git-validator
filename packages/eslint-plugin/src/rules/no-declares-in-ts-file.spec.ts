@@ -16,11 +16,11 @@ const codes = [
   'declare type A = {}',
   'declare interface A{}',
   'declare global { var a: string }',
-  'declare module \'moment\' { export function foo(): string }',
+  "declare module 'moment' { export function foo(): string }",
 ]
 
-const invalid = codes.map(code => ({ code, filename: 'foo.ts' }))
-const valid = codes.map(code => ({ code, filename: 'foo.d.ts' }))
+const invalid = codes.map((code) => ({ code, filename: 'foo.ts' }))
+const valid = codes.map((code) => ({ code, filename: 'foo.d.ts' }))
 
 RuleTester.afterAll = after
 RuleTester.describe = describe
@@ -29,7 +29,7 @@ new RuleTester({
   parser: '@typescript-eslint/parser',
 }).run(ruleName, rule, {
   valid,
-  invalid: invalid.map(i => ({
+  invalid: invalid.map((i) => ({
     ...i,
     errors: [{ messageId }],
   })),

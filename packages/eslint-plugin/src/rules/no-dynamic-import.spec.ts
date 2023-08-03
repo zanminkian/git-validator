@@ -2,12 +2,7 @@ import { after, describe, it } from 'node:test'
 import { RuleTester } from '@typescript-eslint/rule-tester'
 import rule, { messageId, ruleName } from './no-dynamic-import'
 
-const valid = [
-  'import("foo")',
-  'import("./foo")',
-  'await import("foo")',
-  'const foo = await import("foo")',
-]
+const valid = ['import("foo")', 'import("./foo")', 'await import("foo")', 'const foo = await import("foo")']
 
 const invalid = [
   // 'import()',
@@ -28,7 +23,7 @@ new RuleTester({
   parser: '@typescript-eslint/parser',
 }).run(ruleName, rule, {
   valid,
-  invalid: invalid.map(i => ({
+  invalid: invalid.map((i) => ({
     code: i,
     errors: [{ messageId }],
   })),

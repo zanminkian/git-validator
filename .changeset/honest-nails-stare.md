@@ -1,5 +1,5 @@
 ---
-"@zanminkian/prettier-config": minor
+'@zanminkian/prettier-config': minor
 ---
 
 feat(prettier-config): finish prettier config

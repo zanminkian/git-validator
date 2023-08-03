@@ -6,7 +6,7 @@ export const defaultOptions = []
 const description = 'Disallow using `const enum` expression.'
 const message = 'Do not use `const enum` expression.'
 
-export default ESLintUtils.RuleCreator(ruleName => ruleName)<typeof defaultOptions, typeof messageId>({
+export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOptions, typeof messageId>({
   name: ruleName,
   meta: {
     type: 'problem',

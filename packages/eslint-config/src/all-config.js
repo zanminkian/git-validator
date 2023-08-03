@@ -3,12 +3,12 @@ const process = require('node:process')
 const jsConfig = require('./js-config')
 const tsConfig = require('./ts-config')
 
-function listUnsupportedExtensions (supportedExtensions) {
-  function isUnsupportedFile (path) {
-    return !supportedExtensions.some(ext => path.toLowerCase().endsWith(`.${ext}`))
+function listUnsupportedExtensions(supportedExtensions) {
+  function isUnsupportedFile(path) {
+    return !supportedExtensions.some((ext) => path.toLowerCase().endsWith(`.${ext}`))
   }
 
-  function isFile (path) {
+  function isFile(path) {
     try {
       return fs.statSync(path).isFile()
     } catch (e) {
@@ -19,10 +19,10 @@ function listUnsupportedExtensions (supportedExtensions) {
 
   return process.argv
     .slice(2)
-    .filter(i => !i.startsWith('-'))
+    .filter((i) => !i.startsWith('-'))
     .filter(isFile)
     .filter(isUnsupportedFile)
-    .map(p => `*.${p.split('.').at(-1)}`)
+    .map((p) => `*.${p.split('.').at(-1)}`)
     .filter((i, index, arr) => arr.indexOf(i) === index)
 }
 
@@ -37,16 +37,19 @@ module.exports = {
     'coverage',
     //
     ...listUnsupportedExtensions([
-      'js', 'cjs', 'mjs', 'jsx',
-      'ts', 'cts', 'mts', 'tsx',
+      'js',
+      'cjs',
+      'mjs',
+      'jsx',
+      'ts',
+      'cts',
+      'mts',
+      'tsx',
       // 'json', 'json5', 'jsonc',
       // 'yaml', 'yml',
       // 'html', 'vue',
       // 'md',
     ]),
   ],
-  overrides: [
-    ...jsConfig.overrides,
-    ...tsConfig.overrides,
-  ],
+  overrides: [...jsConfig.overrides, ...tsConfig.overrides],
 }

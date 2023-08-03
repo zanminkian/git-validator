@@ -1,24 +1,18 @@
 import { ESLintUtils } from '@typescript-eslint/utils'
 import type { JSONSchema4 } from '@typescript-eslint/utils/json-schema'
 
-const defaultRegex = [
-  '^.*/node_modules/.*$',
-  '\\.d(\\.[mc]?[jt]s)?$',
-  '^(\\.\\./){3,}',
-  '^.*/\\./.*$',
-  '^\\./\\.\\./',
-].map(r => `(${r})`).join('|')
+const defaultRegex = ['^.*/node_modules/.*$', '\\.d(\\.[mc]?[jt]s)?$', '^(\\.\\./){3,}', '^.*/\\./.*$', '^\\./\\.\\./']
+  .map((r) => `(${r})`)
+  .join('|')
 
 export const ruleName = 'import-regex'
 export const messageId = 'importRegex'
 export const defaultOptions: Array<string> = []
 const description = 'Make the importing paths not match with the regex.'
 const message = `The path should not match with the regex. Default regex is: ${defaultRegex}.`
-const schema: readonly JSONSchema4[] = [
-  { type: 'string' },
-]
+const schema: readonly JSONSchema4[] = [{ type: 'string' }]
 
-export default ESLintUtils.RuleCreator(ruleName => ruleName)<typeof defaultOptions, typeof messageId>({
+export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOptions, typeof messageId>({
   name: ruleName,
   meta: {
     type: 'problem',
@@ -44,11 +38,7 @@ export default ESLintUtils.RuleCreator(ruleName => ruleName)<typeof defaultOptio
         }
       },
       ImportExpression: (node) => {
-        if (
-          'value' in node.source &&
-          typeof node.source.value === 'string' &&
-          node.source.value.match(regex)
-        ) {
+        if ('value' in node.source && typeof node.source.value === 'string' && node.source.value.match(regex)) {
           context.report({
             node,
             messageId,

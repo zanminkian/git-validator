@@ -2,9 +2,7 @@ import { after, describe, it } from 'node:test'
 import { RuleTester } from '@typescript-eslint/rule-tester'
 import rule, { messageId, ruleName } from './no-legacy-getter-setter'
 
-const valid = [
-  'const foo = {}; foo.__proto__;',
-]
+const valid = ['const foo = {}; foo.__proto__;']
 
 const invalid = [
   'const foo = {}; foo.__defineGetter__();',
@@ -23,7 +21,7 @@ new RuleTester({
   parser: '@typescript-eslint/parser',
 }).run(ruleName, rule, {
   valid,
-  invalid: invalid.map(i => ({
+  invalid: invalid.map((i) => ({
     code: i,
     errors: [{ messageId }],
   })),

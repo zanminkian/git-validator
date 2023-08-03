@@ -27,7 +27,7 @@ Config `.eslintrc.js`
 
 ```js
 module.exports = {
-  extends: '@zanminkian'
+  extends: '@zanminkian',
 }
 ```
 

@@ -7,9 +7,7 @@ const valid = [
   { code: 'export = {}', filename: 'test.js' },
 ]
 
-const invalid = [
-  { code: 'export = {}', filename: 'test.ts' },
-]
+const invalid = [{ code: 'export = {}', filename: 'test.ts' }]
 
 RuleTester.afterAll = after
 RuleTester.describe = describe
@@ -18,7 +16,7 @@ new RuleTester({
   parser: '@typescript-eslint/parser',
 }).run(ruleName, rule, {
   valid,
-  invalid: invalid.map(i => ({
+  invalid: invalid.map((i) => ({
     ...i,
     errors: [{ messageId }],
   })),

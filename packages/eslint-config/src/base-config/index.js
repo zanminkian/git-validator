@@ -3,11 +3,7 @@ const standardConfig = require('./standard-config.json')
 module.exports = {
   ...standardConfig,
   extends: ['plugin:@zanminkian/recommended'],
-  plugins: [
-    ...standardConfig.plugins,
-    'unicorn',
-    'simple-import-sort',
-  ],
+  plugins: [...standardConfig.plugins, 'unicorn', 'simple-import-sort'],
   rules: {
     ...standardConfig.rules,
     // override standard config rules

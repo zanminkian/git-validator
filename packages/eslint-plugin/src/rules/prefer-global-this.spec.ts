@@ -42,7 +42,7 @@ new RuleTester({
   parser: '@typescript-eslint/parser',
 }).run(ruleName, rule, {
   valid,
-  invalid: invalid.map(i => ({
+  invalid: invalid.map((i) => ({
     code: i,
     errors: [{ messageId }],
   })),
