@@ -6,14 +6,14 @@
 [![](https://img.shields.io/librariesio/release/npm/@zanminkian/eslint-config)](https://www.npmjs.com/package/@zanminkian/eslint-config)
 [![](https://packagephobia.com/badge?p=@zanminkian/eslint-config)](https://packagephobia.com/result?p=@zanminkian/eslint-config)
 
-Opinionated eslint config presets. Based on [standard.js](https://github.com/standard/standard).
+Opinionated eslint config presets. Based on [standard.js](https://github.com/standard/standard) without any stylistic opinions.
 
 ## Feature
 
-- Based on [standard.js](https://github.com/standard/standard). Better than it.
+- Based on [standard.js](https://github.com/standard/standard), but introduced more powerful rules to forbid stupid codes.
 - One-line of config.
-- Designed to work with TypeScript, Nestjs and React out-of-box.
-- Aimed to be used standalone without Prettier.
+- Designed to work with TypeScript, NestJS and React out-of-box.
+- Work well with Prettier without conflicts.
 
 ## Usage
 
