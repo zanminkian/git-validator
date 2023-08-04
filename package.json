@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
-    "@types/node": "^20.4.4",
+    "@types/node": "^20.4.7",
     "@zanminkian/tsconfig": "^0.5.1",
     "git-validator": "workspace:^",
     "typed-jest": "^0.1.1",

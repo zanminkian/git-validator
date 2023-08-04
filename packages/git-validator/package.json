@@ -27,9 +27,9 @@
     "@zanminkian/prettier-config": "workspace:^",
     "commander": "^11.0.0",
     "cosmiconfig": "^8.2.0",
-    "eslint": "^8.45.0",
+    "eslint": "^8.46.0",
     "lint-staged": "^13.2.3",
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.1"
   },
   "devDependencies": {
     "@zanminkian/eslint-plugin": "workspace:^"
