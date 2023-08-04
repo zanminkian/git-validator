@@ -22,7 +22,7 @@ function listUnsupportedExtensions(supportedExtensions) {
     .filter((i) => !i.startsWith('-'))
     .filter(isFile)
     .filter(isUnsupportedFile)
-    .map((p) => `*.${p.split('.').at(-1)}`)
+    .map((p) => `*.${p.split('.').pop()}`)
     .filter((i, index, arr) => arr.indexOf(i) === index)
 }
 
