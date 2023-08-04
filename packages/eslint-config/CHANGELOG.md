@@ -1,5 +1,16 @@
 # @zanminkian/eslint-config
 
+## 0.3.0
+
+### Minor Changes
+
+- 526d46a: feat(eslint-config): disable the rules that conflict with Prettier
+
+### Patch Changes
+
+- Updated dependencies [3d9e5e6]
+  - @zanminkian/eslint-plugin@0.1.2
+
 ## 0.2.3
 
 ### Patch Changes
