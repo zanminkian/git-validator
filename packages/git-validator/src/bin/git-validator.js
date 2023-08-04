@@ -12,14 +12,7 @@ program
   .option('-f, --fix', 'automatically fix problems when linting via eslint')
   .argument('[paths...]', 'dir or file paths to format and lint')
   .action((paths, options) => {
-    const formatStatus = format(paths, options).status
-    if (formatStatus) {
-      process.exit(formatStatus)
-    }
-    const lintStatus = lint(paths, options).status
-    if (lintStatus) {
-      process.exit(lintStatus)
-    }
+    process.exit((format(paths, options).status || lint(paths, options).status) ?? 0)
   })
 
 program
