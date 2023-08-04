@@ -65,9 +65,25 @@ export function format(paths = [], options = {}) {
   const { write } = options
   const cwd = process.cwd()
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p))
+
+  const projectPrettierIgnore = join(cwd, '.prettierignore')
+  const projectGitIgnore = join(cwd, '.gitignore')
+  const ignores = [
+    ...(fs.existsSync(projectPrettierIgnore) ? [projectPrettierIgnore] : [join(__dirname, 'prettierignore')]),
+    ...(fs.existsSync(projectGitIgnore) ? [projectGitIgnore] : []),
+  ].flatMap((p) => ['--ignore-path', p])
+
   return spawnSync(
     'npx',
-    ['prettier', '--check', '--config', join(__dirname, 'prettier.config.cjs'), ...(write ? ['--write'] : []), ...ps],
+    [
+      'prettier',
+      '--check',
+      ...ignores,
+      '--config',
+      join(__dirname, 'prettier.config.cjs'),
+      ...(write ? ['--write'] : []),
+      ...ps,
+    ],
     { stdio: 'inherit' },
   )
 }
