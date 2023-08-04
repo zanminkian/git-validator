@@ -16,6 +16,7 @@
   ],
   "bin": {
     "git-validator": "./src/bin/git-validator.js",
+    "gv": "./src/bin/git-validator.js",
     "commitlint": "./src/bin/commitlint.js",
     "lint-staged": "./src/bin/lint-staged.js"
   },
