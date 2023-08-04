@@ -1,0 +1,11 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "@zanminkian/eslint-config": "0.3.0",
+    "@zanminkian/eslint-plugin": "0.1.2",
+    "git-validator": "0.6.0",
+    "@zanminkian/prettier-config": "0.1.0"
+  },
+  "changesets": []
+}
