@@ -8,7 +8,7 @@
 
 ## Motivation
 
-In a project, setting up `husky`, `eslint`, `lint-staged`, and `commitlint` is too tedious. There are too many steps and too many config files. Now, you can replace them in your project with this all-in-one package.
+In a project, setting up `husky`, `eslint`, `prettier`, `lint-staged`, and `commitlint` is too tedious. There are too many steps and too many config files. Now, you can replace them in your project with this all-in-one package.
 
 ## Features
 
@@ -18,10 +18,12 @@ In a project, setting up `husky`, `eslint`, `lint-staged`, and `commitlint` is t
 
 ## Usage
 
-Installing `git-validator` is equivalent to installing `eslint`, `lint-staged`, and `commitlint`. You can uninstall them if they have already been installed in your project.
+### Install
+
+Installing `git-validator` is equivalent to installing `eslint`, `prettier`, `lint-staged`, and `commitlint`. You can uninstall them before you install `git-validator`, if they have already been installed in your project.
 
 ```bash
-pnpm remove eslint lint-staged commitlint
+pnpm remove eslint prettier lint-staged commitlint
 ```
 
 Set up the `postinstall` script in `package.json` to invoke `git-validator install`.
@@ -40,7 +42,18 @@ Next, install the package:
 pnpm add -D git-validator
 ```
 
-Now you can commit code to your project. Invalid code or commit messages will be automatically blocked.
+Now you can commit code (via Git) to your project. Invalid code or commit messages will be automatically blocked.
+
+### CLI
+
+There are some convenient built-in commands within `git-validator`. You can run `npx git-validator -h` for more details.
+
+- `git-validator install`: Install the git hooks.
+- `git-validator [dir]`: Format and lint code using Prettier and Eslint.
+- `git-validator -wf [dir]`: Format and lint code using Prettier and Eslint. Files will be automatically updated.
+- `git-validator format [dir]`: Format code using Prettier.
+- `git-validator lint [dir]`: Lint code using Eslint.
+- `git-validator -h`: Print the help for command.
 
 ## How it Works
 
@@ -48,20 +61,11 @@ Running `git-validator install` writes `commit-msg` and `pre-commit` files to th
 
 ### `commit-msg` Stage
 
-The `commit-msg` file we wrote lints your git commit message before the commit is made. We use [@commitlint/cli](https://www.npmjs.com/package/@commitlint/cli) with [@commitlint/config-conventional](https://www.npmjs.com/package/@commitlint/config-conventional) config to check the git commit message.
+The `commit-msg` file we wrote validates your git commit message before the commit is made. We use [@commitlint/cli](https://www.npmjs.com/package/@commitlint/cli) with [@commitlint/config-conventional](https://www.npmjs.com/package/@commitlint/config-conventional) config to check the git commit message.
 
 ### `pre-commit` Stage
 
-The `pre-commit` file we wrote lints your staged code before the commit is made. We use [eslint](https://www.npmjs.com/package/eslint) with [@zanminkian/eslint-config](https://www.npmjs.com/package/@zanminkian/eslint-config) config to check the committing code.
-
-## Built-in Commands
-
-There are some convenient built-in commands within `git-validator`.
-
-- `git-validator install`: Install the git hooks.
-- `git-validator [dir]`: Lint code using `eslint` command under the hood. We encourage you to use this instead of `eslint`.
-- `git-validator --fix [dir]`: Lint and fix code using `eslint --fix` command under the hood. We encourage you to use this instead of `eslint --fix`.
-- `git-validator -h`: Print the help for command.
+The `pre-commit` file we wrote formats and lints your staged code before the commit is made. We use [Prettier](https://www.npmjs.com/package/prettier) with [@zanminkian/prettier-config](https://www.npmjs.com/package/@zanminkian/prettier-config) and [Eslint](https://www.npmjs.com/package/eslint) with [@zanminkian/eslint-config](https://www.npmjs.com/package/@zanminkian/eslint-config) to check the committing code.
 
 ## Advanced Usage
 
@@ -97,12 +101,14 @@ Running `git-validator install` writes `commit-msg` and `pre-commit` files only.
 
 ### Customizing Configs
 
-We use `eslint`, `commitlint`, and `lint-staged` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore`, `commitlint.config.js`, and `lint-staged.config.js` in the root of the project. You can customize them to apply your own rules.
+We use `eslint`, `prettier`, `commitlint`, and `lint-staged` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore`, `prettier.config.js`, `.prettierignore`, `commitlint.config.js`, and `lint-staged.config.js` in the root of the project. You can customize them to apply your own rules.
 
-- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator`. The default config is `{ extends: '@zanminkian' }`.
-- Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator`.
+- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`. The default config is `{ extends: '@zanminkian' }`.
+- Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator lint`.
+- Addint `prettier.config.js` file to apply you own rules when git committing and running `git-validator format`. The default config is `require('@zanminkian/prettier-config')`.
+- Adding `.prettierignore` file to skip formatting certain specific files when git committing and running `git-validator format`.
 - Adding `commitlint.config.js` file to apply your committing rules on the `commit-msg` stage. The default config is `{ extends: ['@commitlint/config-conventional'] }`.
-- Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator --fix'] }`.
+- Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator -wf'] }`.
 
 ### Skipping installation
 
@@ -115,15 +121,6 @@ If you don't want to check git commit messages, adding the `--no-commit-msg` opt
   }
 }
 ```
-
-## Why hasn’t Prettier been integrated?
-
-There are 2 reasons.
-
-- It’s difficult to control line breaks when using Prettier. Check the [article](https://antfu.me/posts/why-not-prettier) by [Anthony Fu](https://github.com/antfu) for more information.
-- There are some conflicts between prettier and eslint. Although there are some solutions that can help, they are not perfect.
-
-Therefore, we suggest you use eslint only.
 
 ## Contributing
 
