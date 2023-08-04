@@ -31,7 +31,9 @@ Set up the `postinstall` script in `package.json` to invoke `git-validator insta
 ```json
 {
   "scripts": {
-    "postinstall": "git-validator install"
+    "postinstall": "git-validator install",
+    "check": "git-validator", // Run this to check the whole project code style
+    "check:update": "git-validator -wf" // Run this to check the whole project code style and update automatically
   }
 }
 ```
