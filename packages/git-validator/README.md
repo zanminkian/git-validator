@@ -13,8 +13,8 @@ In a project, setting up `husky`, `eslint`, `prettier`, `lint-staged`, and `comm
 ## Features
 
 - 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple.
-- 🚀 **Simple to use**: Only two steps required: setting up scripts and installation.
-- 🔧 **Zero Configuration**: No configuration file is needed, while still allowing customization of `eslint`, `prettier` and `commitlint` rules.
+- 🚀 **Simple to use**: Only **TWO** steps required: setting up scripts and installation.
+- 🔧 **Zero Configuration**: **ZERO** configuration file is needed, while still allowing customization of `eslint`, `prettier` and `commitlint` rules.
 
 ## Usage
 
