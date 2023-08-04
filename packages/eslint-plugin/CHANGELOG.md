@@ -1,5 +1,11 @@
 # @zanminkian/eslint-plugin
 
+## 0.1.2
+
+### Patch Changes
+
+- 3d9e5e6: chore: optimize error message
+
 ## 0.1.1
 
 ### Patch Changes

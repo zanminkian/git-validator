@@ -1,5 +1,22 @@
 # git-validator
 
+## 0.6.0
+
+### Minor Changes
+
+- 8c125be: feat(git-validator): format before lint at pre-commit stage
+
+### Patch Changes
+
+- 16fc95c: feat(git-validator): add prettier config
+- 1b9ba94: feat(git-validator): built-in ignore when formatting
+- d1dcd55: feat(git-validator): support format and lint serially
+- 071e427: feat(git-validator): install prettier to allow user use prettier cmd
+- Updated dependencies [526d46a]
+- Updated dependencies [6cfd8b2]
+  - @zanminkian/eslint-config@0.3.0
+  - @zanminkian/prettier-config@0.1.0
+
 ## 0.5.3
 
 ### Patch Changes
