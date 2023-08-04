@@ -67,7 +67,7 @@ export function format(paths = [], options = {}) {
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p))
   return spawnSync(
     'npx',
-    ['prettier', '--config', join(__dirname, 'prettier.config.cjs'), ...(write ? ['--write'] : []), ...ps],
+    ['prettier', '--check', '--config', join(__dirname, 'prettier.config.cjs'), ...(write ? ['--write'] : []), ...ps],
     { stdio: 'inherit' },
   )
 }
