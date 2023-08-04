@@ -12,8 +12,8 @@ Opinionated eslint config presets. Based on [standard.js](https://github.com/sta
 
 - Based on [standard.js](https://github.com/standard/standard), but introduced more powerful rules to forbid stupid codes.
 - One-line of config.
-- Designed to work with TypeScript, NestJS and React out-of-box.
 - Work well with Prettier without conflicts.
+- Designed to work with TypeScript, NestJS and React out-of-box.
 
 ## Usage
 
