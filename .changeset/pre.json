@@ -7,5 +7,7 @@
     "git-validator": "0.6.0",
     "@zanminkian/prettier-config": "0.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "plenty-cats-doubt"
+  ]
 }

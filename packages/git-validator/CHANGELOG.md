@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.6.1-next.0
+
+### Patch Changes
+
+- bdce62a: feat(git-validator): add lock file to prettierignore
+
 ## 0.6.0
 
 ### Minor Changes
