@@ -27,14 +27,14 @@ program
   .description('lint code using eslint')
   .option('-f, --fix', 'automatically fix problems')
   .argument('[paths...]', 'dir or file paths to lint')
-  .action((paths, options) => process.exit(lint(paths, options).status ?? 0))
+  .action((paths, options, prog) => process.exit(lint(paths, { ...prog.optsWithGlobals(), ...options }).status ?? 0))
 
 program
   .command('format')
   .description('format code using prettier')
   .option('-w, --write', 'edit files in-place')
   .argument('[paths...]', 'dir or file paths to format')
-  .action((paths, options) => process.exit(format(paths, options).status ?? 0))
+  .action((paths, options, prog) => process.exit(format(paths, { ...prog.optsWithGlobals(), ...options }).status ?? 0))
 
 program
   .command('install')
