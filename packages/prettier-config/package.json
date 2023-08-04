@@ -2,6 +2,7 @@
   "name": "@zanminkian/prettier-config",
   "version": "0.0.0",
   "description": "The best prettier shareable config.",
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/prettier-config",
   "exports": "./index.js",
   "keywords": [
     "prettier",
