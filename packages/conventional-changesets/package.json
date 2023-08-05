@@ -1,9 +1,11 @@
 {
   "name": "conventional-changesets",
   "version": "0.0.0",
+  "type": "module",
   "description": "Convert conventional commit messages to changesets",
   "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/conventional-changesets",
-  "exports": "./index.js",
+  "exports": "./dist/index.js",
+  "bin": "./dist/bin.js",
   "keywords": [
     "conventional-changelog",
     "commitlint",
@@ -15,7 +17,12 @@
   ],
   "author": "hellozmj@qq.com",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
-    "human-id": "^4.0.0"
+    "glob": "^10.3.3",
+    "human-id": "^4.0.0",
+    "yaml": "^2.3.1"
   }
 }
