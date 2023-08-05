@@ -14,5 +14,8 @@
     "git-hook"
   ],
   "author": "hellozmj@qq.com",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "human-id": "^4.0.0"
+  }
 }
