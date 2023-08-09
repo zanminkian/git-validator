@@ -12,6 +12,9 @@ const description = 'Make the importing paths not match with the regex.'
 const message = `The path should not match with the regex. Default regex is: ${defaultRegex}.`
 const schema: readonly JSONSchema4[] = [{ type: 'string' }]
 
+/**
+ * @internal
+ */
 export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOptions, typeof messageId>({
   name: ruleName,
   meta: {

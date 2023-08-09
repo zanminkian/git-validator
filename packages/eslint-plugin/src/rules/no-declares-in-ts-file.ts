@@ -6,6 +6,9 @@ export const defaultOptions = []
 const description = 'Disallow using `declare` statement in ts file.'
 const message = 'Do not use `declare` statement in ts file.'
 
+/**
+ * @internal
+ */
 export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOptions, typeof messageId>({
   name: ruleName,
   meta: {

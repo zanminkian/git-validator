@@ -6,6 +6,9 @@ export const defaultOptions = []
 const description = 'Disallow using `export =` statement.'
 const message = 'Do not use `export =` statement. Use `export default` instead.'
 
+/**
+ * @internal
+ */
 export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOptions, typeof messageId>({
   name: ruleName,
   meta: {
