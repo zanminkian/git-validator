@@ -15,20 +15,18 @@ In order to improve project code quality, we usually install `husky`, `eslint`, 
 ## Features
 
 - 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple.
-- 🚀 **Simple to use**: Only **TWO** steps required: setting up scripts and installation.
+- 🚀 **Simple to use**: Only **TWO** steps required: installation and setting up scripts.
 - 🔧 **Zero Configuration**: **ZERO** configuration file is needed, while still allowing customization of `eslint`, `prettier` and `commitlint` rules.
+
+## Install
+
+```bash
+pnpm add -D git-validator
+```
 
 ## Usage
 
-### Install
-
-Installing `git-validator` is equivalent to installing `eslint`, `prettier`, `lint-staged`, and `commitlint`. You can uninstall them before you install `git-validator`, if they have already been installed in your project.
-
-```bash
-pnpm remove eslint prettier lint-staged commitlint
-```
-
-Set up the `postinstall` script in `package.json` to invoke `git-validator install`.
+Edit `package.json > postinstall` script and run it once.
 
 ```json
 {
@@ -40,15 +38,13 @@ Set up the `postinstall` script in `package.json` to invoke `git-validator insta
 }
 ```
 
-Next, install the package:
-
 ```sh
-pnpm add -D git-validator
+pnpm run postinstall
 ```
 
-Now you can commit code (via Git) to your project. Invalid code or commit messages will be automatically blocked.
+Now you can commit code (using Git) to your project. Invalid code or commit messages will be automatically blocked.
 
-### CLI
+## CLI
 
 There are some convenient built-in commands within `git-validator`. You can run `npx git-validator -h` for more details.
 
