@@ -8,8 +8,8 @@ const program = new Command()
 program
   .name('git-validator')
   .description('format & lint code using prettier & eslint')
-  .option('-w, --write', 'edit files in-place when formatting via prettier')
-  .option('-f, --fix', 'automatically fix problems when linting via eslint')
+  .option('-w, --write', 'edit files in-place when formatting by prettier')
+  .option('-f, --fix', 'automatically fix problems when linting by eslint')
   .argument('[paths...]', 'dir or file paths to format and lint')
   .action((paths, options) => {
     process.exit((format(paths, options).status || lint(paths, options).status) ?? 0)

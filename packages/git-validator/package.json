@@ -7,12 +7,17 @@
   "license": "MIT",
   "homepage": "https://github.com/zanminkian/git-validator",
   "keywords": [
-    "opinionated",
     "git",
     "hooks",
+    "code",
+    "style",
+    "validator",
+    "eslint",
+    "prettier",
     "pre-commit",
     "husky",
-    "lint-staged"
+    "lint-staged",
+    "commitlint"
   ],
   "bin": {
     "git-validator": "./src/bin/git-validator.js",
