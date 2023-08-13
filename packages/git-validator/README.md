@@ -6,9 +6,11 @@
 [![](https://img.shields.io/librariesio/release/npm/git-validator)](https://www.npmjs.com/package/git-validator)
 [![](https://packagephobia.com/badge?p=git-validator)](https://packagephobia.com/result?p=git-validator)
 
+**Git** hooks and code style **Validator**.
+
 ## Motivation
 
-In a project, setting up `husky`, `eslint`, `prettier`, `lint-staged`, and `commitlint` is too tedious. There are too many steps and too many config files. Now, you can replace them in your project with this all-in-one package.
+In order to improve project code quality, we usually install `husky`, `eslint`, `prettier`, `lint-staged`, `commitlint` and configure them. It's too tedious. This light wight library provide the best practice for you. You can replace them in your project with this all-in-one package.
 
 ## Features
 

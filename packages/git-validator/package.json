@@ -2,7 +2,7 @@
   "name": "git-validator",
   "type": "module",
   "version": "0.6.0",
-  "description": "An all-in-one tool for project quality improvement.",
+  "description": "Git hooks and code style validator.",
   "author": "hellozmj@qq.com",
   "license": "MIT",
   "homepage": "https://github.com/zanminkian/git-validator",
