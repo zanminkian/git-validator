@@ -67,6 +67,9 @@ function getTsRules() {
     'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
     'ClassBody.body > PropertyDefinition[decorators.length > 0] > .key',
   )
+  // `const fun = (foo: never) => foo['bar']` will be formatted to `const fun = (foo: never) => foo.bar`.
+  // it's incorrect in typescript. so turn it off.
+  enabledRules['@typescript-eslint/dot-notation'] = 'off'
 
   return {
     enabledRules,
