@@ -1,5 +1,14 @@
 # git-validator
 
+## 0.6.1
+
+### Patch Changes
+
+- bdce62a: feat(git-validator): add lock file to prettierignore
+- Updated dependencies [9ebe282]
+- Updated dependencies [61bf00c]
+  - @zanminkian/eslint-config@0.3.1
+
 ## 0.6.0
 
 ### Minor Changes

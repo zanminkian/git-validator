@@ -1,5 +1,15 @@
 # @zanminkian/eslint-config
 
+## 0.3.1
+
+### Patch Changes
+
+- 9ebe282: fix(eslint-config): turn off `@typescript-eslint/dot-notation`
+- 61bf00c: chore(eslint-config,eslint-plugin): upgrade deps
+- Updated dependencies [ccccdfa]
+- Updated dependencies [61bf00c]
+  - @zanminkian/eslint-plugin@0.1.3
+
 ## 0.3.0
 
 ### Minor Changes
