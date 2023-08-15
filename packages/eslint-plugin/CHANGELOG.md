@@ -1,5 +1,12 @@
 # @zanminkian/eslint-plugin
 
+## 0.1.3
+
+### Patch Changes
+
+- ccccdfa: feat(eslint-plugin): allow PropertyDefinition in `no-declares-in-ts-file` rule
+- 61bf00c: chore(eslint-config,eslint-plugin): upgrade deps
+
 ## 0.1.2
 
 ### Patch Changes
