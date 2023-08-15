@@ -30,6 +30,9 @@ export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOpt
     }
     return {
       '[declare=true]': (node) => {
+        if (node.type === 'PropertyDefinition') {
+          return
+        }
         context.report({
           node,
           messageId,

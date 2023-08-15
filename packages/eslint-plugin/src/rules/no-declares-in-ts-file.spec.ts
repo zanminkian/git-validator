@@ -4,8 +4,6 @@ import rule, { messageId, ruleName } from './no-declares-in-ts-file'
 
 const codes = [
   'declare class A {}',
-  'class A { declare name: string }',
-  'class A { declare getName: () => string }',
 
   'declare var A: number = 123',
   'declare let A: number = 123',
@@ -20,7 +18,14 @@ const codes = [
 ]
 
 const invalid = codes.map((code) => ({ code, filename: 'foo.ts' }))
-const valid = codes.map((code) => ({ code, filename: 'foo.d.ts' }))
+const valid = codes
+  .map((code) => ({ code, filename: 'foo.d.ts' }))
+  .concat(
+    ['class A { declare name: string }', 'class A { declare getName: () => string }'].map((code) => ({
+      code,
+      filename: 'foo.ts',
+    })),
+  )
 
 RuleTester.afterAll = after
 RuleTester.describe = describe
