@@ -1,5 +1,17 @@
 # git-validator
 
+## 0.7.0
+
+### Minor Changes
+
+- b9078f4: refactor(git-validator): lint before format
+- e60a66b: refactor(git-validator): merge cli options into one
+
+### Patch Changes
+
+- Updated dependencies [4a7f63e]
+  - @zanminkian/eslint-config@0.3.2
+
 ## 0.6.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.3.2
+
+### Patch Changes
+
+- 4a7f63e: feat(eslint-config): introduce some rules to optimize imports
+
 ## 0.3.1
 
 ### Patch Changes
