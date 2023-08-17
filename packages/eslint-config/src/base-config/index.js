@@ -39,5 +39,6 @@ module.exports = {
     'no-implicit-coercion': ['error', { disallowTemplateShorthand: true, allow: ['!!'] }], // forbid code like `const num = +str`;
     'no-invalid-this': 'error',
     'no-plusplus': 'error',
+    'no-duplicate-imports': 'error',
   },
 }

@@ -104,6 +104,7 @@ module.exports = {
             '@typescript-eslint/method-signature-style': 'error',
             '@typescript-eslint/no-require-imports': 'error',
             '@typescript-eslint/no-namespace': 'error',
+            '@typescript-eslint/no-import-type-side-effects': 'error',
             // '@typescript-eslint/consistent-type-imports': 'error',
           },
         },
