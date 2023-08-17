@@ -7,11 +7,11 @@ const program = new Command()
 
 program
   .name('git-validator')
-  .description('format & lint code using prettier & eslint')
-  .option('-a, --apply', 'apply automatic fixes when formatting and linting')
+  .description('lint & format code using eslint & prettier')
+  .option('-a, --apply', 'apply automatic fixes when linting and formatting')
   .argument('[paths...]', 'dir or file paths to format and lint')
   .action((paths, options) => {
-    process.exit((format(paths, options).status || lint(paths, options).status) ?? 0)
+    process.exit((lint(paths, options).status || format(paths, options).status) ?? 0)
   })
 
 program

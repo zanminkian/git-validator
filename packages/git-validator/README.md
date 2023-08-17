@@ -15,7 +15,7 @@ In order to improve project code quality, we usually install `husky`, `eslint`, 
 ## Features
 
 - 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple.
-- 🚀 **Simple to use**: Only **TWO** steps required: installation and setting up scripts.
+- 🚀 **Simple to use**: Only **TWO** steps required: set up `scripts` and run it once.
 - 🔧 **Zero Configuration**: **ZERO** configuration file is needed, while still allowing customization of `eslint`, `prettier` and `commitlint` rules.
 
 ## Install
@@ -46,14 +46,25 @@ Now you can commit code (using Git) to your project. Invalid code or commit mess
 
 ## CLI
 
-There are some convenient built-in commands within `git-validator`. You can run `npx git-validator -h` for more details.
+There are some convenient built-in commands for you to lint and format code (using eslint and prettier under the hood). You can run `npx git-validator -h` for more details.
 
-- `git-validator install`: Install the git hooks.
-- `git-validator [dir]`: Format and lint code using Prettier and Eslint.
-- `git-validator -a [dir]`: Format and lint code using Prettier and Eslint. Files will be automatically updated.
-- `git-validator format [dir]`: Format code using Prettier.
-- `git-validator lint [dir]`: Lint code using Eslint.
-- `git-validator -h`: Print the help for command.
+```
+Usage: git-validator [options] [command] [paths...]
+
+lint & format code using eslint & prettier
+
+Arguments:
+  paths                        dir or file paths to format and lint
+
+Options:
+  -a, --apply                  apply automatic fixes when linting and formatting
+  -h, --help                   display help for command
+
+Commands:
+  lint [options] [paths...]    lint code using eslint
+  format [options] [paths...]  format code using prettier
+  install [options]            install git-validator config files
+```
 
 ## How it Works
 
@@ -65,7 +76,7 @@ The `commit-msg` file we wrote validates your git commit message before the comm
 
 ### `pre-commit` Stage
 
-The `pre-commit` file we wrote formats and lints your staged code before the commit is made. We use [Prettier](https://www.npmjs.com/package/prettier) with [@zanminkian/prettier-config](https://www.npmjs.com/package/@zanminkian/prettier-config) and [Eslint](https://www.npmjs.com/package/eslint) with [@zanminkian/eslint-config](https://www.npmjs.com/package/@zanminkian/eslint-config) to check the committing code.
+The `pre-commit` file we wrote lints and formats your staged code before the commit is made. We use [Eslint](https://www.npmjs.com/package/eslint) with [@zanminkian/eslint-config](https://www.npmjs.com/package/@zanminkian/eslint-config) and [Prettier](https://www.npmjs.com/package/prettier) with [@zanminkian/prettier-config](https://www.npmjs.com/package/@zanminkian/prettier-config) to check the committing code.
 
 ## Advanced Usage
 
