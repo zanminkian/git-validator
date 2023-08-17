@@ -12,7 +12,7 @@
     "install": "pnpm build",
     "postinstall": "git-validator install",
     "style": "git-validator",
-    "style:apply": "git-validator -wf",
+    "style:apply": "git-validator -a",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
     "release": "changeset publish"
