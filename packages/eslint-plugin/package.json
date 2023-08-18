@@ -15,7 +15,7 @@
   ],
   "exports": "./dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "test": "node --test --require ts-node/register src/**/*.spec.ts"
   },
   "dependencies": {
