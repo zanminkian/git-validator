@@ -1,12 +1,12 @@
 # git-validator
 
+**Git** hooks and code style **Validator**.
+
 [![](https://img.shields.io/npm/l/git-validator.svg)](https://github.com/zanminkian/git-validator/blob/main/LICENSE)
 [![](https://img.shields.io/npm/v/git-validator.svg)](https://www.npmjs.com/package/git-validator)
 [![](https://img.shields.io/npm/dm/git-validator.svg)](https://www.npmjs.com/package/git-validator)
 [![](https://img.shields.io/librariesio/release/npm/git-validator)](https://www.npmjs.com/package/git-validator)
 [![](https://packagephobia.com/badge?p=git-validator)](https://packagephobia.com/result?p=git-validator)
-
-**Git** hooks and code style **Validator**.
 
 ## Motivation
 
