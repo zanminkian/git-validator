@@ -228,7 +228,11 @@
     "object-curly-spacing": ["error", "always"],
     "object-property-newline": ["error", { "allowMultiplePropertiesPerLine": true }],
     "one-var": ["error", { "initialized": "never" }],
-    "operator-linebreak": ["error", "after", { "overrides": { "?": "before", ":": "before", "|>": "before" } }],
+    "operator-linebreak": [
+      "error",
+      "after",
+      { "overrides": { "?": "before", ":": "before", "|>": "before" } }
+    ],
     "padded-blocks": ["error", { "blocks": "never", "switches": "never", "classes": "never" }],
     "prefer-const": ["error", { "destructuring": "all" }],
     "prefer-promise-reject-errors": "error",
@@ -248,7 +252,11 @@
       "always",
       {
         "line": { "markers": ["*package", "!", "/", ",", "="] },
-        "block": { "balanced": true, "markers": ["*package", "!", ",", ":", "::", "flow-include"], "exceptions": ["*"] }
+        "block": {
+          "balanced": true,
+          "markers": ["*package", "!", ",", ":", "::", "flow-include"],
+          "exceptions": ["*"]
+        }
       }
     ],
     "symbol-description": "error",

@@ -1,21 +1,24 @@
-import { ESLintUtils } from '@typescript-eslint/utils'
+import { ESLintUtils } from "@typescript-eslint/utils";
 
-export const ruleName = 'no-const-enum'
-export const messageId = 'noConstEnum'
-export const defaultOptions = []
-const description = 'Disallow using `const enum` expression.'
-const message = 'Do not use `const enum` expression.'
+export const ruleName = "no-const-enum";
+export const messageId = "noConstEnum";
+export const defaultOptions = [];
+const description = "Disallow using `const enum` expression.";
+const message = "Do not use `const enum` expression.";
 
 /**
  * @internal
  */
-export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOptions, typeof messageId>({
+export default ESLintUtils.RuleCreator((ruleName) => ruleName)<
+  typeof defaultOptions,
+  typeof messageId
+>({
   name: ruleName,
   meta: {
-    type: 'problem',
+    type: "problem",
     docs: {
       description,
-      recommended: 'recommended',
+      recommended: "recommended",
     },
     schema: [],
     messages: {
@@ -30,9 +33,9 @@ export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOpt
           context.report({
             node,
             messageId,
-          })
+          });
         }
       },
-    }
+    };
   },
-})
+});

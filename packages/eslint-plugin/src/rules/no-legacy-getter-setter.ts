@@ -1,21 +1,25 @@
-import { ESLintUtils } from '@typescript-eslint/utils'
+import { ESLintUtils } from "@typescript-eslint/utils";
 
-export const ruleName = 'no-legacy-getter-setter'
-export const messageId = 'noLegacyGetterSetter'
-export const defaultOptions = []
-const description = 'Disallow using legacy getter and setter.'
-const message = "It's deprecated. Use `Object.defineProperty` or `Object.getOwnPropertyDescriptor` instead."
+export const ruleName = "no-legacy-getter-setter";
+export const messageId = "noLegacyGetterSetter";
+export const defaultOptions = [];
+const description = "Disallow using legacy getter and setter.";
+const message =
+  "It's deprecated. Use `Object.defineProperty` or `Object.getOwnPropertyDescriptor` instead.";
 
 /**
  * @internal
  */
-export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOptions, typeof messageId>({
+export default ESLintUtils.RuleCreator((ruleName) => ruleName)<
+  typeof defaultOptions,
+  typeof messageId
+>({
   name: ruleName,
   meta: {
-    type: 'problem',
+    type: "problem",
     docs: {
       description,
-      recommended: 'recommended',
+      recommended: "recommended",
     },
     schema: [],
     messages: {
@@ -25,12 +29,12 @@ export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOpt
   defaultOptions,
   create: (context) => {
     return {
-      '[property.name=/^__(define|lookup)[GS]etter__$/]': (node) => {
+      "[property.name=/^__(define|lookup)[GS]etter__$/]": (node) => {
         context.report({
           node,
           messageId,
-        })
+        });
       },
-    }
+    };
   },
-})
+});

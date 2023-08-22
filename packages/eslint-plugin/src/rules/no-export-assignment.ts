@@ -1,21 +1,24 @@
-import { ESLintUtils } from '@typescript-eslint/utils'
+import { ESLintUtils } from "@typescript-eslint/utils";
 
-export const ruleName = 'no-export-assignment'
-export const messageId = 'noExportAssignment'
-export const defaultOptions = []
-const description = 'Disallow using `export =` statement.'
-const message = 'Do not use `export =` statement. Use `export default` instead.'
+export const ruleName = "no-export-assignment";
+export const messageId = "noExportAssignment";
+export const defaultOptions = [];
+const description = "Disallow using `export =` statement.";
+const message = "Do not use `export =` statement. Use `export default` instead.";
 
 /**
  * @internal
  */
-export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOptions, typeof messageId>({
+export default ESLintUtils.RuleCreator((ruleName) => ruleName)<
+  typeof defaultOptions,
+  typeof messageId
+>({
   name: ruleName,
   meta: {
-    type: 'problem',
+    type: "problem",
     docs: {
       description,
-      recommended: 'recommended',
+      recommended: "recommended",
     },
     schema: [],
     messages: {
@@ -24,17 +27,17 @@ export default ESLintUtils.RuleCreator((ruleName) => ruleName)<typeof defaultOpt
   },
   defaultOptions,
   create: (context) => {
-    const extension = context.getFilename().split('.').pop()
-    if (!['ts', 'tsx', 'mts', 'cts'].includes(extension ?? '')) {
-      return {}
+    const extension = context.getFilename().split(".").pop();
+    if (!["ts", "tsx", "mts", "cts"].includes(extension ?? "")) {
+      return {};
     }
     return {
       TSExportAssignment: (node) => {
         context.report({
           node,
           messageId,
-        })
+        });
       },
-    }
+    };
   },
-})
+});

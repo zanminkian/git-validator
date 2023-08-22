@@ -1,6 +1,6 @@
-import { after, describe, it } from 'node:test'
-import { RuleTester } from '@typescript-eslint/rule-tester'
-import rule, { messageId, ruleName } from './import-regex'
+import { after, describe, it } from "node:test";
+import { RuleTester } from "@typescript-eslint/rule-tester";
+import rule, { messageId, ruleName } from "./import-regex";
 
 const valid = [
   'import xxx from "a"',
@@ -25,7 +25,7 @@ const valid = [
   'import "./foo"',
   'require("./foo")',
   'import("./foo")',
-]
+];
 
 const invalid = [
   'import a from "a.d"',
@@ -61,17 +61,17 @@ const invalid = [
   'import "./../foo"',
   'require("./../foo")',
   'import("./../foo")',
-]
+];
 
-RuleTester.afterAll = after
-RuleTester.describe = describe
-RuleTester.it = it
+RuleTester.afterAll = after;
+RuleTester.describe = describe;
+RuleTester.it = it;
 new RuleTester({
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
 }).run(ruleName, rule, {
   valid,
   invalid: invalid.map((i) => ({
     code: i,
     errors: [{ messageId }],
   })),
-})
+});
