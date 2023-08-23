@@ -1,5 +1,13 @@
 # @zanminkian/eslint-config
 
+## 0.3.3
+
+### Patch Changes
+
+- 3438566: chore: upgrade deps
+- Updated dependencies [3438566]
+  - @zanminkian/eslint-plugin@0.1.4
+
 ## 0.3.2
 
 ### Patch Changes

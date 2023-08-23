@@ -1,5 +1,11 @@
 # @zanminkian/eslint-plugin
 
+## 0.1.4
+
+### Patch Changes
+
+- 3438566: chore: upgrade deps
+
 ## 0.1.3
 
 ### Patch Changes
