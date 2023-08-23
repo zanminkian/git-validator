@@ -80,6 +80,41 @@ The `pre-commit` file we wrote lints and formats your staged code before the com
 
 ## Advanced Usage
 
+### Customizing Configs
+
+We use `eslint`, `prettier`, `commitlint`, and `lint-staged` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore`, `prettier.config.js`, `.prettierignore`, `commitlint.config.js`, and `lint-staged.config.js` in the root of the project. You can customize them to apply your own rules.
+
+- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`. The default config is `{ extends: '@zanminkian' }`.
+- Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator lint`.
+- Addint `prettier.config.js` file to apply you own rules when git committing and running `git-validator format`. The default config is `require('@zanminkian/prettier-config')`.
+- Adding `.prettierignore` file to skip formatting certain specific files when git committing and running `git-validator format`.
+- Adding `commitlint.config.js` file to apply your committing rules on the `commit-msg` stage. The default config is `{ extends: ['@commitlint/config-conventional'] }`.
+- Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator -a'] }`.
+
+### Setup `pre-push` Stage
+
+Running `git-validator install` writes `commit-msg` and `pre-commit` files only. As git `pre-push` stage is widely used, you can run `git-validator install --pre-push <cmd>` to set up git `pre-push` stage additionally.
+
+```json
+{
+  "scripts": {
+    "postinstall": "git-validator install --pre-push 'npm run test'"
+  }
+}
+```
+
+### Skipping installation
+
+If you don't want to check git commit messages, adding the `--no-commit-msg` option will skip writing `${PROJECT_ROOT}/.git/hooks/commit-msg` file. Similarly, adding the `--no-pre-commit` option will skip writing `${PROJECT_ROOT}/.git/hooks/pre-commit` file. Here is an example:
+
+```json
+{
+  "scripts": {
+    "postinstall": "git-validator install --no-commit-msg"
+  }
+}
+```
+
 ### Working with `husky`
 
 This library can work as a standalone package. However, if you have Husky 5 or a later version installed, you'll need to manually add `.husky/commit-msg` and `.husky/pre-commit`, as Husky will ignore the `.git/hooks/commit-msg` and `.git/hooks/pre-commit`:
@@ -96,41 +131,6 @@ This library can work as a standalone package. However, if you have Husky 5 or a
 . "$(dirname -- "$0")/_/husky.sh"
 
 .git/hooks/pre-commit $1
-```
-
-### Setup `pre-push` Stage
-
-Running `git-validator install` writes `commit-msg` and `pre-commit` files only. As git `pre-push` stage is widely used, you can run `git-validator install --pre-push <cmd>` to set up git `pre-push` stage additionally.
-
-```json
-{
-  "scripts": {
-    "postinstall": "git-validator install --pre-push 'npm run test'"
-  }
-}
-```
-
-### Customizing Configs
-
-We use `eslint`, `prettier`, `commitlint`, and `lint-staged` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore`, `prettier.config.js`, `.prettierignore`, `commitlint.config.js`, and `lint-staged.config.js` in the root of the project. You can customize them to apply your own rules.
-
-- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`. The default config is `{ extends: '@zanminkian' }`.
-- Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator lint`.
-- Addint `prettier.config.js` file to apply you own rules when git committing and running `git-validator format`. The default config is `require('@zanminkian/prettier-config')`.
-- Adding `.prettierignore` file to skip formatting certain specific files when git committing and running `git-validator format`.
-- Adding `commitlint.config.js` file to apply your committing rules on the `commit-msg` stage. The default config is `{ extends: ['@commitlint/config-conventional'] }`.
-- Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator -a'] }`.
-
-### Skipping installation
-
-If you don't want to check git commit messages, adding the `--no-commit-msg` option will skip writing `${PROJECT_ROOT}/.git/hooks/commit-msg` file. Similarly, adding the `--no-pre-commit` option will skip writing `${PROJECT_ROOT}/.git/hooks/pre-commit` file. Here is an example:
-
-```json
-{
-  "scripts": {
-    "postinstall": "git-validator install --no-commit-msg"
-  }
-}
 ```
 
 ## Contributing
