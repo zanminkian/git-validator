@@ -1,5 +1,19 @@
 # git-validator
 
+## 0.8.0
+
+### Minor Changes
+
+- e73b5f3: refactor(prettier-config): remove `semi` and `singleQuote` config
+
+### Patch Changes
+
+- 3438566: chore: upgrade deps
+- Updated dependencies [3438566]
+- Updated dependencies [e73b5f3]
+  - @zanminkian/eslint-config@0.3.3
+  - @zanminkian/prettier-config@0.2.0
+
 ## 0.7.0
 
 ### Minor Changes
