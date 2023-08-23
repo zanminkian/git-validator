@@ -9,7 +9,7 @@ const message = "`import()` should be called with string literal.";
 /**
  * @internal
  */
-export default ESLintUtils.RuleCreator((ruleName) => ruleName)<
+export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
   typeof defaultOptions,
   typeof messageId
 >({

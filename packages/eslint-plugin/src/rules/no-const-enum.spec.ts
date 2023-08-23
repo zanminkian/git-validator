@@ -1,6 +1,6 @@
 import { after, describe, it } from "node:test";
 import { RuleTester } from "@typescript-eslint/rule-tester";
-import rule, { messageId, ruleName } from "./no-const-enum";
+import { messageId, rule, ruleName } from "./no-const-enum";
 
 const valid = ["enum E {}"];
 

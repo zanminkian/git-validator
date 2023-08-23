@@ -1,6 +1,6 @@
 import { after, describe, it } from "node:test";
 import { RuleTester } from "@typescript-eslint/rule-tester";
-import rule, { messageId, ruleName } from "./no-dynamic-import";
+import { messageId, rule, ruleName } from "./no-dynamic-import";
 
 const valid = [
   'import("foo")',

@@ -21,7 +21,7 @@ const schema: readonly JSONSchema4[] = [{ type: "string" }];
 /**
  * @internal
  */
-export default ESLintUtils.RuleCreator((ruleName) => ruleName)<
+export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
   typeof defaultOptions,
   typeof messageId
 >({

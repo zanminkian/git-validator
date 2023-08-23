@@ -1,6 +1,6 @@
 import { after, describe, it } from "node:test";
 import { RuleTester } from "@typescript-eslint/rule-tester";
-import rule, { messageId, ruleName } from "./prefer-global-this";
+import { messageId, rule, ruleName } from "./prefer-global-this";
 
 const valid = [
   "foo.name",

@@ -39,11 +39,11 @@ export const configs = {
  * @internal
  */
 export const rules = {
-  [importRegex.ruleName]: importRegex.default,
-  [noConstEnum.ruleName]: noConstEnum.default,
-  [noDeclaresInTsFile.ruleName]: noDeclaresInTsFile.default,
-  [noDynamicImport.ruleName]: noDynamicImport.default,
-  [noExportAssignment.ruleName]: noExportAssignment.default,
-  [noLegacyGetterSetter.ruleName]: noLegacyGetterSetter.default,
-  [preferGlobalThis.ruleName]: preferGlobalThis.default,
+  [importRegex.ruleName]: importRegex.rule,
+  [noConstEnum.ruleName]: noConstEnum.rule,
+  [noDeclaresInTsFile.ruleName]: noDeclaresInTsFile.rule,
+  [noDynamicImport.ruleName]: noDynamicImport.rule,
+  [noExportAssignment.ruleName]: noExportAssignment.rule,
+  [noLegacyGetterSetter.ruleName]: noLegacyGetterSetter.rule,
+  [preferGlobalThis.ruleName]: preferGlobalThis.rule,
 };

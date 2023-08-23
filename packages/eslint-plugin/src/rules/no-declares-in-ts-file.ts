@@ -9,7 +9,7 @@ const message = "Do not use `declare` statement in ts file.";
 /**
  * @internal
  */
-export default ESLintUtils.RuleCreator((ruleName) => ruleName)<
+export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
   typeof defaultOptions,
   typeof messageId
 >({
