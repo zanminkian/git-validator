@@ -26,16 +26,14 @@ export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
     },
   },
   defaultOptions,
-  create: (context) => {
-    return {
-      TSEnumDeclaration: (node) => {
-        if (node.const) {
-          context.report({
-            node,
-            messageId,
-          });
-        }
-      },
-    };
-  },
+  create: (context) => ({
+    TSEnumDeclaration: (node) => {
+      if (node.const) {
+        context.report({
+          node,
+          messageId,
+        });
+      }
+    },
+  }),
 });

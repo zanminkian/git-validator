@@ -21,6 +21,7 @@ module.exports = {
     "unicorn/prefer-node-protocol": "error",
     "unicorn/escape-case": "error", // '\ud834' -> '\uD834'
     "unicorn/number-literal-case": "error", // 0XFF -> 0xFF
+    "arrow-body-style": ["error", "as-needed"],
 
     // ban some syntaxes to reduce mistakes
     "import/no-self-import": "error",

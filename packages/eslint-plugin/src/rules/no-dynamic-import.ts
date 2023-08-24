@@ -26,26 +26,24 @@ export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
     },
   },
   defaultOptions,
-  create: (context) => {
-    return {
-      ImportExpression: (node) => {
-        const { source, attributes } = node;
-        if (source.type !== "Literal") {
-          context.report({ node, messageId });
-          return;
-        }
-        if (!("value" in source)) {
-          context.report({ node, messageId });
-          return;
-        }
-        if (typeof source.value !== "string") {
-          context.report({ node, messageId });
-          return;
-        }
-        if (attributes) {
-          context.report({ node, messageId });
-        }
-      },
-    };
-  },
+  create: (context) => ({
+    ImportExpression: (node) => {
+      const { source, attributes } = node;
+      if (source.type !== "Literal") {
+        context.report({ node, messageId });
+        return;
+      }
+      if (!("value" in source)) {
+        context.report({ node, messageId });
+        return;
+      }
+      if (typeof source.value !== "string") {
+        context.report({ node, messageId });
+        return;
+      }
+      if (attributes) {
+        context.report({ node, messageId });
+      }
+    },
+  }),
 });

@@ -10,7 +10,6 @@ const tsconfig = fs.existsSync(path.join(process.cwd(), "tsconfig.eslint.json"))
   : undefined;
 
 function getTsRules() {
-  if (!tsconfig) return {};
   const baseConfigCopied = JSON.parse(JSON.stringify(baseConfig));
   // https://typescript-eslint.io/rules/#extension-rules
   const allBuiltinRuleKeys = [
@@ -77,7 +76,7 @@ function getTsRules() {
   };
 }
 
-const { enabledRules, disabledRules } = getTsRules();
+const { enabledRules, disabledRules } = tsconfig ? getTsRules() : {};
 module.exports = {
   overrides: tsconfig
     ? [

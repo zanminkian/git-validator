@@ -27,14 +27,12 @@ export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
     },
   },
   defaultOptions,
-  create: (context) => {
-    return {
-      "[property.name=/^__(define|lookup)[GS]etter__$/]": (node) => {
-        context.report({
-          node,
-          messageId,
-        });
-      },
-    };
-  },
+  create: (context) => ({
+    "[property.name=/^__(define|lookup)[GS]etter__$/]": (node) => {
+      context.report({
+        node,
+        messageId,
+      });
+    },
+  }),
 });
