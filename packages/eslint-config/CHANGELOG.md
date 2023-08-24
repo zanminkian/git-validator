@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.3.4
+
+### Patch Changes
+
+- 067593c: feat(eslint-config): enable `arrow-body-style`
+
 ## 0.3.3
 
 ### Patch Changes
