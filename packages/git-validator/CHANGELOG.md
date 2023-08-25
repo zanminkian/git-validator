@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.9.0
+
+### Minor Changes
+
+- 55857b3: refactor(git-validator): change option name `apply` to `update`
+
 ## 0.8.1
 
 ### Patch Changes
