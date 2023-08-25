@@ -57,7 +57,7 @@ export function install({ preCommit, commitMsg, prePush }) {
 }
 
 export function lint(paths = [], options = {}) {
-  const { apply: fix } = options;
+  const { update: fix } = options;
   const cwd = process.cwd();
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
   return spawnSync(
@@ -68,7 +68,7 @@ export function lint(paths = [], options = {}) {
 }
 
 export function format(paths = [], options = {}) {
-  const { apply: write } = options;
+  const { update: write } = options;
   const cwd = process.cwd();
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
 

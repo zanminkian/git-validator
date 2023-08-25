@@ -35,7 +35,7 @@ Edit `package.json > postinstall` script and run it once.
   "scripts": {
     "postinstall": "git-validator install",
     "style": "git-validator", // Run this to check the whole project code style
-    "style:apply": "git-validator -a" // Run this to check the whole project code style and apply fixes
+    "style:update": "git-validator -u" // Run this to check the whole project code style and apply fixes
   }
 }
 ```
@@ -59,7 +59,7 @@ Arguments:
   paths                        dir or file paths to format and lint
 
 Options:
-  -a, --apply                  apply automatic fixes when linting and formatting
+  -u, --update                 automatically update files to fix code style problems
   -h, --help                   display help for command
 
 Commands:
@@ -91,7 +91,7 @@ We use `eslint`, `prettier`, `commitlint`, and `lint-staged` under the hood. So 
 - Addint `prettier.config.js` file to apply you own rules when git committing and running `git-validator format`. The default config is `require('@zanminkian/prettier-config')`.
 - Adding `.prettierignore` file to skip formatting certain specific files when git committing and running `git-validator format`.
 - Adding `commitlint.config.js` file to apply your committing rules on the `commit-msg` stage. The default config is `{ extends: ['@commitlint/config-conventional'] }`.
-- Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator -a'] }`.
+- Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator -u'] }`.
 
 ### Setup `pre-push` Stage
 

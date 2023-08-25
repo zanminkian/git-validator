@@ -8,7 +8,7 @@ const program = new Command();
 program
   .name("git-validator")
   .description("lint & format code using eslint & prettier")
-  .option("-a, --apply", "apply automatic fixes when linting and formatting")
+  .option("-u, --update", "automatically update files to fix code style problems")
   .argument("[paths...]", "dir or file paths to format and lint")
   .action((paths, options) => {
     process.exit((lint(paths, options).status || format(paths, options).status) ?? 0);
@@ -17,7 +17,7 @@ program
 program
   .command("lint")
   .description("lint code using eslint")
-  .option("-a, --apply", "apply automatic fixes when linting")
+  .option("-u, --update", "automatically update files to fix code style problems")
   .argument("[paths...]", "dir or file paths to lint")
   .action((paths, options, prog) =>
     process.exit(lint(paths, { ...prog.optsWithGlobals(), ...options }).status ?? 0),
@@ -26,7 +26,7 @@ program
 program
   .command("format")
   .description("format code using prettier")
-  .option("-a, --apply", "apply automatic fixes when formatting")
+  .option("-u, --update", "automatically update files to fix code style problems")
   .argument("[paths...]", "dir or file paths to format")
   .action((paths, options, prog) =>
     process.exit(format(paths, { ...prog.optsWithGlobals(), ...options }).status ?? 0),
