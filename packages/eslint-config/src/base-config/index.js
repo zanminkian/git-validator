@@ -31,6 +31,7 @@ module.exports = {
     "import/no-named-as-default-member": "error", // forbid code like `import foo from './foo.js'; const bar = foo.bar;`
     "n/prefer-global/process": ["error", "never"],
     "n/prefer-global/buffer": ["error", "never"],
+    // "n/no-sync": "error", // TODO enable it once we migrate to flat config. https://eslint.org/docs/latest/use/configure/configuration-files-new
     "unicorn/error-message": "error",
     "unicorn/no-instanceof-array": "error",
     "unicorn/no-new-array": "error",
