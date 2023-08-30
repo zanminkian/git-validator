@@ -1,4 +1,3 @@
-const fs = require("node:fs");
 const process = require("node:process");
 const jsConfig = require("./js-config");
 const tsConfig = require("./ts-config");
@@ -8,19 +7,14 @@ function listUnsupportedExtensions(supportedExtensions) {
     return !supportedExtensions.some((ext) => path.toLowerCase().endsWith(`.${ext}`));
   }
 
-  function isFile(path) {
-    try {
-      return fs.statSync(path).isFile();
-    } catch (e) {
-      // if file not found, return false here
-      return false;
-    }
+  function endsWithExtension(path) {
+    return /\.[a-zA-Z0-9]+$/.test(path);
   }
 
   return process.argv
     .slice(2)
     .filter((i) => !i.startsWith("-"))
-    .filter(isFile)
+    .filter(endsWithExtension)
     .filter(isUnsupportedFile)
     .map((p) => `*.${p.split(".").pop()}`)
     .filter((i, index, arr) => arr.indexOf(i) === index);
