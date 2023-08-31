@@ -10,5 +10,8 @@
     "standard"
   ],
   "author": "hellozmj@qq.com",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "prettier-plugin-tailwindcss": "^0.5.4"
+  }
 }
