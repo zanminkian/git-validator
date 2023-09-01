@@ -1,7 +1,7 @@
 {
   "name": "git-validator",
   "type": "module",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Git hooks and code style validator.",
   "author": "hellozmj@qq.com",
   "license": "MIT",

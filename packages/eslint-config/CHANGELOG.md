@@ -1,5 +1,14 @@
 # @zanminkian/eslint-config
 
+## 0.3.5
+
+### Patch Changes
+
+- 5c5fe5a: chore: upgrade deps
+- eb12d1c: perf(eslint-config): do not check file existing
+- Updated dependencies [5c5fe5a]
+  - @zanminkian/eslint-plugin@0.1.5
+
 ## 0.3.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @zanminkian/prettier-config
 
+## 0.3.0
+
+### Minor Changes
+
+- 003b95f: feat(prettier-config): support formatting tailwind
+
 ## 0.2.0
 
 ### Minor Changes
