@@ -10,7 +10,6 @@ const tsconfig = fs.existsSync(path.join(process.cwd(), "tsconfig.eslint.json"))
   : undefined;
 
 function getTsRules() {
-  const baseConfigCopied = JSON.parse(JSON.stringify(baseConfig));
   // https://typescript-eslint.io/rules/#extension-rules
   const allBuiltinRuleKeys = [
     "block-spacing",
@@ -55,17 +54,22 @@ function getTsRules() {
     "space-before-function-paren",
     "space-infix-ops",
   ];
-  const builtinRuleKeys = allBuiltinRuleKeys.filter((key) => baseConfigCopied.rules[key]);
+  const builtinRuleKeys = allBuiltinRuleKeys.filter((key) => baseConfig.rules[key]);
   const disabledRules = builtinRuleKeys.reduce((result, key) => ({ ...result, [key]: "off" }), {});
   const enabledRules = builtinRuleKeys.reduce(
-    (result, key) => ({ ...result, [`@typescript-eslint/${key}`]: baseConfigCopied.rules[key] }),
+    (result, key) => ({
+      ...result,
+      [`@typescript-eslint/${key}`]: JSON.parse(JSON.stringify(baseConfig.rules[key])),
+    }),
     {},
   );
+  // 1.
   enabledRules["@typescript-eslint/indent"][2].ignoredNodes.push(
     "FunctionExpression > .params[decorators.length > 0]",
     "FunctionExpression > .params > :matches(Decorator, :not(:first-child))",
     "ClassBody.body > PropertyDefinition[decorators.length > 0] > .key",
   );
+  // 2.
   // `const fun = (foo: never) => foo['bar']` will be formatted to `const fun = (foo: never) => foo.bar`.
   // it's incorrect in typescript. so turn it off.
   enabledRules["@typescript-eslint/dot-notation"] = "off";
