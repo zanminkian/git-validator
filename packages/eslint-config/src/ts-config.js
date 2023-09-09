@@ -105,6 +105,10 @@ module.exports = {
             "@typescript-eslint/no-namespace": "error",
             "@typescript-eslint/no-import-type-side-effects": "error",
             // '@typescript-eslint/consistent-type-imports': 'error',
+
+            "@zanminkian/no-const-enum": "error",
+            "@zanminkian/no-declares-in-ts-file": "error",
+            "@zanminkian/no-export-assignment": "error",
           },
         },
       ]
