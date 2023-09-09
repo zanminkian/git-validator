@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.9.3-beta.0
+
+### Patch Changes
+
+- 2cf49ad: refactor(git-validator): use flat eslint config
+- Updated dependencies [c17c4f8]
+  - @zanminkian/eslint-config@0.4.0-beta.0
+
 ## 0.9.2
 
 ### Patch Changes
