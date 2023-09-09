@@ -7,5 +7,8 @@
     "git-validator": "0.9.2",
     "@zanminkian/prettier-config": "0.3.0"
   },
-  "changesets": []
+  "changesets": [
+    "eleven-coins-sit",
+    "rotten-months-remain"
+  ]
 }

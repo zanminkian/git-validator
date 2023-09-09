@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.4.0-beta.0
+
+### Minor Changes
+
+- c17c4f8: refactor(eslint-config): ship to flat config
+
 ## 0.3.6
 
 ### Patch Changes
