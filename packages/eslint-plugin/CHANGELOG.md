@@ -1,5 +1,11 @@
 # @zanminkian/eslint-plugin
 
+## 0.2.0
+
+### Minor Changes
+
+- 137332b: refactor(eslint-plugin): remove the usage of `plugin:@zanminkian/recommended`
+
 ## 0.1.5
 
 ### Patch Changes
