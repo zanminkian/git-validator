@@ -1,8 +1,39 @@
-const standardConfig = require("./standard-config.json");
+import fs from "node:fs";
+import path from "node:path";
+import zanminkianPlugin from "@zanminkian/eslint-plugin";
+import importPlugin from "eslint-plugin-import";
+import nPlugin from "eslint-plugin-n";
+import promisePlugin from "eslint-plugin-promise";
+import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
+import unicornPlugin from "eslint-plugin-unicorn";
+import globals from "globals";
 
-module.exports = {
-  ...standardConfig,
-  plugins: [...standardConfig.plugins, "@zanminkian", "unicorn", "simple-import-sort"],
+const dirname = path.dirname(new URL(import.meta.url).pathname);
+const standardConfig = JSON.parse(fs.readFileSync(path.join(dirname, "standard-config.json")));
+
+export default {
+  files: ["**/*.js", "**/*.cjs", "**/*.mjs", "**/*.jsx"],
+  ignores: ["dist", "output", "out", "coverage"].map((i) => `**/${i}/**/*`),
+  languageOptions: {
+    globals: {
+      ...globals["shared-node-browser"],
+      ...globals.commonjs, // TODO remove it
+      __dirname: false, // TODO remove it
+      __filename: false, // TODO remove it
+    },
+  },
+  linterOptions: {
+    // noInlineConfig: true,
+    reportUnusedDisableDirectives: true,
+  },
+  plugins: {
+    n: nPlugin,
+    import: importPlugin,
+    promise: promisePlugin,
+    unicorn: unicornPlugin,
+    "simple-import-sort": simpleImportSortPlugin,
+    "@zanminkian": zanminkianPlugin,
+  },
   rules: {
     ...standardConfig.rules,
     // override standard config rules
@@ -27,7 +58,7 @@ module.exports = {
     "import/no-dynamic-require": "error", // TODO remove it once we have ban commonjs in js file.
     "import/no-relative-packages": "error",
     "import/no-mutable-exports": "error", // forbid code like `export let count = 3`
-    "import/no-named-as-default-member": "error", // forbid code like `import foo from './foo.js'; const bar = foo.bar;`
+    // "import/no-named-as-default-member": "error", // forbid code like `import foo from './foo.js'; const bar = foo.bar;`
     "n/prefer-global/process": ["error", "never"],
     "n/prefer-global/buffer": ["error", "never"],
     // "n/no-sync": "error", // TODO enable it once we migrate to flat config. https://eslint.org/docs/latest/use/configure/configuration-files-new

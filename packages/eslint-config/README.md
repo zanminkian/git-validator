@@ -6,7 +6,7 @@
 [![](https://img.shields.io/librariesio/release/npm/@zanminkian/eslint-config)](https://www.npmjs.com/package/@zanminkian/eslint-config)
 [![](https://packagephobia.com/badge?p=@zanminkian/eslint-config)](https://packagephobia.com/result?p=@zanminkian/eslint-config)
 
-Opinionated eslint config presets. Based on [standard.js](https://github.com/standard/standard) without any stylistic opinions.
+A strict eslint config for better code quality. Based on [standard.js](https://github.com/standard/standard) without any stylistic opinions.
 
 ## Feature
 
@@ -23,12 +23,12 @@ Install
 pnpm add -D eslint @zanminkian/eslint-config
 ```
 
-Config `.eslintrc.js`
+Config `eslint.config.js`
 
 ```js
-module.exports = {
-  extends: "@zanminkian",
-};
+import config from "@zanminkian/eslint-config";
+
+export default config;
 ```
 
 Config `package.json`

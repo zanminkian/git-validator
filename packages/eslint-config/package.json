@@ -1,7 +1,8 @@
 {
   "name": "@zanminkian/eslint-config",
+  "type": "module",
   "version": "0.3.6",
-  "description": "Opinionated eslint config presets.",
+  "description": "A strict eslint config for better code quality.",
   "author": "hellozmj@qq.com",
   "license": "MIT",
   "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-config",
@@ -23,7 +24,8 @@
     "eslint-plugin-n": "^16.0.2",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-unicorn": "^48.0.1"
+    "eslint-plugin-unicorn": "^48.0.1",
+    "globals": "^13.21.0"
   },
   "devDependencies": {
     "eslint": "^8.48.0"

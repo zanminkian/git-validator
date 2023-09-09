@@ -1,7 +1,10 @@
-const process = require("node:process");
-const fs = require("node:fs");
-const path = require("node:path");
-const baseConfig = require("./base-config");
+import fs from "node:fs";
+import path from "node:path";
+import process from "node:process";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import globals from "globals";
+import baseConfig from "./base-config/index.js";
 
 const tsconfig = fs.existsSync(path.join(process.cwd(), "tsconfig.eslint.json"))
   ? "tsconfig.eslint.json"
@@ -81,40 +84,54 @@ function getTsRules() {
 }
 
 const { enabledRules, disabledRules } = tsconfig ? getTsRules() : {};
-module.exports = {
-  overrides: tsconfig
-    ? [
-        {
-          files: ["*.ts", "*.cts", "*.mts", "*.tsx"],
-          extends: ["./base-config"],
-          plugins: ["@typescript-eslint"],
-          parser: "@typescript-eslint/parser",
+export default tsconfig
+  ? [
+      {
+        files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
+        ignores: ["dist", "output", "out", "coverage"].map((i) => `**/${i}/**/*`),
+        languageOptions: {
+          globals: {
+            ...globals["shared-node-browser"],
+            __dirname: false,
+            __filename: false,
+          },
+          parser: tsParser,
           parserOptions: {
             tsconfigRootDir: process.cwd(),
             project: [tsconfig],
           },
-          rules: {
-            ...disabledRules,
-            ...enabledRules,
-            "no-void": ["error", { allowAsStatement: true }],
-
-            // ban some syntaxes to reduce mistakes
-            "import/no-commonjs": [
-              "error",
-              { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false },
-            ], // TODO move this rule to base. js file should not use commonjs too.
-            "@typescript-eslint/ban-types": "error",
-            "@typescript-eslint/method-signature-style": "error",
-            "@typescript-eslint/no-require-imports": "error",
-            "@typescript-eslint/no-namespace": "error",
-            "@typescript-eslint/no-import-type-side-effects": "error",
-            // '@typescript-eslint/consistent-type-imports': 'error',
-
-            "@zanminkian/no-const-enum": "error",
-            "@zanminkian/no-declares-in-ts-file": "error",
-            "@zanminkian/no-export-assignment": "error",
-          },
         },
-      ]
-    : [],
-};
+        linterOptions: {
+          // noInlineConfig: true,
+          reportUnusedDisableDirectives: true,
+        },
+        plugins: {
+          ...baseConfig.plugins,
+          "@typescript-eslint": tsPlugin,
+        },
+
+        rules: {
+          ...baseConfig.rules,
+          ...disabledRules,
+          ...enabledRules,
+          "no-void": ["error", { allowAsStatement: true }],
+
+          // ban some syntaxes to reduce mistakes
+          "import/no-commonjs": [
+            "error",
+            { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false },
+          ], // TODO move this rule to base. js file should not use commonjs too.
+          "@typescript-eslint/ban-types": "error",
+          "@typescript-eslint/method-signature-style": "error",
+          "@typescript-eslint/no-require-imports": "error",
+          "@typescript-eslint/no-namespace": "error",
+          "@typescript-eslint/no-import-type-side-effects": "error",
+          // '@typescript-eslint/consistent-type-imports': 'error',
+
+          "@zanminkian/no-const-enum": "error",
+          "@zanminkian/no-declares-in-ts-file": "error",
+          "@zanminkian/no-export-assignment": "error",
+        },
+      },
+    ]
+  : [];
