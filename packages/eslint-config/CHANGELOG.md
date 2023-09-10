@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.4.0-beta.2
+
+### Patch Changes
+
+- 2d5d113: refactor(eslint-config): globally ignore some dirs
+
 ## 0.4.0-beta.1
 
 ### Patch Changes
