@@ -86,9 +86,9 @@ The `pre-commit` file we wrote lints and formats your staged code before the com
 
 We use `eslint`, `prettier`, `commitlint`, and `lint-staged` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore`, `prettier.config.js`, `.prettierignore`, `commitlint.config.js`, and `lint-staged.config.js` in the root of the project. You can customize them to apply your own rules.
 
-- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`. The default config is `import("@zanminkian/eslint-config").then((i) => i.default)`.
+- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`. We use npm package [@zanminkian/eslint-config](https://www.npmjs.com/package/@zanminkian/eslint-config) as the default eslint config.
 - Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator lint`.
-- Addint `prettier.config.js` file to apply you own rules when git committing and running `git-validator format`. The default config is `require('@zanminkian/prettier-config')`.
+- Addint `prettier.config.js` file to apply you own rules when git committing and running `git-validator format`. We use npm package [@zanminkian/prettier-config](https://www.npmjs.com/package/@zanminkian/prettier-config) as the default prettier config.
 - Adding `.prettierignore` file to skip formatting certain specific files when git committing and running `git-validator format`.
 - Adding `commitlint.config.js` file to apply your committing rules on the `commit-msg` stage. The default config is `{ extends: ['@commitlint/config-conventional'] }`.
 - Adding `lint-staged.config.js` file to customize your lint-staged flow. The default config is `{ '*': ['npx git-validator -u'] }`.

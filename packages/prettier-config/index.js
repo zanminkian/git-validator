@@ -1,6 +1,6 @@
-const path = require("node:path");
-const process = require("node:process");
-const fs = require("node:fs");
+import fs from "node:fs";
+import path from "node:path";
+import process from "node:process";
 
 const cwd = process.cwd();
 const tsPath = path.resolve(cwd, "tailwind.config.ts");
@@ -15,7 +15,7 @@ const tailwindConfig = fs.existsSync(tsPath)
   ? jsonPath
   : undefined;
 
-module.exports = {
+export default {
   ...(tailwindConfig ? { plugins: ["prettier-plugin-tailwindcss"], tailwindConfig } : {}),
   printWidth: 100, // 120 may be too long
 };
