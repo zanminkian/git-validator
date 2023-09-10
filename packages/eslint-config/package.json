@@ -15,6 +15,9 @@
     "standard"
   ],
   "exports": "./src/index.js",
+  "scripts": {
+    "build": "tsc --noEmit -p tsconfig.build.json"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",

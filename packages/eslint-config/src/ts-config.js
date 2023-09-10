@@ -1,12 +1,19 @@
-import fs from "node:fs";
+// @ts-check
+import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import tsParser from "@typescript-eslint/parser";
 import jsConfig from "./js-config/index.js";
 
-const tsconfig = fs.existsSync(path.join(process.cwd(), "tsconfig.eslint.json"))
+const tsconfig = (await fs
+  .access(path.join(process.cwd(), "tsconfig.eslint.json"))
+  .then(() => true)
+  .catch(() => false))
   ? "tsconfig.eslint.json"
-  : fs.existsSync(path.join(process.cwd(), "tsconfig.json"))
+  : (await fs
+      .access(path.join(process.cwd(), "tsconfig.json"))
+      .then(() => true)
+      .catch(() => false))
   ? "tsconfig.json"
   : undefined;
 
@@ -57,6 +64,9 @@ function getTsRules() {
   ];
   const builtinRuleKeys = allBuiltinRuleKeys.filter((key) => jsConfig.rules[key]);
   const disabledRules = builtinRuleKeys.reduce((result, key) => ({ ...result, [key]: "off" }), {});
+  /**
+   * @type {Record<string, any>}
+   */
   const enabledRules = builtinRuleKeys.reduce(
     (result, key) => ({
       ...result,

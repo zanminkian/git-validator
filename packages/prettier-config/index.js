@@ -1,4 +1,5 @@
-import fs from "node:fs";
+// @ts-check
+import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 
@@ -7,11 +8,20 @@ const tsPath = path.resolve(cwd, "tailwind.config.ts");
 const jsPath = path.resolve(cwd, "tailwind.config.js");
 const jsonPath = path.resolve(cwd, "tailwind.config.json");
 
-const tailwindConfig = fs.existsSync(tsPath)
+const tailwindConfig = (await fs
+  .access(tsPath)
+  .then(() => true)
+  .catch(() => false))
   ? tsPath
-  : fs.existsSync(jsPath)
+  : (await fs
+      .access(jsPath)
+      .then(() => true)
+      .catch(() => false))
   ? jsPath
-  : fs.existsSync(jsonPath)
+  : (await fs
+      .access(jsonPath)
+      .then(() => true)
+      .catch(() => false))
   ? jsonPath
   : undefined;
 

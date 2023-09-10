@@ -10,8 +10,10 @@ program
   .description("lint & format code using eslint & prettier")
   .option("-u, --update", "automatically update files to fix code style problems")
   .argument("[paths...]", "dir or file paths to format and lint")
-  .action((paths, options) => {
-    process.exit((lint(paths, options).status || format(paths, options).status) ?? 0);
+  .action(async (paths, options) => {
+    process.exit(
+      ((await lint(paths, options)).status || (await format(paths, options)).status) ?? 0,
+    );
   });
 
 program
@@ -19,8 +21,8 @@ program
   .description("lint code using eslint")
   .option("-u, --update", "automatically update files to fix code style problems")
   .argument("[paths...]", "dir or file paths to lint")
-  .action((paths, options, prog) =>
-    process.exit(lint(paths, { ...prog.optsWithGlobals(), ...options }).status ?? 0),
+  .action(async (paths, options, prog) =>
+    process.exit((await lint(paths, { ...prog.optsWithGlobals(), ...options })).status ?? 0),
   );
 
 program
@@ -28,8 +30,8 @@ program
   .description("format code using prettier")
   .option("-u, --update", "automatically update files to fix code style problems")
   .argument("[paths...]", "dir or file paths to format")
-  .action((paths, options, prog) =>
-    process.exit(format(paths, { ...prog.optsWithGlobals(), ...options }).status ?? 0),
+  .action(async (paths, options, prog) =>
+    process.exit((await format(paths, { ...prog.optsWithGlobals(), ...options })).status ?? 0),
   );
 
 program
@@ -38,6 +40,6 @@ program
   .option("--no-pre-commit", "skip writing `pre-commit` file")
   .option("--no-commit-msg", "skip writing `commit-msg` file")
   .option("--pre-push <cmd>", "setup a command to run during the git `pre-push` stage")
-  .action((options) => install(options));
+  .action(async (options) => await install(options));
 
 program.parse();

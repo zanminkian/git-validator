@@ -1,5 +1,6 @@
+// @ts-check
 import { spawnSync } from "node:child_process";
-import fs from "node:fs";
+import fs from "node:fs/promises";
 import { createRequire } from "node:module";
 import { dirname, join, resolve } from "node:path";
 import process from "node:process";
@@ -9,57 +10,76 @@ import { cosmiconfigSync } from "cosmiconfig";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const requireResolve = createRequire(import.meta.url).resolve;
 
-function writeGitHook(file, content) {
+/**
+ * @param {string} file
+ * @param {string} content
+ */
+async function writeGitHook(file, content) {
   const gitPath = resolve(process.cwd(), ".git");
-  if (!fs.existsSync(gitPath)) {
+  if (
+    !(await fs
+      .access(gitPath)
+      .then(() => true)
+      .catch(() => false))
+  ) {
     throw new Error("Directory `.git` is not existing. Please run `git init` first.");
   }
 
   const hooksPath = resolve(gitPath, "hooks");
-  fs.mkdirSync(hooksPath, { recursive: true });
+  await fs.mkdir(hooksPath, { recursive: true });
 
   const path = resolve(hooksPath, file);
-  fs.writeFileSync(path, content);
-  fs.chmodSync(path, "777");
+  await fs.writeFile(path, content);
+  await fs.chmod(path, "777");
 }
 
-function writePreCommit() {
+async function writePreCommit() {
   const content = [
     "#!/bin/sh",
     `npx lint-staged --config ${join(__dirname, "lint-staged.config.cjs")}`,
   ].join("\n");
 
-  writeGitHook("pre-commit", content);
+  await writeGitHook("pre-commit", content);
 }
 
-function writeCommitMsg() {
+async function writeCommitMsg() {
   const content = [
     "#!/bin/sh",
     `npx commitlint --config ${join(__dirname, "commitlint.config.cjs")} --edit`,
   ].join("\n");
 
-  writeGitHook("commit-msg", content);
+  await writeGitHook("commit-msg", content);
 }
 
-function writePrePush(cmd) {
+/**
+ * @param {string} cmd
+ */
+async function writePrePush(cmd) {
   const content = ["#!/bin/sh", cmd].join("\n");
 
-  writeGitHook("pre-push", content);
+  await writeGitHook("pre-push", content);
 }
 
-export function install({ preCommit, commitMsg, prePush }) {
+/**
+ * @param {{preCommit: boolean, commitMsg: boolean, prePush: string}} options
+ */
+export async function install({ preCommit, commitMsg, prePush }) {
   if (preCommit) {
-    writePreCommit();
+    await writePreCommit();
   }
   if (commitMsg) {
-    writeCommitMsg();
+    await writeCommitMsg();
   }
   if (prePush) {
-    writePrePush(prePush);
+    await writePrePush(prePush);
   }
 }
 
-export function lint(paths = [], options = {}) {
+/**
+ * @param {Array<string>} paths
+ * @param {{update?: boolean}} options
+ */
+export async function lint(paths = [], options = {}) {
   const { update: fix } = options;
   const cwd = process.cwd();
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
@@ -75,7 +95,11 @@ export function lint(paths = [], options = {}) {
   });
 }
 
-export function format(paths = [], options = {}) {
+/**
+ * @param {Array<string>} paths
+ * @param {{update?: boolean}} options
+ */
+export async function format(paths = [], options = {}) {
   const { update: write } = options;
   const cwd = process.cwd();
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
@@ -83,10 +107,18 @@ export function format(paths = [], options = {}) {
   const projectPrettierIgnore = join(cwd, ".prettierignore");
   const projectGitIgnore = join(cwd, ".gitignore");
   const ignores = [
-    ...(fs.existsSync(projectPrettierIgnore)
+    ...((await fs
+      .access(projectPrettierIgnore)
+      .then(() => true)
+      .catch(() => false))
       ? [projectPrettierIgnore]
       : [join(__dirname, "prettierignore")]),
-    ...(fs.existsSync(projectGitIgnore) ? [projectGitIgnore] : []),
+    ...((await fs
+      .access(projectGitIgnore)
+      .then(() => true)
+      .catch(() => false))
+      ? [projectGitIgnore]
+      : []),
   ].flatMap((p) => ["--ignore-path", p]);
   const configPath =
     cosmiconfigSync("prettier").search(join(__dirname, ".."))?.filepath ??
