@@ -1,7 +1,7 @@
 {
   "name": "@zanminkian/prettier-config",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "The best prettier shareable config.",
   "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/prettier-config",
   "exports": "./index.js",

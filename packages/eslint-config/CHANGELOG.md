@@ -1,5 +1,21 @@
 # @zanminkian/eslint-config
 
+## 0.4.0
+
+### Minor Changes
+
+- c17c4f8: refactor(eslint-config): ship to flat config
+
+### Patch Changes
+
+- 06e8f50: refactor(eslint-config): optimize eslint-config structure
+- 3285d42: chore: upgrade deps
+- 2d5d113: refactor(eslint-config): globally ignore some dirs
+- 9087a92: feat(eslint-config): enable rule `n/no-sync`
+- Updated dependencies [3285d42]
+- Updated dependencies [ef3df34]
+  - @zanminkian/eslint-plugin@0.3.0
+
 ## 0.3.6
 
 ### Patch Changes
