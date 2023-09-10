@@ -1,9 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
-import globals from "globals";
 import baseConfig from "./base-config/index.js";
 
 const tsconfig = fs.existsSync(path.join(process.cwd(), "tsconfig.eslint.json"))
@@ -84,32 +82,24 @@ function getTsRules() {
 }
 
 const { enabledRules, disabledRules } = tsconfig ? getTsRules() : {};
+
+const tsBase = {
+  files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
+  languageOptions: {
+    parser: tsParser,
+    parserOptions: {
+      tsconfigRootDir: process.cwd(),
+      project: [tsconfig],
+    },
+  },
+};
+
 export default tsconfig
   ? [
+      tsBase,
       {
         files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
         ignores: ["dist", "output", "out", "coverage"].map((i) => `**/${i}/**/*`),
-        languageOptions: {
-          globals: {
-            ...globals["shared-node-browser"],
-            __dirname: false,
-            __filename: false,
-          },
-          parser: tsParser,
-          parserOptions: {
-            tsconfigRootDir: process.cwd(),
-            project: [tsconfig],
-          },
-        },
-        linterOptions: {
-          // noInlineConfig: true,
-          reportUnusedDisableDirectives: true,
-        },
-        plugins: {
-          ...baseConfig.plugins,
-          "@typescript-eslint": tsPlugin,
-        },
-
         rules: {
           ...baseConfig.rules,
           ...disabledRules,
@@ -134,4 +124,4 @@ export default tsconfig
         },
       },
     ]
-  : [];
+  : [tsBase];
