@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import tsParser from "@typescript-eslint/parser";
-import baseConfig from "./base-config/index.js";
+import jsConfig from "./js-config/index.js";
 
 const tsconfig = fs.existsSync(path.join(process.cwd(), "tsconfig.eslint.json"))
   ? "tsconfig.eslint.json"
@@ -55,12 +55,12 @@ function getTsRules() {
     "space-before-function-paren",
     "space-infix-ops",
   ];
-  const builtinRuleKeys = allBuiltinRuleKeys.filter((key) => baseConfig.rules[key]);
+  const builtinRuleKeys = allBuiltinRuleKeys.filter((key) => jsConfig.rules[key]);
   const disabledRules = builtinRuleKeys.reduce((result, key) => ({ ...result, [key]: "off" }), {});
   const enabledRules = builtinRuleKeys.reduce(
     (result, key) => ({
       ...result,
-      [`@typescript-eslint/${key}`]: JSON.parse(JSON.stringify(baseConfig.rules[key])),
+      [`@typescript-eslint/${key}`]: JSON.parse(JSON.stringify(jsConfig.rules[key])),
     }),
     {},
   );
@@ -87,10 +87,14 @@ const tsBase = {
   files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
   languageOptions: {
     parser: tsParser,
-    parserOptions: {
-      tsconfigRootDir: process.cwd(),
-      project: [tsconfig],
-    },
+    ...(tsconfig
+      ? {
+          parserOptions: {
+            tsconfigRootDir: process.cwd(),
+            project: tsconfig,
+          },
+        }
+      : {}),
   },
 };
 
@@ -101,7 +105,7 @@ export default tsconfig
         files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
         ignores: ["dist", "output", "out", "coverage"].map((i) => `**/${i}/**/*`),
         rules: {
-          ...baseConfig.rules,
+          ...jsConfig.rules,
           ...disabledRules,
           ...enabledRules,
           "no-void": ["error", { allowAsStatement: true }],
