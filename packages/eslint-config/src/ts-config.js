@@ -76,45 +76,43 @@ function getTsRules() {
   enabledRules["@typescript-eslint/dot-notation"] = "off";
 
   return {
-    enabledRules,
-    disabledRules,
+    ...enabledRules,
+    ...disabledRules,
   };
 }
 
-const { enabledRules, disabledRules } = tsconfig ? getTsRules() : {};
-export default tsconfig
-  ? [
-      {
-        files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
-        languageOptions: {
-          parser: tsParser,
+export default {
+  files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
+  languageOptions: {
+    parser: tsParser,
+    ...(tsconfig
+      ? {
           parserOptions: {
             tsconfigRootDir: process.cwd(),
             project: tsconfig,
           },
-        },
-        rules: {
-          ...jsConfig.rules,
-          ...disabledRules,
-          ...enabledRules,
-          "no-void": ["error", { allowAsStatement: true }],
+        }
+      : {}),
+  },
+  rules: {
+    ...jsConfig.rules,
+    ...getTsRules(),
+    "no-void": ["error", { allowAsStatement: true }],
 
-          // ban some syntaxes to reduce mistakes
-          "import/no-commonjs": [
-            "error",
-            { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false },
-          ], // TODO move this rule to base. js file should not use commonjs too.
-          "@typescript-eslint/ban-types": "error",
-          "@typescript-eslint/method-signature-style": "error",
-          "@typescript-eslint/no-require-imports": "error",
-          "@typescript-eslint/no-namespace": "error",
-          "@typescript-eslint/no-import-type-side-effects": "error",
-          // '@typescript-eslint/consistent-type-imports': 'error',
+    // ban some syntaxes to reduce mistakes
+    "import/no-commonjs": [
+      "error",
+      { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false },
+    ], // TODO move this rule to base. js file should not use commonjs too.
+    "@typescript-eslint/ban-types": "error",
+    "@typescript-eslint/method-signature-style": "error",
+    "@typescript-eslint/no-require-imports": "error",
+    "@typescript-eslint/no-namespace": "error",
+    "@typescript-eslint/no-import-type-side-effects": "error",
+    // '@typescript-eslint/consistent-type-imports': 'error',
 
-          "@zanminkian/no-const-enum": "error",
-          "@zanminkian/no-declares-in-ts-file": "error",
-          "@zanminkian/no-export-assignment": "error",
-        },
-      },
-    ]
-  : [];
+    "@zanminkian/no-const-enum": "error",
+    "@zanminkian/no-declares-in-ts-file": "error",
+    "@zanminkian/no-export-assignment": "error",
+  },
+};
