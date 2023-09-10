@@ -1,5 +1,12 @@
 # git-validator
 
+## 0.9.3-beta.1
+
+### Patch Changes
+
+- Updated dependencies [06e8f50]
+  - @zanminkian/eslint-config@0.4.0-beta.1
+
 ## 0.9.3-beta.0
 
 ### Patch Changes
