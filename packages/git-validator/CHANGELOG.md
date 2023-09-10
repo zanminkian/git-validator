@@ -1,5 +1,20 @@
 # git-validator
 
+## 0.9.3
+
+### Patch Changes
+
+- 3285d42: chore: upgrade deps
+- 2cf49ad: refactor(git-validator): use flat eslint config
+- Updated dependencies [b25ebab]
+- Updated dependencies [06e8f50]
+- Updated dependencies [c17c4f8]
+- Updated dependencies [3285d42]
+- Updated dependencies [2d5d113]
+- Updated dependencies [9087a92]
+  - @zanminkian/prettier-config@0.4.0
+  - @zanminkian/eslint-config@0.4.0
+
 ## 0.9.2
 
 ### Patch Changes

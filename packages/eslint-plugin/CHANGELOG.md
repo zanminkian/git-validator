@@ -1,5 +1,15 @@
 # @zanminkian/eslint-plugin
 
+## 0.3.0
+
+### Minor Changes
+
+- ef3df34: refactor(eslint-plugin): ship to esm
+
+### Patch Changes
+
+- 3285d42: chore: upgrade deps
+
 ## 0.2.0
 
 ### Minor Changes

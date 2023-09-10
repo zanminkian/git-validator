@@ -1,5 +1,11 @@
 # @zanminkian/prettier-config
 
+## 0.4.0
+
+### Minor Changes
+
+- b25ebab: refactor(prettier-config): ship to esm
+
 ## 0.3.0
 
 ### Minor Changes
