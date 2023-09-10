@@ -6,7 +6,6 @@ const standardConfig = JSON.parse(fs.readFileSync(path.join(dirname, "standard-c
 
 export default {
   files: ["**/*.js", "**/*.cjs", "**/*.mjs", "**/*.jsx"],
-  ignores: ["dist", "output", "out", "coverage"].map((i) => `**/${i}/**/*`),
   rules: {
     ...standardConfig.rules,
     // override standard config rules

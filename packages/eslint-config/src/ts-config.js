@@ -82,28 +82,17 @@ function getTsRules() {
 }
 
 const { enabledRules, disabledRules } = tsconfig ? getTsRules() : {};
-
-const tsBase = {
-  files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
-  languageOptions: {
-    parser: tsParser,
-    ...(tsconfig
-      ? {
+export default tsconfig
+  ? [
+      {
+        files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
+        languageOptions: {
+          parser: tsParser,
           parserOptions: {
             tsconfigRootDir: process.cwd(),
             project: tsconfig,
           },
-        }
-      : {}),
-  },
-};
-
-export default tsconfig
-  ? [
-      tsBase,
-      {
-        files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
-        ignores: ["dist", "output", "out", "coverage"].map((i) => `**/${i}/**/*`),
+        },
         rules: {
           ...jsConfig.rules,
           ...disabledRules,
@@ -128,4 +117,4 @@ export default tsconfig
         },
       },
     ]
-  : [tsBase];
+  : [];
