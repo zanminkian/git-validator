@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.4.0-beta.1
+
+### Patch Changes
+
+- 06e8f50: refactor(eslint-config): optimize eslint-config structure
+
 ## 0.4.0-beta.0
 
 ### Minor Changes
