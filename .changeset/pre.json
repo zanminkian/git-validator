@@ -8,6 +8,7 @@
     "@zanminkian/prettier-config": "0.3.0"
   },
   "changesets": [
+    "cuddly-teachers-wonder",
     "eleven-coins-sit",
     "rotten-months-remain"
   ]
