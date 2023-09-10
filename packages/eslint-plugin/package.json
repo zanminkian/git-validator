@@ -1,5 +1,6 @@
 {
   "name": "@zanminkian/eslint-plugin",
+  "type": "module",
   "version": "0.2.0",
   "description": "Zanminkian's eslint plugins.",
   "author": "hellozmj@qq.com",
@@ -16,7 +17,7 @@
   "exports": "./dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "test": "node --test --require ts-node/register src/**/*.spec.ts"
+    "test": "node --test --experimental-loader ts-node/esm src/**/*.spec.ts"
   },
   "dependencies": {
     "@typescript-eslint/utils": "^6.5.0"

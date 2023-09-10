@@ -1,6 +1,6 @@
 import { after, describe, it } from "node:test";
 import { RuleTester } from "@typescript-eslint/rule-tester";
-import { messageId, rule, ruleName } from "./import-regex";
+import { messageId, rule, ruleName } from "./import-regex.js";
 
 const valid = [
   'import xxx from "a"',

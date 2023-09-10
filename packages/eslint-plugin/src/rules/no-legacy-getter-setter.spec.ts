@@ -1,6 +1,6 @@
 import { after, describe, it } from "node:test";
 import { RuleTester } from "@typescript-eslint/rule-tester";
-import { messageId, rule, ruleName } from "./no-legacy-getter-setter";
+import { messageId, rule, ruleName } from "./no-legacy-getter-setter.js";
 
 const valid = ["const foo = {}; foo.__proto__;"];
 
