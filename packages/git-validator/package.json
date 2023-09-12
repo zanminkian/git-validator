@@ -19,6 +19,9 @@
     "lint-staged",
     "commitlint"
   ],
+  "scripts": {
+    "build": "tsc --noEmit -p tsconfig.build.json"
+  },
   "bin": {
     "git-validator": "./src/bin/git-validator.js",
     "gv": "./src/bin/git-validator.js",

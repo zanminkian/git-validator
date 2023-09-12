@@ -14,6 +14,9 @@ export default {
     // override standard config rules
     "comma-dangle": ["error", "always-multiline"],
     "brace-style": ["error", "1tbs", { allowSingleLine: false }], // https://github.com/standard/eslint-config-standard/pull/281
+    // `const fun = (foo: never) => foo['bar']` will be formatted to `const fun = (foo: never) => foo.bar`.
+    // it's incorrect when enabling ts-check. so turn it off.
+    "dot-notation": "off",
 
     // code style for a better readability
     "max-statements-per-line": ["error", { max: 1 }],

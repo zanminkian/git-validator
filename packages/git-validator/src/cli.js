@@ -86,7 +86,7 @@ export async function lint(paths = [], options = {}) {
 
   let configPath = cosmiconfigSync("eslint").search(join(__dirname, ".."))?.filepath;
   if (!configPath) {
-    process.env.ESLINT_USE_FLAT_CONFIG = "true";
+    process.env["ESLINT_USE_FLAT_CONFIG"] = "true";
     configPath = requireResolve("@zanminkian/eslint-config");
   }
 

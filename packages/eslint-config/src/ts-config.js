@@ -74,16 +74,11 @@ function getTsRules() {
     }),
     {},
   );
-  // 1.
   originRules["@typescript-eslint/indent"][2].ignoredNodes.push(
     "FunctionExpression > .params[decorators.length > 0]",
     "FunctionExpression > .params > :matches(Decorator, :not(:first-child))",
     "ClassBody.body > PropertyDefinition[decorators.length > 0] > .key",
   );
-  // 2.
-  // `const fun = (foo: never) => foo['bar']` will be formatted to `const fun = (foo: never) => foo.bar`.
-  // it's incorrect in typescript. so turn it off.
-  originRules["@typescript-eslint/dot-notation"] = "off";
 
   return {
     ...disabledRules,
