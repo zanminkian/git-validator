@@ -67,7 +67,7 @@ function getTsRules() {
   /**
    * @type {Record<string, any>}
    */
-  const enabledRules = builtinRuleKeys.reduce(
+  const originRules = builtinRuleKeys.reduce(
     (result, key) => ({
       ...result,
       [`@typescript-eslint/${key}`]: JSON.parse(JSON.stringify(jsConfig.rules[key])),
@@ -75,7 +75,7 @@ function getTsRules() {
     {},
   );
   // 1.
-  enabledRules["@typescript-eslint/indent"][2].ignoredNodes.push(
+  originRules["@typescript-eslint/indent"][2].ignoredNodes.push(
     "FunctionExpression > .params[decorators.length > 0]",
     "FunctionExpression > .params > :matches(Decorator, :not(:first-child))",
     "ClassBody.body > PropertyDefinition[decorators.length > 0] > .key",
@@ -83,11 +83,11 @@ function getTsRules() {
   // 2.
   // `const fun = (foo: never) => foo['bar']` will be formatted to `const fun = (foo: never) => foo.bar`.
   // it's incorrect in typescript. so turn it off.
-  enabledRules["@typescript-eslint/dot-notation"] = "off";
+  originRules["@typescript-eslint/dot-notation"] = "off";
 
   return {
-    ...enabledRules,
     ...disabledRules,
+    ...originRules,
   };
 }
 
