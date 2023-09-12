@@ -11,17 +11,22 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const requireResolve = createRequire(import.meta.url).resolve;
 
 /**
+ * @param {string} filepath
+ */
+async function exists(filepath) {
+  return await fs
+    .access(filepath)
+    .then(() => true)
+    .catch(() => false);
+}
+
+/**
  * @param {string} file
  * @param {string} content
  */
 async function writeGitHook(file, content) {
   const gitPath = resolve(process.cwd(), ".git");
-  if (
-    !(await fs
-      .access(gitPath)
-      .then(() => true)
-      .catch(() => false))
-  ) {
+  if (!(await exists(gitPath))) {
     throw new Error("Directory `.git` is not existing. Please run `git init` first.");
   }
 
@@ -104,21 +109,11 @@ export async function format(paths = [], options = {}) {
   const cwd = process.cwd();
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
 
-  const projectPrettierIgnore = join(cwd, ".prettierignore");
-  const projectGitIgnore = join(cwd, ".gitignore");
+  const prettierIgnore = join(cwd, ".prettierignore");
+  const gitIgnore = join(cwd, ".gitignore");
   const ignores = [
-    ...((await fs
-      .access(projectPrettierIgnore)
-      .then(() => true)
-      .catch(() => false))
-      ? [projectPrettierIgnore]
-      : [join(__dirname, "prettierignore")]),
-    ...((await fs
-      .access(projectGitIgnore)
-      .then(() => true)
-      .catch(() => false))
-      ? [projectGitIgnore]
-      : []),
+    ...((await exists(prettierIgnore)) ? [prettierIgnore] : [join(__dirname, "prettierignore")]),
+    ...((await exists(gitIgnore)) ? [gitIgnore] : []),
   ].flatMap((p) => ["--ignore-path", p]);
   const configPath =
     cosmiconfigSync("prettier").search(join(__dirname, ".."))?.filepath ??
