@@ -16,8 +16,7 @@ const flags = await Promise.all(promiseFlags);
 const index = flags.findIndex(Boolean);
 
 export default {
-  ...(index >= 0
-    ? { plugins: ["prettier-plugin-tailwindcss"], tailwindConfig: configFilePaths[index] }
-    : {}),
+  plugins: ["prettier-plugin-curly", ...(index >= 0 ? ["prettier-plugin-tailwindcss"] : [])],
+  ...(index >= 0 ? { tailwindConfig: configFilePaths[index] } : {}),
   printWidth: 100, // 120 may be too long
 };
