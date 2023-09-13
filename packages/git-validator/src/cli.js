@@ -57,7 +57,7 @@ async function writePreCommit() {
 async function writeCommitMsg() {
   const content = [
     "#!/bin/sh",
-    `npx commitlint --config ${join(__dirname, "commitlint.config.cjs")} --edit`,
+    `npx commitlint --config ${join(__dirname, "commitlint.config.js")} --edit`,
   ].join("\n");
 
   await writeGitHook("commit-msg", content);
