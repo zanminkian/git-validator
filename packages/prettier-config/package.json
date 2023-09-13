@@ -14,5 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "prettier-plugin-tailwindcss": "^0.5.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
   }
 }
