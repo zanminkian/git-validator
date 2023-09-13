@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @ts-check
 import process from "node:process";
 import { Command } from "commander";
 import { format, install, lint } from "../cli.js";
