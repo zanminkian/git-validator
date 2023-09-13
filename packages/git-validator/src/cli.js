@@ -5,10 +5,17 @@ import { createRequire } from "node:module";
 import { dirname, join, resolve } from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
-import { cosmiconfigSync } from "cosmiconfig";
+import { cosmiconfig } from "cosmiconfig";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const requireResolve = createRequire(import.meta.url).resolve;
+
+/**
+ * @param {"eslint"|"prettier"} module
+ */
+async function getConfigFilePath(module) {
+  return (await cosmiconfig(module).search(join(__dirname, "..")))?.filepath;
+}
 
 /**
  * @param {string} filepath
@@ -89,7 +96,7 @@ export async function lint(paths = [], options = {}) {
   const cwd = process.cwd();
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
 
-  let configPath = cosmiconfigSync("eslint").search(join(__dirname, ".."))?.filepath;
+  let configPath = await getConfigFilePath("eslint");
   if (!configPath) {
     process.env["ESLINT_USE_FLAT_CONFIG"] = "true";
     configPath = requireResolve("@zanminkian/eslint-config");
@@ -116,8 +123,7 @@ export async function format(paths = [], options = {}) {
     ...((await exists(gitIgnore)) ? [gitIgnore] : []),
   ].flatMap((p) => ["--ignore-path", p]);
   const configPath =
-    cosmiconfigSync("prettier").search(join(__dirname, ".."))?.filepath ??
-    requireResolve("@zanminkian/prettier-config");
+    (await getConfigFilePath("prettier")) ?? requireResolve("@zanminkian/prettier-config");
 
   return spawnSync(
     "npx",
