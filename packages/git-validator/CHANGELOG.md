@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.9.4
+
+### Patch Changes
+
+- 60feb0c: fix(git-validator): can get esm config
+
 ## 0.9.3
 
 ### Patch Changes
