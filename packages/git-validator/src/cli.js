@@ -48,7 +48,7 @@ async function writeGitHook(file, content) {
 async function writePreCommit() {
   const content = [
     "#!/bin/sh",
-    `npx lint-staged --config ${join(__dirname, "lint-staged.config.cjs")}`,
+    `npx lint-staged --config ${join(__dirname, "lint-staged.config.js")}`,
   ].join("\n");
 
   await writeGitHook("pre-commit", content);
