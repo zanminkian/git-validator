@@ -1,5 +1,11 @@
 # @zanminkian/prettier-config
 
+## 0.5.0
+
+### Minor Changes
+
+- ebdcef9: feat(prettier-config): enable plugin `prettier-plugin-curly`
+
 ## 0.4.0
 
 ### Minor Changes
