@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.9.5
+
+### Patch Changes
+
+- c37841e: chore: upgrade deps
+- Updated dependencies [c37841e]
+- Updated dependencies [ebdcef9]
+  - @zanminkian/eslint-config@0.4.1
+  - @zanminkian/prettier-config@0.5.0
+
 ## 0.9.4
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@zanminkian/eslint-plugin",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Zanminkian's eslint plugins.",
   "author": "hellozmj@qq.com",
   "license": "MIT",
