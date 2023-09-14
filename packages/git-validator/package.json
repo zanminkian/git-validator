@@ -34,7 +34,7 @@
     "@zanminkian/eslint-config": "workspace:^",
     "@zanminkian/prettier-config": "workspace:^",
     "commander": "^11.0.0",
-    "cosmiconfig": "^8.3.5",
+    "cosmiconfig": "^8.3.6",
     "eslint": "^8.49.0",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3"
