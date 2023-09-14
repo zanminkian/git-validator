@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.4.2
+
+### Patch Changes
+
+- f8958cc: feat(eslint-config): add browser globals
+
 ## 0.4.1
 
 ### Patch Changes
