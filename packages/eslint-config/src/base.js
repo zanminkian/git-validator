@@ -17,9 +17,10 @@ export default [
     languageOptions: {
       globals: {
         ...globals["shared-node-browser"],
-        ...globals.commonjs, // TODO remove it
-        __dirname: false, // TODO remove it
-        __filename: false, // TODO remove it
+        ...globals.browser, // TODO Optimize it. Node code should not use browser's objects.
+        ...globals.commonjs, // TODO Remove it
+        __dirname: false, // TODO Remove it
+        __filename: false, // TODO Remove it
       },
     },
     linterOptions: {
