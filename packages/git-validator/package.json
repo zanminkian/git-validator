@@ -20,7 +20,7 @@
     "commitlint"
   ],
   "scripts": {
-    "build": "tsc --noEmit -p tsconfig.build.json"
+    "build": "tsc --noEmit -p ../../tsconfig.json"
   },
   "bin": {
     "git-validator": "./src/bin/git-validator.js",

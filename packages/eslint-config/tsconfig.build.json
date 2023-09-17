@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig",
-  "include": ["src"],
-  "exclude": ["**/*.spec.?s", "**/*.test.?s"],
-  "compilerOptions": {
-    "outDir": "dist"
-  }
-}
