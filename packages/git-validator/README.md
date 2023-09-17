@@ -78,7 +78,7 @@ The `commit-msg` file we wrote validates your git commit message before the comm
 
 ### `pre-commit` Stage
 
-The `pre-commit` file we wrote lints and formats your staged code before the commit is made. We use [Eslint](https://www.npmjs.com/package/eslint) with [@zanminkian/eslint-config](https://www.npmjs.com/package/@zanminkian/eslint-config) and [Prettier](https://www.npmjs.com/package/prettier) with [@git-validator/prettier-config](https://www.npmjs.com/package/@git-validator/prettier-config) to check the committing code.
+The `pre-commit` file we wrote lints and formats your staged code before the commit is made. We use [Eslint](https://www.npmjs.com/package/eslint) with [@git-validator/eslint-config](https://www.npmjs.com/package/@git-validator/eslint-config) and [Prettier](https://www.npmjs.com/package/prettier) with [@git-validator/prettier-config](https://www.npmjs.com/package/@git-validator/prettier-config) to check the committing code.
 
 ## Advanced Usage
 
@@ -86,7 +86,7 @@ The `pre-commit` file we wrote lints and formats your staged code before the com
 
 We use `eslint`, `prettier`, `commitlint`, and `lint-staged` under the hood. So we respect the config files of `eslint.config.js`, `.eslintignore`, `prettier.config.js`, `.prettierignore`, `commitlint.config.js`, and `lint-staged.config.js` in the root of the project. You can customize them to apply your own rules.
 
-- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`. We use npm package [@zanminkian/eslint-config](https://www.npmjs.com/package/@zanminkian/eslint-config) as the default eslint config.
+- Adding `eslint.config.js` file to apply your own rules when git committing and running `git-validator lint`. We use npm package [@git-validator/eslint-config](https://www.npmjs.com/package/@git-validator/eslint-config) as the default eslint config.
 - Adding `.eslintignore` file to skip validating certain specific files when git committing and running `git-validator lint`.
 - Addint `prettier.config.js` file to apply you own rules when git committing and running `git-validator format`. We use npm package [@git-validator/prettier-config](https://www.npmjs.com/package/@git-validator/prettier-config) as the default prettier config.
 - Adding `.prettierignore` file to skip formatting certain specific files when git committing and running `git-validator format`.

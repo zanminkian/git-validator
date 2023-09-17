@@ -31,7 +31,7 @@
   "dependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "@zanminkian/eslint-config": "workspace:^",
+    "@git-validator/eslint-config": "workspace:^",
     "@git-validator/prettier-config": "workspace:^",
     "commander": "^11.0.0",
     "cosmiconfig": "^8.3.6",

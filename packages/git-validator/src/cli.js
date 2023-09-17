@@ -99,7 +99,7 @@ export async function lint(paths = [], options = {}) {
   let configPath = await getConfigFilePath("eslint");
   if (!configPath) {
     process.env["ESLINT_USE_FLAT_CONFIG"] = "true";
-    configPath = requireResolve("@zanminkian/eslint-config");
+    configPath = requireResolve("@git-validator/eslint-config");
   }
 
   return spawnSync("npx", ["eslint", "--config", configPath, ...(fix ? ["--fix"] : []), ...ps], {

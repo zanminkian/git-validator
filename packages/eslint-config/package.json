@@ -1,7 +1,7 @@
 {
-  "name": "@zanminkian/eslint-config",
+  "name": "@git-validator/eslint-config",
   "type": "module",
-  "version": "0.4.4",
+  "version": "0.0.0",
   "description": "A strict eslint config for better code quality.",
   "author": "hellozmj@qq.com",
   "license": "MIT",
