@@ -1,5 +1,12 @@
 # git-validator
 
+## 0.9.10
+
+### Patch Changes
+
+- Updated dependencies [118dcce]
+  - @git-validator/eslint-config@0.1.0
+
 ## 0.9.9
 
 ### Patch Changes
