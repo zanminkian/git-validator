@@ -1,5 +1,5 @@
+import gitValidatorPlugin from "@git-validator/eslint-plugin";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
-import zanminkianPlugin from "@zanminkian/eslint-plugin";
 import importPlugin from "eslint-plugin-import";
 import nPlugin from "eslint-plugin-n";
 import promisePlugin from "eslint-plugin-promise";
@@ -32,7 +32,7 @@ export default [
       promise: promisePlugin,
       unicorn: unicornPlugin,
       "simple-import-sort": simpleImportSortPlugin,
-      "@zanminkian": zanminkianPlugin,
+      "@git-validator": gitValidatorPlugin,
       "@typescript-eslint": tsPlugin,
     },
   },

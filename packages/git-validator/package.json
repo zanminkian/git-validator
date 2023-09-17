@@ -40,6 +40,6 @@
     "prettier": "^3.0.3"
   },
   "devDependencies": {
-    "@zanminkian/eslint-plugin": "workspace:^"
+    "@git-validator/eslint-plugin": "workspace:^"
   }
 }

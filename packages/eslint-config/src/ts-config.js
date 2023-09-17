@@ -116,8 +116,8 @@ export default {
     "@typescript-eslint/no-import-type-side-effects": "error",
     // '@typescript-eslint/consistent-type-imports': 'error',
 
-    "@zanminkian/no-const-enum": "error",
-    "@zanminkian/no-declares-in-ts-file": "error",
-    "@zanminkian/no-export-assignment": "error",
+    "@git-validator/no-const-enum": "error",
+    "@git-validator/no-declares-in-ts-file": "error",
+    "@git-validator/no-export-assignment": "error",
   },
 };

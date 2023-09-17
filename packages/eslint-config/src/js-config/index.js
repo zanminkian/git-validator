@@ -54,10 +54,10 @@ export default {
     "no-plusplus": "error",
     "no-duplicate-imports": "error",
 
-    "@zanminkian/import-regex": "error",
-    "@zanminkian/no-dynamic-import": "error",
-    "@zanminkian/no-legacy-getter-setter": "error",
-    "@zanminkian/prefer-global-this": "error",
-    "@zanminkian/prefer-shortest-relative-path": "error",
+    "@git-validator/import-regex": "error",
+    "@git-validator/no-dynamic-import": "error",
+    "@git-validator/no-legacy-getter-setter": "error",
+    "@git-validator/prefer-global-this": "error",
+    "@git-validator/prefer-shortest-relative-path": "error",
   },
 };

@@ -1,7 +1,7 @@
 {
-  "name": "@zanminkian/eslint-plugin",
+  "name": "@git-validator/eslint-plugin",
   "type": "module",
-  "version": "0.3.2",
+  "version": "0.0.0",
   "description": "Zanminkian's eslint plugins.",
   "author": "hellozmj@qq.com",
   "license": "MIT",
