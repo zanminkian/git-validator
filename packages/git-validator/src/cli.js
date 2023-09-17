@@ -123,7 +123,7 @@ export async function format(paths = [], options = {}) {
     ...((await exists(gitIgnore)) ? [gitIgnore] : []),
   ].flatMap((p) => ["--ignore-path", p]);
   const configPath =
-    (await getConfigFilePath("prettier")) ?? requireResolve("@zanminkian/prettier-config");
+    (await getConfigFilePath("prettier")) ?? requireResolve("@git-validator/prettier-config");
 
   return spawnSync(
     "npx",
