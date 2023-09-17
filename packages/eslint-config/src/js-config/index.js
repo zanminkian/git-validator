@@ -58,5 +58,6 @@ export default {
     "@zanminkian/no-dynamic-import": "error",
     "@zanminkian/no-legacy-getter-setter": "error",
     "@zanminkian/prefer-global-this": "error",
+    "@zanminkian/prefer-shortest-relative-path": "error",
   },
 };
