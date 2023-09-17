@@ -1,5 +1,11 @@
 # @zanminkian/eslint-config
 
+## 0.4.3
+
+### Patch Changes
+
+- 87153b0: feat(eslint-config): drop commonjs support
+
 ## 0.4.2
 
 ### Patch Changes
