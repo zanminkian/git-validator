@@ -1,0 +1,30 @@
+{
+  "name": "@git-validator/tsconfig",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Strict shared tsconfig out-of-box.",
+  "author": "hellozmj@qq.com",
+  "license": "MIT",
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/tsconfig",
+  "keywords": [
+    "tsconfig",
+    "strict",
+    "out-of-box",
+    "typescript",
+    "ts",
+    "config",
+    "configuration"
+  ],
+  "bin": {
+    "tsconfig": "./src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc --noEmit -p ../../tsconfig.json"
+  },
+  "dependencies": {
+    "commander": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.2"
+  }
+}
