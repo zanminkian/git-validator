@@ -1,5 +1,12 @@
 # git-validator
 
+## 0.9.9
+
+### Patch Changes
+
+- Updated dependencies [5b63fe2]
+  - @git-validator/prettier-config@0.1.0
+
 ## 0.9.8
 
 ### Patch Changes
