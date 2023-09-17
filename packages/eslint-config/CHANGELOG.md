@@ -1,5 +1,13 @@
 # @zanminkian/eslint-config
 
+## 0.4.4
+
+### Patch Changes
+
+- 615ee22: feat(eslint-config): enable `prefer-shortest-relative-path` rule
+- Updated dependencies [10c2e3b]
+  - @zanminkian/eslint-plugin@0.3.2
+
 ## 0.4.3
 
 ### Patch Changes

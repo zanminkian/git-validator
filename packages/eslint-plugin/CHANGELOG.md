@@ -1,5 +1,11 @@
 # @zanminkian/eslint-plugin
 
+## 0.3.2
+
+### Patch Changes
+
+- 10c2e3b: feat(eslint-plugin): add rule `prefer-shortest-relative-path`
+
 ## 0.3.1
 
 ### Patch Changes
