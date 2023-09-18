@@ -3,24 +3,24 @@
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "pnpm@8.6.10",
-  "engines": {
-    "pnpm": "^8.0.0",
-    "node": ">=16.0.0"
-  },
   "scripts": {
+    "build": "pnpm -r build",
     "install": "pnpm build",
     "postinstall": "git-validator install",
+    "release": "changeset publish",
     "style": "git-validator",
     "style:update": "git-validator -u",
-    "build": "pnpm -r build",
-    "test": "pnpm -r test",
-    "release": "changeset publish"
+    "test": "pnpm -r test"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
     "@types/node": "^20.6.2",
     "git-validator": "workspace:^",
     "typescript": "^5.2.2"
+  },
+  "packageManager": "pnpm@8.6.10",
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": "^8.0.0"
   }
 }

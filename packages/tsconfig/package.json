@@ -1,11 +1,7 @@
 {
   "name": "@git-validator/tsconfig",
-  "type": "module",
   "version": "0.1.1",
   "description": "Strict shared tsconfig out-of-box.",
-  "author": "hellozmj@qq.com",
-  "license": "MIT",
-  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/tsconfig",
   "keywords": [
     "tsconfig",
     "strict",
@@ -15,6 +11,10 @@
     "config",
     "configuration"
   ],
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/tsconfig",
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
   "exports": {
     "./cli": "./src/cli.js",
     "./cjs.json": "./cjs.json",

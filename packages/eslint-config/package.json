@@ -1,11 +1,7 @@
 {
   "name": "@git-validator/eslint-config",
-  "type": "module",
   "version": "0.1.0",
   "description": "A strict eslint config for better code quality.",
-  "author": "hellozmj@qq.com",
-  "license": "MIT",
-  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-config",
   "keywords": [
     "opinionated",
     "strict",
@@ -14,14 +10,18 @@
     "eslint-config",
     "standard"
   ],
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-config",
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
   "exports": "./src/index.js",
   "scripts": {
     "build": "tsc --noEmit -p ../../tsconfig.json"
   },
   "dependencies": {
+    "@git-validator/eslint-plugin": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
-    "@git-validator/eslint-plugin": "workspace:^",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-n": "^16.1.0",

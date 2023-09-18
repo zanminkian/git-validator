@@ -1,11 +1,7 @@
 {
   "name": "git-validator",
-  "type": "module",
   "version": "0.9.12",
   "description": "Git hooks and code style validator.",
-  "author": "hellozmj@qq.com",
-  "license": "MIT",
-  "homepage": "https://github.com/zanminkian/git-validator",
   "keywords": [
     "git",
     "hooks",
@@ -19,15 +15,19 @@
     "lint-staged",
     "commitlint"
   ],
-  "scripts": {
-    "build": "tsc --noEmit"
-  },
+  "homepage": "https://github.com/zanminkian/git-validator",
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
   "bin": {
+    "commitlint": "./src/bin/commitlint.js",
     "git-validator": "./src/bin/git-validator.js",
     "gv": "./src/bin/git-validator.js",
-    "commitlint": "./src/bin/commitlint.js",
     "lint-staged": "./src/bin/lint-staged.js",
     "tsconfig": "./src/bin/tsconfig.js"
+  },
+  "scripts": {
+    "build": "tsc --noEmit"
   },
   "dependencies": {
     "@commitlint/cli": "^17.7.1",

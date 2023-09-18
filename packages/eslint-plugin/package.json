@@ -1,11 +1,7 @@
 {
   "name": "@git-validator/eslint-plugin",
-  "type": "module",
   "version": "0.1.0",
   "description": "Zanminkian's eslint plugins.",
-  "author": "hellozmj@qq.com",
-  "license": "MIT",
-  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin",
   "keywords": [
     "opinionated",
     "strict",
@@ -14,6 +10,10 @@
     "eslint-config",
     "eslint-plugin"
   ],
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin",
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
   "exports": "./dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
