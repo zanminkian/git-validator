@@ -1,22 +1,23 @@
 {
   "name": "@git-validator/prettier-config",
-  "type": "module",
   "version": "0.1.0",
   "description": "The best prettier shareable config.",
-  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/prettier-config",
-  "exports": "./index.js",
   "keywords": [
     "prettier",
     "config",
     "standard"
   ],
-  "author": "hellozmj@qq.com",
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/prettier-config",
   "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
+  "exports": "./index.js",
   "scripts": {
     "build": "tsc --noEmit -p ../../tsconfig.json"
   },
   "dependencies": {
     "prettier-plugin-curly": "^0.1.3",
+    "prettier-plugin-packagejson": "^2.4.5",
     "prettier-plugin-tailwindcss": "^0.5.4"
   },
   "devDependencies": {

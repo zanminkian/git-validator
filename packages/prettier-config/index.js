@@ -19,7 +19,11 @@ const index = (
 const tailwindConfig = configFilePaths[index];
 
 export default {
-  plugins: ["prettier-plugin-curly", ...(tailwindConfig ? ["prettier-plugin-tailwindcss"] : [])],
+  plugins: [
+    "prettier-plugin-curly",
+    "prettier-plugin-packagejson",
+    ...(tailwindConfig ? ["prettier-plugin-tailwindcss"] : []),
+  ],
   ...(tailwindConfig ? { tailwindConfig } : {}),
   printWidth: 100, // 120 may be too long
 };
