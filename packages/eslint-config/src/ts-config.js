@@ -5,17 +5,19 @@ import process from "node:process";
 import tsParser from "@typescript-eslint/parser";
 import jsConfig from "./js-config/index.js";
 
-const tsconfig = (await fs
-  .access(path.join(process.cwd(), "tsconfig.eslint.json"))
-  .then(() => true)
-  .catch(() => false))
-  ? "tsconfig.eslint.json"
-  : (await fs
-      .access(path.join(process.cwd(), "tsconfig.json"))
-      .then(() => true)
-      .catch(() => false))
-  ? "tsconfig.json"
-  : undefined;
+const tsconfigs = ["tsconfig.eslint.json", "tsconfig.json"];
+const index = (
+  await Promise.all(
+    tsconfigs.map(
+      async (config) =>
+        await fs
+          .access(path.join(process.cwd(), config))
+          .then(() => true)
+          .catch(() => false),
+    ),
+  )
+).findIndex(Boolean);
+const tsconfig = tsconfigs[index];
 
 function getTsRules() {
   // https://typescript-eslint.io/rules/#extension-rules
@@ -90,14 +92,10 @@ export default {
   files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
   languageOptions: {
     parser: tsParser,
-    ...(tsconfig
-      ? {
-          parserOptions: {
-            tsconfigRootDir: process.cwd(),
-            project: tsconfig,
-          },
-        }
-      : {}),
+    parserOptions: {
+      tsconfigRootDir: process.cwd(),
+      project: tsconfig,
+    },
   },
   rules: {
     ...jsConfig.rules,

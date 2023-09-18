@@ -6,17 +6,20 @@ import process from "node:process";
 const configFilePaths = ["js", "ts", "json"].map((i) =>
   path.resolve(process.cwd(), `tailwind.config.${i}`),
 );
-const promiseFlags = configFilePaths.map(async (filepath) =>
-  fs
-    .access(filepath)
-    .then(() => true)
-    .catch(() => false),
-);
-const flags = await Promise.all(promiseFlags);
-const index = flags.findIndex(Boolean);
+const index = (
+  await Promise.all(
+    configFilePaths.map(async (filepath) =>
+      fs
+        .access(filepath)
+        .then(() => true)
+        .catch(() => false),
+    ),
+  )
+).findIndex(Boolean);
+const tailwindConfig = configFilePaths[index];
 
 export default {
-  plugins: ["prettier-plugin-curly", ...(index >= 0 ? ["prettier-plugin-tailwindcss"] : [])],
-  ...(index >= 0 ? { tailwindConfig: configFilePaths[index] } : {}),
+  plugins: ["prettier-plugin-curly", ...(tailwindConfig ? ["prettier-plugin-tailwindcss"] : [])],
+  ...(tailwindConfig ? { tailwindConfig } : {}),
   printWidth: 100, // 120 may be too long
 };
