@@ -1,3 +1,48 @@
 {
-  "extends": "@git-validator/tsconfig/cjs.json"
+  "compilerOptions": {
+    // copied from https://github.com/tsconfig/bases/blob/main/bases/strictest.json
+    "strict": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "checkJs": false, // Don't check js for better experience. User can add `// @ts-check` on the top of js file to check it manually.
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "module": "Node16",
+    "target": "ES2022",
+    "moduleResolution": "node16",
+    "allowJs": true,
+    "outDir": "dist", // Enable it to prevent to override js file. And solve the error warning in vscode. Ref: https://github.com/Microsoft/TypeScript/issues/29172
+    // "verbatimModuleSyntax": true,
+    "allowArbitraryExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "stripInternal": true,
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSourceMap": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+    /**
+     * 1. Typescript will include APIs for newer JS features matching the `target`. See https://www.typescriptlang.org/tsconfig#lib. Therefore, there is no need to add "ESNext" to lib.
+     * 2. In ts 4.5, lib files can be overrode by npm modules. See https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#supporting-lib-from-node_modules. Therefore, libs like "DOM" can be included by installing `@types/web`. No need to add "DOM" to lib.
+     */
+    // "lib": ["ESNext", "DOM"],
+    /**
+     * Ts will load all the `node_modules/@types/*` declaration files when `types` is removed.
+     * Remove it will improve the extensibility.
+     */
+    // "types": ["node", "jest"],
+  }
 }
