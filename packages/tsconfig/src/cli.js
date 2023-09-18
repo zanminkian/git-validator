@@ -5,7 +5,7 @@ import process from "node:process";
 import { Command } from "commander";
 
 const generatingTsconfigContent = `{
-  "extends": "@zanminkian/tsconfig",
+  "extends": "@git-validator/tsconfig",
   "include": ["src"],
   "exclude": ["**/*.spec.?s", "**/*.test.?s"],
   "compilerOptions": {
