@@ -14,9 +14,7 @@ export default {
     // override standard config rules
     "comma-dangle": ["error", "always-multiline"],
     "brace-style": ["error", "1tbs", { allowSingleLine: false }], // https://github.com/standard/eslint-config-standard/pull/281
-    // `const fun = (foo: never) => foo['bar']` will be formatted to `const fun = (foo: never) => foo.bar`.
-    // it's incorrect when enabling ts-check. so turn it off.
-    "dot-notation": "off",
+    "dot-notation": "off", // conflict when enabling ts-check so turn it off
 
     // code style for a better readability
     "max-statements-per-line": ["error", { max: 1 }],
@@ -32,8 +30,12 @@ export default {
     "arrow-body-style": ["error", "as-needed"],
 
     // ban some syntaxes to reduce mistakes
+    "import/no-commonjs": [
+      "error",
+      { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false },
+    ],
     "import/no-self-import": "error",
-    "import/no-dynamic-require": "error", // TODO remove it once we have ban commonjs in js file.
+    "import/no-dynamic-require": "error",
     "import/no-relative-packages": "error",
     "import/no-mutable-exports": "error", // forbid code like `export let count = 3`
     // "import/no-named-as-default-member": "error", // forbid code like `import foo from './foo.js'; const bar = foo.bar;`
