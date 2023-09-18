@@ -20,7 +20,7 @@
     "commitlint"
   ],
   "scripts": {
-    "build": "tsc --noEmit -p ../../tsconfig.json"
+    "build": "tsc --noEmit"
   },
   "bin": {
     "git-validator": "./src/bin/git-validator.js",
@@ -33,6 +33,7 @@
     "@commitlint/config-conventional": "^17.7.0",
     "@git-validator/eslint-config": "workspace:^",
     "@git-validator/prettier-config": "workspace:^",
+    "@git-validator/tsconfig": "workspace:^",
     "commander": "^11.0.0",
     "cosmiconfig": "^8.3.6",
     "eslint": "^8.49.0",

@@ -1,0 +1,3 @@
+{
+  "extends": "@git-validator/tsconfig/legacy.json"
+}
