@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.9.12
+
+### Patch Changes
+
+- 1455583: fix(git-validator): fix tsconfig not work
+
 ## 0.9.11
 
 ### Patch Changes
