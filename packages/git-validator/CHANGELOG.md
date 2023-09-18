@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.9.11
+
+### Patch Changes
+
+- b1380d5: feat(git-validator): add tsconfig presets
+- 1600513: feat: add `exports` and add `tsconfig` script
+- Updated dependencies [d9c91f3]
+- Updated dependencies [1600513]
+  - @git-validator/tsconfig@0.1.1
+
 ## 0.9.10
 
 ### Patch Changes
