@@ -1,7 +1,7 @@
 {
   "name": "@git-validator/tsconfig",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Strict shared tsconfig out-of-box.",
   "author": "hellozmj@qq.com",
   "license": "MIT",
