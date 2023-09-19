@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.1.3
+
+### Patch Changes
+
+- 2b7cf18: feat(eslint-config): remove `__dirname` and `__filename` in globals
+
 ## 0.1.2
 
 ### Patch Changes
