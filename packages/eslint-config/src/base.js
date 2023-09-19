@@ -3,6 +3,7 @@ import tsPlugin from "@typescript-eslint/eslint-plugin";
 import importPlugin from "eslint-plugin-import";
 import nPlugin from "eslint-plugin-n";
 import promisePlugin from "eslint-plugin-promise";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 import unicornPlugin from "eslint-plugin-unicorn";
 import globals from "globals";
@@ -34,6 +35,7 @@ export default [
       "simple-import-sort": simpleImportSortPlugin,
       "@git-validator": gitValidatorPlugin,
       "@typescript-eslint": tsPlugin,
+      "react-hooks": reactHooksPlugin,
     },
   },
 ];

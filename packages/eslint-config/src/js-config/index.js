@@ -56,6 +56,10 @@ export default {
     "no-plusplus": "error",
     "no-duplicate-imports": "error",
 
+    // react
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+
     "@git-validator/import-regex": "error",
     "@git-validator/no-dynamic-import": "error",
     "@git-validator/no-legacy-getter-setter": "error",
