@@ -19,8 +19,6 @@ export default [
       globals: {
         ...globals["shared-node-browser"],
         ...globals.browser, // TODO Optimize it. Node code should not use browser's objects.
-        __dirname: false, // TODO Remove it
-        __filename: false, // TODO Remove it
       },
     },
     linterOptions: {

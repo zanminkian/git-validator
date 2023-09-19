@@ -14,6 +14,7 @@ A strict eslint config for better code quality. Based on [standard.js](https://g
 - One-line of config.
 - Work well with Prettier without conflicts.
 - Designed to work with TypeScript, NestJS and React out-of-box.
+- Modern. ESM first.
 
 ## Usage
 
