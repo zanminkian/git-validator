@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.1.2
+
+### Patch Changes
+
+- 33a5435: feat(tsconfig): add support for customizing where extends from
+
 ## 0.1.1
 
 ### Patch Changes

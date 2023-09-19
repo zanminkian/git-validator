@@ -1,6 +1,6 @@
 {
   "name": "@git-validator/prettier-config",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The best prettier shareable config.",
   "keywords": [
     "prettier",
