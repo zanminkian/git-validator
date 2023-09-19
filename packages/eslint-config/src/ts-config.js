@@ -100,7 +100,6 @@ export default {
   rules: {
     ...jsConfig.rules,
     ...getTsRules(),
-    "no-void": ["error", { allowAsStatement: true }],
 
     // ban some syntaxes to reduce mistakes
     "@typescript-eslint/ban-types": "error",
@@ -109,6 +108,14 @@ export default {
     "@typescript-eslint/no-namespace": "error",
     "@typescript-eslint/no-import-type-side-effects": "error",
     // '@typescript-eslint/consistent-type-imports': 'error',
+    "@typescript-eslint/no-floating-promises": ["error", { ignoreVoid: false }],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      { checksVoidReturn: { returns: false, arguments: false, variables: false } },
+    ],
+    "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    // "@typescript-eslint/unbound-method": "error",
 
     "@git-validator/no-const-enum": "error",
     "@git-validator/no-declares-in-ts-file": "error",
