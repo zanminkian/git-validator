@@ -1,5 +1,18 @@
 # git-validator
 
+## 0.9.13
+
+### Patch Changes
+
+- ffb246f: fix(git-validator): make the `extends` field right
+- Updated dependencies [33a5435]
+- Updated dependencies [2686f0b]
+- Updated dependencies [79c8264]
+- Updated dependencies [dd0ecd9]
+  - @git-validator/tsconfig@0.1.2
+  - @git-validator/eslint-config@0.1.1
+  - @git-validator/prettier-config@0.1.1
+
 ## 0.9.12
 
 ### Patch Changes
