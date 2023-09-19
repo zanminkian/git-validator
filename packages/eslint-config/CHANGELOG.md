@@ -1,5 +1,12 @@
 # @git-validator/eslint-config
 
+## 0.1.2
+
+### Patch Changes
+
+- d19ba77: feat(eslint-config): turn off no-undef
+- 829cdf6: feat(eslint-config): enable react hooks rules
+
 ## 0.1.1
 
 ### Patch Changes
