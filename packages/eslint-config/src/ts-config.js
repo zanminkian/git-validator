@@ -105,10 +105,14 @@ export default {
     // ban some syntaxes to reduce mistakes
     "@typescript-eslint/ban-types": "error",
     "@typescript-eslint/method-signature-style": "error",
+    "@typescript-eslint/no-duplicate-enum-values": "error",
+    "@typescript-eslint/no-duplicate-type-constituents": "error",
+    "@typescript-eslint/no-inferrable-types": "error",
     "@typescript-eslint/no-require-imports": "error",
     "@typescript-eslint/no-namespace": "error",
+    "@typescript-eslint/no-misused-new": "error",
+    "@typescript-eslint/no-mixed-enums": "error",
     "@typescript-eslint/no-import-type-side-effects": "error",
-    // '@typescript-eslint/consistent-type-imports': 'error',
     "@typescript-eslint/no-floating-promises": ["error", { ignoreVoid: false }],
     "@typescript-eslint/no-misused-promises": [
       "error",
@@ -116,7 +120,10 @@ export default {
     ],
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/no-unnecessary-condition": "error",
+    // "@typescript-eslint/consistent-type-imports": "error",
     // "@typescript-eslint/unbound-method": "error",
+    // "@typescript-eslint/no-non-null-assertion": "error",s
 
     "@git-validator/no-const-enum": "error",
     "@git-validator/no-declares-in-ts-file": "error",
