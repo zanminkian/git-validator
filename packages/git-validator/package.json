@@ -19,6 +19,13 @@
   "license": "MIT",
   "author": "hellozmj@qq.com",
   "type": "module",
+  "exports": {
+    "./tsconfig": "./tsconfig/tsconfig.json",
+    "./tsconfig/cjs": "./tsconfig/cjs.json",
+    "./tsconfig/esm": "./tsconfig/esm.json",
+    "./tsconfig/legacy": "./tsconfig/legacy.json",
+    "./tsconfig/*": "./tsconfig/*"
+  },
   "bin": {
     "commitlint": "./src/bin/commitlint.js",
     "git-validator": "./src/bin/git-validator.js",
@@ -27,7 +34,7 @@
     "tsconfig": "./src/bin/tsconfig.js"
   },
   "scripts": {
-    "build": "tsc --noEmit"
+    "build": "tsc --noEmit -p ../../tsconfig.json"
   },
   "dependencies": {
     "@commitlint/cli": "^17.7.1",
