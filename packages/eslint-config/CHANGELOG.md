@@ -1,5 +1,12 @@
 # @git-validator/eslint-config
 
+## 0.1.4
+
+### Patch Changes
+
+- e7a1c9f: feat(eslint-config): enable some ts rules
+- c9b0c89: feat(eslint-config): support strict mode
+
 ## 0.1.3
 
 ### Patch Changes
