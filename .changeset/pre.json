@@ -1,0 +1,12 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@git-validator/eslint-config": "0.1.3",
+    "@git-validator/eslint-plugin": "0.1.1",
+    "git-validator": "0.9.15",
+    "@git-validator/prettier-config": "0.1.1",
+    "@git-validator/tsconfig": "0.1.2"
+  },
+  "changesets": []
+}
