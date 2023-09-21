@@ -1,5 +1,16 @@
 # git-validator
 
+## 0.10.0-beta.0
+
+### Minor Changes
+
+- 20c91cc: refactor(git-validator): move tsconfig files
+
+### Patch Changes
+
+- Updated dependencies [e7a1c9f]
+  - @git-validator/eslint-config@0.1.4-beta.0
+
 ## 0.9.15
 
 ### Patch Changes
