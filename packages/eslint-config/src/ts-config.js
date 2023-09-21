@@ -88,6 +88,17 @@ function getTsRules() {
   };
 }
 
+function getStrictRules() {
+  if (process.env["STRICT"] || process.env["ESLINT_STRICT"]) {
+    return {
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/consistent-type-assertions": ["error", { assertionStyle: "never" }],
+      "@typescript-eslint/no-non-null-assertion": "error",
+    };
+  }
+  return {};
+}
+
 export default {
   files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
   languageOptions: {
@@ -104,6 +115,10 @@ export default {
 
     // ban some syntaxes to reduce mistakes
     "@typescript-eslint/ban-types": "error",
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      { assertionStyle: "as", objectLiteralTypeAssertions: "never" },
+    ],
     "@typescript-eslint/method-signature-style": "error",
     "@typescript-eslint/no-duplicate-enum-values": "error",
     "@typescript-eslint/no-duplicate-type-constituents": "error",
@@ -121,12 +136,12 @@ export default {
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
     "@typescript-eslint/no-unnecessary-condition": "error",
-    // "@typescript-eslint/consistent-type-imports": "error",
     // "@typescript-eslint/unbound-method": "error",
-    // "@typescript-eslint/no-non-null-assertion": "error",s
 
     "@git-validator/no-const-enum": "error",
     "@git-validator/no-declares-in-ts-file": "error",
     "@git-validator/no-export-assignment": "error",
+
+    ...getStrictRules(),
   },
 };
