@@ -12,12 +12,10 @@ export default {
   rules: {
     ...standardConfig.rules,
     // override standard config rules
-    "comma-dangle": ["error", "always-multiline"],
-    "brace-style": ["error", "1tbs", { allowSingleLine: false }], // https://github.com/standard/eslint-config-standard/pull/281
     "dot-notation": "off", // conflict when enabling ts-check so turn it off
 
     // code style for a better readability
-    "max-statements-per-line": ["error", { max: 1 }],
+    "arrow-body-style": ["error", "as-needed"],
     "import/newline-after-import": ["error", { count: 1 }],
     "simple-import-sort/imports": [
       "error",
@@ -26,8 +24,7 @@ export default {
     "simple-import-sort/exports": "error",
     "unicorn/prefer-node-protocol": "error",
     "unicorn/escape-case": "error", // '\ud834' -> '\uD834'
-    "unicorn/number-literal-case": "error", // 0XFF -> 0xFF
-    "arrow-body-style": ["error", "as-needed"],
+    // "unicorn/number-literal-case": "error", // 0XFF -> 0xFF // conflict with prettier
 
     // ban some syntaxes to reduce mistakes
     "import/no-commonjs": [
