@@ -2,30 +2,11 @@
 import { spawnSync } from "node:child_process";
 import fs from "node:fs/promises";
 import { createRequire } from "node:module";
-import { dirname, join, resolve } from "node:path";
+import { join, resolve } from "node:path";
 import process from "node:process";
-import { fileURLToPath } from "node:url";
-import { cosmiconfig } from "cosmiconfig";
+import { dir, exists, resolveConfig } from "./utils.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const requireResolve = createRequire(import.meta.url).resolve;
-
-/**
- * @param {"eslint"|"prettier"} module
- */
-async function getConfigFilePath(module) {
-  return (await cosmiconfig(module).search(join(__dirname, "..")))?.filepath;
-}
-
-/**
- * @param {string} filepath
- */
-async function exists(filepath) {
-  return await fs
-    .access(filepath)
-    .then(() => true)
-    .catch(() => false);
-}
 
 /**
  * @param {string} file
@@ -48,7 +29,7 @@ async function writeGitHook(file, content) {
 async function writePreCommit() {
   const content = [
     "#!/bin/sh",
-    `npx lint-staged --config ${join(__dirname, "lint-staged.config.js")}`,
+    `npx lint-staged --config ${join(dir(import.meta.url), "lint-staged.config.js")}`,
   ].join("\n");
 
   await writeGitHook("pre-commit", content);
@@ -57,7 +38,7 @@ async function writePreCommit() {
 async function writeCommitMsg() {
   const content = [
     "#!/bin/sh",
-    `npx commitlint --config ${join(__dirname, "commitlint.config.js")} --edit`,
+    `npx commitlint --config ${join(dir(import.meta.url), "commitlint.config.js")} --edit`,
   ].join("\n");
 
   await writeGitHook("commit-msg", content);
@@ -96,7 +77,7 @@ export async function lint(paths = [], options = {}) {
   const cwd = process.cwd();
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
 
-  let configPath = await getConfigFilePath("eslint");
+  let configPath = (await resolveConfig("eslint"))?.filepath;
   if (!configPath) {
     process.env["ESLINT_USE_FLAT_CONFIG"] = "true";
     configPath = requireResolve("@git-validator/eslint-config");
@@ -119,11 +100,13 @@ export async function format(paths = [], options = {}) {
   const prettierIgnore = join(cwd, ".prettierignore");
   const gitIgnore = join(cwd, ".gitignore");
   const ignores = [
-    ...((await exists(prettierIgnore)) ? [prettierIgnore] : [join(__dirname, "prettierignore")]),
+    ...((await exists(prettierIgnore))
+      ? [prettierIgnore]
+      : [join(dir(import.meta.url), "prettierignore")]),
     ...((await exists(gitIgnore)) ? [gitIgnore] : []),
   ].flatMap((p) => ["--ignore-path", p]);
   const configPath =
-    (await getConfigFilePath("prettier")) ?? requireResolve("@git-validator/prettier-config");
+    (await resolveConfig("prettier"))?.filepath ?? requireResolve("@git-validator/prettier-config");
 
   return spawnSync(
     "npx",
