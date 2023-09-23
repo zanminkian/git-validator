@@ -47,11 +47,11 @@ export default {
     "unicorn/throw-new-error": "error",
     "unicorn/prefer-number-properties": "error",
     // 'unicorn/no-null': 'error', // null can be useful when interact with json.
-    "prefer-exponentiation-operator": "error",
     "no-implicit-coercion": ["error", { disallowTemplateShorthand: true, allow: ["!!"] }], // forbid code like `const num = +str`;
     "no-invalid-this": "error",
     "no-plusplus": "error",
     "no-duplicate-imports": "error",
+    "prefer-exponentiation-operator": "error",
 
     // react
     "react-hooks/rules-of-hooks": "error",
