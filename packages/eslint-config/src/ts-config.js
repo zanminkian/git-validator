@@ -99,49 +99,58 @@ function getStrictRules() {
   return {};
 }
 
-export default {
-  files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
-  languageOptions: {
-    parser: tsParser,
-    parserOptions: {
-      tsconfigRootDir: process.cwd(),
-      project: tsconfig,
+export default [
+  {
+    files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        tsconfigRootDir: process.cwd(),
+        project: tsconfig,
+      },
+    },
+    rules: {
+      ...jsConfig.rules,
+      ...getTsRules(),
+      "no-undef": "off", // https://typescript-eslint.io/linting/troubleshooting/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+
+      // ban some syntaxes to reduce mistakes
+      "@typescript-eslint/ban-types": "error",
+      "@typescript-eslint/consistent-type-assertions": [
+        "error",
+        { assertionStyle: "as", objectLiteralTypeAssertions: "never" },
+      ],
+      "@typescript-eslint/method-signature-style": "error",
+      "@typescript-eslint/no-duplicate-enum-values": "error",
+      "@typescript-eslint/no-duplicate-type-constituents": "error",
+      "@typescript-eslint/no-inferrable-types": "error",
+      "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-namespace": "error",
+      "@typescript-eslint/no-misused-new": "error",
+      "@typescript-eslint/no-mixed-enums": "error",
+      "@typescript-eslint/no-import-type-side-effects": "error",
+      "@typescript-eslint/no-floating-promises": ["error", { ignoreVoid: false }],
+      "@typescript-eslint/no-misused-promises": [
+        "error",
+        { checksVoidReturn: { returns: false, arguments: false, variables: false } },
+      ],
+      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/no-unnecessary-type-assertion": "error",
+      "@typescript-eslint/no-unnecessary-condition": "error",
+      "@typescript-eslint/unbound-method": "error",
+
+      "@git-validator/no-const-enum": "error",
+      "@git-validator/no-declares-in-ts-file": "error",
+      "@git-validator/no-export-assignment": "error",
+
+      ...getStrictRules(),
     },
   },
-  rules: {
-    ...jsConfig.rules,
-    ...getTsRules(),
-    "no-undef": "off", // https://typescript-eslint.io/linting/troubleshooting/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
-
-    // ban some syntaxes to reduce mistakes
-    "@typescript-eslint/ban-types": "error",
-    "@typescript-eslint/consistent-type-assertions": [
-      "error",
-      { assertionStyle: "as", objectLiteralTypeAssertions: "never" },
-    ],
-    "@typescript-eslint/method-signature-style": "error",
-    "@typescript-eslint/no-duplicate-enum-values": "error",
-    "@typescript-eslint/no-duplicate-type-constituents": "error",
-    "@typescript-eslint/no-inferrable-types": "error",
-    "@typescript-eslint/no-require-imports": "error",
-    "@typescript-eslint/no-namespace": "error",
-    "@typescript-eslint/no-misused-new": "error",
-    "@typescript-eslint/no-mixed-enums": "error",
-    "@typescript-eslint/no-import-type-side-effects": "error",
-    "@typescript-eslint/no-floating-promises": ["error", { ignoreVoid: false }],
-    "@typescript-eslint/no-misused-promises": [
-      "error",
-      { checksVoidReturn: { returns: false, arguments: false, variables: false } },
-    ],
-    "@typescript-eslint/await-thenable": "error",
-    "@typescript-eslint/no-unnecessary-type-assertion": "error",
-    "@typescript-eslint/no-unnecessary-condition": "error",
-    // "@typescript-eslint/unbound-method": "error",
-
-    "@git-validator/no-const-enum": "error",
-    "@git-validator/no-declares-in-ts-file": "error",
-    "@git-validator/no-export-assignment": "error",
-
-    ...getStrictRules(),
+  {
+    files: ["**/*.{test,spec}.?([cm])ts", "**/*.{test,spec}.tsx"],
+    rules: {
+      "@typescript-eslint/unbound-method": "off",
+      "jest/unbound-method": "error",
+    },
   },
-};
+];

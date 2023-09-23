@@ -33,7 +33,7 @@ export default {
     ],
     "import/no-self-import": "error",
     "import/no-dynamic-require": "error",
-    "import/no-relative-packages": "error",
+    "import/no-relative-packages": "error", // forbid to import module from other monorepo packages by relative paths
     "import/no-mutable-exports": "error", // forbid code like `export let count = 3`
     // "import/no-named-as-default-member": "error", // forbid code like `import foo from './foo.js'; const bar = foo.bar;`
     "n/prefer-global/process": ["error", "never"],
