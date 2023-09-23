@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.1.5
+
+### Patch Changes
+
+- 2bda39a: feat(eslint-config): enable `@typescript-eslint/unbound-method`
+- 76d635e: feat(eslint-config): ignore files in `.gitignore`
+- Updated dependencies [aa8dd92]
+  - @git-validator/eslint-plugin@0.1.2
+
 ## 0.1.4
 
 ### Patch Changes
