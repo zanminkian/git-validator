@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.1.2
+
+### Patch Changes
+
+- aa8dd92: refactor(eslint-plugin): optimize the error message
+
 ## 0.1.1
 
 ### Patch Changes
