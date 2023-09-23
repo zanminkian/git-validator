@@ -1,4 +1,8 @@
+import fs from "node:fs/promises";
+import { join } from "node:path";
+import process from "node:process";
 import gitValidatorPlugin from "@git-validator/eslint-plugin";
+import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import importPlugin from "eslint-plugin-import";
 import jestPlugin from "eslint-plugin-jest";
@@ -9,10 +13,19 @@ import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 import unicornPlugin from "eslint-plugin-unicorn";
 import globals from "globals";
 
+async function getIgnoresByGitIgnore() {
+  const content = await fs.readFile(join(process.cwd(), ".gitignore"), "utf-8");
+  return content
+    .split("\n")
+    .filter(Boolean)
+    .map((i) => i.trim())
+    .map(gitignoreToMinimatch);
+}
+
 export default [
   {
     // Globally ignore. https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
-    ignores: ["dist", "output", "out", "coverage"].map((i) => `**/${i}/`),
+    ignores: await getIgnoresByGitIgnore(),
   },
   {
     files: ["js", "cjs", "mjs", "jsx", "ts", "cts", "mts", "tsx"].map((i) => `**/*.${i}`),

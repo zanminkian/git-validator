@@ -13,8 +13,9 @@ A strict eslint config for better code quality. Based on [standard.js](https://g
 - Based on [standard.js](https://github.com/standard/standard), but introduced more powerful rules to forbid stupid codes.
 - One-line of config.
 - Work well with Prettier without conflicts.
-- Designed to work with TypeScript, NestJS and React out-of-box.
 - Modern. ESM first.
+- Ignore files in `.gitignore`.
+- Designed to work with TypeScript, NestJS and React out-of-box.
 
 ## Usage
 
