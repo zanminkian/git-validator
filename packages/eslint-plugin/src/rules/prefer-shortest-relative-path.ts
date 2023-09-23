@@ -5,7 +5,7 @@ export const ruleName = "prefer-shortest-relative-path";
 export const messageId = "preferShortestRelativePath";
 export const defaultOptions = [];
 const description = "Forbid redundant relative path when importing module.";
-const message = "The relative path is redundant.";
+const message = "The imported relative path can be shorter.";
 
 /**
  * @internal
