@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.1.3
+
+### Patch Changes
+
+- b59e756: feat(tsconfig): optimize tsconfig init template
+
 ## 0.1.2
 
 ### Patch Changes
