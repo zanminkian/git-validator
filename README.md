@@ -10,15 +10,29 @@
 <a href="https://packagephobia.com/result?p=git-validator"><img src="https://packagephobia.com/badge?p=git-validator"/></a>
 </p>
 
-## Motivation
+## What is it
 
-In order to improve project code quality, we usually install `husky`, `eslint`, `prettier`, `lint-staged`, `commitlint` and configure them. It's too tedious. This light wight library provide the best practice for you. You can replace them in your project with this all-in-one package.
+- A cli tool for checking project code style.
+- A cli tool for setting up git hooks to block 💩 slipping into your code base.
+- A cli tool for blocking smelly commit messages when committing code.
 
-## Features
+In short, this is an all-in-one tool for code quality.
 
-- 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple.
+## Highlights
+
+- 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple. You don't need `eslint`, `prettier`, `commitlint`, `lint-staged`, `husky` any more.
 - 🚀 **Simple to use**: Only **TWO** steps required: set up `scripts` and run it once.
 - 🔧 **Zero Configuration**: **ZERO** configuration file is needed, while still allowing customization of `eslint`, `prettier` and `commitlint` rules.
+
+## Quick Start
+
+Run this command in your project directory to lint & format code.
+
+```sh
+npx git-validator
+```
+
+Usually, we recommend you to install it and set it up in your project. Please continue reading the doc below.
 
 ## Install
 
