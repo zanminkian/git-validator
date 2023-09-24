@@ -1,5 +1,12 @@
 # git-validator
 
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies [b59e756]
+  - @git-validator/tsconfig@0.1.3
+
 ## 0.10.1
 
 ### Patch Changes
