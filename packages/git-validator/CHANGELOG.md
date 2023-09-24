@@ -1,5 +1,14 @@
 # git-validator
 
+## 0.10.3
+
+### Patch Changes
+
+- Updated dependencies [b1ffc74]
+- Updated dependencies [317fd54]
+  - @git-validator/eslint-config@0.1.6
+  - @git-validator/prettier-config@0.1.2
+
 ## 0.10.2
 
 ### Patch Changes
