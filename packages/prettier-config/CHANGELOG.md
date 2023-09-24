@@ -1,5 +1,11 @@
 # @git-validator/prettier-config
 
+## 0.1.2
+
+### Patch Changes
+
+- 317fd54: fix(prettier-config): fix crash when running `npx git-validator`
+
 ## 0.1.1
 
 ### Patch Changes
