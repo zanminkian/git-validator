@@ -8,5 +8,8 @@
     "@git-validator/prettier-config": "0.1.1",
     "@git-validator/tsconfig": "0.1.3"
   },
-  "changesets": []
+  "changesets": [
+    "perfect-goats-laugh",
+    "weak-plants-sell"
+  ]
 }
