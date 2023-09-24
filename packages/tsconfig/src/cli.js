@@ -7,7 +7,7 @@ import { Command } from "commander";
 const generatingTsconfigContent = `{
   "extends": "${process.env["TSCONFIG_EXTENDS"] ?? "@git-validator/tsconfig"}",
   "include": ["src"],
-  "exclude": ["**/*.spec.?s", "**/*.test.?s"],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
   "compilerOptions": {
     "outDir": "dist"
   }
