@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.1.6-beta.0
+
+### Patch Changes
+
+- b1ffc74: fix(eslint-config): fix crash when there is no .gitignore file in project root
+
 ## 0.1.5
 
 ### Patch Changes
