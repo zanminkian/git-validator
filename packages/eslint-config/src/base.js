@@ -14,7 +14,7 @@ import unicornPlugin from "eslint-plugin-unicorn";
 import globals from "globals";
 
 async function getIgnoresByGitIgnore() {
-  const content = await fs.readFile(join(process.cwd(), ".gitignore"), "utf-8");
+  const content = await fs.readFile(join(process.cwd(), ".gitignore"), "utf-8").catch(() => "");
   return content
     .split("\n")
     .filter(Boolean)
