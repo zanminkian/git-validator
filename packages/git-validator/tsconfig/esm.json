@@ -17,6 +17,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
 
+    "moduleDetection": "force", // https://github.com/zanminkian/git-validator/issues/88#issuecomment-1734416707
     "module": "Node16",
     "target": "ES2022",
     "moduleResolution": "node16",
