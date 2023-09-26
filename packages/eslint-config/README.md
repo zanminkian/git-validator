@@ -14,7 +14,8 @@ A strict eslint config for better code quality. Based on [standard.js](https://g
 - One-line of config.
 - Work well with Prettier without conflicts.
 - Modern. ESM first.
-- Ignore files in `.gitignore`.
+- Ignore files configured in `.gitignore`. So you don't need a `.eslintignore`.
+- Lint JS and TS only.
 - Designed to work with TypeScript, NestJS and React out-of-box.
 
 ## Usage
@@ -43,6 +44,8 @@ Config `package.json`
   }
 }
 ```
+
+> Note: Typescript project is required a `tsconfig.json` or `tsconfig.eslint.json` file in the root of the project. Otherwise, ts files will be ignored.
 
 ## License
 
