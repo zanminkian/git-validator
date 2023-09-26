@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.1.4
+
+### Patch Changes
+
+- c578679: feat(tsconfig): set `moduleDetection` to be `force`
+
 ## 0.1.3
 
 ### Patch Changes
