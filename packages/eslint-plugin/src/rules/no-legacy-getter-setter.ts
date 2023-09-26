@@ -7,9 +7,6 @@ const description = "Disallow using legacy getter and setter.";
 const message =
   "It's deprecated. Use `Object.defineProperty` or `Object.getOwnPropertyDescriptor` instead.";
 
-/**
- * @internal
- */
 export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
   typeof defaultOptions,
   typeof messageId

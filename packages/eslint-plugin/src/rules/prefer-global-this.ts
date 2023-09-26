@@ -6,9 +6,6 @@ export const defaultOptions = [];
 const description = "Disallow `global` or `self` object and prefer `globalThis`";
 const message = "Do not use `global` or `self` object. Use `globalThis` instead";
 
-/**
- * @internal
- */
 export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
   typeof defaultOptions,
   typeof messageId

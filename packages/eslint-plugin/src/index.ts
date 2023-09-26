@@ -1,3 +1,4 @@
+import type { ESLintUtils } from "@typescript-eslint/utils";
 import * as importRegex from "./rules/import-regex.js";
 import * as noConstEnum from "./rules/no-const-enum.js";
 import * as noDeclaresInTsFile from "./rules/no-declares-in-ts-file.js";
@@ -7,9 +8,8 @@ import * as noLegacyGetterSetter from "./rules/no-legacy-getter-setter.js";
 import * as preferGlobalThis from "./rules/prefer-global-this.js";
 import * as preferShortestRelativePath from "./rules/prefer-shortest-relative-path.js";
 
-/**
- * @internal
- */
+export type { ESLintUtils };
+
 export default {
   rules: {
     [importRegex.ruleName]: importRegex.rule,

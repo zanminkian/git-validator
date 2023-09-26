@@ -7,9 +7,6 @@ export const defaultOptions = [];
 const description = "Forbid redundant relative path when importing module.";
 const message = "The imported relative path can be shorter.";
 
-/**
- * @internal
- */
 export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
   typeof defaultOptions,
   typeof messageId
