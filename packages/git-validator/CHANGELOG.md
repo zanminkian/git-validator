@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.10.5
+
+### Patch Changes
+
+- b2bea40: fix(eslint-config): fix crash if there is no `tsconfig.json` in project root
+- 9e6174e: chore: upgrade deps
+- Updated dependencies [b2bea40]
+- Updated dependencies [9e6174e]
+  - @git-validator/eslint-config@0.1.7
+
 ## 0.10.4
 
 ### Patch Changes
