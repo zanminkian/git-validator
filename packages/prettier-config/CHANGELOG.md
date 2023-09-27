@@ -1,5 +1,11 @@
 # @git-validator/prettier-config
 
+## 0.1.3
+
+### Patch Changes
+
+- 0729249: fix(prettier-config): fix some crashes, close #102
+
 ## 0.1.2
 
 ### Patch Changes
