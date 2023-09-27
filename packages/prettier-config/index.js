@@ -10,23 +10,38 @@ const configFilePaths = ["js", "ts", "json"].map((i) =>
   path.resolve(process.cwd(), `tailwind.config.${i}`),
 );
 const index = (
-  await Promise.all(
-    configFilePaths.map(async (filepath) =>
-      fs
-        .access(filepath)
-        .then(() => true)
-        .catch(() => false),
-    ),
-  )
+  await Promise.all(configFilePaths.map(async (filepath) => exists(filepath)))
 ).findIndex(Boolean);
 const tailwindConfig = configFilePaths[index];
 
 export default {
   plugins: [
-    requireResolve("prettier-plugin-curly"),
-    requireResolve("prettier-plugin-packagejson"),
-    ...(tailwindConfig ? [requireResolve("prettier-plugin-tailwindcss")] : []),
+    await getModulePath("prettier-plugin-curly"),
+    await getModulePath("prettier-plugin-packagejson"),
+    ...(tailwindConfig ? [await getModulePath("prettier-plugin-tailwindcss")] : []),
   ],
   ...(tailwindConfig ? { tailwindConfig } : {}),
   printWidth: 100, // 120 may be too long
 };
+
+/**
+ * @param {string} moduleName
+ */
+async function getModulePath(moduleName) {
+  const nodeModulePath = path.resolve(process.cwd(), "node_modules", moduleName);
+  if (await exists(nodeModulePath)) {
+    return moduleName;
+  } else {
+    return requireResolve(moduleName);
+  }
+}
+
+/**
+ * @param {string} filepath
+ */
+async function exists(filepath) {
+  return await fs
+    .access(filepath)
+    .then(() => true)
+    .catch(() => false);
+}
