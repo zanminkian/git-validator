@@ -26,7 +26,7 @@ In short, this is an all-in-one tool for code quality.
 
 ## Quick Start
 
-Run this command in your project directory to lint & format code.
+Run this command in your project directory to lint code.
 
 ```sh
 npx git-validator
