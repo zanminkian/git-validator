@@ -1,6 +1,6 @@
 // @ts-check
 import fs from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { cosmiconfig } from "cosmiconfig";
 
@@ -15,6 +15,8 @@ export async function exists(filepath) {
 }
 
 /**
+ * Get current directory of the js file
+ * Usage: `dir(import.meta.utl)`
  * @param {string} url
  */
 export function dir(url) {
@@ -27,4 +29,13 @@ export function dir(url) {
  */
 export async function resolveConfig(module, dirname = dir(import.meta.url)) {
   return await cosmiconfig(module).search(join(dirname, ".."));
+}
+
+/**
+ * Usage: `importJson(import.meta.url, '../xx.json')`
+ * @param {string} importMetaUrl
+ * @param {string} jsonPath
+ */
+export async function importJson(importMetaUrl, jsonPath) {
+  return JSON.parse(await fs.readFile(resolve(dir(importMetaUrl), jsonPath), "utf-8"));
 }

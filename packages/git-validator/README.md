@@ -20,9 +20,9 @@ In short, this is an all-in-one tool for code quality.
 
 ## Highlights
 
-- 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple. You don't need `eslint`, `prettier`, `commitlint`, `lint-staged`, `husky` any more.
-- 🚀 **Simple to use**: Only **TWO** steps required: set up `scripts` and run it once.
-- 🔧 **Zero Configuration**: **ZERO** configuration file is needed, while still allowing customization of `eslint`, `prettier` and `commitlint` rules.
+- 🔧 **Zero Configuration**: 0️⃣ configuration file is needed, while still allowing customization of `eslint`, `prettier` and `commitlint` rules.
+- 📦 **Unified package**: Just 1️⃣ npm package to install, replacing multiple. You don't need `eslint`, `prettier`, `commitlint`, `lint-staged`, `husky` any more.
+- 🚀 **Simple to use**: Only 2️⃣ steps required: set up `scripts` and run it once.
 
 ## Quick Start
 
@@ -154,6 +154,7 @@ This library can work as a standalone package. However, if you have Husky 5 or a
 - Clone this repository.
 - Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`.
 - Install dependencies using `pnpm install`.
+- Run `pnpm style:update` to develop.
 - Start coding and submit your PR.
 
 ## Show your support

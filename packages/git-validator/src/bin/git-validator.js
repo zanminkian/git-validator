@@ -3,11 +3,15 @@
 import process from "node:process";
 import { Command } from "commander";
 import { format, install, lint } from "../cli.js";
+import { importJson } from "../utils.js";
+
+const pkgJson = await importJson(import.meta.url, "../../package.json");
 
 const program = new Command();
 
 program
   .name("git-validator")
+  .version(pkgJson.version)
   .description("lint & format code using eslint & prettier")
   .option("-u, --update", "automatically update files to fix code style problems")
   .argument("[paths...]", "dir or file paths to format and lint")
