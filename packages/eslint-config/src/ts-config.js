@@ -1,23 +1,10 @@
 // @ts-check
-import fs from "node:fs/promises";
-import path from "node:path";
 import process from "node:process";
 import tsParser from "@typescript-eslint/parser";
 import jsConfig from "./js-config/index.js";
+import { getProjectTsconfig } from "./utils.js";
 
-const tsconfigs = ["tsconfig.eslint.json", "tsconfig.json"];
-const index = (
-  await Promise.all(
-    tsconfigs.map(
-      async (config) =>
-        await fs
-          .access(path.join(process.cwd(), config))
-          .then(() => true)
-          .catch(() => false),
-    ),
-  )
-).findIndex(Boolean);
-const tsconfig = tsconfigs[index];
+const tsconfig = await getProjectTsconfig();
 
 function getTsRules() {
   // https://typescript-eslint.io/rules/#extension-rules

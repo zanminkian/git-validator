@@ -12,6 +12,11 @@ import reactHooksPlugin from "eslint-plugin-react-hooks";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 import unicornPlugin from "eslint-plugin-unicorn";
 import globals from "globals";
+import { getProjectTsconfig } from "./utils.js";
+
+const tsconfig = await getProjectTsconfig();
+const jsExtensions = ["js", "cjs", "mjs", "jsx"];
+const tsExtensions = ["ts", "cts", "mts", "tsx"];
 
 async function getIgnoresByGitIgnore() {
   const content = await fs.readFile(join(process.cwd(), ".gitignore"), "utf-8").catch(() => "");
@@ -28,7 +33,7 @@ export default [
     ignores: await getIgnoresByGitIgnore(),
   },
   {
-    files: ["js", "cjs", "mjs", "jsx", "ts", "cts", "mts", "tsx"].map((i) => `**/*.${i}`),
+    files: [...jsExtensions, ...(tsconfig ? tsExtensions : [])].map((i) => `**/*.${i}`),
     languageOptions: {
       globals: {
         ...globals["shared-node-browser"],
