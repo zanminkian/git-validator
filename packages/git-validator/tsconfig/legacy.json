@@ -32,6 +32,7 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSourceMap": true,
+    "inlineSources": true,
     "isolatedModules": true,
     "jsx": "preserve"
     /**
