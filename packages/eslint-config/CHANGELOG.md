@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.1.10
+
+### Patch Changes
+
+- fede930: fix(eslint-config): ignore ts files when there is no tsconfig
+
 ## 0.1.9
 
 ### Patch Changes
