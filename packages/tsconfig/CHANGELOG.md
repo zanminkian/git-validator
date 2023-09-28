@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.1.5
+
+### Patch Changes
+
+- 7e7f807: feat(git-validator,tsconfig): enable `inlineSources` in tsconfig
+
 ## 0.1.4
 
 ### Patch Changes
