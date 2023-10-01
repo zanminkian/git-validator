@@ -131,6 +131,11 @@ export default !tsconfig
           "@git-validator/no-const-enum": "error",
           "@git-validator/no-declares-in-ts-file": "error",
           "@git-validator/no-export-assignment": "error",
+          "@typescript-eslint/prefer-ts-expect-error": "error",
+          "@typescript-eslint/ban-ts-comment": [
+            "error",
+            { "ts-expect-error": true, "ts-ignore": true, "ts-nocheck": true },
+          ],
 
           ...getStrictRules(),
         },
