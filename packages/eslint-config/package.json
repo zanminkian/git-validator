@@ -1,6 +1,6 @@
 {
   "name": "@git-validator/eslint-config",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "A strict eslint config for better code quality.",
   "keywords": [
     "opinionated",

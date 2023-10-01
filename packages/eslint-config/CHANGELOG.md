@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.1.11
+
+### Patch Changes
+
+- fdb0038: feat(eslint-config): ban ts comment
+
 ## 0.1.10
 
 ### Patch Changes
