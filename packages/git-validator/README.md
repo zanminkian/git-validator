@@ -1,4 +1,4 @@
-<h1 align="center">git-validator</h1>
+<h1 align="center">📈 git-validator</h1>
 
 <p align="center"> <b>Git</b> hooks and code style <b>Validator</b> </p>
 
@@ -178,6 +178,8 @@ This library can work as a standalone package. However, if you have Husky 5 or a
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+[![Stargazers repo roster for @zanminkian/git-validator](https://reporoster.com/stars/zanminkian/git-validator)](https://github.com/zanminkian/git-validator/stargazers)
 
 ## License
 
