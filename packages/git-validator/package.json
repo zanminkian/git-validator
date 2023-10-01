@@ -13,7 +13,9 @@
     "pre-commit",
     "husky",
     "lint-staged",
-    "commitlint"
+    "commitlint",
+    "xo",
+    "standard"
   ],
   "homepage": "https://github.com/zanminkian/git-validator",
   "license": "MIT",

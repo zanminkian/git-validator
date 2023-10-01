@@ -12,11 +12,11 @@
 
 ## What is it
 
-- A cli tool for checking project code style.
+- A cli tool for checking JS/TS code style.
 - A cli tool for setting up git hooks to block 💩 slipping into your code base.
 - A cli tool for blocking smelly commit messages when committing code.
 
-In short, this is an all-in-one tool for code quality.
+In short, this is an all-in-one tool for code quality. In other words, this is a **great alternative** to [standard](https://www.npmjs.com/package/standard) and [xo](https://www.npmjs.com/package/xo).
 
 ## Highlights
 
@@ -42,6 +42,8 @@ pnpm add -D git-validator
 
 ## Usage
 
+### Basic
+
 Edit `package.json > postinstall` script and run it once.
 
 ```json
@@ -60,7 +62,22 @@ pnpm run postinstall
 
 Now you can commit code (using Git) to your project. Invalid code or commit messages will be automatically blocked.
 
-## CLI
+Powered by [@git-validator/eslint-config](https://www.npmjs.com/package/@git-validator/eslint-config), we now support `.js` / `.mjs` / `.cjs` / `.jsx` / `.ts` / `.mts` / `.cts` / `.tsx` by default.
+
+### Setup `tsconfig.json`
+
+This tool has integrated [@git-validator/tsconfig](https://www.npmjs.com/package/@git-validator/tsconfig). Optionally, you can setup `tsconfig.json` using `git-validator/tsconfig` if you like. It provides a more consistent development experience.
+
+```json
+// tsconfig.json
+{
+  "extends": "git-validator/tsconfig"
+}
+```
+
+For more best practices, please refer to the [document](https://www.npmjs.com/package/@git-validator/tsconfig) of `@git-validator/tsconfig`.
+
+### CLI
 
 There are some convenient built-in commands for you to lint and format code (using eslint and prettier under the hood). You can run `npx git-validator -h` for more details.
 
@@ -73,6 +90,7 @@ Arguments:
   paths                        dir or file paths to format and lint
 
 Options:
+  -V, --version                output the version number
   -u, --update                 automatically update files to fix code style problems
   -h, --help                   display help for command
 
