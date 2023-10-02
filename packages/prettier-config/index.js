@@ -4,15 +4,7 @@ import { createRequire } from "node:module";
 import path from "node:path";
 import process from "node:process";
 
-const requireResolve = createRequire(import.meta.url).resolve;
-
-const configFilePaths = ["js", "ts", "json"].map((i) =>
-  path.resolve(process.cwd(), `tailwind.config.${i}`),
-);
-const index = (
-  await Promise.all(configFilePaths.map(async (filepath) => exists(filepath)))
-).findIndex(Boolean);
-const tailwindConfig = configFilePaths[index];
+const tailwindConfig = await getTailwindConfig();
 
 export default {
   plugins: [
@@ -24,6 +16,17 @@ export default {
   printWidth: 100, // 120 may be too long
 };
 
+async function getTailwindConfig() {
+  const configFilePaths = ["js", "ts", "json"].map((i) =>
+    path.resolve(process.cwd(), `tailwind.config.${i}`),
+  );
+  const index = (
+    await Promise.all(configFilePaths.map(async (filepath) => exists(filepath)))
+  ).findIndex(Boolean);
+  const tailwindConfig = configFilePaths[index];
+  return tailwindConfig;
+}
+
 /**
  * @param {string} moduleName
  */
@@ -32,6 +35,7 @@ async function getModulePath(moduleName) {
   if (await exists(nodeModulePath)) {
     return moduleName;
   } else {
+    const requireResolve = createRequire(import.meta.url).resolve;
     return requireResolve(moduleName);
   }
 }
