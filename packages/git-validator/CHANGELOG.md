@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.10.12
+
+### Patch Changes
+
+- d04e6b5: feat(eslint-config): required return await
+- 632d4f3: feat(eslint-config): lint js if detected tsconfig
+- Updated dependencies [d04e6b5]
+- Updated dependencies [632d4f3]
+  - @git-validator/eslint-config@0.1.12
+
 ## 0.10.11
 
 ### Patch Changes
