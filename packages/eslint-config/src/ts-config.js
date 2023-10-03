@@ -104,6 +104,7 @@ export default !tsconfig
           "no-undef": "off", // https://typescript-eslint.io/linting/troubleshooting/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
 
           // ban some syntaxes to reduce mistakes
+          "@typescript-eslint/await-thenable": "error",
           "@typescript-eslint/ban-types": "error",
           "@typescript-eslint/consistent-type-assertions": [
             "error",
@@ -123,11 +124,11 @@ export default !tsconfig
             "error",
             { checksVoidReturn: { returns: false, arguments: false, variables: false } },
           ],
-          "@typescript-eslint/await-thenable": "error",
           "@typescript-eslint/no-unnecessary-type-assertion": "error",
           "@typescript-eslint/no-unnecessary-condition": "error",
           "@typescript-eslint/unbound-method": "error",
           "@typescript-eslint/prefer-ts-expect-error": "error",
+          "@typescript-eslint/return-await": ["error", "always"],
           "@typescript-eslint/ban-ts-comment": [
             "error",
             { "ts-expect-error": true, "ts-ignore": true, "ts-nocheck": true },

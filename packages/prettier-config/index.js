@@ -21,7 +21,7 @@ async function getTailwindConfig() {
     path.resolve(process.cwd(), `tailwind.config.${i}`),
   );
   const index = (
-    await Promise.all(configFilePaths.map(async (filepath) => exists(filepath)))
+    await Promise.all(configFilePaths.map(async (filepath) => await exists(filepath)))
   ).findIndex(Boolean);
   const tailwindConfig = configFilePaths[index];
   return tailwindConfig;
