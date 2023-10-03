@@ -8,7 +8,7 @@ const standardConfig = JSON.parse(
 );
 
 export default {
-  files: ["**/*.js", "**/*.cjs", "**/*.mjs", "**/*.jsx"],
+  files: ["js", "cjs", "mjs", "jsx"].map((i) => `**/*.${i}`),
   rules: {
     ...standardConfig.rules,
     // override standard config rules
