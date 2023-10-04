@@ -83,6 +83,7 @@ export async function lint(paths = [], options = {}) {
     configPath = requireResolve("@git-validator/eslint-config");
   }
 
+  console.log("Checking linting...");
   return spawnSync("npx", ["eslint", "--config", configPath, ...(fix ? ["--fix"] : []), ...ps], {
     stdio: "inherit",
   });
