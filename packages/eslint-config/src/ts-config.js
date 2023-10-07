@@ -142,7 +142,7 @@ export default !tsconfig
         },
       },
       {
-        files: ["**/*.{test,spec}.?([cm])ts", "**/*.{test,spec}.tsx"],
+        files: ["**/*.{test,spec}.?([cm])ts", "**/*.{test,spec}.tsx"], // https://github.com/motemen/minimatch-cheat-sheet
         rules: {
           "@typescript-eslint/unbound-method": "off",
           "jest/unbound-method": "error",

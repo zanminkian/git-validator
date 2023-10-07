@@ -12,9 +12,11 @@
 
 ## What is it
 
-- A cli tool for checking JS/TS code style.
-- A cli tool for setting up git hooks to block 💩 slipping into your code base.
-- A cli tool for blocking smelly commit messages when committing code.
+This is a cli tool for:
+
+- checking JS/TS code style
+- blocking smelly commit messages when committing code
+- setting up git hooks to block 💩 slipping into your code base
 
 In short, this is an all-in-one tool for code quality. In other words, this is a **great alternative** to [standard](https://www.npmjs.com/package/standard) and [xo](https://www.npmjs.com/package/xo).
 
