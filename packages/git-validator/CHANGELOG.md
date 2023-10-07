@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.10.13
+
+### Patch Changes
+
+- 80165c4: feat(git-validator): print log before linting
+
 ## 0.10.12
 
 ### Patch Changes

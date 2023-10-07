@@ -1,6 +1,6 @@
 {
   "name": "git-validator",
-  "version": "0.10.12",
+  "version": "0.10.13",
   "description": "Git hooks and code style validator.",
   "keywords": [
     "git",
