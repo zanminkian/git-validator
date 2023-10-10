@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig",
   "include": ["src"],
-  "exclude": ["**/*.spec.?s", "**/*.test.?s"],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
   "compilerOptions": {
     "outDir": "dist"
   }
