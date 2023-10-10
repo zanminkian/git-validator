@@ -20,12 +20,12 @@
     "test": "node --test --experimental-loader ts-node/esm src/**/*.spec.ts"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^6.7.3"
+    "@typescript-eslint/utils": "^6.7.5"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^6.7.3",
-    "@typescript-eslint/rule-tester": "^6.7.3",
-    "eslint": "^8.50.0",
+    "@typescript-eslint/parser": "^6.7.5",
+    "@typescript-eslint/rule-tester": "^6.7.5",
+    "eslint": "^8.51.0",
     "ts-node": "^10.9.1"
   }
 }

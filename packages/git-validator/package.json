@@ -39,14 +39,14 @@
     "build": "tsc --noEmit -p ../../tsconfig.json"
   },
   "dependencies": {
-    "@commitlint/cli": "^17.7.1",
+    "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
     "@git-validator/eslint-config": "workspace:^",
     "@git-validator/prettier-config": "workspace:^",
     "@git-validator/tsconfig": "workspace:^",
     "commander": "^11.0.0",
     "cosmiconfig": "^8.3.6",
-    "eslint": "^8.50.0",
+    "eslint": "^8.51.0",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3"
   }
