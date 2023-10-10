@@ -35,8 +35,5 @@
   },
   "dependencies": {
     "commander": "^11.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.7.0"
   }
 }

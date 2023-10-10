@@ -52,15 +52,6 @@ const invalid = [
   'const foo = await import("../../../foo")',
   'require("../../../foo")',
   'const foo = require("../../../foo")',
-
-  'import "././foo"',
-  'import "./../.././foo"',
-  'require("./../.././foo")',
-  'import("./../.././foo")',
-
-  'import "./../foo"',
-  'require("./../foo")',
-  'import("./../foo")',
 ];
 
 RuleTester.afterAll = after;

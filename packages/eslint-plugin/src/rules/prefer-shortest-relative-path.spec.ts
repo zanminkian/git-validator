@@ -22,6 +22,15 @@ const invalid = [
   'import "./../a"',
   'import("./../a")',
   'require("./../a")',
+
+  'import "././foo"',
+  'import "./../.././foo"',
+  'require("./../.././foo")',
+  'import("./../.././foo")',
+
+  'import "./../foo"',
+  'require("./../foo")',
+  'import("./../foo")',
 ].map((code) => ({ code, filename: "/a/b/c/d/e.js" }));
 
 RuleTester.afterAll = after;

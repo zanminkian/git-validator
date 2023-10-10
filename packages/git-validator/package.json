@@ -49,8 +49,5 @@
     "eslint": "^8.50.0",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3"
-  },
-  "devDependencies": {
-    "@git-validator/eslint-plugin": "workspace:^"
   }
 }
