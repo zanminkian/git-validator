@@ -108,7 +108,7 @@ export default !tsconfig
           "@typescript-eslint/ban-types": "error",
           "@typescript-eslint/consistent-type-assertions": [
             "error",
-            { assertionStyle: "as", objectLiteralTypeAssertions: "never" },
+            { assertionStyle: "as", objectLiteralTypeAssertions: "allow-as-parameter" },
           ],
           "@typescript-eslint/method-signature-style": "error",
           "@typescript-eslint/no-duplicate-enum-values": "error",
