@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.10.15
+
+### Patch Changes
+
+- 382e264: fix(eslint-config): loosen restriction about type assertions
+- Updated dependencies [382e264]
+  - @git-validator/eslint-config@0.1.14
+
 ## 0.10.14
 
 ### Patch Changes
