@@ -1,5 +1,18 @@
 # @git-validator/eslint-config
 
+## 0.1.15
+
+### Patch Changes
+
+- fc487cd: feat(eslint-config): warn on non null assertion
+- 1ea8f1f: feat(eslint-config,eslint-plugin-packagejson,git-validator): support validate package json
+- 876dd47: feat: force `types` on the top
+- 814b294: feat: force `default` field to be the bottom
+- Updated dependencies [1ea8f1f]
+- Updated dependencies [876dd47]
+- Updated dependencies [814b294]
+  - @git-validator/eslint-plugin-packagejson@0.1.0
+
 ## 0.1.14
 
 ### Patch Changes
