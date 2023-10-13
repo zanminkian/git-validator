@@ -64,7 +64,7 @@ pnpm run postinstall
 
 Now you can commit code (using Git) to your project. Invalid code or commit messages will be automatically blocked.
 
-Powered by [@git-validator/eslint-config](https://www.npmjs.com/package/@git-validator/eslint-config), we now support `.js` / `.mjs` / `.cjs` / `.jsx` / `.ts` / `.mts` / `.cts` / `.tsx` by default.
+Powered by [@git-validator/eslint-config](https://www.npmjs.com/package/@git-validator/eslint-config), we now support `.js` / `.mjs` / `.cjs` / `.jsx` / `.ts` / `.mts` / `.cts` / `.tsx` / `package.json` by default.
 
 ### Setup `tsconfig.json`
 

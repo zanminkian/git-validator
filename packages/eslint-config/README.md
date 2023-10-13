@@ -15,7 +15,7 @@ A strict eslint config for better code quality. Based on [standard.js](https://g
 - Work well with Prettier without conflicts.
 - Modern. ESM first.
 - Ignore files configured in `.gitignore`. So you don't need a `.eslintignore`.
-- Lint `js` / `mjs` / `cjs` / `jsx` / `ts` / `mts` / `cts` / `tsx` files only.
+- Lint `js` / `mjs` / `cjs` / `jsx` / `ts` / `mts` / `cts` / `tsx` / `package.json` files only.
 - Designed to work with NestJS and React out-of-box.
 
 ## Usage

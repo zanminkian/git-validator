@@ -1,7 +1,7 @@
 {
   "name": "@git-validator/eslint-plugin-packagejson",
   "version": "0.0.0",
-  "description": "Eslint plugin for linting package json.",
+  "description": "ESlint plugin for linting package json.",
   "keywords": [
     "eslint",
     "config",
