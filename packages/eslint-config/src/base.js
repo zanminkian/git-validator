@@ -5,7 +5,6 @@ import gitValidatorPlugin from "@git-validator/eslint-plugin";
 import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import importPlugin from "eslint-plugin-import";
-import jestPlugin from "eslint-plugin-jest";
 import nPlugin from "eslint-plugin-n";
 import promisePlugin from "eslint-plugin-promise";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
@@ -53,7 +52,6 @@ export default [
       "@git-validator": gitValidatorPlugin,
       "@typescript-eslint": tsPlugin,
       "react-hooks": reactHooksPlugin,
-      jest: jestPlugin,
     },
   },
 ];
