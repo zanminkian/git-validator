@@ -7,6 +7,7 @@ export default {
     packagejson: packagejsonPlugin,
   },
   rules: {
+    "packagejson/top-types": "error",
     "packagejson/type-module": "warn",
     "packagejson/no-dependencies-in-workspace-root": "warn",
   },
