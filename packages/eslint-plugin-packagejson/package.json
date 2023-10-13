@@ -1,0 +1,20 @@
+{
+  "name": "@git-validator/eslint-plugin-packagejson",
+  "version": "0.0.0",
+  "description": "Eslint plugin for linting package json.",
+  "keywords": [
+    "eslint",
+    "config",
+    "eslint-config",
+    "eslint-plugin",
+    "package-json",
+    "packagejson",
+    "package",
+    "json"
+  ],
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-packagejson",
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
+  "exports": "./src/index.js"
+}
