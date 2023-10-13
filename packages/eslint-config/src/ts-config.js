@@ -118,6 +118,7 @@ export default !tsconfig
           "@typescript-eslint/no-namespace": "error",
           "@typescript-eslint/no-misused-new": "error",
           "@typescript-eslint/no-mixed-enums": "error",
+          "@typescript-eslint/no-non-null-assertion": "warn",
           "@typescript-eslint/no-import-type-side-effects": "error",
           "@typescript-eslint/no-floating-promises": ["error", { ignoreVoid: false }],
           "@typescript-eslint/no-misused-promises": [
