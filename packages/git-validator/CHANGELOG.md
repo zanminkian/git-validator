@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.10.17
+
+### Patch Changes
+
+- 2179bde: fix(eslint-config): remove jest rule restrictions
+- Updated dependencies [2179bde]
+  - @git-validator/eslint-config@0.1.16
+
 ## 0.10.16
 
 ### Patch Changes
