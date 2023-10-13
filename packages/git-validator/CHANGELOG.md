@@ -1,5 +1,18 @@
 # git-validator
 
+## 0.10.16
+
+### Patch Changes
+
+- 1ea8f1f: feat(eslint-config,eslint-plugin-packagejson,git-validator): support validate package json
+- 876dd47: feat: force `types` on the top
+- 814b294: feat: force `default` field to be the bottom
+- Updated dependencies [fc487cd]
+- Updated dependencies [1ea8f1f]
+- Updated dependencies [876dd47]
+- Updated dependencies [814b294]
+  - @git-validator/eslint-config@0.1.15
+
 ## 0.10.15
 
 ### Patch Changes
