@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.1.1
+
+### Patch Changes
+
+- a45875d: fix(eslint-plugin-packagejson): improve compatibility
+
 ## 0.1.0
 
 ### Minor Changes

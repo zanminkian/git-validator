@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.10.18
+
+### Patch Changes
+
+- 8715429: chore: upgrade deps
+- Updated dependencies [8715429]
+  - @git-validator/prettier-config@0.1.5
+  - @git-validator/eslint-config@0.1.17
+  - @git-validator/tsconfig@0.1.6
+
 ## 0.10.17
 
 ### Patch Changes
