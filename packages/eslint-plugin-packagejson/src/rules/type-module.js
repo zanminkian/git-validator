@@ -1,5 +1,5 @@
 const messageId = "typeModule";
-const message = "'type' field in package.json should set to 'module'";
+const message = "The value of 'type' field in package.json should be 'module'";
 
 export default {
   meta: {
