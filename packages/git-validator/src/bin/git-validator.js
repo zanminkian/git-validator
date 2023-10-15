@@ -16,9 +16,7 @@ program
   .option("-u, --update", "automatically update files to fix code style problems")
   .argument("[paths...]", "dir or file paths to format and lint")
   .action(async (paths, options) => {
-    process.exit(
-      ((await lint(paths, options)).status || (await format(paths, options)).status) ?? 0,
-    );
+    process.exit(((await lint(paths, options)).code || (await format(paths, options)).code) ?? 0);
   });
 
 program
@@ -27,7 +25,7 @@ program
   .option("-u, --update", "automatically update files to fix code style problems")
   .argument("[paths...]", "dir or file paths to lint")
   .action(async (paths, options, prog) =>
-    process.exit((await lint(paths, { ...prog.optsWithGlobals(), ...options })).status ?? 0),
+    process.exit((await lint(paths, { ...prog.optsWithGlobals(), ...options })).code ?? 0),
   );
 
 program
@@ -36,7 +34,7 @@ program
   .option("-u, --update", "automatically update files to fix code style problems")
   .argument("[paths...]", "dir or file paths to format")
   .action(async (paths, options, prog) =>
-    process.exit((await format(paths, { ...prog.optsWithGlobals(), ...options })).status ?? 0),
+    process.exit((await format(paths, { ...prog.optsWithGlobals(), ...options })).code ?? 0),
   );
 
 program

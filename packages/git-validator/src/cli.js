@@ -1,5 +1,5 @@
 // @ts-check
-import { spawnSync } from "node:child_process";
+import { spawn } from "node:child_process";
 import fs from "node:fs/promises";
 import { createRequire } from "node:module";
 import { join, resolve } from "node:path";
@@ -84,8 +84,12 @@ export async function lint(paths = [], options = {}) {
   }
 
   console.log("Checking linting...");
-  return spawnSync("npx", ["eslint", "--config", configPath, ...(fix ? ["--fix"] : []), ...ps], {
+  const child = spawn("npx", ["eslint", "--config", configPath, ...(fix ? ["--fix"] : []), ...ps], {
     stdio: "inherit",
+  });
+  return await new Promise((resolve, reject) => {
+    child.on("error", (err) => reject(err));
+    child.on("close", (code, signal) => resolve({ code, signal }));
   });
 }
 
@@ -109,7 +113,7 @@ export async function format(paths = [], options = {}) {
   const configPath =
     (await resolveConfig("prettier"))?.filepath ?? requireResolve("@git-validator/prettier-config");
 
-  return spawnSync(
+  const child = spawn(
     "npx",
     [
       "prettier",
@@ -122,4 +126,8 @@ export async function format(paths = [], options = {}) {
     ],
     { stdio: "inherit" },
   );
+  return await new Promise((resolve, reject) => {
+    child.on("error", (err) => reject(err));
+    child.on("close", (code, signal) => resolve({ code, signal }));
+  });
 }
