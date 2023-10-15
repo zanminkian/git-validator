@@ -39,7 +39,7 @@ program
 
 program
   .command("install")
-  .description("install git-validator config files")
+  .description("install git-validator config files by writing git hook files to .git/hooks")
   .option("--no-pre-commit", "skip writing `pre-commit` file")
   .option("--no-commit-msg", "skip writing `commit-msg` file")
   .option("--pre-push <cmd>", "setup a command to run during the git `pre-push` stage")

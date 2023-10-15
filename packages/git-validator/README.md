@@ -99,7 +99,7 @@ Options:
 Commands:
   lint [options] [paths...]    lint code using eslint
   format [options] [paths...]  format code using prettier
-  install [options]            install git-validator config files
+  install [options]            install git-validator config files by writing git hook files to .git/hooks
 ```
 
 ### Customizing Linting & Formatting Rules
