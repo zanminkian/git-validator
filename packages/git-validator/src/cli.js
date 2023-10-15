@@ -26,10 +26,22 @@ async function writeGitHook(file, content) {
   await fs.chmod(path, "777");
 }
 
-async function writePreCommit() {
+/**
+ *
+ * @param {{noEslint: boolean, noPrettier: boolean}} options
+ */
+async function writePreCommit({ noEslint, noPrettier }) {
+  let config = "lint-staged.config.js";
+  if (noEslint && !noPrettier) {
+    config = "lint-staged-without-eslint.config.js";
+  } else if (!noEslint && noPrettier) {
+    config = "lint-staged-without-prettier.config.js";
+  } else if (noEslint && noPrettier) {
+    return;
+  }
   const content = [
     "#!/bin/sh",
-    `npx lint-staged --config ${join(dir(import.meta.url), "lint-staged.config.js")}`,
+    `npx lint-staged --config ${join(dir(import.meta.url), config)}`,
   ].join("\n");
 
   await writeGitHook("pre-commit", content);
@@ -54,11 +66,14 @@ async function writePrePush(cmd) {
 }
 
 /**
- * @param {{preCommit: boolean, commitMsg: boolean, prePush: string}} options
+ * @param {{preCommit: boolean, commitMsg: boolean, prePush: string, eslint: boolean, prettier: boolean}} options
  */
-export async function install({ preCommit, commitMsg, prePush }) {
+export async function install({ preCommit, commitMsg, prePush, eslint, prettier }) {
+  if (!eslint && !prettier) {
+    throw new Error("'--no-eslint' and '--no-prettier' should not be used at the same time");
+  }
   if (preCommit) {
-    await writePreCommit();
+    await writePreCommit({ noEslint: !eslint, noPrettier: !prettier });
   }
   if (commitMsg) {
     await writeCommitMsg();

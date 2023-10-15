@@ -43,6 +43,8 @@ program
   .option("--no-pre-commit", "skip writing `pre-commit` file")
   .option("--no-commit-msg", "skip writing `commit-msg` file")
   .option("--pre-push <cmd>", "setup a command to run during the git `pre-push` stage")
+  .option("--no-prettier", "skip formatting code using prettier on git 'pre-commit' stage")
+  .option("--no-eslint", "skip linting code using eslint on git 'pre-commit' stage")
   .action(async (options) => await install(options));
 
 program.parse();
