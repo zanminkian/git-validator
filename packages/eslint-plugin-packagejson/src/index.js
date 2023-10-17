@@ -13,4 +13,5 @@ export default {
     "no-dependencies-in-workspace-root": noDependenciesInWorkspaceRoot,
     "top-types": topTypes,
   },
+  processors: { processor },
 };
