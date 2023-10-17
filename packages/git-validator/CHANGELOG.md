@@ -1,5 +1,12 @@
 # git-validator
 
+## 0.10.19
+
+### Patch Changes
+
+- d4e00e4: feat(git-validator): support `--no-eslint` and `--no-prettier`
+- 998fa3b: refactor(git-validator): replace `spawnSync` with `spawn`
+
 ## 0.10.18
 
 ### Patch Changes
