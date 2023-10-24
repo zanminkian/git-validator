@@ -99,9 +99,13 @@ export async function lint(paths = [], options = {}) {
   }
 
   console.log("Checking linting...");
-  const child = spawn("npx", ["eslint", "--config", configPath, ...(fix ? ["--fix"] : []), ...ps], {
-    stdio: "inherit",
-  });
+  const child = spawn(
+    join(dir(import.meta.url), "bin", "eslint.js"),
+    ["--config", configPath, ...(fix ? ["--fix"] : []), ...ps],
+    {
+      stdio: "inherit",
+    },
+  );
   return await new Promise((resolve, reject) => {
     child.on("error", (err) => reject(err));
     child.on("close", (code, signal) => resolve({ code, signal }));
@@ -129,16 +133,8 @@ export async function format(paths = [], options = {}) {
     (await resolveConfig("prettier"))?.filepath ?? requireResolve("@git-validator/prettier-config");
 
   const child = spawn(
-    "npx",
-    [
-      "prettier",
-      "--check",
-      ...ignores,
-      "--config",
-      configPath,
-      ...(write ? ["--write"] : []),
-      ...ps,
-    ],
+    join(dir(import.meta.url), "bin", "prettier.js"),
+    ["--check", ...ignores, "--config", configPath, ...(write ? ["--write"] : []), ...ps],
     { stdio: "inherit" },
   );
   return await new Promise((resolve, reject) => {
