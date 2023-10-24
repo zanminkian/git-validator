@@ -30,9 +30,11 @@
   },
   "bin": {
     "commitlint": "./src/bin/commitlint.js",
+    "eslint": "./src/bin/eslint.js",
     "git-validator": "./src/bin/git-validator.js",
     "gv": "./src/bin/git-validator.js",
     "lint-staged": "./src/bin/lint-staged.js",
+    "prettier": "./src/bin/prettier.js",
     "tsconfig": "./src/bin/tsconfig.js"
   },
   "scripts": {
