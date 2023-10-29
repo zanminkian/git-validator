@@ -1,5 +1,16 @@
 # git-validator
 
+## 0.10.20
+
+### Patch Changes
+
+- 03f32fd: chore: upgrade deps
+- e6e1e35: feat(tsconfig): support sub-command 'diff'
+- Updated dependencies [03f32fd]
+- Updated dependencies [e6e1e35]
+  - @git-validator/eslint-config@0.1.18
+  - @git-validator/tsconfig@0.1.7
+
 ## 0.10.19
 
 ### Patch Changes
