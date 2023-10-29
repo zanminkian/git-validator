@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.1.2
+
+### Patch Changes
+
+- 5e8fbd0: feat(eslint-plugin-packagejson): additionally export processors
+
 ## 0.1.1
 
 ### Patch Changes

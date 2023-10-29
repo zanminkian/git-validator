@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.1.7
+
+### Patch Changes
+
+- e6e1e35: feat(tsconfig): support sub-command 'diff'
+
 ## 0.1.6
 
 ### Patch Changes
