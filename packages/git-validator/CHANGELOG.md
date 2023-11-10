@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.10.21
+
+### Patch Changes
+
+- 37ef6e0: feat(git-validator): dont need to install eslint and prettier when running `npx git-validator`
+
 ## 0.10.20
 
 ### Patch Changes
