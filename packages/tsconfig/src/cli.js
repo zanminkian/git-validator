@@ -65,8 +65,8 @@ async function diff(options) {
       write: (data) => {
         console.log(
           data
-            .replace("+ expected", "+ current tsconfig")
-            .replace("- actual", "- builtin tsconfig"),
+            .replace("+ expected", "+ current project tsconfig")
+            .replace("- actual", "- recommended tsconfig"),
         );
       },
     },
