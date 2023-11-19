@@ -38,6 +38,8 @@ Usually, we recommend you to install it and set it up in your project. Please co
 
 ## Install
 
+Run command below in **the root of your project** to install this tool.
+
 ```bash
 pnpm add -D git-validator
 ```
