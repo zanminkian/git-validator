@@ -5,6 +5,7 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { Command } from "commander";
 import { getTsconfig } from "get-tsconfig";
+import JSON5 from "json5";
 import { printUnifiedDiff } from "print-diff";
 import sortKeys from "sort-keys";
 
@@ -48,19 +49,19 @@ async function diff(options) {
   const cwd = process.cwd();
   const dir = dirname(fileURLToPath(import.meta.url));
 
-  const baseTsconfig = getTsconfig(resolve(dir, ".."), to);
-  const tsconfig = getTsconfig(resolve(cwd, path), name);
+  const recommendedTsconfig = getTsconfig(resolve(dir, ".."), to);
+  const projectTsconfig = getTsconfig(resolve(cwd, path), name);
 
-  if (!baseTsconfig) {
+  if (!recommendedTsconfig) {
     throw new Error(`Tsconfig ${resolve(dir, "..", to)} is not found!`);
   }
-  if (!tsconfig) {
+  if (!projectTsconfig) {
     throw new Error(`Tsconfig ${resolve(cwd, path, name)} is not found!`);
   }
 
   printUnifiedDiff(
-    JSON.stringify(sortKeys(baseTsconfig.config, { deep: true }), null, 2),
-    JSON.stringify(sortKeys(tsconfig.config, { deep: true }), null, 2),
+    JSON5.stringify(sortKeys(recommendedTsconfig.config, { deep: true }), null, 2),
+    JSON5.stringify(sortKeys(projectTsconfig.config, { deep: true }), null, 2),
     {
       write: (data) => {
         console.log(
