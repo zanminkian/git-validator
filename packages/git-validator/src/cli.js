@@ -100,8 +100,14 @@ export async function lint(paths = [], options = {}) {
 
   console.log("Checking linting...");
   const child = spawn(
-    join(dir(import.meta.url), "bin", "eslint.js"),
-    ["--config", configPath, ...(fix ? ["--fix"] : []), ...ps],
+    "node",
+    [
+      join(dir(import.meta.url), "bin", "eslint.js"),
+      "--config",
+      configPath,
+      ...(fix ? ["--fix"] : []),
+      ...ps,
+    ],
     {
       stdio: "inherit",
     },
@@ -133,8 +139,16 @@ export async function format(paths = [], options = {}) {
     (await resolveConfig("prettier"))?.filepath ?? requireResolve("@git-validator/prettier-config");
 
   const child = spawn(
-    join(dir(import.meta.url), "bin", "prettier.js"),
-    ["--check", ...ignores, "--config", configPath, ...(write ? ["--write"] : []), ...ps],
+    "node",
+    [
+      join(dir(import.meta.url), "bin", "prettier.js"),
+      "--check",
+      ...ignores,
+      "--config",
+      configPath,
+      ...(write ? ["--write"] : []),
+      ...ps,
+    ],
     { stdio: "inherit" },
   );
   return await new Promise((resolve, reject) => {
