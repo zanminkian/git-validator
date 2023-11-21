@@ -1,5 +1,12 @@
 # @git-validator/tsconfig
 
+## 0.1.8
+
+### Patch Changes
+
+- 85539d0: refactor(tsconfig): optimize the diff message
+- 238f3d9: refactor(tsconfig): use json5 for better diff
+
 ## 0.1.7
 
 ### Patch Changes

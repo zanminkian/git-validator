@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.10.22
+
+### Patch Changes
+
+- 26acc6d: fix(git-validator): fix crash on window
+- 05feb6d: fix(git-validator): use stable api to mute warning from node
+- Updated dependencies [85539d0]
+- Updated dependencies [238f3d9]
+  - @git-validator/tsconfig@0.1.8
+
 ## 0.10.21
 
 ### Patch Changes
