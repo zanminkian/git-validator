@@ -38,7 +38,7 @@ Usually, we recommend you to install it and set it up in your project. Please co
 
 ## Install
 
-Run command below in **the root of your project** to install this tool.
+Run command below in **the root of your project** to install this tool. You can replace pnpm with npm or yarn if you want.
 
 ```bash
 pnpm add -D git-validator
