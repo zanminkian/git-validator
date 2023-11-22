@@ -1,5 +1,13 @@
 # @git-validator/eslint-config
 
+## 0.1.19
+
+### Patch Changes
+
+- 8025d53: fix: compatible with windows
+- Updated dependencies [8025d53]
+  - @git-validator/eslint-plugin@0.1.7
+
 ## 0.1.18
 
 ### Patch Changes
