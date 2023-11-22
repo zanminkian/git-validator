@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.1.7
+
+### Patch Changes
+
+- 8025d53: fix: compatible with windows
+
 ## 0.1.6
 
 ### Patch Changes
