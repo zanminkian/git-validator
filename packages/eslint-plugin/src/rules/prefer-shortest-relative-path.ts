@@ -71,7 +71,8 @@ function report(currentPath: string, importedPath: string, cb: () => void) {
   }
 
   const absoluteImportedPath = path.resolve(currentPath, importedPath);
-  let resultPath = path.relative(currentPath, absoluteImportedPath);
+  // compatible with windows
+  let resultPath = path.relative(currentPath, absoluteImportedPath).replaceAll("\\", "/");
   if (!resultPath.startsWith("./") && !resultPath.startsWith("../")) {
     resultPath = `./${resultPath}`;
   }

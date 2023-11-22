@@ -3,6 +3,7 @@
 import fs from "node:fs/promises";
 import { createRequire } from "node:module";
 import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 
 async function getBinPath() {
   const requireResolve = createRequire(import.meta.url).resolve;
@@ -14,4 +15,4 @@ async function getBinPath() {
 }
 
 // eslint-disable-next-line @git-validator/no-dynamic-import
-await import(await getBinPath());
+await import(pathToFileURL(await getBinPath()).href); // compatible with windows

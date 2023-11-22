@@ -1,8 +1,9 @@
 // @ts-check
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const dirname = path.dirname(new URL(import.meta.url).pathname);
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 const standardConfig = JSON.parse(
   await fs.readFile(path.join(dirname, "standard-config.json"), "utf8"),
 );
