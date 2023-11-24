@@ -65,6 +65,26 @@ async function diff(options) {
   const recommendedTsconfig = parseTsconfig(recommendedTsconfigPath);
   const projectTsconfig = parseTsconfig(projectTsconfigPath);
 
+  // correct the recommended tsconfig for a better diff view
+  const projectOutDir = projectTsconfig.compilerOptions?.outDir;
+  if (
+    projectOutDir === "./node_modules/git-validator/tsconfig/dist" ||
+    projectOutDir === "./node_modules/@git-validator/tsconfig/dist"
+  ) {
+    recommendedTsconfig.compilerOptions = recommendedTsconfig.compilerOptions ?? {};
+    recommendedTsconfig.compilerOptions.outDir = projectOutDir;
+  }
+  const projectExclude = projectTsconfig.exclude?.find(
+    (i) =>
+      i === "node_modules/git-validator/tsconfig/dist" ||
+      i === "node_modules/@git-validator/tsconfig/dist",
+  );
+  if (projectExclude) {
+    recommendedTsconfig.exclude = (recommendedTsconfig.exclude ?? []).map((i) =>
+      i === "dist" ? projectExclude : i,
+    );
+  }
+
   printUnifiedDiff(
     JSON5.stringify(sortKeys(recommendedTsconfig, { deep: true }), null, 2),
     JSON5.stringify(sortKeys(projectTsconfig, { deep: true }), null, 2),
