@@ -22,9 +22,9 @@ In short, this is an all-in-one tool for code quality. In other words, this is a
 
 ## Highlights
 
-- 🔧 **Zero Configuration**: 0️⃣ configuration file is needed, while still allowing customization of `eslint`, `prettier` and `commitlint` rules.
-- 📦 **Unified package**: Just 1️⃣ npm package to install, replacing multiple. You don't need `eslint`, `prettier`, `commitlint`, `lint-staged`, `husky` any more.
-- 🚀 **Simple to use**: Only 2️⃣ steps required: set up `scripts` and run it once.
+- 🔧 **Zero Configuration**: **ZERO** configuration file is needed, while still allowing customization of `eslint`, `prettier` and `commitlint` rules.
+- 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple. You don't need `eslint`, `prettier`, `commitlint`, `lint-staged`, `husky` any more.
+- 🚀 **Simple to use**: Only **TWO** steps required: set up `scripts` and run it once.
 
 ## Quick Start
 
@@ -236,8 +236,6 @@ This library can work as a standalone package. However, if you have Husky 5 or a
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-
-[![Stargazers repo roster for @zanminkian/git-validator](https://reporoster.com/stars/zanminkian/git-validator)](https://github.com/zanminkian/git-validator/stargazers)
 
 ## License
 
