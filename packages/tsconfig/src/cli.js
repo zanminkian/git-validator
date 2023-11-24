@@ -4,10 +4,20 @@ import { dirname, resolve } from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { Command } from "commander";
-import { getTsconfig } from "get-tsconfig";
+import { parseTsconfig } from "get-tsconfig";
 import JSON5 from "json5";
 import { printUnifiedDiff } from "print-diff";
 import sortKeys from "sort-keys";
+
+/**
+ * @param {string} filepath
+ */
+async function exists(filepath) {
+  return await fs
+    .access(filepath)
+    .then(() => true)
+    .catch(() => false);
+}
 
 /**
  * @param {{path: string, name: string, force: boolean}} options
@@ -25,13 +35,7 @@ async function init(options) {
 
   const { path, name, force } = options;
   const fullName = resolve(process.cwd(), path, name);
-  if (
-    !(await fs
-      .access(fullName)
-      .then(() => true)
-      .catch(() => false)) ||
-    force
-  ) {
+  if (!(await exists(fullName)) || force) {
     await fs.writeFile(fullName, generatingTsconfigContent);
   } else {
     throw new Error(
@@ -49,19 +53,21 @@ async function diff(options) {
   const cwd = process.cwd();
   const dir = dirname(fileURLToPath(import.meta.url));
 
-  const recommendedTsconfig = getTsconfig(resolve(dir, ".."), to);
-  const projectTsconfig = getTsconfig(resolve(cwd, path), name);
+  const recommendedTsconfigPath = resolve(dir, "..", to);
+  const projectTsconfigPath = resolve(cwd, path, name);
+  if (!(await exists(recommendedTsconfigPath))) {
+    throw new Error(`Tsconfig ${recommendedTsconfigPath} is not found!`);
+  }
+  if (!(await exists(projectTsconfigPath))) {
+    throw new Error(`Tsconfig ${projectTsconfigPath} is not found!`);
+  }
 
-  if (!recommendedTsconfig) {
-    throw new Error(`Tsconfig ${resolve(dir, "..", to)} is not found!`);
-  }
-  if (!projectTsconfig) {
-    throw new Error(`Tsconfig ${resolve(cwd, path, name)} is not found!`);
-  }
+  const recommendedTsconfig = parseTsconfig(recommendedTsconfigPath);
+  const projectTsconfig = parseTsconfig(projectTsconfigPath);
 
   printUnifiedDiff(
-    JSON5.stringify(sortKeys(recommendedTsconfig.config, { deep: true }), null, 2),
-    JSON5.stringify(sortKeys(projectTsconfig.config, { deep: true }), null, 2),
+    JSON5.stringify(sortKeys(recommendedTsconfig, { deep: true }), null, 2),
+    JSON5.stringify(sortKeys(projectTsconfig, { deep: true }), null, 2),
     {
       write: (data) => {
         console.log(
