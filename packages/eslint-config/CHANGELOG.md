@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.1.20
+
+### Patch Changes
+
+- 3fdc049: feat(eslint-config): enable `no-unused-private-class-members`
+
 ## 0.1.19
 
 ### Patch Changes
