@@ -2,6 +2,8 @@
 
 <p align="center"> <b>Git</b> hooks and code style <b>Validator</b> </p>
 
+<p align="center"> English | <a href="https://github.com/zanminkian/git-validator/blob/main/packages/git-validator/README.zh-CN.md">简体中文</a> </p>
+
 <p align="center">
 <a href="https://github.com/zanminkian/git-validator/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/git-validator.svg"/></a>
 <a href="https://www.npmjs.com/package/git-validator"><img src="https://img.shields.io/npm/v/git-validator.svg"/></a>
