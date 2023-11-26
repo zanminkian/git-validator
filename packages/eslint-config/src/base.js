@@ -23,6 +23,7 @@ async function getIgnoresByGitIgnore() {
     .split("\n")
     .filter(Boolean)
     .map((i) => i.trim())
+    .filter(Boolean)
     .map(gitignoreToMinimatch);
 }
 
