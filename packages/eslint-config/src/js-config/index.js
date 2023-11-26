@@ -52,6 +52,7 @@ export default {
     "no-invalid-this": "error",
     "no-plusplus": "error",
     "no-duplicate-imports": "error",
+    "no-unused-private-class-members": "error",
     "prefer-exponentiation-operator": "error",
 
     // react
