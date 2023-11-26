@@ -143,6 +143,18 @@ By default, this tool requires your commit messages to follow the [Conventional 
 export default { extends: ["@commitlint/config-angular"] };
 ```
 
+### Customizing `lint-staged.config.js`
+
+When you commit your code, each file will be linted & formatted by `npx git-validator -u` command. You can change this rule by adding a `lint-staged.config.js` file in the root of your project. Here is an example.
+
+```js
+// This config means js files will be linted & formatted and md files will formatted only.
+export default {
+  "*.js": "npx git-validator -u",
+  "*.md": "npx git-validator format -u",
+};
+```
+
 ## How it Works
 
 Running `git-validator install` writes `commit-msg` and `pre-commit` files to the `{PROJECT_ROOT}/.git/hooks` directory, which will check your code and commit messages after running the `git commit` command.
