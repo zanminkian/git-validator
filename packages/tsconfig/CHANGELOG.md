@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.1.9
+
+### Patch Changes
+
+- f79938e: fix(tsconfig): fix wrong diff result of `outDir` and `exclude`
+
 ## 0.1.8
 
 ### Patch Changes
