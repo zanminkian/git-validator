@@ -45,8 +45,9 @@ export default {
     "unicorn/no-new-array": "error",
     "unicorn/no-new-buffer": "error",
     "unicorn/no-typeof-undefined": "error",
-    "unicorn/throw-new-error": "error",
+    "unicorn/prefer-module": "error",
     "unicorn/prefer-number-properties": "error",
+    "unicorn/throw-new-error": "error",
     // 'unicorn/no-null': 'error', // null can be useful when interact with json.
     "no-implicit-coercion": ["error", { disallowTemplateShorthand: true, allow: ["!!"] }], // forbid code like `const num = +str`;
     "no-invalid-this": "error",
