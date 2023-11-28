@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.1.21
+
+### Patch Changes
+
+- 69713fe: feat(eslint-config): enable rule `unicorn/prefer-module`
+- b7f83a0: chore: upgrade deps
+- Updated dependencies [b7f83a0]
+  - @git-validator/eslint-plugin@0.1.8
+
 ## 0.1.20
 
 ### Patch Changes

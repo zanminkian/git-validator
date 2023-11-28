@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.10.25
+
+### Patch Changes
+
+- b7f83a0: chore: upgrade deps
+- Updated dependencies [69713fe]
+- Updated dependencies [b7f83a0]
+  - @git-validator/eslint-config@0.1.21
+  - @git-validator/prettier-config@0.1.6
+
 ## 0.10.24
 
 ### Patch Changes
