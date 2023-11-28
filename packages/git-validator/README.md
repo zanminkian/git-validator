@@ -16,7 +16,7 @@
 
 This is a cli tool for:
 
-- checking JS/TS code style
+- checking `js`/`jsx`/`ts`/`tsx` code style
 - blocking smelly commit messages when committing code
 - setting up git hooks to block 💩 slipping into your code base
 
