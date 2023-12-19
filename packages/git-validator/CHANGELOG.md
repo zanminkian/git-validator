@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.10.26
+
+### Patch Changes
+
+- ff60268: fix: add shebang to improve compatibility with npm
+- Updated dependencies [ff60268]
+  - @git-validator/tsconfig@0.1.10
+
 ## 0.10.25
 
 ### Patch Changes
