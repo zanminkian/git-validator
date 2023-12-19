@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // @ts-check
 import fs from "node:fs/promises";
 import { dirname, resolve } from "node:path";
