@@ -1,5 +1,19 @@
 # git-validator
 
+## 0.11.0
+
+### Minor Changes
+
+- a662960: refactor(prettier-config)!: remove printWidth to use default printWidth, which is 80
+
+### Patch Changes
+
+- 537a8a1: chore: upgrade deps
+- Updated dependencies [537a8a1]
+- Updated dependencies [a662960]
+  - @git-validator/prettier-config@0.2.0
+  - @git-validator/eslint-config@0.1.22
+
 ## 0.10.26
 
 ### Patch Changes
