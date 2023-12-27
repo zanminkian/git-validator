@@ -26,6 +26,7 @@
     "allowJs": true,
     "outDir": "dist", // Enable it to prevent to override js file. And solve the error warning in vscode. Ref: https://github.com/Microsoft/TypeScript/issues/29172
     // "verbatimModuleSyntax": true,
+    // "allowArbitraryExtensions": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
