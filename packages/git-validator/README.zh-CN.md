@@ -28,6 +28,11 @@
 - 📦 **只需一个包**: 只需安装这 **1** 个 npm 包。无需再安装 `eslint`、`prettier`、`commitlint`、`lint-staged`、`husky`。
 - 🚀 **简单易用**: 只需 **2** 步：设置 `scripts`，然后运行 1 次。
 
+## 要求
+
+- Node >= 16
+- Typescript >= 4.9
+
 ## 快速开始
 
 在你项目目录中运行以下命令，即可检查项目的代码风格。
@@ -77,6 +82,7 @@ pnpm run postinstall
 ```json
 // tsconfig.json
 {
+  // 此配置要求 Typescript 版本大于等于5.0，如果你的 Typescript 是 4.9，请继承 `git-validator/tsconfig/legacy`。
   "extends": "git-validator/tsconfig"
 }
 ```

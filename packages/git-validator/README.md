@@ -28,6 +28,11 @@ In short, this is an all-in-one tool for code quality. In other words, this is a
 - 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple. You don't need `eslint`, `prettier`, `commitlint`, `lint-staged`, `husky` any more.
 - 🚀 **Simple to use**: Only **TWO** steps required: set up `scripts` and run it once.
 
+## Requirement
+
+- Node >= 16
+- Typescript >= 4.9
+
 ## Quick Start
 
 Run this command in your project directory to lint code.
@@ -77,6 +82,7 @@ This tool has integrated [@git-validator/tsconfig](https://www.npmjs.com/package
 ```json
 // tsconfig.json
 {
+  // It's required Typescript 5.0 or later. Extend `git-validator/tsconfig/legacy` if your Typescript is 4.9.
   "extends": "git-validator/tsconfig"
 }
 ```
