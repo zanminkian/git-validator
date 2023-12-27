@@ -1,5 +1,13 @@
 # @git-validator/eslint-config
 
+## 0.1.22
+
+### Patch Changes
+
+- 537a8a1: chore: upgrade deps
+- Updated dependencies [537a8a1]
+  - @git-validator/eslint-plugin@0.1.9
+
 ## 0.1.21
 
 ### Patch Changes

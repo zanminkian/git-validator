@@ -1,5 +1,15 @@
 # @git-validator/prettier-config
 
+## 0.2.0
+
+### Minor Changes
+
+- a662960: refactor(prettier-config)!: remove printWidth to use default printWidth, which is 80
+
+### Patch Changes
+
+- 537a8a1: chore: upgrade deps
+
 ## 0.1.6
 
 ### Patch Changes
