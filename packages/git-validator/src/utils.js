@@ -37,5 +37,7 @@ export async function resolveConfig(module, dirname = dir(import.meta.url)) {
  * @param {string} jsonPath
  */
 export async function importJson(importMetaUrl, jsonPath) {
-  return JSON.parse(await fs.readFile(resolve(dir(importMetaUrl), jsonPath), "utf-8"));
+  return JSON.parse(
+    await fs.readFile(resolve(dir(importMetaUrl), jsonPath), "utf-8"),
+  );
 }

@@ -10,7 +10,9 @@ export default {
   plugins: [
     await getModulePath("prettier-plugin-curly"),
     await getModulePath("prettier-plugin-packagejson"),
-    ...(tailwindConfig ? [await getModulePath("prettier-plugin-tailwindcss")] : []),
+    ...(tailwindConfig
+      ? [await getModulePath("prettier-plugin-tailwindcss")]
+      : []),
   ],
   ...(tailwindConfig ? { tailwindConfig } : {}),
 };
@@ -20,7 +22,9 @@ async function getTailwindConfig() {
     path.resolve(process.cwd(), `tailwind.config.${i}`),
   );
   const index = (
-    await Promise.all(configFilePaths.map(async (filepath) => await exists(filepath)))
+    await Promise.all(
+      configFilePaths.map(async (filepath) => await exists(filepath)),
+    )
   ).findIndex(Boolean);
   const tailwindConfig = configFilePaths[index];
   return tailwindConfig;
@@ -30,7 +34,11 @@ async function getTailwindConfig() {
  * @param {string} moduleName
  */
 async function getModulePath(moduleName) {
-  const nodeModulePath = path.resolve(process.cwd(), "node_modules", moduleName);
+  const nodeModulePath = path.resolve(
+    process.cwd(),
+    "node_modules",
+    moduleName,
+  );
   if (await exists(nodeModulePath)) {
     return moduleName;
   } else {

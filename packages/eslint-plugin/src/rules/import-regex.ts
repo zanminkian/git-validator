@@ -1,7 +1,11 @@
 import { ESLintUtils } from "@typescript-eslint/utils";
 import type { JSONSchema4 } from "@typescript-eslint/utils/json-schema";
 
-const defaultRegex = ["^.*/node_modules/.*$", "\\.d(\\.[mc]?[jt]s)?$", "^(\\.\\./){3,}"]
+const defaultRegex = [
+  "^.*/node_modules/.*$",
+  "\\.d(\\.[mc]?[jt]s)?$",
+  "^(\\.\\./){3,}",
+]
   .map((r) => `(${r})`)
   .join("|");
 

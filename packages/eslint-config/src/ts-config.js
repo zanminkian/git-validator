@@ -51,15 +51,22 @@ function getTsRules() {
     "space-before-function-paren",
     "space-infix-ops",
   ];
-  const builtinRuleKeys = allBuiltinRuleKeys.filter((key) => jsConfig.rules[key]);
-  const disabledRules = builtinRuleKeys.reduce((result, key) => ({ ...result, [key]: "off" }), {});
+  const builtinRuleKeys = allBuiltinRuleKeys.filter(
+    (key) => jsConfig.rules[key],
+  );
+  const disabledRules = builtinRuleKeys.reduce(
+    (result, key) => ({ ...result, [key]: "off" }),
+    {},
+  );
   /**
    * @type {Record<string, any>}
    */
   const originRules = builtinRuleKeys.reduce(
     (result, key) => ({
       ...result,
-      [`@typescript-eslint/${key}`]: JSON.parse(JSON.stringify(jsConfig.rules[key])),
+      [`@typescript-eslint/${key}`]: JSON.parse(
+        JSON.stringify(jsConfig.rules[key]),
+      ),
     }),
     {},
   );
@@ -79,7 +86,10 @@ function getStrictRules() {
   if (process.env["STRICT"] || process.env["ESLINT_STRICT"]) {
     return {
       "@typescript-eslint/no-explicit-any": "error",
-      "@typescript-eslint/consistent-type-assertions": ["error", { assertionStyle: "never" }],
+      "@typescript-eslint/consistent-type-assertions": [
+        "error",
+        { assertionStyle: "never" },
+      ],
       "@typescript-eslint/no-non-null-assertion": "error",
     };
   }
@@ -90,7 +100,9 @@ export default !tsconfig
   ? []
   : [
       {
-        files: ["js", "cjs", "mjs", "jsx", "ts", "cts", "mts", "tsx"].map((i) => `**/*.${i}`),
+        files: ["js", "cjs", "mjs", "jsx", "ts", "cts", "mts", "tsx"].map(
+          (i) => `**/*.${i}`,
+        ),
         languageOptions: {
           parser: tsParser,
           parserOptions: {
@@ -108,7 +120,10 @@ export default !tsconfig
           "@typescript-eslint/ban-types": "error",
           "@typescript-eslint/consistent-type-assertions": [
             "error",
-            { assertionStyle: "as", objectLiteralTypeAssertions: "allow-as-parameter" },
+            {
+              assertionStyle: "as",
+              objectLiteralTypeAssertions: "allow-as-parameter",
+            },
           ],
           "@typescript-eslint/method-signature-style": "error",
           "@typescript-eslint/no-duplicate-enum-values": "error",
@@ -120,10 +135,19 @@ export default !tsconfig
           "@typescript-eslint/no-mixed-enums": "error",
           "@typescript-eslint/no-non-null-assertion": "warn",
           "@typescript-eslint/no-import-type-side-effects": "error",
-          "@typescript-eslint/no-floating-promises": ["error", { ignoreVoid: false }],
+          "@typescript-eslint/no-floating-promises": [
+            "error",
+            { ignoreVoid: false },
+          ],
           "@typescript-eslint/no-misused-promises": [
             "error",
-            { checksVoidReturn: { returns: false, arguments: false, variables: false } },
+            {
+              checksVoidReturn: {
+                returns: false,
+                arguments: false,
+                variables: false,
+              },
+            },
           ],
           "@typescript-eslint/no-unnecessary-type-assertion": "error",
           "@typescript-eslint/no-unnecessary-condition": "error",

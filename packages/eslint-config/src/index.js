@@ -4,4 +4,10 @@ import jsConfig from "./js-config/index.js";
 import packagejsonConfig from "./packagejson-config.js";
 import tsConfig from "./ts-config.js";
 
-export default [...base, jsConfig, ...tsConfig, packagejsonConfig, prettierConfig];
+export default [
+  ...base,
+  jsConfig,
+  ...tsConfig,
+  packagejsonConfig,
+  prettierConfig,
+];

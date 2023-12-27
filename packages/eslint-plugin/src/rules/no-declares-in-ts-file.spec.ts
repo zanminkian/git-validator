@@ -21,12 +21,13 @@ const invalid = codes.map((code) => ({ code, filename: "foo.ts" }));
 const valid = codes
   .map((code) => ({ code, filename: "foo.d.ts" }))
   .concat(
-    ["class A { declare name: string }", "class A { declare getName: () => string }"].map(
-      (code) => ({
-        code,
-        filename: "foo.ts",
-      }),
-    ),
+    [
+      "class A { declare name: string }",
+      "class A { declare getName: () => string }",
+    ].map((code) => ({
+      code,
+      filename: "foo.ts",
+    })),
   );
 
 RuleTester.afterAll = after;

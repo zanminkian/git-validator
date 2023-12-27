@@ -13,38 +13,67 @@ program
   .name("git-validator")
   .version(pkgJson.version)
   .description("lint & format code using eslint & prettier")
-  .option("-u, --update", "automatically update files to fix code style problems")
+  .option(
+    "-u, --update",
+    "automatically update files to fix code style problems",
+  )
   .argument("[paths...]", "dir or file paths to format and lint")
   .action(async (paths, options) => {
-    process.exit(((await lint(paths, options)).code || (await format(paths, options)).code) ?? 0);
+    process.exit(
+      ((await lint(paths, options)).code ||
+        (await format(paths, options)).code) ??
+        0,
+    );
   });
 
 program
   .command("lint")
   .description("lint code using eslint")
-  .option("-u, --update", "automatically update files to fix code style problems")
+  .option(
+    "-u, --update",
+    "automatically update files to fix code style problems",
+  )
   .argument("[paths...]", "dir or file paths to lint")
   .action(async (paths, options, prog) =>
-    process.exit((await lint(paths, { ...prog.optsWithGlobals(), ...options })).code ?? 0),
+    process.exit(
+      (await lint(paths, { ...prog.optsWithGlobals(), ...options })).code ?? 0,
+    ),
   );
 
 program
   .command("format")
   .description("format code using prettier")
-  .option("-u, --update", "automatically update files to fix code style problems")
+  .option(
+    "-u, --update",
+    "automatically update files to fix code style problems",
+  )
   .argument("[paths...]", "dir or file paths to format")
   .action(async (paths, options, prog) =>
-    process.exit((await format(paths, { ...prog.optsWithGlobals(), ...options })).code ?? 0),
+    process.exit(
+      (await format(paths, { ...prog.optsWithGlobals(), ...options })).code ??
+        0,
+    ),
   );
 
 program
   .command("install")
-  .description("install git-validator config files by writing git hook files to .git/hooks")
+  .description(
+    "install git-validator config files by writing git hook files to .git/hooks",
+  )
   .option("--no-pre-commit", "skip writing `pre-commit` file")
   .option("--no-commit-msg", "skip writing `commit-msg` file")
-  .option("--pre-push <cmd>", "setup a command to run during the git `pre-push` stage")
-  .option("--no-prettier", "skip formatting code using prettier on git 'pre-commit' stage")
-  .option("--no-eslint", "skip linting code using eslint on git 'pre-commit' stage")
+  .option(
+    "--pre-push <cmd>",
+    "setup a command to run during the git `pre-push` stage",
+  )
+  .option(
+    "--no-prettier",
+    "skip formatting code using prettier on git 'pre-commit' stage",
+  )
+  .option(
+    "--no-eslint",
+    "skip linting code using eslint on git 'pre-commit' stage",
+  )
   .action(async (options) => await install(options));
 
 program.parse();

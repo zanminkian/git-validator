@@ -3,8 +3,10 @@ import { ESLintUtils } from "@typescript-eslint/utils";
 export const ruleName = "prefer-global-this";
 export const messageId = "preferGlobalThis";
 export const defaultOptions = [];
-const description = "Disallow `global` or `self` object and prefer `globalThis`";
-const message = "Do not use `global` or `self` object. Use `globalThis` instead";
+const description =
+  "Disallow `global` or `self` object and prefer `globalThis`";
+const message =
+  "Do not use `global` or `self` object. Use `globalThis` instead";
 
 export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
   typeof defaultOptions,

@@ -15,7 +15,9 @@ const requireResolve = createRequire(import.meta.url).resolve;
 async function writeGitHook(file, content) {
   const gitPath = resolve(process.cwd(), ".git");
   if (!(await exists(gitPath))) {
-    throw new Error("Directory `.git` is not existing. Please run `git init` first.");
+    throw new Error(
+      "Directory `.git` is not existing. Please run `git init` first.",
+    );
   }
 
   const hooksPath = resolve(gitPath, "hooks");
@@ -50,7 +52,10 @@ async function writePreCommit({ noEslint, noPrettier }) {
 async function writeCommitMsg() {
   const content = [
     "#!/bin/sh",
-    `npx commitlint --config ${join(dir(import.meta.url), "commitlint.config.js")} --edit`,
+    `npx commitlint --config ${join(
+      dir(import.meta.url),
+      "commitlint.config.js",
+    )} --edit`,
   ].join("\n");
 
   await writeGitHook("commit-msg", content);
@@ -68,9 +73,17 @@ async function writePrePush(cmd) {
 /**
  * @param {{preCommit: boolean, commitMsg: boolean, prePush: string, eslint: boolean, prettier: boolean}} options
  */
-export async function install({ preCommit, commitMsg, prePush, eslint, prettier }) {
+export async function install({
+  preCommit,
+  commitMsg,
+  prePush,
+  eslint,
+  prettier,
+}) {
   if (!eslint && !prettier) {
-    throw new Error("'--no-eslint' and '--no-prettier' should not be used at the same time");
+    throw new Error(
+      "'--no-eslint' and '--no-prettier' should not be used at the same time",
+    );
   }
   if (preCommit) {
     await writePreCommit({ noEslint: !eslint, noPrettier: !prettier });
@@ -136,7 +149,8 @@ export async function format(paths = [], options = {}) {
     ...((await exists(gitIgnore)) ? [gitIgnore] : []),
   ].flatMap((p) => ["--ignore-path", p]);
   const configPath =
-    (await resolveConfig("prettier"))?.filepath ?? requireResolve("@git-validator/prettier-config");
+    (await resolveConfig("prettier"))?.filepath ??
+    requireResolve("@git-validator/prettier-config");
 
   const child = spawn(
     "node",

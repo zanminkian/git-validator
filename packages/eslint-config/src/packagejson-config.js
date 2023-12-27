@@ -1,4 +1,6 @@
-import packagejson, { processor } from "@git-validator/eslint-plugin-packagejson";
+import packagejson, {
+  processor,
+} from "@git-validator/eslint-plugin-packagejson";
 
 export default {
   files: ["**/package.json"],

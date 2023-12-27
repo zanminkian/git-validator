@@ -72,7 +72,8 @@ async function diff(options) {
     projectOutDir === "./node_modules/git-validator/tsconfig/dist" ||
     projectOutDir === "./node_modules/@git-validator/tsconfig/dist"
   ) {
-    recommendedTsconfig.compilerOptions = recommendedTsconfig.compilerOptions ?? {};
+    recommendedTsconfig.compilerOptions =
+      recommendedTsconfig.compilerOptions ?? {};
     recommendedTsconfig.compilerOptions.outDir = projectOutDir;
   }
   const projectExclude = projectTsconfig.exclude?.find(
@@ -81,8 +82,8 @@ async function diff(options) {
       i === "node_modules/@git-validator/tsconfig/dist",
   );
   if (projectExclude) {
-    recommendedTsconfig.exclude = (recommendedTsconfig.exclude ?? []).map((i) =>
-      i === "dist" ? projectExclude : i,
+    recommendedTsconfig.exclude = (recommendedTsconfig.exclude ?? []).map(
+      (i) => (i === "dist" ? projectExclude : i),
     );
   }
 
@@ -113,9 +114,19 @@ program
 
 program
   .command("diff")
-  .description("show differences between built-in tsconfig and current project tsconfig")
-  .option("-p, --path <path>", "project directory path containing tsconfig", ".")
-  .option("-n, --name <filename>", "project tsconfig file name", "tsconfig.json")
+  .description(
+    "show differences between built-in tsconfig and current project tsconfig",
+  )
+  .option(
+    "-p, --path <path>",
+    "project directory path containing tsconfig",
+    ".",
+  )
+  .option(
+    "-n, --name <filename>",
+    "project tsconfig file name",
+    "tsconfig.json",
+  )
   .option(
     "-t, --to <filename>",
     "which builtin tsconfig file to compare with. possible values are 'tsconfig.json'|'esm.json'|'cjs.json'|'legacy.json'",

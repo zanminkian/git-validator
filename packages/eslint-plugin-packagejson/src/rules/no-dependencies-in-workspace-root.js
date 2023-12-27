@@ -13,7 +13,8 @@ const isWorkspace =
   (await exists(PNPM_WSP_YML));
 
 const messageId = "noDependenciesInWorkspaceRoot";
-const message = "Should not install packages into dependencies in workspace root";
+const message =
+  "Should not install packages into dependencies in workspace root";
 
 export default {
   meta: {
@@ -26,7 +27,9 @@ export default {
     return {
       "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
         if (isWorkspace && filename === ROOT_PKG_JSON_PATH) {
-          const depsNode = node.properties.find((p) => p.key.value === "dependencies");
+          const depsNode = node.properties.find(
+            (p) => p.key.value === "dependencies",
+          );
           if (depsNode) {
             return context.report({
               node: depsNode,

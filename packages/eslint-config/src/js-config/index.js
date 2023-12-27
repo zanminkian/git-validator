@@ -30,7 +30,11 @@ export default {
     // ban some syntaxes to reduce mistakes
     "import/no-commonjs": [
       "error",
-      { allowRequire: false, allowConditionalRequire: false, allowPrimitiveModules: false },
+      {
+        allowRequire: false,
+        allowConditionalRequire: false,
+        allowPrimitiveModules: false,
+      },
     ],
     "import/no-self-import": "error",
     "import/no-dynamic-require": "error",
@@ -49,7 +53,10 @@ export default {
     "unicorn/prefer-number-properties": "error",
     "unicorn/throw-new-error": "error",
     // 'unicorn/no-null': 'error', // null can be useful when interact with json.
-    "no-implicit-coercion": ["error", { disallowTemplateShorthand: true, allow: ["!!"] }], // forbid code like `const num = +str`;
+    "no-implicit-coercion": [
+      "error",
+      { disallowTemplateShorthand: true, allow: ["!!"] },
+    ], // forbid code like `const num = +str`;
     "no-invalid-this": "error",
     "no-plusplus": "error",
     "no-duplicate-imports": "error",

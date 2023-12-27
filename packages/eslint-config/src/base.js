@@ -18,7 +18,9 @@ const jsExtensions = ["js", "cjs", "mjs", "jsx"];
 const tsExtensions = ["ts", "cts", "mts", "tsx"];
 
 async function getIgnoresByGitIgnore() {
-  const content = await fs.readFile(join(process.cwd(), ".gitignore"), "utf-8").catch(() => "");
+  const content = await fs
+    .readFile(join(process.cwd(), ".gitignore"), "utf-8")
+    .catch(() => "");
   return content
     .split("\n")
     .filter(Boolean)
@@ -33,7 +35,9 @@ export default [
     ignores: await getIgnoresByGitIgnore(),
   },
   {
-    files: [...jsExtensions, ...(tsconfig ? tsExtensions : [])].map((i) => `**/*.${i}`),
+    files: [...jsExtensions, ...(tsconfig ? tsExtensions : [])].map(
+      (i) => `**/*.${i}`,
+    ),
     languageOptions: {
       globals: {
         ...globals["shared-node-browser"],

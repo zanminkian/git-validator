@@ -10,7 +10,10 @@ async function getBinPath() {
   const packageJsonPath = requireResolve("eslint/package.json");
   const packageJson = JSON.parse(await fs.readFile(packageJsonPath, "utf8"));
   const eslintPath = packageJsonPath.slice(0, -"/package.json".length);
-  const binPath = typeof packageJson.bin === "string" ? packageJson.bin : packageJson.bin.eslint;
+  const binPath =
+    typeof packageJson.bin === "string"
+      ? packageJson.bin
+      : packageJson.bin.eslint;
   return resolve(eslintPath, binPath);
 }
 

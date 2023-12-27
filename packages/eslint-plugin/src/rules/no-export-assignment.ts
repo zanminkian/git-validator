@@ -4,7 +4,8 @@ export const ruleName = "no-export-assignment";
 export const messageId = "noExportAssignment";
 export const defaultOptions = [];
 const description = "Disallow using `export =` statement.";
-const message = "Do not use `export =` statement. Use `export default` instead.";
+const message =
+  "Do not use `export =` statement. Use `export default` instead.";
 
 export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
   typeof defaultOptions,
