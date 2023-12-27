@@ -13,7 +13,6 @@ export default {
     ...(tailwindConfig ? [await getModulePath("prettier-plugin-tailwindcss")] : []),
   ],
   ...(tailwindConfig ? { tailwindConfig } : {}),
-  printWidth: 100, // 120 may be too long
 };
 
 async function getTailwindConfig() {
