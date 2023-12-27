@@ -17,6 +17,7 @@
   "type": "module",
   "exports": {
     "./cli": "./src/cli.js",
+    "./setup": "./src/setup.js",
     "./cjs.json": "./cjs.json",
     "./esm.json": "./esm.json",
     "./legacy.json": "./legacy.json",
