@@ -18,8 +18,8 @@
     "forceConsistentCasingInFileNames": true,
 
     // Module. According to https://www.typescriptlang.org/docs/handbook/modules/theory.html, we should use Node16 only
-    "module": "Node16",
-    "target": "ES2022",
+    "module": "node16",
+    "target": "es2022",
     "moduleResolution": "node16",
     "moduleDetection": "force", // https://github.com/zanminkian/git-validator/issues/88#issuecomment-1734416707
 
