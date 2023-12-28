@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.11.2
+
+### Patch Changes
+
+- 9940082: chore: change `module` and `target` value to lowercase
+- Updated dependencies [9940082]
+- Updated dependencies [f08baca]
+  - @git-validator/tsconfig@0.1.12
+  - @git-validator/prettier-config@0.2.1
+
 ## 0.11.1
 
 ### Patch Changes

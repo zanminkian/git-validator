@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.1.12
+
+### Patch Changes
+
+- 9940082: chore: change `module` and `target` value to lowercase
+
 ## 0.1.11
 
 ### Patch Changes
