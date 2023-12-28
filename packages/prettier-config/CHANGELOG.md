@@ -1,5 +1,11 @@
 # @git-validator/prettier-config
 
+## 0.2.1
+
+### Patch Changes
+
+- f08baca: chore(prettier-config): upgrade deps
+
 ## 0.2.0
 
 ### Minor Changes
