@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.11.1
+
+### Patch Changes
+
+- 82b5a51: feat(git-validator): support `init-tsconfig` and `diff-tsconfig` subcommand
+- Updated dependencies [6ad7c09]
+  - @git-validator/tsconfig@0.1.11
+
 ## 0.11.0
 
 ### Minor Changes
