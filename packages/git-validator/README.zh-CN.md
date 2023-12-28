@@ -110,6 +110,8 @@ Commands:
   lint [options] [paths...]    lint code using eslint
   format [options] [paths...]  format code using prettier
   install [options]            install git-validator config files by writing git hook files to .git/hooks
+  init-tsconfig [options]      init a tsconfig file
+  diff-tsconfig [options]      show differences between recommended tsconfig and current project tsconfig
 ```
 
 ### 自定义 Linting 和 Formatting 规则
