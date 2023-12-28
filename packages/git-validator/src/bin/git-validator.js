@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // @ts-check
 import process from "node:process";
+import { initAction, setup } from "@git-validator/tsconfig/setup";
 import { Command } from "commander";
 import { format, install, lint } from "../cli.js";
 import { importJson } from "../utils.js";
@@ -75,5 +76,12 @@ program
     "skip linting code using eslint on git 'pre-commit' stage",
   )
   .action(async (options) => await install(options));
+
+setup(program, {
+  initCommand: "init-tsconfig",
+  diffCommand: "diff-tsconfig",
+  initAction: (options) =>
+    initAction({ ...options, ext: "git-validator/tsconfig" }),
+});
 
 program.parse();
