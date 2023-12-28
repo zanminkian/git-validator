@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.1.11
+
+### Patch Changes
+
+- 6ad7c09: feat(tsconfig): expose setup-command function
+
 ## 0.1.10
 
 ### Patch Changes
