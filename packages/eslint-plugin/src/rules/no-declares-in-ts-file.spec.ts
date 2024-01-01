@@ -24,6 +24,8 @@ const valid = codes
     [
       "class A { declare name: string }",
       "class A { declare getName: () => string }",
+      "class A { private declare name: string }",
+      "class A { declare private name: string }",
     ].map((code) => ({
       code,
       filename: "foo.ts",
