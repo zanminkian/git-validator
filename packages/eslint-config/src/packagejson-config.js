@@ -11,6 +11,7 @@ export default {
   rules: {
     "packagejson/bottom-default": "error",
     "packagejson/top-types": "error",
+    "packagejson/private-workspace-root": "error",
     "packagejson/type-module": "warn",
     "packagejson/no-dependencies-in-workspace-root": "warn",
   },
