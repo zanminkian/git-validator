@@ -1,5 +1,13 @@
 # @git-validator/eslint-config
 
+## 0.1.23
+
+### Patch Changes
+
+- f42e719: feat: required workspace root package.json to be private
+- Updated dependencies [f42e719]
+  - @git-validator/eslint-plugin-packagejson@0.1.3
+
 ## 0.1.22
 
 ### Patch Changes
