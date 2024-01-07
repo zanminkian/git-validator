@@ -12,6 +12,7 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "isolatedModules": true,
     "checkJs": false, // Don't check js for better experience. User can add `// @ts-check` on the top of js file to check it manually.
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -36,7 +37,6 @@
     "declarationMap": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "isolatedModules": true,
     "jsx": "preserve"
     /**
      * 1. Typescript will include APIs for newer JS features matching the `target`. See https://www.typescriptlang.org/tsconfig#lib. Therefore, there is no need to add "ESNext" to lib.
