@@ -7,7 +7,7 @@ const description = "Disallow using `export =` statement.";
 const message =
   "Do not use `export =` statement. Use `export default` instead.";
 
-export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
+export const rule = ESLintUtils.RuleCreator((name) => name)<
   typeof defaultOptions,
   typeof messageId
 >({

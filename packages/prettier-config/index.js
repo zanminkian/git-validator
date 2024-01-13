@@ -26,8 +26,7 @@ async function getTailwindConfig() {
       configFilePaths.map(async (filepath) => await exists(filepath)),
     )
   ).findIndex(Boolean);
-  const tailwindConfig = configFilePaths[index];
-  return tailwindConfig;
+  return configFilePaths[index];
 }
 
 /**

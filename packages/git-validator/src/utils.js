@@ -25,10 +25,10 @@ export function dir(url) {
 
 /**
  * @param {string} module
- * @param {string} dirname
+ * @param {string} dirName
  */
-export async function resolveConfig(module, dirname = dir(import.meta.url)) {
-  return await cosmiconfig(module).search(join(dirname, ".."));
+export async function resolveConfig(module, dirName = dir(import.meta.url)) {
+  return await cosmiconfig(module).search(join(dirName, ".."));
 }
 
 /**

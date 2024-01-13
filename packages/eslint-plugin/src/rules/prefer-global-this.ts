@@ -8,7 +8,7 @@ const description =
 const message =
   "Do not use `global` or `self` object. Use `globalThis` instead";
 
-export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
+export const rule = ESLintUtils.RuleCreator((name) => name)<
   typeof defaultOptions,
   typeof messageId
 >({

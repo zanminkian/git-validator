@@ -6,7 +6,7 @@ export const defaultOptions = [];
 const description = "Forbid `import()` calls with expressions.";
 const message = "`import()` should be called with string literal.";
 
-export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
+export const rule = ESLintUtils.RuleCreator((name) => name)<
   typeof defaultOptions,
   typeof messageId
 >({

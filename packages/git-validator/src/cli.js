@@ -125,9 +125,9 @@ export async function lint(paths = [], options = {}) {
       stdio: "inherit",
     },
   );
-  return await new Promise((resolve, reject) => {
-    child.on("error", (err) => reject(err));
-    child.on("close", (code, signal) => resolve({ code, signal }));
+  return await new Promise((res, rej) => {
+    child.on("error", (err) => rej(err));
+    child.on("close", (code, signal) => res({ code, signal }));
   });
 }
 
@@ -165,8 +165,8 @@ export async function format(paths = [], options = {}) {
     ],
     { stdio: "inherit" },
   );
-  return await new Promise((resolve, reject) => {
-    child.on("error", (err) => reject(err));
-    child.on("close", (code, signal) => resolve({ code, signal }));
+  return await new Promise((res, rej) => {
+    child.on("error", (err) => rej(err));
+    child.on("close", (code, signal) => res({ code, signal }));
   });
 }

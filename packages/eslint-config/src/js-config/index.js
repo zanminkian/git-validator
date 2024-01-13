@@ -28,6 +28,10 @@ export default {
     // "unicorn/number-literal-case": "error", // 0XFF -> 0xFF // conflict with prettier
 
     // ban some syntaxes to reduce mistakes
+    "promise/param-names": [
+      "error",
+      { resolvePattern: "^_?res(olve)?$", rejectPattern: "^_?rej(ect)?$" },
+    ],
     "import/no-commonjs": [
       "error",
       {
