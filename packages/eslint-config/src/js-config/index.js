@@ -60,6 +60,7 @@ export default {
     "no-invalid-this": "error",
     "no-plusplus": "error",
     "no-duplicate-imports": "error",
+    "no-shadow": ["error", { ignoreOnInitialization: true }],
     "no-unused-private-class-members": "error",
     "prefer-exponentiation-operator": "error",
 
