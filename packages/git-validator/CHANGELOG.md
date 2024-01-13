@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.11.5
+
+### Patch Changes
+
+- 2a169bf: feat(eslint-config): allow to use `res` and `rej` as Promise constructor params name
+- Updated dependencies [2a169bf]
+  - @git-validator/eslint-config@0.1.25
+
 ## 0.11.4
 
 ### Patch Changes
