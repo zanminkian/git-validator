@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.11.4
+
+### Patch Changes
+
+- b565091: feat(eslint-config): enable `no-shadow`
+- Updated dependencies [b565091]
+  - @git-validator/eslint-config@0.1.24
+
 ## 0.11.3
 
 ### Patch Changes
