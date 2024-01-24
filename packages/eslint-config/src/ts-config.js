@@ -118,6 +118,7 @@ export default !tsconfig
           // ban some syntaxes to reduce mistakes
           "@typescript-eslint/await-thenable": "error",
           "@typescript-eslint/ban-types": "error",
+          "@typescript-eslint/consistent-generic-constructors": "error",
           "@typescript-eslint/consistent-type-assertions": [
             "error",
             {
