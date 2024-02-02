@@ -57,6 +57,7 @@ export default {
     "unicorn/prefer-number-properties": "error",
     "unicorn/throw-new-error": "error",
     // 'unicorn/no-null': 'error', // null can be useful when interact with json.
+    "func-name-matching": "error",
     "no-implicit-coercion": [
       "error",
       { disallowTemplateShorthand: true, allow: ["!!"] },
