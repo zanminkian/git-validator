@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.11.7
+
+### Patch Changes
+
+- 6797115: fix(eslint-config): allow PacalCase for functions
+- Updated dependencies [6797115]
+  - @git-validator/eslint-config@0.1.27
+
 ## 0.11.6
 
 ### Patch Changes
