@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.1.26
+
+### Patch Changes
+
+- 7e059c2: feat(eslint-config): enable `func-name-matching`
+- 560c8e1: feat(eslint-config): enable `no-multi-assign`
+- ef5108b: feat(eslint-config): make function and class naming consistent
+- f39d37c: feat(eslint-config): enable `@typescript-eslint/consistent-generic-constructors`
+
 ## 0.1.25
 
 ### Patch Changes
