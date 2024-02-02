@@ -63,6 +63,7 @@ export default {
       { disallowTemplateShorthand: true, allow: ["!!"] },
     ], // forbid code like `const num = +str`;
     "no-invalid-this": "error",
+    "no-multi-assign": "error",
     "no-plusplus": "error",
     "no-duplicate-imports": "error",
     "no-shadow": ["error", { ignoreOnInitialization: true }],
