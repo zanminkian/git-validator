@@ -131,12 +131,12 @@ export default !tsconfig
             "error",
             {
               selector: "function",
-              format: ["camelCase"],
+              format: ["camelCase", "PascalCase"], // PascalCase for decorator
             },
             {
               selector: "variable",
               types: ["function"],
-              format: ["camelCase"],
+              format: ["camelCase", "PascalCase"], // PascalCase for decorator
             },
             {
               selector: "class",
