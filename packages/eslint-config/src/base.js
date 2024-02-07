@@ -4,6 +4,7 @@ import process from "node:process";
 import gitValidatorPlugin from "@git-validator/eslint-plugin";
 import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
+import fpPlugin from "eslint-plugin-fp";
 import importPlugin from "eslint-plugin-import";
 import nPlugin from "eslint-plugin-n";
 import promisePlugin from "eslint-plugin-promise";
@@ -49,6 +50,7 @@ export default [
       reportUnusedDisableDirectives: true,
     },
     plugins: {
+      fp: fpPlugin,
       n: nPlugin,
       import: importPlugin,
       promise: promisePlugin,

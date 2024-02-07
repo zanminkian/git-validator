@@ -45,6 +45,8 @@ export default {
     "import/no-relative-packages": "error", // forbid to import module from other monorepo packages by relative paths
     "import/no-mutable-exports": "error", // forbid code like `export let count = 3`
     // "import/no-named-as-default-member": "error", // forbid code like `import foo from './foo.js'; const bar = foo.bar;`
+    "fp/no-arguments": "error",
+    "fp/no-delete": "error",
     "n/prefer-global/process": ["error", "never"],
     "n/prefer-global/buffer": ["error", "never"],
     "n/no-sync": "error",
