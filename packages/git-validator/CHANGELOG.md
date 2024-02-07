@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.11.8
+
+### Patch Changes
+
+- f7f8b93: feat(eslint-config): no delete and arguments
+- 060128e: feat(eslint-config): enable `array-callback-return`
+- Updated dependencies [f7f8b93]
+- Updated dependencies [060128e]
+  - @git-validator/eslint-config@0.1.28
+
 ## 0.11.7
 
 ### Patch Changes
