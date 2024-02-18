@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.1.10
+
+### Patch Changes
+
+- 3d32924: chore: add repository field to package.json
+
 ## 0.1.9
 
 ### Patch Changes

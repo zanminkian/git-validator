@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.1.13
+
+### Patch Changes
+
+- 3d32924: chore: add repository field to package.json
+
 ## 0.1.12
 
 ### Patch Changes

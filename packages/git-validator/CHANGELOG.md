@@ -1,5 +1,17 @@
 # git-validator
 
+## 0.11.9
+
+### Patch Changes
+
+- 3d32924: chore: add repository field to package.json
+- 56396ca: feat: validate repository field in package.json
+- Updated dependencies [3d32924]
+- Updated dependencies [56396ca]
+  - @git-validator/prettier-config@0.2.2
+  - @git-validator/eslint-config@0.1.29
+  - @git-validator/tsconfig@0.1.13
+
 ## 0.11.8
 
 ### Patch Changes
