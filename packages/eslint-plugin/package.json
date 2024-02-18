@@ -11,6 +11,11 @@
     "eslint-plugin"
   ],
   "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zanminkian/git-validator.git",
+    "directory": "packages/eslint-plugin"
+  },
   "license": "MIT",
   "author": "hellozmj@qq.com",
   "type": "module",

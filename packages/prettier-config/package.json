@@ -8,6 +8,11 @@
     "standard"
   ],
   "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/prettier-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zanminkian/git-validator.git",
+    "directory": "packages/prettier-config"
+  },
   "license": "MIT",
   "author": "hellozmj@qq.com",
   "type": "module",

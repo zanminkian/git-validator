@@ -18,6 +18,10 @@
     "standard"
   ],
   "homepage": "https://github.com/zanminkian/git-validator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zanminkian/git-validator.git"
+  },
   "license": "MIT",
   "author": "hellozmj@qq.com",
   "type": "module",
