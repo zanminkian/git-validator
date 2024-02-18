@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.11.10
+
+### Patch Changes
+
+- 4421499: revert(eslint-config): remove `array-callback-return` as it's already existing
+- Updated dependencies [4421499]
+  - @git-validator/eslint-config@0.1.30
+
 ## 0.11.9
 
 ### Patch Changes

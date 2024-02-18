@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.1.30
+
+### Patch Changes
+
+- 4421499: revert(eslint-config): remove `array-callback-return` as it's already existing
+
 ## 0.1.29
 
 ### Patch Changes
