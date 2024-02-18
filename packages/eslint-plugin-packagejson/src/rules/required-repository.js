@@ -1,6 +1,6 @@
 const messageId = "requiredRepository";
 const message =
-  "`repository` filed should be specified in a public package.json";
+  "`repository` field should be specified in a public package.json";
 
 export default {
   meta: {
