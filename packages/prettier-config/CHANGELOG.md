@@ -1,5 +1,11 @@
 # @git-validator/prettier-config
 
+## 0.2.2
+
+### Patch Changes
+
+- 3d32924: chore: add repository field to package.json
+
 ## 0.2.1
 
 ### Patch Changes
