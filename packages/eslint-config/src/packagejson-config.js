@@ -12,6 +12,7 @@ export default {
     "packagejson/bottom-default": "error",
     "packagejson/top-types": "error",
     "packagejson/private-workspace-root": "error",
+    "packagejson/required-repository": "error",
     "packagejson/type-module": "warn",
     "packagejson/no-dependencies-in-workspace-root": "warn",
   },
