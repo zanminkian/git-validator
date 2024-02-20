@@ -16,6 +16,5 @@ export async function getProjectTsconfig() {
       ),
     )
   ).findIndex(Boolean);
-  const tsconfig = tsconfigs[index];
-  return tsconfig;
+  return tsconfigs[index];
 }

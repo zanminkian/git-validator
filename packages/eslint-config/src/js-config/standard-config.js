@@ -1,4 +1,6 @@
-{
+// @ts-check
+// prettier-ignore
+export const standardConfig = {
   "parserOptions": {
     "ecmaVersion": 2022,
     "ecmaFeatures": {

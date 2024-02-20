@@ -1,15 +1,11 @@
 // @ts-check
-import fs from "node:fs/promises";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const dirname = path.dirname(fileURLToPath(import.meta.url));
-const standardConfig = JSON.parse(
-  await fs.readFile(path.join(dirname, "standard-config.json"), "utf8"),
-);
+import { standardConfig } from "./standard-config.js";
 
 export default {
   files: ["js", "cjs", "mjs", "jsx"].map((i) => `**/*.${i}`),
+  /**
+   * @type {Record<string, unknown>}
+   */
   rules: {
     ...standardConfig.rules,
     // override standard config rules
