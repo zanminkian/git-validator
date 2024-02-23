@@ -19,12 +19,12 @@ const jsExtensions = ["js", "cjs", "mjs", "jsx"];
 const tsExtensions = ["ts", "cts", "mts", "tsx"];
 
 async function getIgnoresByGitIgnore() {
-  const content = await fs
-    .readFile(join(process.cwd(), ".gitignore"), "utf-8")
-    .catch(() => "");
-  return content
+  return (
+    await fs
+      .readFile(join(process.cwd(), ".gitignore"), "utf-8")
+      .catch(() => "")
+  )
     .split("\n")
-    .filter(Boolean)
     .map((i) => i.trim())
     .filter(Boolean)
     .map(gitignoreToMinimatch);
