@@ -170,6 +170,7 @@ export default !tsconfig
           "@typescript-eslint/no-unnecessary-condition": "error",
           "@typescript-eslint/unbound-method": "error",
           "@typescript-eslint/prefer-ts-expect-error": "error",
+          "@typescript-eslint/restrict-plus-operands": "error",
           "@typescript-eslint/return-await": ["error", "always"],
           "@typescript-eslint/ban-ts-comment": [
             "error",
