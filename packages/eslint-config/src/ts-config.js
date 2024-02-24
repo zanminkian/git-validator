@@ -117,6 +117,14 @@ export default !tsconfig
 
           // ban some syntaxes to reduce mistakes
           "@typescript-eslint/await-thenable": "error",
+          "@typescript-eslint/ban-ts-comment": [
+            "error",
+            {
+              "ts-expect-error": true,
+              "ts-ignore": true,
+              "ts-nocheck": true,
+            },
+          ],
           "@typescript-eslint/ban-types": "error",
           "@typescript-eslint/consistent-generic-constructors": "error",
           "@typescript-eslint/consistent-type-assertions": [
@@ -131,12 +139,12 @@ export default !tsconfig
             "error",
             {
               selector: "function",
-              format: ["camelCase", "PascalCase"], // PascalCase for decorator
+              format: ["camelCase", "PascalCase"],
             },
             {
               selector: "variable",
               types: ["function"],
-              format: ["camelCase", "PascalCase"], // PascalCase for decorator
+              format: ["camelCase", "PascalCase"],
             },
             {
               selector: "class",
@@ -145,17 +153,15 @@ export default !tsconfig
           ],
           "@typescript-eslint/no-duplicate-enum-values": "error",
           "@typescript-eslint/no-duplicate-type-constituents": "error",
-          "@typescript-eslint/no-inferrable-types": "error",
-          "@typescript-eslint/no-require-imports": "error",
-          "@typescript-eslint/no-namespace": "error",
-          "@typescript-eslint/no-misused-new": "error",
-          "@typescript-eslint/no-mixed-enums": "error",
-          "@typescript-eslint/no-non-null-assertion": "warn",
-          "@typescript-eslint/no-import-type-side-effects": "error",
           "@typescript-eslint/no-floating-promises": [
             "error",
-            { ignoreVoid: false },
+            {
+              ignoreVoid: false,
+            },
           ],
+          "@typescript-eslint/no-import-type-side-effects": "error",
+          "@typescript-eslint/no-inferrable-types": "error",
+          "@typescript-eslint/no-misused-new": "error",
           "@typescript-eslint/no-misused-promises": [
             "error",
             {
@@ -166,16 +172,16 @@ export default !tsconfig
               },
             },
           ],
-          "@typescript-eslint/no-unnecessary-type-assertion": "error",
+          "@typescript-eslint/no-mixed-enums": "error",
+          "@typescript-eslint/no-namespace": "error",
+          "@typescript-eslint/no-non-null-assertion": "warn",
+          "@typescript-eslint/no-require-imports": "error",
           "@typescript-eslint/no-unnecessary-condition": "error",
-          "@typescript-eslint/unbound-method": "error",
+          "@typescript-eslint/no-unnecessary-type-assertion": "error",
           "@typescript-eslint/prefer-ts-expect-error": "error",
           "@typescript-eslint/restrict-plus-operands": "error",
           "@typescript-eslint/return-await": ["error", "always"],
-          "@typescript-eslint/ban-ts-comment": [
-            "error",
-            { "ts-expect-error": true, "ts-ignore": true, "ts-nocheck": true },
-          ],
+          "@typescript-eslint/unbound-method": "error",
 
           "@git-validator/no-const-enum": "error",
           "@git-validator/no-declares-in-ts-file": "error",
