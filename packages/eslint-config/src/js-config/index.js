@@ -7,11 +7,11 @@ export default {
    * @type {Record<string, unknown>}
    */
   rules: {
+    // 1. standard config rules
     ...standardConfig.rules,
-    // override standard config rules
-    "dot-notation": "off", // conflict when enabling ts-check so turn it off
+    "dot-notation": "off", // disable it as it conflicts with ts when enabling ts-check
 
-    // code style for a better readability
+    // 2. code style for a better readability
     "arrow-body-style": ["error", "as-needed"],
     "import/newline-after-import": ["error", { count: 1 }],
     "simple-import-sort/imports": [
@@ -23,7 +23,7 @@ export default {
     "unicorn/escape-case": "error", // '\ud834' -> '\uD834'
     // "unicorn/number-literal-case": "error", // 0XFF -> 0xFF // conflict with prettier
 
-    // ban some syntaxes to reduce mistakes
+    // 3. ban some syntaxes to reduce mistakes
     "promise/param-names": [
       "error",
       { resolvePattern: "^_?res(olve)?$", rejectPattern: "^_?rej(ect)?$" },
