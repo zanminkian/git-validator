@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.1.12
+
+### Patch Changes
+
+- 02d2513: fix(eslint-plugin): report error when re-exporting path is not the shortest
+
 ## 0.1.11
 
 ### Patch Changes
