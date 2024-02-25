@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.1.14
+
+### Patch Changes
+
+- 17cac66: refactor: lock dependencies version
+
 ## 0.1.13
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@git-validator/tsconfig",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Strict shared tsconfig out-of-box.",
   "keywords": [
     "tsconfig",

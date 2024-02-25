@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.1.31
+
+### Patch Changes
+
+- 200e5a4: feat(eslint-config): enable `@typescript-eslint/restrict-plus-operands`
+- 17cac66: refactor: lock dependencies version
+- Updated dependencies [17cac66]
+  - @git-validator/eslint-plugin@0.1.11
+
 ## 0.1.30
 
 ### Patch Changes
