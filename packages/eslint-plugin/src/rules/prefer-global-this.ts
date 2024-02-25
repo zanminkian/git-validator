@@ -25,32 +25,30 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
     },
   },
   defaultOptions,
-  create: (context) => {
-    const scope = context.getScope();
-    return {
-      Program: () => {
-        const banned = ["global", "self"];
-        // Report variables declared elsewhere
-        scope.variables.forEach((v) => {
-          if (banned.includes(v.name)) {
-            v.references.forEach((ref) => {
-              context.report({
-                node: ref.identifier,
-                messageId,
-              });
-            });
-          }
-        });
-        // Report variables not declared at all
-        scope.through.forEach((ref) => {
-          if (banned.includes(ref.identifier.name)) {
+  create: (context) => ({
+    Program: (node) => {
+      const banned = ["global", "self"];
+      // Report variables declared elsewhere
+      const scope = context.sourceCode.getScope?.(node);
+      scope?.variables.forEach((v) => {
+        if (banned.includes(v.name)) {
+          v.references.forEach((ref) => {
             context.report({
               node: ref.identifier,
               messageId,
             });
-          }
-        });
-      },
-    };
-  },
+          });
+        }
+      });
+      // Report variables not declared at all
+      scope?.through.forEach((ref) => {
+        if (banned.includes(ref.identifier.name)) {
+          context.report({
+            node: ref.identifier,
+            messageId,
+          });
+        }
+      });
+    },
+  }),
 });

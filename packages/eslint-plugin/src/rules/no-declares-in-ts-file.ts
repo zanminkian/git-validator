@@ -24,7 +24,7 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
   },
   defaultOptions,
   create: (context) => {
-    const filename = context.getFilename();
+    const { filename } = context;
     if (/.*\.d\.[mc]?ts$/.test(filename)) {
       return {};
     }

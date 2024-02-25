@@ -25,7 +25,7 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
   },
   defaultOptions,
   create: (context) => {
-    const currentPath = path.dirname(context.getFilename());
+    const currentPath = path.dirname(context.filename);
     return {
       ImportDeclaration: (node) => {
         report(currentPath, node.source.value, () => {

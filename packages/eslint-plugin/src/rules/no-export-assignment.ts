@@ -25,7 +25,7 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
   },
   defaultOptions,
   create: (context) => {
-    const extension = context.getFilename().split(".").pop();
+    const extension = context.filename.split(".").pop();
     if (!["ts", "tsx", "mts", "cts"].includes(extension ?? "")) {
       return {};
     }
