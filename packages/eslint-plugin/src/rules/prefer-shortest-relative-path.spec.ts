@@ -10,6 +10,10 @@ const valid = [
   'import xxx from "./a"',
   'import xxx from "a"',
   'import xxx from ".a"',
+  'export * from "a"',
+  'export * from "./a"',
+  'export {a} from "a"',
+  'export {a} from "./a"',
 ].map((code) => ({ code, filename: "/a/b/c/d/e.js" }));
 
 const invalid = [
@@ -17,20 +21,28 @@ const invalid = [
   'import ".././../a"',
   'import(".././../a")',
   'require(".././../a")',
+  'export * from ".././../a"',
+  'export {a} from ".././../a"',
 
   'import xxx from "./../a"',
   'import "./../a"',
   'import("./../a")',
   'require("./../a")',
+  'export * from "./../a"',
+  'export {a} from "./../a"',
 
   'import "././foo"',
   'import "./../.././foo"',
   'require("./../.././foo")',
   'import("./../.././foo")',
+  'export * from "./../.././foo"',
+  'export {a} from "./../.././foo"',
 
   'import "./../foo"',
   'require("./../foo")',
   'import("./../foo")',
+  'export * from "./../foo"',
+  'export {a} from "./../foo"',
 ].map((code) => ({ code, filename: "/a/b/c/d/e.js" }));
 
 RuleTester.afterAll = after;

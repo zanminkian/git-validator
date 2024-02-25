@@ -61,6 +61,24 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
           });
         }
       },
+      ExportAllDeclaration: (node) => {
+        report(currentPath, node.source.value, () => {
+          context.report({
+            node,
+            messageId,
+          });
+        });
+      },
+      ExportNamedDeclaration: (node) => {
+        if (node.source) {
+          report(currentPath, node.source.value, () => {
+            context.report({
+              node,
+              messageId,
+            });
+          });
+        }
+      },
     };
   },
 });
