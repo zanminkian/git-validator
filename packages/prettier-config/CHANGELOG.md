@@ -1,5 +1,11 @@
 # @git-validator/prettier-config
 
+## 0.2.3
+
+### Patch Changes
+
+- 17cac66: refactor: lock dependencies version
+
 ## 0.2.2
 
 ### Patch Changes

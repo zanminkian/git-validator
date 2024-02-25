@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.1.11
+
+### Patch Changes
+
+- 17cac66: refactor: lock dependencies version
+
 ## 0.1.10
 
 ### Patch Changes

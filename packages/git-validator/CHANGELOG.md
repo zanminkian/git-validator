@@ -1,5 +1,21 @@
 # git-validator
 
+## 0.12.0
+
+### Minor Changes
+
+- 7229e2e: refactor(git-validator)!: remove tsconfig cli
+
+### Patch Changes
+
+- 200e5a4: feat(eslint-config): enable `@typescript-eslint/restrict-plus-operands`
+- 17cac66: refactor: lock dependencies version
+- Updated dependencies [200e5a4]
+- Updated dependencies [17cac66]
+  - @git-validator/eslint-config@0.1.31
+  - @git-validator/prettier-config@0.2.3
+  - @git-validator/tsconfig@0.1.14
+
 ## 0.11.10
 
 ### Patch Changes
