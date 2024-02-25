@@ -9,7 +9,7 @@ export default {
   rules: {
     // 1. standard config rules
     ...standardConfig.rules,
-    "dot-notation": "off", // disable it as it conflicts with ts when enabling ts-check
+    "dot-notation": "off", // TODO: This should be enabled. Disable it as it conflicts with ts when enabling ts-check
     "promise/param-names": [
       "error",
       { resolvePattern: "^_?res(olve)?$", rejectPattern: "^_?rej(ect)?$" },
