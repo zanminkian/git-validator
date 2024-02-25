@@ -116,6 +116,13 @@ export default !tsconfig
           "no-undef": "off", // https://typescript-eslint.io/linting/troubleshooting/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
 
           // ban some syntaxes to reduce mistakes
+          // deprecation
+          "deprecation/deprecation": "error",
+          // git-validator
+          "@git-validator/no-const-enum": "error",
+          "@git-validator/no-declares-in-ts-file": "error",
+          "@git-validator/no-export-assignment": "error",
+          // typescript
           "@typescript-eslint/await-thenable": "error",
           "@typescript-eslint/ban-ts-comment": [
             "error",
@@ -182,10 +189,6 @@ export default !tsconfig
           "@typescript-eslint/restrict-plus-operands": "error",
           "@typescript-eslint/return-await": ["error", "always"],
           "@typescript-eslint/unbound-method": "error",
-
-          "@git-validator/no-const-enum": "error",
-          "@git-validator/no-declares-in-ts-file": "error",
-          "@git-validator/no-export-assignment": "error",
 
           ...getStrictRules(),
         },
