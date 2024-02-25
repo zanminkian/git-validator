@@ -60,9 +60,6 @@ export default {
     "n/no-sync": "error",
     "n/prefer-global/process": ["error", "never"],
     "n/prefer-global/buffer": ["error", "never"],
-    // react
-    "react-hooks/exhaustive-deps": "error",
-    "react-hooks/rules-of-hooks": "error",
     // unicorn
     "unicorn/error-message": "error",
     "unicorn/no-instanceof-array": "error",
