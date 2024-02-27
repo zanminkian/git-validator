@@ -1,7 +1,7 @@
 // @ts-check
 import process from "node:process";
 import tsParser from "@typescript-eslint/parser";
-import jsConfig from "./js-config/index.js";
+import jsConfig from "./js-config.js";
 import { getProjectTsconfig } from "./utils.js";
 
 const tsconfig = await getProjectTsconfig();
