@@ -100,9 +100,7 @@ export default !tsconfig
   ? []
   : [
       {
-        files: ["js", "cjs", "mjs", "jsx", "ts", "cts", "mts", "tsx"].map(
-          (i) => `**/*.${i}`,
-        ),
+        files: ["ts", "cts", "mts", "tsx"].map((i) => `**/*.${i}`),
         languageOptions: {
           parser: tsParser,
           parserOptions: {
