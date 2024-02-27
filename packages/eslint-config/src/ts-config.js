@@ -111,7 +111,6 @@ export default !tsconfig
         rules: {
           ...jsConfig.rules,
           ...getTsRules(),
-          "no-undef": "off", // https://typescript-eslint.io/linting/troubleshooting/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
 
           // ban some syntaxes to reduce mistakes
           // deprecation
