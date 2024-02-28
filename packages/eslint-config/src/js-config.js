@@ -1,16 +1,11 @@
 // @ts-check
 import gitValidatorPlugin from "@git-validator/eslint-plugin";
-// @ts-expect-error
 import fpPlugin from "eslint-plugin-fp";
-// @ts-expect-error
 import importPlugin from "eslint-plugin-import";
-// @ts-expect-error
 import nPlugin from "eslint-plugin-n";
-// @ts-expect-error
 import promisePlugin from "eslint-plugin-promise";
-// @ts-expect-error
+import reactHooksPlugin from "eslint-plugin-react-hooks";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
-// @ts-expect-error
 import unicornPlugin from "eslint-plugin-unicorn";
 import globals from "globals";
 
@@ -364,6 +359,7 @@ export default {
     n: nPlugin,
     import: importPlugin,
     promise: promisePlugin,
+    "react-hooks": reactHooksPlugin,
     unicorn: unicornPlugin,
     "simple-import-sort": simpleImportSortPlugin,
     "@git-validator": gitValidatorPlugin,
@@ -421,11 +417,15 @@ export default {
     "import/no-mutable-exports": "error", // forbid code like `export let count = 3`
     "import/no-relative-packages": "error", // forbid to import module from other monorepo packages by relative paths
     "import/no-self-import": "error",
-    // "import/no-named-as-default-member": "error", // forbid code like `import foo from './foo.js'; const bar = foo.bar;`
+    // n
     "n/no-sync": "error",
     "n/prefer-global/process": ["error", "never"],
     "n/prefer-global/buffer": ["error", "never"],
+    // react-hooks
+    "react-hooks/exhaustive-deps": "error",
+    "react-hooks/rules-of-hooks": "error",
     // unicorn
+    // 'unicorn/no-null': 'error', // null can be useful when interact with json.
     "unicorn/error-message": "error",
     "unicorn/no-instanceof-array": "error",
     "unicorn/no-new-array": "error",
@@ -434,7 +434,6 @@ export default {
     "unicorn/prefer-module": "error",
     "unicorn/prefer-number-properties": "error",
     "unicorn/throw-new-error": "error",
-    // 'unicorn/no-null': 'error', // null can be useful when interact with json.
 
     "@git-validator/import-regex": "error",
     "@git-validator/no-dynamic-import": "error",

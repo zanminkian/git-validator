@@ -3,11 +3,9 @@ import fs from "node:fs/promises";
 import { join } from "node:path";
 import process from "node:process";
 import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
-// @ts-expect-error
 import prettierConfig from "eslint-config-prettier";
 import jsConfig from "./js-config.js";
 import packagejsonConfig from "./packagejson-config.js";
-import reactConfig from "./react-config.js";
 import tsConfig from "./ts-config.js";
 
 async function getIgnoresByGitIgnore() {
@@ -29,7 +27,6 @@ export default [
   },
   jsConfig,
   ...tsConfig,
-  reactConfig,
   packagejsonConfig,
   prettierConfig,
 ];
