@@ -1,4 +1,19 @@
 // @ts-check
+import gitValidatorPlugin from "@git-validator/eslint-plugin";
+// @ts-expect-error
+import fpPlugin from "eslint-plugin-fp";
+// @ts-expect-error
+import importPlugin from "eslint-plugin-import";
+// @ts-expect-error
+import nPlugin from "eslint-plugin-n";
+// @ts-expect-error
+import promisePlugin from "eslint-plugin-promise";
+// @ts-expect-error
+import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
+// @ts-expect-error
+import unicornPlugin from "eslint-plugin-unicorn";
+import globals from "globals";
+
 // prettier-ignore
 const standardConfig = {
   "parserOptions": {
@@ -334,6 +349,25 @@ const standardConfig = {
 
 export default {
   files: ["js", "cjs", "mjs", "jsx"].map((i) => `**/*.${i}`),
+  languageOptions: {
+    globals: {
+      ...globals["shared-node-browser"],
+      ...globals.browser, // TODO Optimize it. Node code should not use browser's objects.
+    },
+  },
+  linterOptions: {
+    // noInlineConfig: true,
+    reportUnusedDisableDirectives: true,
+  },
+  plugins: {
+    fp: fpPlugin,
+    n: nPlugin,
+    import: importPlugin,
+    promise: promisePlugin,
+    unicorn: unicornPlugin,
+    "simple-import-sort": simpleImportSortPlugin,
+    "@git-validator": gitValidatorPlugin,
+  },
   /**
    * @type {Record<string, unknown>}
    */

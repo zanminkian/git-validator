@@ -1,6 +1,8 @@
 // @ts-check
 import process from "node:process";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
+import deprecationPlugin from "eslint-plugin-deprecation";
 import jsConfig from "./js-config.js";
 import { getProjectTsconfig } from "./utils.js";
 
@@ -100,13 +102,20 @@ export default !tsconfig
   ? []
   : [
       {
+        ...jsConfig,
         files: ["ts", "cts", "mts", "tsx"].map((i) => `**/*.${i}`),
         languageOptions: {
+          ...jsConfig.languageOptions,
           parser: tsParser,
           parserOptions: {
             tsconfigRootDir: process.cwd(),
             project: tsconfig,
           },
+        },
+        plugins: {
+          ...jsConfig.plugins,
+          deprecation: deprecationPlugin,
+          "@typescript-eslint": tsPlugin,
         },
         rules: {
           ...jsConfig.rules,

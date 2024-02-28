@@ -1,3 +1,4 @@
+// @ts-check
 import packagejson, {
   processor,
 } from "@git-validator/eslint-plugin-packagejson";
