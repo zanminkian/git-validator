@@ -132,7 +132,7 @@ export function setup(program, options = {}) {
     )
     .option(
       "-t, --to <filename>",
-      "which built-in recommended tsconfig file to compare with. possible values are 'tsconfig.json'|'esm.json'|'cjs.json'|'legacy.json'",
+      "which built-in recommended tsconfig file to compare with. possible values are 'tsconfig.json'|'esm.json'|'cjs.json'",
       "tsconfig.json",
     )
     .action(options.diffAction ?? diffAction);

@@ -31,7 +31,7 @@
 ## 要求
 
 - Node >= 16
-- Typescript >= 4.9
+- Typescript >= 5.0
 
 ## 快速开始
 
@@ -82,7 +82,6 @@ pnpm run postinstall
 ```json
 // tsconfig.json
 {
-  // 此配置要求 Typescript 版本大于等于5.0，如果你的 Typescript 是 4.9，请继承 `git-validator/tsconfig/legacy`。
   "extends": "git-validator/tsconfig"
 }
 ```

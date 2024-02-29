@@ -25,11 +25,9 @@
     "./setup": "./src/setup.js",
     "./cjs.json": "./cjs.json",
     "./esm.json": "./esm.json",
-    "./legacy.json": "./legacy.json",
     "./tsconfig.json": "./tsconfig.json",
     "./cjs": "./cjs.json",
     "./esm": "./esm.json",
-    "./legacy": "./legacy.json",
     "./tsconfig": "./tsconfig.json",
     ".": "./tsconfig.json"
   },

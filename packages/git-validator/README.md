@@ -31,7 +31,7 @@ In short, this is an all-in-one tool for code quality. In other words, this is a
 ## Requirement
 
 - Node >= 16
-- Typescript >= 4.9
+- Typescript >= 5.0
 
 ## Quick Start
 
@@ -82,7 +82,6 @@ This tool has integrated [@git-validator/tsconfig](https://www.npmjs.com/package
 ```json
 // tsconfig.json
 {
-  // It's required Typescript 5.0 or later. Extend `git-validator/tsconfig/legacy` if your Typescript is 4.9.
   "extends": "git-validator/tsconfig"
 }
 ```

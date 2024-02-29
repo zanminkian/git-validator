@@ -29,7 +29,6 @@
     "./tsconfig": "./tsconfig/tsconfig.json",
     "./tsconfig/cjs": "./tsconfig/cjs.json",
     "./tsconfig/esm": "./tsconfig/esm.json",
-    "./tsconfig/legacy": "./tsconfig/legacy.json",
     "./tsconfig/*": "./tsconfig/*"
   },
   "bin": {
