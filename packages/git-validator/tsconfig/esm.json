@@ -22,13 +22,13 @@
     "module": "node16",
     "target": "es2022",
     "moduleResolution": "node16",
-    "moduleDetection": "force", // https://github.com/zanminkian/git-validator/issues/88#issuecomment-1734416707
+    // "moduleDetection": "force", // https://github.com/zanminkian/git-validator/issues/88#issuecomment-1734416707
 
     "allowJs": true,
     "outDir": "dist", // Enable it to prevent to override js file. And solve the error warning in vscode. Ref: https://github.com/Microsoft/TypeScript/issues/29172
     "verbatimModuleSyntax": true,
     "allowArbitraryExtensions": true,
-    "allowSyntheticDefaultImports": true,
+    // "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     // "resolveJsonModule": true,
