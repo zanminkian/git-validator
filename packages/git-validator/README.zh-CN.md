@@ -102,7 +102,9 @@ Arguments:
 
 Options:
   -V, --version                output the version number
-  -u, --update                 automatically update files to fix code style problems
+  -f, --fix                    automatically fix problems using eslint
+  -w, --write                  automatically format code using prettier
+  -u, --update                 automatically fix problems and format code using eslint and prettier
   -h, --help                   display help for command
 
 Commands:
@@ -154,7 +156,7 @@ export default { extends: ["@commitlint/config-angular"] };
 
 ### 自定义 `lint-staged.config.js`
 
-当你提交你的代码，每个文件都会经过 `npx git-validator -u` 命令被检查代码风格并被格式化。你可以在你项目的根目录添加 `lint-staged.config.js` 文件来改变相关的规则。下面演示一个样例。
+当你提交你的代码，每个文件都会经过 `npx git-validator -w` 命令被检查代码风格并被格式化。你可以在你项目的根目录添加 `lint-staged.config.js` 文件来改变相关的规则。下面演示一个样例。
 
 ```js
 // 这个配置意思是：js 文件将会被 lint 然后 format，而 md 文件只会被 format。

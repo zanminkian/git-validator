@@ -102,7 +102,9 @@ Arguments:
 
 Options:
   -V, --version                output the version number
-  -u, --update                 automatically update files to fix code style problems
+  -f, --fix                    automatically fix problems using eslint
+  -w, --write                  automatically format code using prettier
+  -u, --update                 automatically fix problems and format code using eslint and prettier
   -h, --help                   display help for command
 
 Commands:
@@ -154,7 +156,7 @@ export default { extends: ["@commitlint/config-angular"] };
 
 ### Customizing `lint-staged.config.js`
 
-When you commit your code, each file will be linted & formatted by `npx git-validator -u` command. You can change this rule by adding a `lint-staged.config.js` file in the root of your project. Here is an example.
+When you commit your code, each file will be linted & formatted by `npx git-validator -w` command. You can change this rule by adding a `lint-staged.config.js` file in the root of your project. Here is an example.
 
 ```js
 // This config means js files will be linted & formatted and md files will formatted only.

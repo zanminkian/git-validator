@@ -14,9 +14,11 @@ program
   .name("git-validator")
   .version(pkgJson.version)
   .description("lint & format code using eslint & prettier")
+  .option("-f, --fix", "automatically fix problems using eslint")
+  .option("-w, --write", "automatically format code using prettier")
   .option(
     "-u, --update",
-    "automatically update files to fix code style problems",
+    "automatically fix problems and format code using eslint and prettier",
   )
   .argument("[paths...]", "dir or file paths to format and lint")
   .action(async (paths, options) => {

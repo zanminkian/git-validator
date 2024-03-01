@@ -98,10 +98,12 @@ export async function install({
 
 /**
  * @param {Array<string>} paths
- * @param {{update?: boolean}} options
+ * @param {{update?: boolean, fix?: boolean}} options
  */
 export async function lint(paths = [], options = {}) {
-  const { update: fix } = options;
+  const { update, fix } = options;
+  const shouldFix = update || fix;
+
   const cwd = process.cwd();
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
 
@@ -118,7 +120,7 @@ export async function lint(paths = [], options = {}) {
       join(dir(import.meta.url), "bin", "eslint.js"),
       "--config",
       configPath,
-      ...(fix ? ["--fix"] : []),
+      ...(shouldFix ? ["--fix"] : []),
       ...ps,
     ],
     {
@@ -133,10 +135,12 @@ export async function lint(paths = [], options = {}) {
 
 /**
  * @param {Array<string>} paths
- * @param {{update?: boolean}} options
+ * @param {{update?: boolean, write?: boolean}} options
  */
 export async function format(paths = [], options = {}) {
-  const { update: write } = options;
+  const { update, write } = options;
+  const shouldWrite = update || write;
+
   const cwd = process.cwd();
   const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
 
@@ -160,7 +164,7 @@ export async function format(paths = [], options = {}) {
       ...ignores,
       "--config",
       configPath,
-      ...(write ? ["--write"] : []),
+      ...(shouldWrite ? ["--write"] : []),
       ...ps,
     ],
     { stdio: "inherit" },
