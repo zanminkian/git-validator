@@ -1,4 +1,5 @@
 import type { ESLintUtils } from "@typescript-eslint/utils";
+import * as banTsComment from "./rules/ban-ts-comment.js";
 import * as importRegex from "./rules/import-regex.js";
 import * as noConstEnum from "./rules/no-const-enum.js";
 import * as noDeclaresInTsFile from "./rules/no-declares-in-ts-file.js";
@@ -12,6 +13,7 @@ export type { ESLintUtils };
 
 export default {
   rules: {
+    [banTsComment.ruleName]: banTsComment.rule,
     [importRegex.ruleName]: importRegex.rule,
     [noConstEnum.ruleName]: noConstEnum.rule,
     [noDeclaresInTsFile.ruleName]: noDeclaresInTsFile.rule,
