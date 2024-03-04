@@ -8,7 +8,7 @@ import { importJson } from "../utils.js";
 
 const pkgJson = await importJson(import.meta.url, "../../package.json");
 
-const program = new Command();
+const program = new Command().enablePositionalOptions();
 
 program
   .name("git-validator")
@@ -37,10 +37,8 @@ program
     "automatically update files to fix code style problems",
   )
   .argument("[paths...]", "dir or file paths to lint")
-  .action(async (paths, options, prog) =>
-    process.exit(
-      (await lint(paths, { ...prog.optsWithGlobals(), ...options })).code ?? 0,
-    ),
+  .action(async (paths, options) =>
+    process.exit((await lint(paths, options)).code ?? 0),
   );
 
 program
@@ -51,11 +49,8 @@ program
     "automatically update files to fix code style problems",
   )
   .argument("[paths...]", "dir or file paths to format")
-  .action(async (paths, options, prog) =>
-    process.exit(
-      (await format(paths, { ...prog.optsWithGlobals(), ...options })).code ??
-        0,
-    ),
+  .action(async (paths, options) =>
+    process.exit((await format(paths, options)).code ?? 0),
   );
 
 program
