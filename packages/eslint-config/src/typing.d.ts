@@ -5,5 +5,6 @@ declare module "eslint-plugin-n" {}
 declare module "eslint-plugin-promise" {}
 declare module "eslint-plugin-simple-import-sort" {}
 declare module "eslint-plugin-unicorn" {}
+declare module "eslint-plugin-react" {}
 declare module "eslint-plugin-react-hooks" {}
 declare module "eslint-config-prettier" {}

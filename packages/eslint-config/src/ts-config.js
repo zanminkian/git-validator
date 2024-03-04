@@ -108,6 +108,7 @@ export default !tsconfig
           ...jsConfig.languageOptions,
           parser: tsParser,
           parserOptions: {
+            ...jsConfig.languageOptions.parserOptions,
             tsconfigRootDir: process.cwd(),
             project: tsconfig,
           },

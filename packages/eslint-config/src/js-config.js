@@ -4,6 +4,7 @@ import fpPlugin from "eslint-plugin-fp";
 import importPlugin from "eslint-plugin-import";
 import nPlugin from "eslint-plugin-n";
 import promisePlugin from "eslint-plugin-promise";
+import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 import unicornPlugin from "eslint-plugin-unicorn";
@@ -345,6 +346,11 @@ const standardConfig = {
 export default {
   files: ["js", "cjs", "mjs", "jsx"].map((i) => `**/*.${i}`),
   languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
     globals: {
       ...globals["shared-node-browser"],
       ...globals.browser, // TODO Optimize it. Node code should not use browser's objects.
@@ -359,6 +365,7 @@ export default {
     n: nPlugin,
     import: importPlugin,
     promise: promisePlugin,
+    react: reactPlugin,
     "react-hooks": reactHooksPlugin,
     unicorn: unicornPlugin,
     "simple-import-sort": simpleImportSortPlugin,
@@ -421,6 +428,10 @@ export default {
     "n/no-sync": "error",
     "n/prefer-global/process": ["error", "never"],
     "n/prefer-global/buffer": ["error", "never"],
+    // react
+    "react/jsx-key": "error",
+    "react/jsx-no-duplicate-props": "error",
+    "react/jsx-no-undef": "error",
     // react-hooks
     "react-hooks/exhaustive-deps": "error",
     "react-hooks/rules-of-hooks": "error",
