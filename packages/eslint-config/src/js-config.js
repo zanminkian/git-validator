@@ -357,7 +357,7 @@ export default {
     },
   },
   linterOptions: {
-    // noInlineConfig: true,
+    // noInlineConfig: true, // too strict
     reportUnusedDisableDirectives: true,
   },
   plugins: {
