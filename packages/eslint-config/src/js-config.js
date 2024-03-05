@@ -1,5 +1,6 @@
 // @ts-check
 import gitValidatorPlugin from "@git-validator/eslint-plugin";
+import confusingKeys from "confusing-browser-globals";
 import fpPlugin from "eslint-plugin-fp";
 import importPlugin from "eslint-plugin-import";
 import nPlugin from "eslint-plugin-n";
@@ -259,7 +260,11 @@ export default {
       },
     },
     globals: {
-      ...globals.browser, // TODO Optimize it. Node code should not use browser's objects.
+      // TODO Optimize it. Node code should not use browser's objects.
+      ...Object.entries(globals.browser).reduce(
+        (o, [k, v]) => (confusingKeys.includes(k) ? o : { ...o, [k]: v }),
+        {},
+      ),
     },
   },
   linterOptions: {
