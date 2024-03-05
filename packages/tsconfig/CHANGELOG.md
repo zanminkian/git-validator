@@ -1,5 +1,15 @@
 # @git-validator/tsconfig
 
+## 0.2.0
+
+### Minor Changes
+
+- a69f56e: fix(tsconfig)!: remove resolveJsonModule in esm
+
+### Patch Changes
+
+- fa53d68: refactor(tsconfig): remove some useless compile options
+
 ## 0.1.14
 
 ### Patch Changes
