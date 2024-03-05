@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.1.13
+
+### Patch Changes
+
+- 171e720: feat(eslint-plugin): ban ts comment
+
 ## 0.1.12
 
 ### Patch Changes

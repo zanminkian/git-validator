@@ -1,5 +1,25 @@
 # git-validator
 
+## 0.13.0
+
+### Minor Changes
+
+- 854efdd: feat(git-validator)!: do not apply eslint fix when committing code for safety
+- a69f56e: fix(tsconfig)!: remove resolveJsonModule in esm
+
+### Patch Changes
+
+- fa53d68: refactor(tsconfig): remove some useless compile options
+- Updated dependencies [cfdf8b2]
+- Updated dependencies [171e720]
+- Updated dependencies [21d5be8]
+- Updated dependencies [a69f56e]
+- Updated dependencies [9d69f9c]
+- Updated dependencies [fa53d68]
+- Updated dependencies [ea5984b]
+  - @git-validator/eslint-config@0.2.0
+  - @git-validator/tsconfig@0.2.0
+
 ## 0.12.1
 
 ### Patch Changes

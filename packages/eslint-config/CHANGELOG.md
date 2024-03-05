@@ -1,5 +1,20 @@
 # @git-validator/eslint-config
 
+## 0.2.0
+
+### Minor Changes
+
+- cfdf8b2: refactor(eslint-config): remove base.js
+- ea5984b: refactor(eslint-config)!: do not apply ts rules to js files
+
+### Patch Changes
+
+- 171e720: feat(eslint-plugin): ban ts comment
+- 21d5be8: feat(eslint-config): add eslint-plugin-react
+- 9d69f9c: feat(eslint-config): re-enable `no-undef`
+- Updated dependencies [171e720]
+  - @git-validator/eslint-plugin@0.1.13
+
 ## 0.1.32
 
 ### Patch Changes
