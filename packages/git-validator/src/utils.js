@@ -2,7 +2,7 @@
 import fs from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { cosmiconfig } from "cosmiconfig";
+import { lilconfig } from "lilconfig";
 
 /**
  * @param {string} filepath
@@ -28,7 +28,7 @@ export function dir(url) {
  * @param {string} dirName
  */
 export async function resolveConfig(module, dirName = dir(import.meta.url)) {
-  return await cosmiconfig(module).search(join(dirName, ".."));
+  return await lilconfig(module).search(join(dirName, ".."));
 }
 
 /**
