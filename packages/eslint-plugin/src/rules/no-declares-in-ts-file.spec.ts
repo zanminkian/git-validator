@@ -8,7 +8,7 @@ const codes = [
   "declare var A: number = 123",
   "declare let A: number = 123",
   "declare const A: number = 123",
-  "declare function A(a: string): any",
+  "declare function A(a: string): number",
   "declare enum A{A1,A2}",
   "declare namespace A{}",
   "declare type A = {}",
