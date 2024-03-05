@@ -8,8 +8,8 @@ import jsConfig from "./js-config.js";
 import packagejsonConfig from "./packagejson-config.js";
 import tsConfig from "./ts-config.js";
 
-async function getIgnoresByGitIgnore() {
-  return (
+async function globallyIgnore() {
+  const ignores = (
     await fs
       .readFile(join(process.cwd(), ".gitignore"), "utf-8")
       .catch(() => "")
@@ -18,13 +18,12 @@ async function getIgnoresByGitIgnore() {
     .map((i) => i.trim())
     .filter(Boolean)
     .map(gitignoreToMinimatch);
+  // Globally ignore. https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
+  return { ignores };
 }
 
 export default [
-  {
-    // Globally ignore. https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
-    ignores: await getIgnoresByGitIgnore(),
-  },
+  globallyIgnore(),
   jsConfig,
   ...tsConfig,
   packagejsonConfig,

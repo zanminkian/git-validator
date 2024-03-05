@@ -1,12 +1,29 @@
 // @ts-check
+import fs from "node:fs/promises";
+import path from "node:path";
 import process from "node:process";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import deprecationPlugin from "eslint-plugin-deprecation";
 import jsConfig from "./js-config.js";
-import { getProjectTsconfig } from "./utils.js";
 
 const tsconfig = await getProjectTsconfig();
+
+async function getProjectTsconfig() {
+  const tsconfigs = ["tsconfig.eslint.json", "tsconfig.json"];
+  const index = (
+    await Promise.all(
+      tsconfigs.map(
+        async (config) =>
+          await fs
+            .access(path.join(process.cwd(), config))
+            .then(() => true)
+            .catch(() => false),
+      ),
+    )
+  ).findIndex(Boolean);
+  return tsconfigs[index];
+}
 
 function getTsRules() {
   // https://typescript-eslint.io/rules/#extension-rules
@@ -85,17 +102,19 @@ function getTsRules() {
 }
 
 function getStrictRules() {
-  if (process.env["STRICT"] || process.env["ESLINT_STRICT"]) {
-    return {
-      "@typescript-eslint/no-explicit-any": "error",
-      "@typescript-eslint/consistent-type-assertions": [
-        "error",
-        { assertionStyle: "never" },
-      ],
-      "@typescript-eslint/no-non-null-assertion": "error",
-    };
+  const strict = process.env["STRICT"] || process.env["ESLINT_STRICT"];
+  if (!strict) {
+    return {};
   }
-  return {};
+
+  return {
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      { assertionStyle: "never" },
+    ],
+    "@typescript-eslint/no-non-null-assertion": "error",
+  };
 }
 
 export default !tsconfig
