@@ -1,5 +1,18 @@
 # git-validator
 
+## 0.14.0
+
+### Minor Changes
+
+- f7213e1: chore: upgrade deps, drop support for node 16
+
+### Patch Changes
+
+- Updated dependencies [f7213e1]
+  - @git-validator/eslint-config@0.3.0
+  - @git-validator/prettier-config@0.3.0
+  - @git-validator/tsconfig@0.3.0
+
 ## 0.13.0
 
 ### Minor Changes
