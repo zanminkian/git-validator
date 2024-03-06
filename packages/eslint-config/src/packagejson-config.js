@@ -1,11 +1,9 @@
 // @ts-check
-import packagejson, {
-  processor,
-} from "@git-validator/eslint-plugin-packagejson";
+import packagejson from "@git-validator/eslint-plugin-packagejson";
 
 export default {
   files: ["**/package.json"],
-  processor,
+  processor: "packagejson/processor",
   plugins: {
     packagejson,
   },
