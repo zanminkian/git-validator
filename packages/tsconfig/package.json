@@ -38,7 +38,7 @@
     "build": "tsc --noEmit -p ../../tsconfig.json"
   },
   "dependencies": {
-    "commander": "11.1.0",
+    "commander": "12.0.0",
     "get-tsconfig": "4.7.2",
     "json5": "2.2.3",
     "print-diff": "2.0.0",

@@ -28,8 +28,8 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
     Program: (node) => {
       const banned = ["global", "self"];
       // Report variables declared elsewhere
-      const scope = context.sourceCode.getScope?.(node);
-      scope?.variables.forEach((v) => {
+      const scope = context.sourceCode.getScope(node);
+      scope.variables.forEach((v) => {
         if (banned.includes(v.name)) {
           v.references.forEach((ref) => {
             context.report({
@@ -40,7 +40,7 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
         }
       });
       // Report variables not declared at all
-      scope?.through.forEach((ref) => {
+      scope.through.forEach((ref) => {
         if (banned.includes(ref.identifier.name)) {
           context.report({
             node: ref.identifier,

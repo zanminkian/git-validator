@@ -30,7 +30,7 @@ In short, this is an all-in-one tool for code quality. In other words, this is a
 
 ## Requirement
 
-- Node >= 16
+- Node >= 18
 - Typescript >= 5.0
 
 ## Quick Start

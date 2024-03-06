@@ -18,7 +18,7 @@ Strict shared tsconfig out-of-box
 ## Requirement
 
 - Typescript 5.0+.
-- Node 16+.
+- Node 18+.
 
 ## Usage
 
