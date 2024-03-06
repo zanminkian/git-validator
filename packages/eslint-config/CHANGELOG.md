@@ -1,5 +1,17 @@
 # @git-validator/eslint-config
 
+## 0.3.0
+
+### Minor Changes
+
+- f7213e1: chore: upgrade deps, drop support for node 16
+
+### Patch Changes
+
+- Updated dependencies [f7213e1]
+  - @git-validator/eslint-plugin@0.2.0
+  - @git-validator/eslint-plugin-packagejson@0.2.0
+
 ## 0.2.0
 
 ### Minor Changes
