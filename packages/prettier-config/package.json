@@ -16,7 +16,7 @@
   "license": "MIT",
   "author": "hellozmj@qq.com",
   "type": "module",
-  "exports": "./index.js",
+  "exports": "./src/index.js",
   "scripts": {
     "build": "tsc --noEmit -p ../../tsconfig.json"
   },
