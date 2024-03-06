@@ -40,7 +40,7 @@
     "prettier": "./src/bin/prettier.js"
   },
   "scripts": {
-    "build": "tsc --noEmit -p ../../tsconfig.json"
+    "build": "tsc --noEmit -p tsconfig.build.json"
   },
   "dependencies": {
     "@commitlint/cli": "19.0.3",
