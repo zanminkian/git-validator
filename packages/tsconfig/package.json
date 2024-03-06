@@ -21,8 +21,8 @@
   "author": "hellozmj@qq.com",
   "type": "module",
   "exports": {
-    "./cli": "./src/cli.js",
-    "./setup": "./src/setup.js",
+    "./cli": "./dist/cli.js",
+    "./setup": "./dist/setup.js",
     "./cjs.json": "./cjs.json",
     "./esm.json": "./esm.json",
     "./tsconfig.json": "./tsconfig.json",
@@ -32,10 +32,10 @@
     ".": "./tsconfig.json"
   },
   "bin": {
-    "tsconfig": "./src/cli.js"
+    "tsconfig": "./dist/cli.js"
   },
   "scripts": {
-    "build": "tsc --noEmit -p ../../tsconfig.json"
+    "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
     "commander": "12.0.0",
