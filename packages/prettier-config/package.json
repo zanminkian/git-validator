@@ -18,7 +18,7 @@
   "type": "module",
   "exports": "./src/index.js",
   "scripts": {
-    "build": "tsc --noEmit -p ../../tsconfig.json"
+    "build": "tsc --noEmit -p tsconfig.build.json"
   },
   "dependencies": {
     "prettier-plugin-curly": "0.1.3",
