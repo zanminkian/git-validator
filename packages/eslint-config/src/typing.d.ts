@@ -1,4 +1,5 @@
 declare module "@git-validator/eslint-plugin" {}
+declare module "@git-validator/eslint-plugin-packagejson" {}
 declare module "eslint-plugin-fp" {}
 declare module "eslint-plugin-import" {}
 declare module "eslint-plugin-n" {}
