@@ -3,6 +3,7 @@
 import process from "node:process";
 import { initAction, setup } from "@git-validator/tsconfig/setup";
 import { Command } from "commander";
+import { analyze } from "../analyze.js";
 import { format, install, lint } from "../cli.js";
 import { importJson } from "../utils.js";
 
@@ -73,6 +74,19 @@ program
     "skip linting code using eslint on git 'pre-commit' stage",
   )
   .action(async (options) => await install(options));
+
+program
+  .command("analyze")
+  .description("analyze typescript project quality and print the report")
+  .argument("[path]", "directory path storing ts files", ".")
+  .action(async (path) => {
+    const analysis = await analyze(path);
+    console.table({
+      "Any Type Count": analysis.anyTypeCount,
+      "Assertion Count": analysis.assertionCount,
+      "Non-null Assertion Count": analysis.nonNullAssertionCount,
+    });
+  });
 
 setup(program, {
   initCommand: "init-tsconfig",
