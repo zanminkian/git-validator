@@ -56,5 +56,8 @@
     "lint-staged": "15.2.2",
     "minimatch": "^9.0.3",
     "prettier": "3.2.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }
