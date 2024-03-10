@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.14.2
+
+### Patch Changes
+
+- 34826c0: fix(git-validator): support jsx file
+
 ## 0.14.1
 
 ### Patch Changes
