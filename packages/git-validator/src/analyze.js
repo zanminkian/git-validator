@@ -18,9 +18,10 @@ const gitIgnores = (
   .map(gitignoreToMinimatch);
 
 /**
- * @param {string} code
+ * @param {string} path
  */
-function getTsAnalysis(code) {
+async function getTsAnalysis(path) {
+  const code = await fs.readFile(path, "utf-8");
   const result = {
     anyTypeCount: 0,
     assertionCount: 0,
@@ -49,7 +50,7 @@ function getTsAnalysis(code) {
     Object.values(node).forEach(walk);
   }
 
-  walk(parse(code, { jsx: true }));
+  walk(parse(code, { jsx: path.endsWith("x") }));
   return result;
 }
 
@@ -96,9 +97,8 @@ export async function analyze(dir = process.cwd()) {
   };
 
   await walkDir(dir, async (file) => {
-    const code = await fs.readFile(file, "utf-8");
     try {
-      const analysis = getTsAnalysis(code);
+      const analysis = await getTsAnalysis(file);
 
       result.anyTypeCount += analysis.anyTypeCount;
       result.assertionCount += analysis.assertionCount;
