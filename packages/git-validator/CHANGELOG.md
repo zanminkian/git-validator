@@ -1,5 +1,12 @@
 # git-validator
 
+## 0.14.5
+
+### Patch Changes
+
+- 8af7555: feat(git-validator): support analyze js files
+- 4c20fdd: feat(git-validator): support more analyzing infos
+
 ## 0.14.4
 
 ### Patch Changes
