@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.14.3
+
+### Patch Changes
+
+- d9d1279: fix(git-validator): support both tsx and ts
+
 ## 0.14.2
 
 ### Patch Changes
