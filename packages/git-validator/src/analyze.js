@@ -15,9 +15,16 @@ function isTs(file) {
 }
 
 /**
- * @param {string} path
+ * @param {string} file
  */
-async function getTsAnalysis(path) {
+function isJs(file) {
+  return /\.(js|mjs|cjs|jsx)$/.test(file);
+}
+
+/**
+ * @param {string} path ts or js file absolute path
+ */
+async function getAnalysis(path) {
   const code = await fs.readFile(path, "utf-8");
   const result = {
     anyTypes: 0,
@@ -25,6 +32,10 @@ async function getTsAnalysis(path) {
     nonNullAssertions: 0,
     codeLines: code.split("\n").length,
   };
+
+  if (isJs(path)) {
+    return result;
+  }
 
   /**
    * @param {any} node
@@ -69,7 +80,7 @@ async function walkDir(dir, ignorePatterns, cb) {
   /**
    * @type {(path: string)=>boolean}
    */
-  const ignoreFile = (path) => !isTs(path) || ignoreDir(path);
+  const ignoreFile = (path) => (!isTs(path) && !isJs(path)) || ignoreDir(path);
 
   const promises = (await fs.readdir(dir))
     .map((path) => resolve(dir, path))
@@ -104,12 +115,13 @@ export async function analyze(dir = process.cwd()) {
     nonNullAssertions: 0,
     codeLines: 0,
     tsFiles: 0,
+    jsFiles: 0,
     totalAnalyzedFiles: 0,
   };
 
   await walkDir(dir, ignores, async (file) => {
     try {
-      const analysis = await getTsAnalysis(file);
+      const analysis = await getAnalysis(file);
 
       result.anyTypes += analysis.anyTypes;
       result.assertions += analysis.assertions;
@@ -117,6 +129,7 @@ export async function analyze(dir = process.cwd()) {
       result.codeLines += analysis.codeLines;
 
       result.tsFiles += isTs(file) ? 1 : 0;
+      result.jsFiles += isJs(file) ? 1 : 0;
       result.totalAnalyzedFiles += 1;
     } catch (e) {
       throw new Error(`Analyze ${file} fail!`, { cause: e });
