@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.14.6
+
+### Patch Changes
+
+- a9bc033: fix(git-validator): add typescript to peer dependencies
+
 ## 0.14.5
 
 ### Patch Changes
