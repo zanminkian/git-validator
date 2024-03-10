@@ -116,7 +116,7 @@ export async function analyze(dir = process.cwd()) {
     codeLines: 0,
     tsFiles: 0,
     jsFiles: 0,
-    totalAnalyzedFiles: 0,
+    analyzedFiles: 0,
   };
 
   await walkDir(dir, ignores, async (file) => {
@@ -130,7 +130,7 @@ export async function analyze(dir = process.cwd()) {
 
       result.tsFiles += isTs(file) ? 1 : 0;
       result.jsFiles += isJs(file) ? 1 : 0;
-      result.totalAnalyzedFiles += 1;
+      result.analyzedFiles += 1;
     } catch (e) {
       throw new Error(`Analyze ${file} fail!`, { cause: e });
     }

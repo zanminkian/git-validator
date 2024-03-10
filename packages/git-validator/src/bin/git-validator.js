@@ -88,7 +88,7 @@ program
       "Code Lines": analysis.codeLines,
       "TS Files": analysis.tsFiles,
       "JS Files": analysis.jsFiles,
-      "Total Analyzed Files": analysis.totalAnalyzedFiles,
+      "Analyzed Files": analysis.analyzedFiles,
     });
   });
 
