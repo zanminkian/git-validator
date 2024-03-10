@@ -7,16 +7,6 @@ import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
 import { parse } from "@typescript-eslint/typescript-estree";
 import { minimatch } from "minimatch";
 
-const gitIgnores = (
-  await fs
-    .readFile(resolve(process.cwd(), ".gitignore"), "utf-8")
-    .catch(() => "")
-)
-  .split("\n")
-  .map((i) => i.trim())
-  .filter(Boolean)
-  .map(gitignoreToMinimatch);
-
 /**
  * @param {string} path
  */
@@ -56,16 +46,17 @@ async function getTsAnalysis(path) {
 
 /**
  * @param {string} dir absolute directory path
+ * @param {string[]} ignorePatterns
  * @param {(file: string)=>Promise<void>} cb
  */
-async function walkDir(dir, cb) {
+async function walkDir(dir, ignorePatterns, cb) {
   /**
    * @type {(path: string)=>boolean}
    */
   const ignoreDir = (path) =>
     path.includes(`${sep}.git${sep}`) ||
     path.includes(`${sep}node_modules${sep}`) ||
-    gitIgnores.some((pattern) => minimatch(path, pattern));
+    ignorePatterns.some((pattern) => minimatch(path, pattern));
 
   /**
    * @type {(path: string)=>boolean}
@@ -77,7 +68,7 @@ async function walkDir(dir, cb) {
     .map(async (path) => {
       if ((await fs.stat(path)).isDirectory()) {
         if (!ignoreDir(path)) {
-          await walkDir(path, cb);
+          await walkDir(path, ignorePatterns, cb);
         }
       } else {
         if (!ignoreFile(path)) {
@@ -90,13 +81,22 @@ async function walkDir(dir, cb) {
 
 export async function analyze(dir = process.cwd()) {
   dir = resolve(process.cwd(), dir);
+  const ignores = (
+    await fs.readFile(resolve(dir, ".gitignore"), "utf-8").catch(() => "")
+  )
+    .split("\n")
+    .map((i) => i.trim())
+    .filter(Boolean)
+    .filter((i) => !i.startsWith("#"))
+    .map(gitignoreToMinimatch);
+
   const result = {
     anyTypeCount: 0,
     assertionCount: 0,
     nonNullAssertionCount: 0,
   };
 
-  await walkDir(dir, async (file) => {
+  await walkDir(dir, ignores, async (file) => {
     try {
       const analysis = await getTsAnalysis(file);
 

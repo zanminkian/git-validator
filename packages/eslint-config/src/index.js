@@ -1,6 +1,6 @@
 // @ts-check
 import fs from "node:fs/promises";
-import { join } from "node:path";
+import { resolve } from "node:path";
 import process from "node:process";
 import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
 import prettierConfig from "eslint-config-prettier";
@@ -11,12 +11,13 @@ import tsConfig from "./ts-config.js";
 async function globallyIgnore() {
   const ignores = (
     await fs
-      .readFile(join(process.cwd(), ".gitignore"), "utf-8")
+      .readFile(resolve(process.cwd(), ".gitignore"), "utf-8")
       .catch(() => "")
   )
     .split("\n")
     .map((i) => i.trim())
     .filter(Boolean)
+    .filter((i) => !i.startsWith("#"))
     .map(gitignoreToMinimatch);
   // Globally ignore. https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
   return { ignores };
