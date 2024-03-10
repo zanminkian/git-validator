@@ -82,9 +82,9 @@ program
   .action(async (path) => {
     const analysis = await analyze(path);
     console.table({
-      "Any Type Count": analysis.anyTypeCount,
-      "Assertion Count": analysis.assertionCount,
-      "Non-null Assertion Count": analysis.nonNullAssertionCount,
+      "Any Types": analysis.anyTypes,
+      Assertions: analysis.assertions,
+      "Non-null Assertions": analysis.nonNullAssertions,
     });
   });
 

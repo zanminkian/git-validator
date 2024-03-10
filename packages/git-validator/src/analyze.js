@@ -13,9 +13,9 @@ import { minimatch } from "minimatch";
 async function getTsAnalysis(path) {
   const code = await fs.readFile(path, "utf-8");
   const result = {
-    anyTypeCount: 0,
-    assertionCount: 0,
-    nonNullAssertionCount: 0,
+    anyTypes: 0,
+    assertions: 0,
+    nonNullAssertions: 0,
   };
 
   /**
@@ -27,14 +27,14 @@ async function getTsAnalysis(path) {
     }
     switch (node.type) {
       case "TSAnyKeyword":
-        result.anyTypeCount += 1;
+        result.anyTypes += 1;
         break;
       case "TSAsExpression":
       case "TSTypeAssertion":
-        result.assertionCount += 1;
+        result.assertions += 1;
         break;
       case "TSNonNullExpression":
-        result.nonNullAssertionCount += 1;
+        result.nonNullAssertions += 1;
         break;
     }
     Object.values(node).forEach(walk);
@@ -91,18 +91,18 @@ export async function analyze(dir = process.cwd()) {
     .map(gitignoreToMinimatch);
 
   const result = {
-    anyTypeCount: 0,
-    assertionCount: 0,
-    nonNullAssertionCount: 0,
+    anyTypes: 0,
+    assertions: 0,
+    nonNullAssertions: 0,
   };
 
   await walkDir(dir, ignores, async (file) => {
     try {
       const analysis = await getTsAnalysis(file);
 
-      result.anyTypeCount += analysis.anyTypeCount;
-      result.assertionCount += analysis.assertionCount;
-      result.nonNullAssertionCount += analysis.nonNullAssertionCount;
+      result.anyTypes += analysis.anyTypes;
+      result.assertions += analysis.assertions;
+      result.nonNullAssertions += analysis.nonNullAssertions;
     } catch (e) {
       throw new Error(`Analyze ${file} fail!`, { cause: e });
     }
