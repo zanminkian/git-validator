@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.14.4
+
+### Patch Changes
+
+- 168abe1: fix: filter comments in gitignore
+- Updated dependencies [168abe1]
+  - @git-validator/eslint-config@0.3.2
+
 ## 0.14.3
 
 ### Patch Changes
