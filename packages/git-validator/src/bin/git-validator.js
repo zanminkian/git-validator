@@ -77,18 +77,22 @@ program
 
 program
   .command("analyze")
-  .description("analyze typescript project quality and print the report")
-  .argument("[path]", "directory path storing ts files", ".")
+  .description("analyze js/ts project quality and print the report")
+  .argument("[path]", "directory path storing js/ts files", ".")
   .action(async (path) => {
     const analysis = await analyze(path);
+    console.log("1. Code lines and files count:");
     console.table({
-      "Any Types": analysis.anyTypes,
-      Assertions: analysis.assertions,
-      "Non-null Assertions": analysis.nonNullAssertions,
       "Code Lines": analysis.codeLines,
       "TS Files": analysis.tsFiles,
       "JS Files": analysis.jsFiles,
       "Analyzed Files": analysis.analyzedFiles,
+    });
+    console.log("2. TypeScript flaws count:");
+    console.table({
+      "Any Types": analysis.anyTypes,
+      Assertions: analysis.assertions,
+      "Non-null Assertions": analysis.nonNullAssertions,
     });
   });
 
