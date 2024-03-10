@@ -1,5 +1,13 @@
 # @git-validator/eslint-config
 
+## 0.3.1
+
+### Patch Changes
+
+- 404ab8a: feat(eslint-config): enable some unicorn rules
+- Updated dependencies [7221d89]
+  - @git-validator/eslint-plugin@0.3.0
+
 ## 0.3.0
 
 ### Minor Changes

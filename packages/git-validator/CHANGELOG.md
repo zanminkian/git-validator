@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.14.1
+
+### Patch Changes
+
+- d4b48db: feat(git-validator): support analyze ts project to print some infos about code quality
+- Updated dependencies [404ab8a]
+  - @git-validator/eslint-config@0.3.1
+
 ## 0.14.0
 
 ### Minor Changes

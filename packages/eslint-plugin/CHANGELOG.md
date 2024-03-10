@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.3.0
+
+### Minor Changes
+
+- 7221d89: refactor(eslint-config)!: don't export @typescript-eslint/utils types
+
 ## 0.2.0
 
 ### Minor Changes
