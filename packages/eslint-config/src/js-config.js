@@ -348,13 +348,24 @@ export default {
     "react-hooks/rules-of-hooks": "error",
     // unicorn
     // 'unicorn/no-null': 'error', // null can be useful when interact with json.
+    "unicorn/consistent-destructuring": "error",
     "unicorn/error-message": "error",
+    "unicorn/filename-case": [
+      "error",
+      { cases: { kebabCase: true, pascalCase: true } },
+    ],
+    "unicorn/new-for-builtins": "error",
+    "unicorn/no-abusive-eslint-disable": "error",
+    // "unicorn/no-array-callback-reference": "error",
     "unicorn/no-instanceof-array": "error",
     "unicorn/no-new-array": "error",
     "unicorn/no-new-buffer": "error",
     "unicorn/no-typeof-undefined": "error",
+    "unicorn/no-unreadable-iife": "error",
+    "unicorn/prefer-array-flat-map": "error",
     "unicorn/prefer-module": "error",
     "unicorn/prefer-number-properties": "error",
+    "unicorn/prefer-string-slice": "error",
     "unicorn/throw-new-error": "error",
 
     "@git-validator/ban-ts-comment": "error",

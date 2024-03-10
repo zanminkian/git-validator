@@ -4,21 +4,21 @@ import { messageId, rule, ruleName } from "./ban-ts-comment.js";
 
 const directives = ["@ts-ignore", "@ts-expect-error", "@ts-nocheck"];
 
-const valid = directives
-  .map((d) => [
-    "//",
-    "/**/",
-    `// '${d}'`,
-    `// "${d}"`,
-    `// "${d}" '${d}'`,
-    `/** '${d}' */`,
-    `/** "${d}" */`,
-  ])
-  .flat();
+const valid = directives.flatMap((d) => [
+  "//",
+  "/**/",
+  `// '${d}'`,
+  `// "${d}"`,
+  `// "${d}" '${d}'`,
+  `/** '${d}' */`,
+  `/** "${d}" */`,
+]);
 
-const invalid = directives
-  .map((d) => [`// ${d}`, `/* ${d} */`, `/** ${d} "${d}" */`])
-  .flat();
+const invalid = directives.flatMap((d) => [
+  `// ${d}`,
+  `/* ${d} */`,
+  `/** ${d} "${d}" */`,
+]);
 
 RuleTester.afterAll = after;
 RuleTester.describe = describe;
