@@ -49,7 +49,7 @@ function getTsAnalysis(code) {
     Object.values(node).forEach(walk);
   }
 
-  walk(parse(code));
+  walk(parse(code, { jsx: true }));
   return result;
 }
 
@@ -97,11 +97,15 @@ export async function analyze(dir = process.cwd()) {
 
   await walkDir(dir, async (file) => {
     const code = await fs.readFile(file, "utf-8");
-    const analysis = getTsAnalysis(code);
+    try {
+      const analysis = getTsAnalysis(code);
 
-    result.anyTypeCount += analysis.anyTypeCount;
-    result.assertionCount += analysis.assertionCount;
-    result.nonNullAssertionCount += analysis.nonNullAssertionCount;
+      result.anyTypeCount += analysis.anyTypeCount;
+      result.assertionCount += analysis.assertionCount;
+      result.nonNullAssertionCount += analysis.nonNullAssertionCount;
+    } catch (e) {
+      throw new Error(`Analyze ${file} fail!`, { cause: e });
+    }
   });
   return result;
 }
