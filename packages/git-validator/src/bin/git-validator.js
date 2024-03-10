@@ -85,6 +85,9 @@ program
       "Any Types": analysis.anyTypes,
       Assertions: analysis.assertions,
       "Non-null Assertions": analysis.nonNullAssertions,
+      "Code Lines": analysis.codeLines,
+      "TS Files": analysis.tsFiles,
+      "Total Analyzed Files": analysis.totalAnalyzedFiles,
     });
   });
 

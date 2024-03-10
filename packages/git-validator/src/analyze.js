@@ -8,6 +8,13 @@ import { parse } from "@typescript-eslint/typescript-estree";
 import { minimatch } from "minimatch";
 
 /**
+ * @param {string} file
+ */
+function isTs(file) {
+  return /\.(ts|mts|cts|tsx)$/.test(file);
+}
+
+/**
  * @param {string} path
  */
 async function getTsAnalysis(path) {
@@ -16,6 +23,7 @@ async function getTsAnalysis(path) {
     anyTypes: 0,
     assertions: 0,
     nonNullAssertions: 0,
+    codeLines: code.split("\n").length,
   };
 
   /**
@@ -61,7 +69,7 @@ async function walkDir(dir, ignorePatterns, cb) {
   /**
    * @type {(path: string)=>boolean}
    */
-  const ignoreFile = (path) => !/\.[mc]?tsx?$/.test(path) || ignoreDir(path);
+  const ignoreFile = (path) => !isTs(path) || ignoreDir(path);
 
   const promises = (await fs.readdir(dir))
     .map((path) => resolve(dir, path))
@@ -94,6 +102,9 @@ export async function analyze(dir = process.cwd()) {
     anyTypes: 0,
     assertions: 0,
     nonNullAssertions: 0,
+    codeLines: 0,
+    tsFiles: 0,
+    totalAnalyzedFiles: 0,
   };
 
   await walkDir(dir, ignores, async (file) => {
@@ -103,6 +114,10 @@ export async function analyze(dir = process.cwd()) {
       result.anyTypes += analysis.anyTypes;
       result.assertions += analysis.assertions;
       result.nonNullAssertions += analysis.nonNullAssertions;
+      result.codeLines += analysis.codeLines;
+
+      result.tsFiles += isTs(file) ? 1 : 0;
+      result.totalAnalyzedFiles += 1;
     } catch (e) {
       throw new Error(`Analyze ${file} fail!`, { cause: e });
     }
