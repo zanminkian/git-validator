@@ -1,4 +1,3 @@
-// @ts-check
 import packagejson from "@git-validator/eslint-plugin-packagejson";
 
 export default {

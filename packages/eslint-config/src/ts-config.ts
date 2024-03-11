@@ -1,4 +1,3 @@
-// @ts-check
 import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
@@ -71,7 +70,7 @@ function getTsRules() {
     "space-infix-ops",
   ];
   const builtinRuleKeys = allBuiltinRuleKeys.filter(
-    (key) => jsConfig.rules[key],
+    (key) => (jsConfig.rules as any)[key],
   );
   const disabledRules = builtinRuleKeys.reduce(
     (result, key) => ({ ...result, [key]: "off" }),
@@ -84,12 +83,12 @@ function getTsRules() {
     (result, key) => ({
       ...result,
       [`@typescript-eslint/${key}`]: JSON.parse(
-        JSON.stringify(jsConfig.rules[key]),
+        JSON.stringify((jsConfig.rules as any)[key]),
       ),
     }),
     {},
   );
-  originRules["@typescript-eslint/indent"][2].ignoredNodes.push(
+  (originRules as any)["@typescript-eslint/indent"][2].ignoredNodes.push(
     "FunctionExpression > .params[decorators.length > 0]",
     "FunctionExpression > .params > :matches(Decorator, :not(:first-child))",
     "ClassBody.body > PropertyDefinition[decorators.length > 0] > .key",
