@@ -68,52 +68,44 @@ function getTsRules() {
     "space-before-blocks",
     "space-before-function-paren",
     "space-infix-ops",
-  ];
-  const builtinRuleKeys = allBuiltinRuleKeys.filter(
-    (key) => (jsConfig.rules as any)[key],
-  );
-  const disabledRules = builtinRuleKeys.reduce(
-    (result, key) => ({ ...result, [key]: "off" }),
-    {},
-  );
-  /**
-   * @type {Record<string, any>}
-   */
-  const originRules = builtinRuleKeys.reduce(
-    (result, key) => ({
-      ...result,
-      [`@typescript-eslint/${key}`]: JSON.parse(
-        JSON.stringify((jsConfig.rules as any)[key]),
-      ),
-    }),
-    {},
-  );
-  (originRules as any)["@typescript-eslint/indent"][2].ignoredNodes.push(
-    "FunctionExpression > .params[decorators.length > 0]",
-    "FunctionExpression > .params > :matches(Decorator, :not(:first-child))",
-    "ClassBody.body > PropertyDefinition[decorators.length > 0] > .key",
-  );
+  ] as const;
+  type BuiltinRuleKey = (typeof allBuiltinRuleKeys)[number];
+  type TsRuleKey = `@typescript-eslint/${BuiltinRuleKey}`;
+  const result: Partial<Record<BuiltinRuleKey | TsRuleKey, unknown>> = {};
 
-  return {
-    ...disabledRules,
-    ...originRules,
-  };
+  for (const key of allBuiltinRuleKeys) {
+    for (const [jsRuleKey, jsRuleValue] of Object.entries(jsConfig.rules)) {
+      if (key === jsRuleKey) {
+        result[key] = "off";
+        result[`@typescript-eslint/${key}`] = JSON.parse(
+          JSON.stringify(jsRuleValue),
+        );
+      }
+    }
+  }
+  // To fix the typescript indent, see https://github.com/mightyiam/eslint-config-standard-with-typescript/pull/1200
+
+  return result;
 }
 
 function getStrictRules() {
-  const strict = process.env["STRICT"] || process.env["ESLINT_STRICT"];
-  if (!strict) {
-    return {};
-  }
-
-  return {
+  const config = {
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/consistent-type-assertions": [
       "error",
       { assertionStyle: "never" },
     ],
     "@typescript-eslint/no-non-null-assertion": "error",
-  };
+  } as const;
+  type Result = Partial<Record<keyof typeof config, unknown>>;
+
+  const emptyResult: Result = {};
+  const fullResult: Result = config;
+  if (process.env["STRICT"] || process.env["ESLINT_STRICT"]) {
+    return fullResult;
+  } else {
+    return emptyResult;
+  }
 }
 
 export default !tsconfig
