@@ -23,7 +23,7 @@ async function globallyIgnore() {
 }
 
 export default [
-  globallyIgnore(),
+  await globallyIgnore(),
   jsConfig,
   ...tsConfig,
   packagejsonConfig,

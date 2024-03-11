@@ -158,6 +158,7 @@ export default !tsconfig
               objectLiteralTypeAssertions: "allow-as-parameter",
             },
           ],
+          // "@typescript-eslint/consistent-type-imports": "error,
           "@typescript-eslint/method-signature-style": "error",
           "@typescript-eslint/naming-convention": [
             "error",
