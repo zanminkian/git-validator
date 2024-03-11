@@ -19,9 +19,9 @@
   "license": "MIT",
   "author": "hellozmj@qq.com",
   "type": "module",
-  "exports": "./src/index.js",
+  "exports": "./dist/index.js",
   "scripts": {
-    "build": "tsc --noEmit -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
     "@git-validator/eslint-plugin": "workspace:^",

@@ -125,7 +125,7 @@ export default !tsconfig
         files: ["ts", "cts", "mts", "tsx"].map((i) => `**/*.${i}`),
         languageOptions: {
           ...jsConfig.languageOptions,
-          parser: tsParser,
+          parser: tsParser, // TODO: Unfortunately parser cannot be a string. Eslint should support it. https://eslint.org/docs/latest/use/configure/configuration-files-new#configuring-a-custom-parser-and-its-options
           parserOptions: {
             ...jsConfig.languageOptions.parserOptions,
             tsconfigRootDir: process.cwd(),
