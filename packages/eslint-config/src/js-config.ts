@@ -251,7 +251,7 @@ const standardConfig = {
 };
 
 export default {
-  files: ["js", "cjs", "mjs", "jsx"].map((i) => `**/*.${i}`),
+  files: ["**/*.{js,cjs,mjs,jsx}"],
   languageOptions: {
     parserOptions: {
       ecmaFeatures: {

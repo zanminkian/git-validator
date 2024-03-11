@@ -113,7 +113,7 @@ export default !tsconfig
   : [
       {
         ...jsConfig,
-        files: ["ts", "cts", "mts", "tsx"].map((i) => `**/*.${i}`),
+        files: ["**/*.{ts,cts,mts,tsx}"],
         languageOptions: {
           ...jsConfig.languageOptions,
           parser: tsParser, // TODO: Unfortunately parser cannot be a string. Eslint should support it. https://eslint.org/docs/latest/use/configure/configuration-files-new#configuring-a-custom-parser-and-its-options
@@ -213,8 +213,8 @@ export default !tsconfig
       {
         // https://github.com/motemen/minimatch-cheat-sheet
         files: [
-          "**/__tests__/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
-          "**/*.{test,spec}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
+          "**/__tests__/**/*.{ts,cts,mts,tsx}",
+          "**/*.{test,spec}.{ts,cts,mts,tsx}",
         ],
         rules: {
           "@typescript-eslint/unbound-method": "off",
