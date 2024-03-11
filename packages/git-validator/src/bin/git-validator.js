@@ -88,7 +88,7 @@ program
       "JS Files": analysis.jsFiles,
       "Analyzed Files": analysis.analyzedFiles,
     });
-    console.log("2. TypeScript flaws count:");
+    console.log("2. Type flaws count:");
     console.table({
       "Any Types": analysis.anyTypes,
       Assertions: analysis.assertions,

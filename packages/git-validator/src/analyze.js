@@ -4,7 +4,6 @@ import fs from "node:fs/promises";
 import { resolve, sep } from "node:path";
 import process from "node:process";
 import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
-import { parse } from "@typescript-eslint/typescript-estree";
 import { minimatch } from "minimatch";
 
 /**
@@ -59,6 +58,15 @@ async function getAnalysis(path) {
     Object.values(node).forEach(walk);
   }
 
+  // this package require typescript as its peer dependencies
+  const { parse } = await import("@typescript-eslint/typescript-estree").catch(
+    (e) => {
+      throw new Error(
+        "Importing `@typescript-eslint/typescript-estree` fail! Please make sure that typescript has been installed or npm config `legacy-peer-deps` is disabled.",
+        { cause: e },
+      );
+    },
+  );
   walk(parse(code, { jsx: path.endsWith("x") }));
   return result;
 }
