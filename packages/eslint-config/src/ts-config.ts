@@ -209,7 +209,8 @@ const mainConfig = {
   },
 };
 
-const testConfig: Pick<typeof mainConfig, "files" | "rules"> = {
+const testConfig = {
+  ...mainConfig,
   // https://github.com/motemen/minimatch-cheat-sheet
   files: [
     "**/__tests__/**/*.{ts,cts,mts,tsx}",
@@ -221,7 +222,7 @@ const testConfig: Pick<typeof mainConfig, "files" | "rules"> = {
   },
 };
 
-const config = [mainConfig, testConfig];
-const empty: typeof config = [];
+const config: Array<typeof mainConfig> = [mainConfig, testConfig];
+const empty: Array<typeof mainConfig> = [];
 
 export default tsconfig ? config : empty;
