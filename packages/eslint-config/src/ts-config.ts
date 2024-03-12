@@ -108,117 +108,120 @@ function getStrictRules() {
   }
 }
 
-export default !tsconfig
-  ? []
-  : [
+const mainConfig = {
+  ...jsConfig,
+  files: ["**/*.{ts,cts,mts,tsx}"],
+  languageOptions: {
+    ...jsConfig.languageOptions,
+    parser: tsParser, // TODO: Unfortunately parser cannot be a string. Eslint should support it. https://eslint.org/docs/latest/use/configure/configuration-files-new#configuring-a-custom-parser-and-its-options
+    parserOptions: {
+      ...jsConfig.languageOptions.parserOptions,
+      tsconfigRootDir: process.cwd(),
+      project: tsconfig,
+    },
+  },
+  plugins: {
+    ...jsConfig.plugins,
+    deprecation: deprecationPlugin,
+    "@typescript-eslint": tsPlugin,
+  },
+  rules: {
+    ...jsConfig.rules,
+    ...getTsRules(),
+
+    // ban some syntaxes to reduce mistakes
+    // deprecation
+    "deprecation/deprecation": "error",
+    // git-validator
+    "@git-validator/no-const-enum": "error",
+    "@git-validator/no-declares-in-ts-file": "error",
+    "@git-validator/no-export-assignment": "error",
+    // typescript
+    "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
       {
-        ...jsConfig,
-        files: ["**/*.{ts,cts,mts,tsx}"],
-        languageOptions: {
-          ...jsConfig.languageOptions,
-          parser: tsParser, // TODO: Unfortunately parser cannot be a string. Eslint should support it. https://eslint.org/docs/latest/use/configure/configuration-files-new#configuring-a-custom-parser-and-its-options
-          parserOptions: {
-            ...jsConfig.languageOptions.parserOptions,
-            tsconfigRootDir: process.cwd(),
-            project: tsconfig,
-          },
-        },
-        plugins: {
-          ...jsConfig.plugins,
-          deprecation: deprecationPlugin,
-          "@typescript-eslint": tsPlugin,
-        },
-        rules: {
-          ...jsConfig.rules,
-          ...getTsRules(),
-
-          // ban some syntaxes to reduce mistakes
-          // deprecation
-          "deprecation/deprecation": "error",
-          // git-validator
-          "@git-validator/no-const-enum": "error",
-          "@git-validator/no-declares-in-ts-file": "error",
-          "@git-validator/no-export-assignment": "error",
-          // typescript
-          "@typescript-eslint/await-thenable": "error",
-          "@typescript-eslint/ban-ts-comment": [
-            "error",
-            {
-              "ts-expect-error": true,
-              "ts-ignore": true,
-              "ts-nocheck": true,
-            },
-          ],
-          "@typescript-eslint/ban-types": "error",
-          "@typescript-eslint/consistent-generic-constructors": "error",
-          "@typescript-eslint/consistent-type-assertions": [
-            "error",
-            {
-              assertionStyle: "as",
-              objectLiteralTypeAssertions: "allow-as-parameter",
-            },
-          ],
-          // "@typescript-eslint/consistent-type-imports": "error,
-          "@typescript-eslint/method-signature-style": "error",
-          "@typescript-eslint/naming-convention": [
-            "error",
-            {
-              selector: "function",
-              format: ["camelCase", "PascalCase"],
-            },
-            {
-              selector: "variable",
-              types: ["function"],
-              format: ["camelCase", "PascalCase"],
-            },
-            {
-              selector: "class",
-              format: ["PascalCase"],
-            },
-          ],
-          "@typescript-eslint/no-duplicate-enum-values": "error",
-          "@typescript-eslint/no-duplicate-type-constituents": "error",
-          "@typescript-eslint/no-floating-promises": [
-            "error",
-            {
-              ignoreVoid: false,
-            },
-          ],
-          "@typescript-eslint/no-import-type-side-effects": "error",
-          "@typescript-eslint/no-inferrable-types": "error",
-          "@typescript-eslint/no-misused-new": "error",
-          "@typescript-eslint/no-misused-promises": [
-            "error",
-            {
-              checksVoidReturn: {
-                returns: false,
-                arguments: false,
-                variables: false,
-              },
-            },
-          ],
-          "@typescript-eslint/no-mixed-enums": "error",
-          "@typescript-eslint/no-namespace": "error",
-          "@typescript-eslint/no-non-null-assertion": "warn",
-          "@typescript-eslint/no-require-imports": "error",
-          "@typescript-eslint/no-unnecessary-condition": "error",
-          "@typescript-eslint/no-unnecessary-type-assertion": "error",
-          "@typescript-eslint/prefer-ts-expect-error": "error",
-          "@typescript-eslint/restrict-plus-operands": "error",
-          "@typescript-eslint/return-await": ["error", "always"],
-          "@typescript-eslint/unbound-method": "error",
-
-          ...getStrictRules(),
-        },
+        "ts-expect-error": true,
+        "ts-ignore": true,
+        "ts-nocheck": true,
+      },
+    ],
+    "@typescript-eslint/ban-types": "error",
+    "@typescript-eslint/consistent-generic-constructors": "error",
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      {
+        assertionStyle: "as",
+        objectLiteralTypeAssertions: "allow-as-parameter",
+      },
+    ],
+    // "@typescript-eslint/consistent-type-imports": "error,
+    "@typescript-eslint/method-signature-style": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        selector: "function",
+        format: ["camelCase", "PascalCase"],
       },
       {
-        // https://github.com/motemen/minimatch-cheat-sheet
-        files: [
-          "**/__tests__/**/*.{ts,cts,mts,tsx}",
-          "**/*.{test,spec}.{ts,cts,mts,tsx}",
-        ],
-        rules: {
-          "@typescript-eslint/unbound-method": "off",
+        selector: "variable",
+        types: ["function"],
+        format: ["camelCase", "PascalCase"],
+      },
+      {
+        selector: "class",
+        format: ["PascalCase"],
+      },
+    ],
+    "@typescript-eslint/no-duplicate-enum-values": "error",
+    "@typescript-eslint/no-duplicate-type-constituents": "error",
+    "@typescript-eslint/no-floating-promises": [
+      "error",
+      {
+        ignoreVoid: false,
+      },
+    ],
+    "@typescript-eslint/no-import-type-side-effects": "error",
+    "@typescript-eslint/no-inferrable-types": "error",
+    "@typescript-eslint/no-misused-new": "error",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: {
+          returns: false,
+          arguments: false,
+          variables: false,
         },
       },
-    ];
+    ],
+    "@typescript-eslint/no-mixed-enums": "error",
+    "@typescript-eslint/no-namespace": "error",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-require-imports": "error",
+    "@typescript-eslint/no-unnecessary-condition": "error",
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/prefer-ts-expect-error": "error",
+    "@typescript-eslint/restrict-plus-operands": "error",
+    "@typescript-eslint/return-await": ["error", "always"],
+    "@typescript-eslint/unbound-method": "error",
+
+    ...getStrictRules(),
+  },
+};
+
+const testConfig: Pick<typeof mainConfig, "files" | "rules"> = {
+  // https://github.com/motemen/minimatch-cheat-sheet
+  files: [
+    "**/__tests__/**/*.{ts,cts,mts,tsx}",
+    "**/*.{test,spec}.{ts,cts,mts,tsx}",
+  ],
+  rules: {
+    ...mainConfig.rules,
+    "@typescript-eslint/unbound-method": "off",
+  },
+};
+
+const config = [mainConfig, testConfig];
+const empty: typeof config = [];
+
+export default tsconfig ? config : empty;
