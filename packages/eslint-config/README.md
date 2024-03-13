@@ -30,12 +30,18 @@ Install
 pnpm add -D eslint @git-validator/eslint-config
 ```
 
-Config `eslint.config.js`
+Config `eslint.config.js` (for ESM)
 
 ```js
 import config from "@git-validator/eslint-config";
 
 export default config;
+```
+
+If you are in CommonJS, config `eslint.config.js` bellow
+
+```js
+module.exports = import("@git-validator/eslint-config");
 ```
 
 Config `package.json`
