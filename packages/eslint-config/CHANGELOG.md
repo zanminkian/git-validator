@@ -1,5 +1,12 @@
 # @git-validator/eslint-config
 
+## 0.3.3
+
+### Patch Changes
+
+- 5015e4c: fix(eslint-config): fix globally ignore
+- d991038: feat(eslint-config): support `pick` and `omit` config
+
 ## 0.3.2
 
 ### Patch Changes
