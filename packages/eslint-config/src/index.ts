@@ -22,10 +22,41 @@ async function globallyIgnore() {
   return { ignores };
 }
 
-export default [
-  await globallyIgnore(),
-  jsConfig,
-  ...tsConfig,
-  packagejsonConfig,
-  prettierConfig,
-];
+const ignore = await globallyIgnore();
+const config = [jsConfig, ...tsConfig, packagejsonConfig] satisfies Array<{
+  files: string[];
+  plugins: Record<string, unknown>;
+  rules: Record<string, unknown>;
+}>;
+
+type Keyof<T> = T extends infer U ? keyof U : never;
+type Key = Keyof<(typeof config)[number]["rules"]>;
+
+function pickOrOmit(rules: Key[], type: "pick" | "omit") {
+  const find = (key: string) => {
+    switch (type) {
+      case "pick":
+        return !!rules.find((rule) => rule === key)?.toString();
+      case "omit":
+        return !rules.find((rule) => rule === key)?.toString();
+    }
+  };
+
+  const rulesObjects = config
+    .map((i) => i.rules)
+    .map((ruleObject) =>
+      Object.fromEntries(Object.entries(ruleObject).filter(([k]) => find(k))),
+    );
+  return [
+    ignore,
+    ...config.map((configItem, index) => ({
+      ...configItem,
+      rules: rulesObjects[index],
+    })),
+    prettierConfig,
+  ];
+}
+
+export const pick = (rules: Key[]) => pickOrOmit(rules, "pick");
+export const omit = (rules: Key[]) => pickOrOmit(rules, "omit");
+export default [ignore, ...config, prettierConfig];

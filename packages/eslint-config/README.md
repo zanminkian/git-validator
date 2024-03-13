@@ -10,13 +10,17 @@ A strict eslint config for better code quality. Based on [standard.js](https://g
 
 ## Feature
 
-- Based on [standard.js](https://github.com/standard/standard), but introduced more powerful rules to forbid stupid codes.
-- One-line of config.
-- Work well with Prettier without conflicts.
-- Modern. ESM first.
-- Ignore files configured in `.gitignore`. So you don't need a `.eslintignore`.
 - Lint `js` / `mjs` / `cjs` / `jsx` / `ts` / `mts` / `cts` / `tsx` / `package.json` files only.
-- Designed to work with NestJS and React out-of-box.
+- Based on [standard.js](https://github.com/standard/standard).
+- Have no stylistic opinions. Prettier friendly.
+- [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
+- Strict, but progressive.
+- One-line of config.
+- Modern. ESM first.
+- Respect `.gitignore`.
+- React friendly.
+- NestJS friendly.
+- Type safe.
 
 ## Usage
 
@@ -45,7 +49,37 @@ Config `package.json`
 }
 ```
 
-> Note: Typescript project is required a `tsconfig.eslint.json` or `tsconfig.json` file in the root of the project. Otherwise, ts files will be ignored and only js files will be linted.
+> Note: TypeScript project is required a `tsconfig.eslint.json` or `tsconfig.json` file in the root of the project. Otherwise, ts files will be ignored and only js files will be linted.
+
+## Progressive Usage
+
+The default config is too strict for some projects. You can use `pick` or `omit` function in `eslint.config.js` to enable the rules step by step, progressively.
+
+```js
+// @ts-check
+import { pick } from "@git-validator/eslint-config";
+
+// Enable the rules that you configured. The other builtin rules will not work.
+export default pick([
+  "unicorn/error-message",
+  "@typescript-eslint/no-floating-promises",
+  // Other rules key. You will get auto suggestions in VSCode here.
+]);
+```
+
+```js
+// @ts-check
+import { omit } from "@git-validator/eslint-config";
+
+// Ignore the rules that you configure. The other builtin rules will work.
+export default omit([
+  "unicorn/error-message",
+  "@typescript-eslint/no-floating-promises",
+  // Other rules key. You will get auto suggestions in VSCode here.
+]);
+```
+
+> Tips: After enabling ts check by adding `// @ts-check` at the top, you will get auto suggestions when you are using `pick` and `omit`.
 
 ## License
 
