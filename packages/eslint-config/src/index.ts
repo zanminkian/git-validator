@@ -31,8 +31,15 @@ const config = [jsConfig, ...tsConfig, packagejsonConfig] satisfies Array<{
 
 type Keyof<T> = T extends infer U ? keyof U : never;
 type Key = Keyof<(typeof config)[number]["rules"]>;
+type NoDuplicate<A extends unknown[]> = {
+  [I in keyof A]: true extends {
+    [J in keyof A]: J extends I ? false : A[J] extends A[I] ? true : false;
+  }[number]
+    ? never
+    : A[I];
+};
 
-function pickOrOmit(rules: Key[], type: "pick" | "omit") {
+function pickOrOmit(rules: readonly Key[], type: "pick" | "omit") {
   const find = (key: string) => {
     switch (type) {
       case "pick":
@@ -57,6 +64,8 @@ function pickOrOmit(rules: Key[], type: "pick" | "omit") {
   ];
 }
 
-export const pick = (rules: Key[]) => pickOrOmit(rules, "pick");
-export const omit = (rules: Key[]) => pickOrOmit(rules, "omit");
+export const pick = <T extends Key[]>(rules: readonly [...NoDuplicate<T>]) =>
+  pickOrOmit(rules, "pick");
+export const omit = <T extends Key[]>(rules: readonly [...NoDuplicate<T>]) =>
+  pickOrOmit(rules, "omit");
 export default [ignore, ...config, prettierConfig];
