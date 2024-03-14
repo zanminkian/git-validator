@@ -2,7 +2,7 @@
 import { spawn } from "node:child_process";
 import fs from "node:fs/promises";
 import { createRequire } from "node:module";
-import { join, resolve } from "node:path";
+import path from "node:path";
 import process from "node:process";
 import { dir, exists, resolveConfig } from "./utils.js";
 
@@ -13,19 +13,19 @@ const requireResolve = createRequire(import.meta.url).resolve;
  * @param {string} content
  */
 async function writeGitHook(file, content) {
-  const gitPath = resolve(process.cwd(), ".git");
+  const gitPath = path.resolve(process.cwd(), ".git");
   if (!(await exists(gitPath))) {
     throw new Error(
       "Directory `.git` is not existing. Please run `git init` first.",
     );
   }
 
-  const hooksPath = resolve(gitPath, "hooks");
+  const hooksPath = path.resolve(gitPath, "hooks");
   await fs.mkdir(hooksPath, { recursive: true });
 
-  const path = resolve(hooksPath, file);
-  await fs.writeFile(path, content);
-  await fs.chmod(path, "777");
+  const hookFilePath = path.resolve(hooksPath, file);
+  await fs.writeFile(hookFilePath, content);
+  await fs.chmod(hookFilePath, "777");
 }
 
 /**
@@ -43,7 +43,7 @@ async function writePreCommit({ noEslint, noPrettier }) {
   }
   const content = [
     "#!/bin/sh",
-    `npx lint-staged --config ${join(dir(import.meta.url), "config", config)}`,
+    `npx lint-staged --config ${path.join(dir(import.meta.url), "config", config)}`,
   ].join("\n");
 
   await writeGitHook("pre-commit", content);
@@ -52,7 +52,7 @@ async function writePreCommit({ noEslint, noPrettier }) {
 async function writeCommitMsg() {
   const content = [
     "#!/bin/sh",
-    `npx commitlint --config ${join(
+    `npx commitlint --config ${path.join(
       dir(import.meta.url),
       "config",
       "commitlint.config.js",
@@ -106,7 +106,9 @@ export async function lint(paths = [], options = {}) {
   const shouldFix = update || fix;
 
   const cwd = process.cwd();
-  const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
+  const ps = (paths.length === 0 ? [cwd] : paths).map((p) =>
+    path.resolve(cwd, p),
+  );
 
   let configPath = (await resolveConfig("eslint"))?.filepath;
   if (!configPath) {
@@ -118,7 +120,7 @@ export async function lint(paths = [], options = {}) {
   const child = spawn(
     "node",
     [
-      join(dir(import.meta.url), "bin", "eslint.js"),
+      path.join(dir(import.meta.url), "bin", "eslint.js"),
       "--config",
       configPath,
       ...(shouldFix ? ["--fix"] : []),
@@ -128,9 +130,9 @@ export async function lint(paths = [], options = {}) {
       stdio: "inherit",
     },
   );
-  return await new Promise((res, rej) => {
-    child.on("error", (err) => rej(err));
-    child.on("close", (code, signal) => res({ code, signal }));
+  return await new Promise((resolve, reject) => {
+    child.on("error", (err) => reject(err));
+    child.on("close", (code, signal) => resolve({ code, signal }));
   });
 }
 
@@ -143,14 +145,16 @@ export async function format(paths = [], options = {}) {
   const shouldWrite = update || write;
 
   const cwd = process.cwd();
-  const ps = (paths.length === 0 ? [cwd] : paths).map((p) => resolve(cwd, p));
+  const ps = (paths.length === 0 ? [cwd] : paths).map((p) =>
+    path.resolve(cwd, p),
+  );
 
-  const prettierIgnore = join(cwd, ".prettierignore");
-  const gitIgnore = join(cwd, ".gitignore");
+  const prettierIgnore = path.join(cwd, ".prettierignore");
+  const gitIgnore = path.join(cwd, ".gitignore");
   const ignores = [
     ...((await exists(prettierIgnore))
       ? [prettierIgnore]
-      : [join(dir(import.meta.url), "prettierignore")]),
+      : [path.join(dir(import.meta.url), "prettierignore")]),
     ...((await exists(gitIgnore)) ? [gitIgnore] : []),
   ].flatMap((p) => ["--ignore-path", p]);
   const configPath =
@@ -160,7 +164,7 @@ export async function format(paths = [], options = {}) {
   const child = spawn(
     "node",
     [
-      join(dir(import.meta.url), "bin", "prettier.js"),
+      path.join(dir(import.meta.url), "bin", "prettier.js"),
       "--check",
       ...ignores,
       "--config",
@@ -170,8 +174,8 @@ export async function format(paths = [], options = {}) {
     ],
     { stdio: "inherit" },
   );
-  return await new Promise((res, rej) => {
-    child.on("error", (err) => rej(err));
-    child.on("close", (code, signal) => res({ code, signal }));
+  return await new Promise((resolve, reject) => {
+    child.on("error", (err) => reject(err));
+    child.on("close", (code, signal) => resolve({ code, signal }));
   });
 }
