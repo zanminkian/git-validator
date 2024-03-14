@@ -44,7 +44,7 @@ const standardConfigRules = {
   curly: ['error', 'multi-line'],
   'default-case-last': 'error',
   'dot-location': ['error', 'property'],
-  'dot-notation': ['error', { allowKeywords: true }],
+  // 'dot-notation': ['error', { allowKeywords: true }], // TODO: This should be enabled. Disable it as it conflicts with ts when enabling ts-check
   'eol-last': 'error',
   eqeqeq: ['error', 'always', { null: 'ignore' }],
   'func-call-spacing': ['error', 'never'],
@@ -285,11 +285,6 @@ export default {
   rules: {
     // 1. standard config rules
     ...standardConfigRules,
-    "dot-notation": "off", // TODO: This should be enabled. Disable it as it conflicts with ts when enabling ts-check
-    "promise/param-names": [
-      "error",
-      { resolvePattern: "^_?res(olve)?$", rejectPattern: "^_?rej(ect)?$" },
-    ],
 
     // 2. code style for a better readability
     "arrow-body-style": ["error", "as-needed"],
@@ -351,6 +346,7 @@ export default {
       "error",
       { cases: { kebabCase: true, pascalCase: true } },
     ],
+    "unicorn/import-style": "error",
     "unicorn/new-for-builtins": "error",
     "unicorn/no-abusive-eslint-disable": "error",
     // "unicorn/no-array-callback-reference": "error",
