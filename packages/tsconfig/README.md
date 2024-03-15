@@ -78,7 +78,7 @@ Here are the best practices if you are using this package.
 {
   "extends": "./tsconfig",
   "include": ["src"],
-  "exclude": ["**/*.spec.ts"],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
   "compilerOptions": {
     "outDir": "dist"
   }
@@ -121,7 +121,7 @@ Here are the best practices if you are using this package.
 {
   "extends": "../../tsconfig",
   "include": ["src"],
-  "exclude": ["**/*.spec.ts"],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
   "compilerOptions": {
     "outDir": "dist"
   }
@@ -130,18 +130,18 @@ Here are the best practices if you are using this package.
 
 ## Commands
 
-After installing `@git-validator/tsconfig`, you can run `npx tsconfig init` command to generate a `tsconfig.json` file. Run `npx tsconfig init -h` for more detail of the command:
+After installing `@git-validator/tsconfig`, you can run `npx tsconfig init` command to generate a `tsconfig.json` file. Run `npx tsconfig -h` for all commands details:
 
 ```txt
-Usage: tsconfig init [options]
-
-init a tsconfig file
+Usage: tsconfig [options] [command]
 
 Options:
-  -p, --path <path>      directory path to generate file to (default: ".")
-  -n, --name <filename>  tsconfig file name (default: "tsconfig.json")
-  -f, --force            forcefully overwrite existing file
-  -h, --help             display help for command
+  -h, --help      display help for command
+
+Commands:
+  init [options]  init a tsconfig file
+  diff [options]  show differences between recommended tsconfig and current project tsconfig
+  help [command]  display help for command
 ```
 
 ## License
