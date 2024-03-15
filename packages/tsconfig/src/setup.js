@@ -1,6 +1,6 @@
 // @ts-check
 import fs from "node:fs/promises";
-import { dirname, resolve } from "node:path";
+import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { parseTsconfig } from "get-tsconfig";
@@ -34,8 +34,8 @@ export async function initAction(options) {
 }
 `;
 
-  const { path, name, force } = options;
-  const fullName = resolve(process.cwd(), path, name);
+  const { path: filepath, name, force } = options;
+  const fullName = path.resolve(process.cwd(), filepath, name);
   if (!(await exists(fullName)) || force) {
     await fs.writeFile(fullName, generatingTsconfigContent);
   } else {
@@ -49,13 +49,17 @@ export async function initAction(options) {
  * @param {{path: string, name: string, to: string}} options
  */
 export async function diffAction(options) {
-  const { path = ".", name = "tsconfig.json", to = "tsconfig.json" } = options;
+  const {
+    path: filepath = ".",
+    name = "tsconfig.json",
+    to = "tsconfig.json",
+  } = options;
 
   const cwd = process.cwd();
-  const dir = dirname(fileURLToPath(import.meta.url));
+  const dir = path.dirname(fileURLToPath(import.meta.url));
 
-  const recommendedTsconfigPath = resolve(dir, "..", to);
-  const projectTsconfigPath = resolve(cwd, path, name);
+  const recommendedTsconfigPath = path.resolve(dir, "..", to);
+  const projectTsconfigPath = path.resolve(cwd, filepath, name);
   if (!(await exists(recommendedTsconfigPath))) {
     throw new Error(`Tsconfig ${recommendedTsconfigPath} is not found!`);
   }

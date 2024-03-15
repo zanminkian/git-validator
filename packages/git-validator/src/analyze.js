@@ -1,7 +1,7 @@
 // @ts-check
 // TODO move this logic to another package
 import fs from "node:fs/promises";
-import { resolve, sep } from "node:path";
+import path from "node:path";
 import process from "node:process";
 import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
 import { minimatch } from "minimatch";
@@ -21,10 +21,10 @@ function isJs(file) {
 }
 
 /**
- * @param {string} path ts or js file absolute path
+ * @param {string} filepath ts or js file absolute path
  */
-async function getAnalysis(path) {
-  const code = await fs.readFile(path, "utf-8");
+async function getAnalysis(filepath) {
+  const code = await fs.readFile(filepath, "utf-8");
   const result = {
     anyTypes: 0,
     assertions: 0,
@@ -32,7 +32,7 @@ async function getAnalysis(path) {
     codeLines: code.split("\n").length,
   };
 
-  if (isJs(path)) {
+  if (isJs(filepath)) {
     return result;
   }
 
@@ -67,7 +67,7 @@ async function getAnalysis(path) {
       );
     },
   );
-  walk(parse(code, { jsx: path.endsWith("x") }));
+  walk(parse(code, { jsx: filepath.endsWith("x") }));
   return result;
 }
 
@@ -78,28 +78,29 @@ async function getAnalysis(path) {
  */
 async function walkDir(dir, ignorePatterns, cb) {
   /**
-   * @type {(path: string)=>boolean}
+   * @type {(filepath: string)=>boolean}
    */
-  const ignoreDir = (path) =>
-    path.includes(`${sep}.git${sep}`) ||
-    path.includes(`${sep}node_modules${sep}`) ||
-    ignorePatterns.some((pattern) => minimatch(path, pattern));
+  const ignoreDir = (filepath) =>
+    filepath.includes(`${path.sep}.git${path.sep}`) ||
+    filepath.includes(`${path.sep}node_modules${path.sep}`) ||
+    ignorePatterns.some((pattern) => minimatch(filepath, pattern));
 
   /**
-   * @type {(path: string)=>boolean}
+   * @type {(filepath: string)=>boolean}
    */
-  const ignoreFile = (path) => (!isTs(path) && !isJs(path)) || ignoreDir(path);
+  const ignoreFile = (filepath) =>
+    (!isTs(filepath) && !isJs(filepath)) || ignoreDir(filepath);
 
   const promises = (await fs.readdir(dir))
-    .map((path) => resolve(dir, path))
-    .map(async (path) => {
-      if ((await fs.stat(path)).isDirectory()) {
-        if (!ignoreDir(path)) {
-          await walkDir(path, ignorePatterns, cb);
+    .map((filepath) => path.resolve(dir, filepath))
+    .map(async (filepath) => {
+      if ((await fs.stat(filepath)).isDirectory()) {
+        if (!ignoreDir(filepath)) {
+          await walkDir(filepath, ignorePatterns, cb);
         }
       } else {
-        if (!ignoreFile(path)) {
-          await cb(path);
+        if (!ignoreFile(filepath)) {
+          await cb(filepath);
         }
       }
     });
@@ -107,9 +108,9 @@ async function walkDir(dir, ignorePatterns, cb) {
 }
 
 export async function analyze(dir = process.cwd()) {
-  dir = resolve(process.cwd(), dir);
+  dir = path.resolve(process.cwd(), dir);
   const ignores = (
-    await fs.readFile(resolve(dir, ".gitignore"), "utf-8").catch(() => "")
+    await fs.readFile(path.resolve(dir, ".gitignore"), "utf-8").catch(() => "")
   )
     .split("\n")
     .map((i) => i.trim())

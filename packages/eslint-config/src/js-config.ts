@@ -346,7 +346,20 @@ export default {
       "error",
       { cases: { kebabCase: true, pascalCase: true } },
     ],
-    "unicorn/import-style": "error",
+    // TODO remove the options when https://github.com/sindresorhus/eslint-plugin-unicorn/pull/2297 merged
+    "unicorn/import-style": [
+      "error",
+      {
+        styles: {
+          "node:path": {
+            default: true,
+          },
+          "node:util": {
+            named: true,
+          },
+        },
+      },
+    ],
     "unicorn/new-for-builtins": "error",
     "unicorn/no-abusive-eslint-disable": "error",
     // "unicorn/no-array-callback-reference": "error",

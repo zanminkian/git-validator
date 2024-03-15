@@ -2,7 +2,7 @@
 // @ts-check
 import fs from "node:fs/promises";
 import { createRequire } from "node:module";
-import { resolve } from "node:path";
+import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 async function getBinPath() {
@@ -14,7 +14,7 @@ async function getBinPath() {
     typeof packageJson.bin === "string"
       ? packageJson.bin
       : packageJson.bin.eslint;
-  return resolve(eslintPath, binPath);
+  return path.resolve(eslintPath, binPath);
 }
 
 // eslint-disable-next-line @git-validator/no-dynamic-import

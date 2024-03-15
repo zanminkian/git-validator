@@ -1,6 +1,6 @@
 // @ts-check
 import fs from "node:fs/promises";
-import { dirname, join, resolve } from "node:path";
+import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { lilconfig } from "lilconfig";
 
@@ -20,7 +20,7 @@ export async function exists(filepath) {
  * @param {string} url
  */
 export function dir(url) {
-  return dirname(fileURLToPath(url));
+  return path.dirname(fileURLToPath(url));
 }
 
 /**
@@ -28,7 +28,7 @@ export function dir(url) {
  * @param {string} dirName
  */
 export async function resolveConfig(module, dirName = dir(import.meta.url)) {
-  return await lilconfig(module).search(join(dirName, ".."));
+  return await lilconfig(module).search(path.join(dirName, ".."));
 }
 
 /**
@@ -38,6 +38,6 @@ export async function resolveConfig(module, dirName = dir(import.meta.url)) {
  */
 export async function importJson(importMetaUrl, jsonPath) {
   return JSON.parse(
-    await fs.readFile(resolve(dir(importMetaUrl), jsonPath), "utf-8"),
+    await fs.readFile(path.resolve(dir(importMetaUrl), jsonPath), "utf-8"),
   );
 }
