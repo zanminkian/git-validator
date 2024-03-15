@@ -24,14 +24,15 @@ async function getProjectTsconfig() {
   return tsconfigs[index];
 }
 
-function getTsRules() {
-  // https://typescript-eslint.io/rules/#extension-rules
+function getTsExtensionRules() {
+  // https://typescript-eslint.io/rules/?=extension
   const allBuiltinRuleKeys = [
     "block-spacing",
     "brace-style",
     "class-methods-use-this",
     "comma-dangle",
     "comma-spacing",
+    "consistent-return",
     "default-param-last",
     "dot-notation",
     "func-call-spacing",
@@ -41,6 +42,7 @@ function getTsRules() {
     "keyword-spacing",
     "lines-around-comment",
     "lines-between-class-members",
+    "max-params",
     "no-array-constructor",
     "no-dupe-class-members",
     "no-empty-function",
@@ -61,6 +63,8 @@ function getTsRules() {
     "no-useless-constructor",
     "object-curly-spacing",
     "padding-line-between-statements",
+    "prefer-destructuring",
+    "prefer-promise-reject-errors",
     "quotes",
     "require-await",
     "return-await",
@@ -127,7 +131,7 @@ const mainConfig = {
   },
   rules: {
     ...jsConfig.rules,
-    ...getTsRules(),
+    ...getTsExtensionRules(),
 
     // ban some syntaxes to reduce mistakes
     // deprecation
