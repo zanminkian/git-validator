@@ -21,7 +21,8 @@
   "type": "module",
   "exports": "./dist/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json",
+    "test": "globstar -- node --test --experimental-loader ts-node/esm ./**/*.spec.ts"
   },
   "dependencies": {
     "@git-validator/eslint-plugin": "workspace:^",
@@ -30,7 +31,6 @@
     "@typescript-eslint/eslint-plugin": "7.1.1",
     "@typescript-eslint/parser": "7.1.1",
     "confusing-browser-globals": "1.0.11",
-    "eslint-config-prettier": "9.1.0",
     "eslint-plugin-deprecation": "2.0.0",
     "eslint-plugin-fp": "2.3.0",
     "eslint-plugin-import": "2.29.1",
@@ -43,6 +43,9 @@
     "globals": "14.0.0"
   },
   "devDependencies": {
-    "eslint": "8.57.0"
+    "@types/eslint-config-prettier": "^6.11.3",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "ts-node": "10.9.2"
   }
 }

@@ -38,10 +38,6 @@ declare module "eslint-plugin-react-hooks" {
   declare const plugin: unknown;
   export default plugin;
 }
-declare module "eslint-config-prettier" {
-  declare const plugin: unknown;
-  export default plugin;
-}
 declare module "confusing-browser-globals" {
   declare const keys: string[];
   export default keys;

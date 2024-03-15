@@ -22,7 +22,7 @@
   "exports": "./dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "test": "node --test --experimental-loader ts-node/esm src/**/*.spec.ts"
+    "test": "globstar -- node --test --experimental-loader ts-node/esm ./**/*.spec.ts"
   },
   "dependencies": {
     "@typescript-eslint/utils": "7.1.1"

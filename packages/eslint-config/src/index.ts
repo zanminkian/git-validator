@@ -2,7 +2,6 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
-import prettierConfig from "eslint-config-prettier";
 import jsConfig from "./js-config.js";
 import packagejsonConfig from "./packagejson-config.js";
 import tsConfig from "./ts-config.js";
@@ -60,7 +59,6 @@ function pickOrOmit(rules: readonly Key[], type: "pick" | "omit") {
       ...configItem,
       rules: rulesObjects[index],
     })),
-    prettierConfig,
   ];
 }
 
@@ -68,4 +66,4 @@ export const pick = <T extends Key[]>(rules: readonly [...NoDuplicate<T>]) =>
   pickOrOmit(rules, "pick");
 export const omit = <T extends Key[]>(rules: readonly [...NoDuplicate<T>]) =>
   pickOrOmit(rules, "omit");
-export default [ignore, ...config, prettierConfig];
+export default [ignore, ...config];
