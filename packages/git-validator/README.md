@@ -122,10 +122,14 @@ The default linting rule is [@git-validator/eslint-config](https://www.npmjs.com
 `eslint.config.js` example.
 
 ```js
-// You may need to install '@sxzz/eslint-config' first
-import { all } from "@sxzz/eslint-config";
+// You can also install and use other eslint config preset, like `@sxzz/eslint-config`.
+import { omit } from "@git-validator/eslint-config";
 
-export default all;
+// Omit the rules as you want
+export default omit([
+  "no-plusplus",
+  // ...
+]);
 ```
 
 `prettier.config.js` example.

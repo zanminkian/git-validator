@@ -122,10 +122,14 @@ Commands:
 `eslint.config.js` example.
 
 ```js
-// You may need to install '@sxzz/eslint-config' first
-import { all } from "@sxzz/eslint-config";
+// 你也可以自行安装并使用其他 eslint config，例如 `@sxzz/eslint-config`
+import { omit } from "@git-validator/eslint-config";
 
-export default all;
+// 移除你不想要开启的规则
+export default omit([
+  "no-plusplus",
+  // ...
+]);
 ```
 
 `prettier.config.js` example.
