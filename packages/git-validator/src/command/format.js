@@ -3,7 +3,7 @@ import { spawn } from "node:child_process";
 import { createRequire } from "node:module";
 import path from "node:path";
 import process from "node:process";
-import { filepath } from "prettier-ignore";
+import { prettierignore } from "prettier-ignore";
 import { dir, exists, resolveConfig } from "../utils.js";
 
 const requireResolve = createRequire(import.meta.url).resolve;
@@ -26,7 +26,7 @@ export async function format(paths = [], options = {}) {
   const ignores = [
     ...((await exists(prettierIgnore)) ? [prettierIgnore] : []),
     ...((await exists(gitIgnore)) ? [gitIgnore] : []),
-    filepath,
+    prettierignore,
   ].flatMap((p) => ["--ignore-path", p]);
   const configPath =
     (await resolveConfig("prettier"))?.filepath ??
