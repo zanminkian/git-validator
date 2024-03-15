@@ -1,0 +1,22 @@
+{
+  "name": "prettier-ignore",
+  "version": "0.0.0",
+  "description": "Commonly ignore patterns for Prettier",
+  "keywords": [
+    "prettier",
+    "ignore"
+  ],
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/prettier-ignore",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zanminkian/git-validator.git",
+    "directory": "packages/prettier-ignore"
+  },
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  }
+}
