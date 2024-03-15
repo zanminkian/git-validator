@@ -55,7 +55,7 @@ Config `package.json`
 }
 ```
 
-> Note: TypeScript project is required a `tsconfig.eslint.json` or `tsconfig.json` file in the root of the project. Otherwise, ts files will be ignored and only js files will be linted.
+> Note: TypeScript project is required a `tsconfig.eslint.json` or `tsconfig.json` or `tsconfig.build.json` file in the root of the project. Otherwise, ts files will be ignored and only js files will be linted.
 
 ## Progressive Usage
 

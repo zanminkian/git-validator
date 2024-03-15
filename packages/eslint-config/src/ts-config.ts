@@ -9,7 +9,11 @@ import jsConfig from "./js-config.js";
 const tsconfig = await getProjectTsconfig();
 
 async function getProjectTsconfig() {
-  const tsconfigs = ["tsconfig.eslint.json", "tsconfig.json"];
+  const tsconfigs = [
+    "tsconfig.eslint.json",
+    "tsconfig.json",
+    "tsconfig.build.json",
+  ];
   const index = (
     await Promise.all(
       tsconfigs.map(
