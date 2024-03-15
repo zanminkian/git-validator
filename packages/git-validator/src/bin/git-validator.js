@@ -3,8 +3,10 @@
 import process from "node:process";
 import { initAction, setup } from "@git-validator/tsconfig/setup";
 import { Command } from "commander";
-import { analyze } from "../analyze.js";
-import { format, install, lint } from "../cli.js";
+import { analyze } from "../command/analyze.js";
+import { format } from "../command/format.js";
+import { install } from "../command/install.js";
+import { lint } from "../command/lint.js";
 import { importJson } from "../utils.js";
 
 const pkgJson = await importJson(import.meta.url, "../../package.json");
