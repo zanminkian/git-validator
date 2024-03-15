@@ -49,6 +49,9 @@ async function getAnalysis(filepath) {
         break;
       case "TSAsExpression":
       case "TSTypeAssertion":
+        if (node.typeAnnotation.typeName?.name === "const") {
+          break;
+        }
         result.assertions += 1;
         break;
       case "TSNonNullExpression":
