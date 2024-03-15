@@ -26,7 +26,7 @@ async function getProjectTsconfig() {
 
 function getTsExtensionRules() {
   // https://typescript-eslint.io/rules/?=extension
-  const allBuiltinRuleKeys = [
+  const extensionRuleKeys = [
     "block-spacing",
     "brace-style",
     "class-methods-use-this",
@@ -73,18 +73,20 @@ function getTsExtensionRules() {
     "space-before-function-paren",
     "space-infix-ops",
   ] as const;
-  type BuiltinRuleKey = (typeof allBuiltinRuleKeys)[number];
-  type TsRuleKey = `@typescript-eslint/${BuiltinRuleKey}`;
-  const result: Partial<Record<BuiltinRuleKey | TsRuleKey, unknown>> = {};
+  type ExtensionRuleKey = (typeof extensionRuleKeys)[number];
+  type JsConfigRuleKey = keyof typeof jsConfig.rules;
 
-  for (const key of allBuiltinRuleKeys) {
-    for (const [jsRuleKey, jsRuleValue] of Object.entries(jsConfig.rules)) {
-      if (key === jsRuleKey) {
-        result[key] = "off";
-        result[`@typescript-eslint/${key}`] = JSON.parse(
-          JSON.stringify(jsRuleValue),
-        );
-      }
+  type JsExtensionKey = Extract<ExtensionRuleKey, JsConfigRuleKey>; // Extract
+  type TsExtensionKey = `@typescript-eslint/${JsExtensionKey}`;
+  const isExtensionKey = (key: string): key is JsExtensionKey =>
+    !!extensionRuleKeys.find((k) => k === key) &&
+    Object.keys(jsConfig.rules).includes(key);
+
+  const result: Partial<Record<JsExtensionKey | TsExtensionKey, unknown>> = {};
+  for (const [jsRuleKey, jsRuleValue] of Object.entries(jsConfig.rules)) {
+    if (isExtensionKey(jsRuleKey)) {
+      result[jsRuleKey] = "off";
+      result[`@typescript-eslint/${jsRuleKey}`] = jsRuleValue;
     }
   }
   // To fix the typescript indent, see https://github.com/mightyiam/eslint-config-standard-with-typescript/pull/1200
