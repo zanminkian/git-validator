@@ -6,6 +6,16 @@ import packagejsonConfig from "../dist/packagejson-config.js";
 import tsConfig from "../dist/ts-config.js";
 
 await describe("prettier", async () => {
+  await it("prettier config should be standard", () => {
+    const properties = Object.keys(prettierConfig);
+    assert.deepStrictEqual(properties, ["rules"]);
+
+    const ruleValues = [...new Set(Object.values(prettierConfig.rules))];
+    assert.strictEqual(ruleValues.length, 2);
+    assert.strictEqual(ruleValues.includes(0), true);
+    assert.strictEqual(ruleValues.includes("off"), true);
+  });
+
   await it("should not have prettier-conflicted rules", () => {
     const included = (rule: string) =>
       Object.keys(prettierConfig.rules).includes(rule);
