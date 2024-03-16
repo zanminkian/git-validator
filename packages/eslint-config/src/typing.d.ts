@@ -1,7 +1,3 @@
-declare module "@git-validator/eslint-plugin" {
-  declare const plugin: unknown;
-  export default plugin;
-}
 declare module "@git-validator/eslint-plugin-packagejson" {
   declare const plugin: unknown;
   export default plugin;
