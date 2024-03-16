@@ -206,7 +206,7 @@ const mainConfig = {
     ],
     "@typescript-eslint/no-mixed-enums": "error",
     "@typescript-eslint/no-namespace": "error",
-    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-non-null-assertion": "error",
     "@typescript-eslint/no-require-imports": "error",
     "@typescript-eslint/no-unnecessary-condition": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",

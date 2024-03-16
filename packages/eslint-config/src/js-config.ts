@@ -13,8 +13,8 @@ import globals from "globals";
 // copied from https://github.com/standard/eslint-config-standard/blob/master/src/index.ts
 // prettier-ignore
 const standardConfigRules = {
-  'no-var': 'warn',
-  'object-shorthand': ['warn', 'properties'],
+  'no-var': 'error',
+  'object-shorthand': ['error', 'properties'],
 
   'accessor-pairs': ['error', { setWithoutGet: true, enforceForClassMembers: true }],
   // 'array-bracket-spacing': ['error', 'never'],
