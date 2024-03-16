@@ -315,6 +315,7 @@ export default {
     "fp/no-arguments": "error",
     "fp/no-delete": "error",
     // import
+    "import/extensions": ["error", "always", { ignorePackages: true }],
     "import/no-commonjs": [
       "error",
       {
