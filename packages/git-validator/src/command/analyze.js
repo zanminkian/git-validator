@@ -29,12 +29,9 @@ async function getAnalysis(filepath) {
     anyTypes: 0,
     assertions: 0,
     nonNullAssertions: 0,
+    renamedImport: 0,
     codeLines: code.split("\n").length,
   };
-
-  if (isJs(filepath)) {
-    return result;
-  }
 
   /**
    * @param {any} node
@@ -57,6 +54,13 @@ async function getAnalysis(filepath) {
       case "TSNonNullExpression":
         result.nonNullAssertions += 1;
         break;
+      case "ImportDeclaration":
+        result.renamedImport += node.specifiers
+          .filter((/** @type {any} */ s) => s.type === "ImportSpecifier")
+          .filter(
+            (/** @type {any} */ s) => s.imported.name !== s.local.name,
+          ).length;
+        break;
     }
     Object.values(node).forEach(walk);
   }
@@ -70,7 +74,7 @@ async function getAnalysis(filepath) {
       );
     },
   );
-  walk(parse(code, { jsx: filepath.endsWith("x") }));
+  walk(parse(code, { jsx: filepath.endsWith("x") || filepath.endsWith("js") }));
   return result;
 }
 
@@ -125,6 +129,7 @@ export async function analyze(dir = process.cwd()) {
     anyTypes: 0,
     assertions: 0,
     nonNullAssertions: 0,
+    renamedImport: 0,
     codeLines: 0,
     tsFiles: 0,
     jsFiles: 0,
@@ -138,6 +143,7 @@ export async function analyze(dir = process.cwd()) {
       result.anyTypes += analysis.anyTypes;
       result.assertions += analysis.assertions;
       result.nonNullAssertions += analysis.nonNullAssertions;
+      result.renamedImport += analysis.renamedImport;
       result.codeLines += analysis.codeLines;
 
       result.tsFiles += isTs(file) ? 1 : 0;

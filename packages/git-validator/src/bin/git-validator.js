@@ -96,6 +96,10 @@ program
       Assertions: analysis.assertions,
       "Non-null Assertions": analysis.nonNullAssertions,
     });
+    console.log("3. Code style flaws count:");
+    console.table({
+      "Renamed Import": analysis.renamedImport,
+    });
   });
 
 setup(program, {
