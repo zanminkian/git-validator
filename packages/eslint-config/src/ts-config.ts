@@ -71,7 +71,7 @@ function getTsExtensionRules() {
     "prefer-promise-reject-errors",
     "quotes",
     "require-await",
-    "return-await",
+    "return-await", // this rule based on 'eslint/no-return-await' instead of 'eslint/return-await'
     "semi",
     "space-before-blocks",
     "space-before-function-paren",
