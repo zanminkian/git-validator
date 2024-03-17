@@ -38,32 +38,31 @@ type NoDuplicate<A extends unknown[]> = {
     : A[I];
 };
 
-function pickOrOmit(rules: readonly Key[], type: "pick" | "omit") {
-  const find = (key: string) => {
-    switch (type) {
-      case "pick":
-        return !!rules.find((rule) => rule === key)?.toString();
-      case "omit":
-        return !rules.find((rule) => rule === key)?.toString();
-    }
-  };
+function factory(type: "pick" | "omit") {
+  return (rules: readonly Key[]) => {
+    const find = (key: string) => {
+      switch (type) {
+        case "pick":
+          return !!rules.find((rule) => rule === key)?.toString();
+        case "omit":
+          return !rules.find((rule) => rule === key)?.toString();
+      }
+    };
 
-  const rulesObjects = config
-    .map((i) => i.rules)
-    .map((ruleObject) =>
-      Object.fromEntries(Object.entries(ruleObject).filter(([k]) => find(k))),
-    );
-  return [
-    ignore,
-    ...config.map((configItem, index) => ({
-      ...configItem,
-      rules: rulesObjects[index],
-    })),
-  ];
+    return [
+      ignore,
+      ...config.map((configItem) => ({
+        ...configItem,
+        rules: Object.fromEntries(
+          Object.entries(configItem.rules).filter(([k]) => find(k)),
+        ),
+      })),
+    ];
+  };
 }
 
 export const pick = <T extends Key[]>(rules: readonly [...NoDuplicate<T>]) =>
-  pickOrOmit(rules, "pick");
+  factory("pick")(rules);
 export const omit = <T extends Key[]>(rules: readonly [...NoDuplicate<T>]) =>
-  pickOrOmit(rules, "omit");
+  factory("omit")(rules);
 export default [ignore, ...config];
