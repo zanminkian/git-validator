@@ -36,7 +36,6 @@ await describe("no duplicated", async () => {
     tsConfig
       .flatMap((c) => Object.keys(c.rules))
       .forEach((rule) => {
-        console.log(rule);
         if (
           [
             "@typescript-eslint/consistent-type-assertions",
