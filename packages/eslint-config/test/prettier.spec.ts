@@ -25,14 +25,11 @@ await describe("prettier", async () => {
     assert.strictEqual(jsForbidRule, undefined);
 
     // 2
-    const mainTsConfig = tsConfig[0];
-    assert.strictEqual(typeof mainTsConfig, "object");
+    assert.strictEqual(typeof tsConfig[0], "object");
     assert.strictEqual(tsConfig.length, 2);
-    const keys = tsConfig.reduce<string[]>(
-      (result, config) => Object.keys(config).concat(result),
-      [],
-    );
-    const tsForbidRule = keys.find(included);
+    const tsForbidRule = tsConfig
+      .flatMap((config) => Object.keys(config.rules))
+      .find(included);
     assert.strictEqual(tsForbidRule, undefined);
 
     // 3

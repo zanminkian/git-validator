@@ -59,17 +59,16 @@ await describe("ts config", async () => {
             "off",
             `extension rule ${key} should be turned off`,
           );
-          return;
-        }
-        if (configIndex === 1 && key === "@typescript-eslint/unbound-method") {
+        } else if (
+          configIndex === 1 &&
+          key === "@typescript-eslint/unbound-method"
+        ) {
           assert.strictEqual(
             value,
             "off",
             `rule ${key} should be turned off in the 2nd config`,
           );
-          return;
-        }
-        if (typeof value === "string") {
+        } else if (typeof value === "string") {
           assert.strictEqual(
             value,
             "error",
