@@ -1,5 +1,27 @@
 # git-validator
 
+## 0.15.0
+
+### Minor Changes
+
+- c7ed624: chore: upgrade deps
+
+### Patch Changes
+
+- 6d3da0d: feat(git-validator): count renamed import
+- ba79174: fix(git-validator): ignore as const when analyzing
+- Updated dependencies [207cf6a]
+- Updated dependencies [42ced10]
+- Updated dependencies [9356686]
+- Updated dependencies [4a61e44]
+- Updated dependencies [4dceedd]
+- Updated dependencies [c7ed624]
+- Updated dependencies [f562948]
+  - prettier-ignore@0.1.0
+  - @git-validator/eslint-config@0.4.0
+  - @git-validator/prettier-config@0.4.0
+  - @git-validator/tsconfig@0.4.0
+
 ## 0.14.8
 
 ### Patch Changes

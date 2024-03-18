@@ -1,5 +1,21 @@
 # @git-validator/eslint-config
 
+## 0.4.0
+
+### Minor Changes
+
+- c7ed624: chore: upgrade deps
+
+### Patch Changes
+
+- 42ced10: feat(eslint-config): type guard for pick and omit functions
+- 9356686: feat(eslint-config): disallow importing file without extension
+- 4a61e44: feat(eslint-config): detect tsconfig.build.json for eslint config
+- 4dceedd: feat(eslint-config): change all `warn` to `error`
+- f562948: feat(eslint-config): move `dot-notation`, remove `promise/param-names`, add `unicorn/import-style`
+- Updated dependencies [c7ed624]
+  - @git-validator/eslint-plugin@0.4.0
+
 ## 0.3.3
 
 ### Patch Changes
