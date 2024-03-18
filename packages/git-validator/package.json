@@ -43,13 +43,13 @@
     "build": "tsc --noEmit -p tsconfig.build.json"
   },
   "dependencies": {
-    "@commitlint/cli": "19.0.3",
-    "@commitlint/config-conventional": "19.0.3",
+    "@commitlint/cli": "19.2.0",
+    "@commitlint/config-conventional": "19.1.0",
     "@git-validator/eslint-config": "workspace:^",
     "@git-validator/prettier-config": "workspace:^",
     "@git-validator/tsconfig": "workspace:^",
     "@humanwhocodes/gitignore-to-minimatch": "1.0.2",
-    "@typescript-eslint/typescript-estree": "7.1.1",
+    "@typescript-eslint/typescript-estree": "7.2.0",
     "commander": "12.0.0",
     "eslint": "8.57.0",
     "lilconfig": "3.1.1",
