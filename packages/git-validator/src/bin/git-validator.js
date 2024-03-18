@@ -35,10 +35,8 @@ program
 program
   .command("lint")
   .description("lint code using eslint")
-  .option(
-    "-u, --update",
-    "automatically update files to fix code style problems",
-  )
+  .option("-f, --fix", "automatically fix problems")
+  .option("-u, --update", "alias for '--fix' option")
   .argument("[paths...]", "dir or file paths to lint")
   .action(async (paths, options) =>
     process.exit((await lint(paths, options)).code ?? 0),
@@ -47,10 +45,8 @@ program
 program
   .command("format")
   .description("format code using prettier")
-  .option(
-    "-u, --update",
-    "automatically update files to fix code style problems",
-  )
+  .option("-w, --write", "automatically format code")
+  .option("-u, --update", "alias for '--write' option")
   .argument("[paths...]", "dir or file paths to format")
   .action(async (paths, options) =>
     process.exit((await format(paths, options)).code ?? 0),
