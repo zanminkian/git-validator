@@ -61,6 +61,17 @@ async function getAnalysis(filepath) {
             (/** @type {any} */ s) => s.imported.name !== s.local.name,
           ).length;
         break;
+      case "VariableDeclarator":
+        if (
+          node.id.type === "ObjectPattern" &&
+          node.init?.type === "AwaitExpression" &&
+          node.init?.argument.type === "ImportExpression"
+        ) {
+          result.renamedImport += node.id.properties.filter(
+            (/** @type {any} */ p) => p.key.name !== p.value.name,
+          ).length;
+        }
+        break;
     }
     Object.values(node).forEach(walk);
   }
