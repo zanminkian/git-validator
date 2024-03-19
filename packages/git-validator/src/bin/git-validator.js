@@ -94,7 +94,7 @@ program
     });
     console.log("3. Code style flaws count:");
     console.table({
-      "Renamed Import": analysis.renamedImport,
+      "Renamed Imports": analysis.renamedImports,
     });
   });
 

@@ -29,7 +29,7 @@ async function getAnalysis(filepath) {
     anyTypes: 0,
     assertions: 0,
     nonNullAssertions: 0,
-    renamedImport: 0,
+    renamedImports: 0,
     codeLines: code.split("\n").length,
   };
 
@@ -55,7 +55,7 @@ async function getAnalysis(filepath) {
         result.nonNullAssertions += 1;
         break;
       case "ImportDeclaration":
-        result.renamedImport += node.specifiers
+        result.renamedImports += node.specifiers
           .filter((/** @type {any} */ s) => s.type === "ImportSpecifier")
           .filter(
             (/** @type {any} */ s) => s.imported.name !== s.local.name,
@@ -67,7 +67,7 @@ async function getAnalysis(filepath) {
           node.init?.type === "AwaitExpression" &&
           node.init?.argument.type === "ImportExpression"
         ) {
-          result.renamedImport += node.id.properties.filter(
+          result.renamedImports += node.id.properties.filter(
             (/** @type {any} */ p) => p.key.name !== p.value.name,
           ).length;
         }
@@ -140,7 +140,7 @@ export async function analyze(dir = process.cwd()) {
     anyTypes: 0,
     assertions: 0,
     nonNullAssertions: 0,
-    renamedImport: 0,
+    renamedImports: 0,
     codeLines: 0,
     tsFiles: 0,
     jsFiles: 0,
@@ -154,7 +154,7 @@ export async function analyze(dir = process.cwd()) {
       result.anyTypes += analysis.anyTypes;
       result.assertions += analysis.assertions;
       result.nonNullAssertions += analysis.nonNullAssertions;
-      result.renamedImport += analysis.renamedImport;
+      result.renamedImports += analysis.renamedImports;
       result.codeLines += analysis.codeLines;
 
       result.tsFiles += isTs(file) ? 1 : 0;
