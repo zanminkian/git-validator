@@ -30,6 +30,7 @@ async function getAnalysis(filepath) {
     assertions: 0,
     nonNullAssertions: 0,
     renamedImports: 0,
+    nodeProtocolImports: 0,
     codeLines: code.split("\n").length,
   };
 
@@ -60,6 +61,14 @@ async function getAnalysis(filepath) {
           .filter(
             (/** @type {any} */ s) => s.imported.name !== s.local.name,
           ).length;
+        if (node.source.value.startsWith("node:")) {
+          result.nodeProtocolImports += 1;
+        }
+        break;
+      case "ImportExpression":
+        if (node.source.value?.startsWith("node:")) {
+          result.nodeProtocolImports += 1;
+        }
         break;
       case "VariableDeclarator":
         if (
@@ -141,6 +150,7 @@ export async function analyze(dir = process.cwd()) {
     assertions: 0,
     nonNullAssertions: 0,
     renamedImports: 0,
+    nodeProtocolImports: 0,
     codeLines: 0,
     tsFiles: 0,
     jsFiles: 0,
@@ -155,6 +165,7 @@ export async function analyze(dir = process.cwd()) {
       result.assertions += analysis.assertions;
       result.nonNullAssertions += analysis.nonNullAssertions;
       result.renamedImports += analysis.renamedImports;
+      result.nodeProtocolImports += analysis.nodeProtocolImports;
       result.codeLines += analysis.codeLines;
 
       result.tsFiles += isTs(file) ? 1 : 0;

@@ -96,6 +96,10 @@ program
     console.table({
       "Renamed Imports": analysis.renamedImports,
     });
+    console.log("4. Cross-platform issues count:");
+    console.table({
+      "Node Protocol Imports": analysis.nodeProtocolImports,
+    });
   });
 
 setup(program, {
