@@ -99,6 +99,7 @@ program
     console.log("4. Cross-platform issues count:");
     console.table({
       "Node Protocol Imports": analysis.nodeProtocolImports,
+      "Meta Properties": analysis.metaProperties,
     });
   });
 

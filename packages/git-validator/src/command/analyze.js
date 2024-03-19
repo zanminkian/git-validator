@@ -31,6 +31,7 @@ async function getAnalysis(filepath) {
     nonNullAssertions: 0,
     renamedImports: 0,
     nodeProtocolImports: 0,
+    metaProperties: 0,
     codeLines: code.split("\n").length,
   };
 
@@ -79,6 +80,11 @@ async function getAnalysis(filepath) {
           result.renamedImports += node.id.properties.filter(
             (/** @type {any} */ p) => p.key.name !== p.value.name,
           ).length;
+        }
+        break;
+      case "MetaProperty":
+        if (node.meta.name === "import" && node.property.name === "meta") {
+          result.metaProperties += 1;
         }
         break;
     }
@@ -151,6 +157,7 @@ export async function analyze(dir = process.cwd()) {
     nonNullAssertions: 0,
     renamedImports: 0,
     nodeProtocolImports: 0,
+    metaProperties: 0,
     codeLines: 0,
     tsFiles: 0,
     jsFiles: 0,
@@ -166,6 +173,7 @@ export async function analyze(dir = process.cwd()) {
       result.nonNullAssertions += analysis.nonNullAssertions;
       result.renamedImports += analysis.renamedImports;
       result.nodeProtocolImports += analysis.nodeProtocolImports;
+      result.metaProperties += analysis.metaProperties;
       result.codeLines += analysis.codeLines;
 
       result.tsFiles += isTs(file) ? 1 : 0;
