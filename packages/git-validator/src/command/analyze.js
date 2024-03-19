@@ -30,6 +30,7 @@ async function getAnalysis(filepath) {
     assertions: 0,
     nonNullAssertions: 0,
     renamedImports: 0,
+    importExpressions: 0,
     nodeProtocolImports: 0,
     metaProperties: 0,
     codeLines: code.split("\n").length,
@@ -67,6 +68,7 @@ async function getAnalysis(filepath) {
         }
         break;
       case "ImportExpression":
+        result.importExpressions += 1;
         if (node.source.value?.startsWith("node:")) {
           result.nodeProtocolImports += 1;
         }
@@ -156,6 +158,7 @@ export async function analyze(dir = process.cwd()) {
     assertions: 0,
     nonNullAssertions: 0,
     renamedImports: 0,
+    importExpressions: 0,
     nodeProtocolImports: 0,
     metaProperties: 0,
     codeLines: 0,
@@ -172,6 +175,7 @@ export async function analyze(dir = process.cwd()) {
       result.assertions += analysis.assertions;
       result.nonNullAssertions += analysis.nonNullAssertions;
       result.renamedImports += analysis.renamedImports;
+      result.importExpressions += analysis.importExpressions;
       result.nodeProtocolImports += analysis.nodeProtocolImports;
       result.metaProperties += analysis.metaProperties;
       result.codeLines += analysis.codeLines;

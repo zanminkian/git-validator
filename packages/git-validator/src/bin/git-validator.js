@@ -95,6 +95,7 @@ program
     console.log("3. Code style flaws count:");
     console.table({
       "Renamed Imports": analysis.renamedImports,
+      "Import Expressions": analysis.importExpressions,
     });
     console.log("4. Cross-platform issues count:");
     console.table({
