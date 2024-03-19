@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.15.1
+
+### Patch Changes
+
+- 3085ba3: feat(git-validator): support --update alias
+- 8b17253: fix(git-validator): counting renamed import includes import expressions
+- 86d766a: feat(git-validator): support counting node protocol imports
+- 7bad3bc: feat(git-validator): support counting import expressions
+- 5182605: feat(git-validator): support counting `import.meta` expressions
+
 ## 0.15.0
 
 ### Minor Changes
