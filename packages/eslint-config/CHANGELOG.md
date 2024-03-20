@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.4.1
+
+### Patch Changes
+
+- 66c444f: feat(eslint-config): enable `unicorn/no-array-callback-reference`
+- cb671f9: feat(eslint-plugin-packagejson): add `packagejson/exact-dependency-version` rule
+- Updated dependencies [cb671f9]
+  - @git-validator/eslint-plugin-packagejson@0.2.1
+
 ## 0.4.0
 
 ### Minor Changes
