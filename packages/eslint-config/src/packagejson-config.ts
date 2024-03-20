@@ -8,6 +8,7 @@ export default {
   },
   rules: {
     "packagejson/bottom-default": "error",
+    "packagejson/exact-dependency-version": "error",
     "packagejson/top-types": "error",
     "packagejson/private-workspace-root": "error",
     "packagejson/required-repository": "error",

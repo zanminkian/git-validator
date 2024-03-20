@@ -41,6 +41,11 @@ export default [
        */
       "packagejson/bottom-default": "error",
       /**
+       * `dependencies` and `devDependencies` are expected exact package versions.
+       * Versions like`"foo": "^1.0.0"` are not allowed.
+       */
+      "packagejson/exact-dependency-version": "error",
+      /**
        * In monorepo, root 'package.json' should be private.
        */
       "packagejson/private-workspace-root": "error",
