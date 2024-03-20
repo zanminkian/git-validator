@@ -11,7 +11,7 @@ ESlint plugin for linting package json.
 ## Features
 
 - Lint `package.json`s in your project.
-- Tiny. Zero dependencies.
+- Simple. Tiny. Fast.
 
 ## Usage
 
@@ -37,19 +37,27 @@ export default [
     },
     rules: {
       /**
-       * Force 'default' field on the bottom of 'exports'
+       * Force 'default' field on the bottom of 'exports'.
        */
       "packagejson/bottom-default": "error",
       /**
-       * Force 'types' field on the top of 'exports'
+       * In monorepo, root 'package.json' should be private.
+       */
+      "packagejson/private-workspace-root": "error",
+      /**
+       * Public package should specify its repository address.
+       */
+      "packagejson/required-repository": "error",
+      /**
+       * Force 'types' field on the top of 'exports'.
        */
       "packagejson/top-types": "error",
       /**
-       * Force 'type' field to be 'module'. It means your project should be ESM
+       * Force 'type' field to be 'module'. It means your project should be ESM.
        */
       "packagejson/type-module": "warn",
       /**
-       * In monorepo, root 'package.json' should not install any packages to 'dependencies'
+       * In monorepo, root 'package.json' should not install any packages to 'dependencies'.
        */
       "packagejson/no-dependencies-in-workspace-root": "warn",
     },
