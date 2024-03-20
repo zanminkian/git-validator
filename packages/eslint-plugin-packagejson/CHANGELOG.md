@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.2.1
+
+### Patch Changes
+
+- cb671f9: feat(eslint-plugin-packagejson): add `packagejson/exact-dependency-version` rule
+
 ## 0.2.0
 
 ### Minor Changes
