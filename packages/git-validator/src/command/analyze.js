@@ -90,7 +90,7 @@ async function getAnalysis(filepath) {
         }
         break;
     }
-    Object.values(node).forEach(walk);
+    Object.values(node).forEach((sub) => walk(sub));
   }
 
   // this package require typescript as its peer dependencies
@@ -151,7 +151,7 @@ export async function analyze(dir = process.cwd()) {
     .map((i) => i.trim())
     .filter(Boolean)
     .filter((i) => !i.startsWith("#"))
-    .map(gitignoreToMinimatch);
+    .map((i) => gitignoreToMinimatch(i));
 
   const result = {
     anyTypes: 0,

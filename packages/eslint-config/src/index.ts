@@ -16,7 +16,7 @@ async function globallyIgnore() {
     .map((i) => i.trim())
     .filter(Boolean)
     .filter((i) => !i.startsWith("#"))
-    .map(gitignoreToMinimatch);
+    .map((i) => gitignoreToMinimatch(i));
   // Globally ignore. https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
   return { ignores };
 }

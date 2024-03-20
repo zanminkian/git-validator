@@ -12,11 +12,10 @@ export default {
       if (node.parent.type === "ExportDefaultDeclaration") {
         return;
       }
-      const isDefault = (p) => p.key.value === "default";
-      const index = node.properties.findIndex(isDefault);
+      const index = node.properties.findIndex((p) => p.key.value === "default");
       if (index > -1 && index !== node.properties.length - 1) {
         return context.report({
-          node: node.properties.find(isDefault),
+          node: node.properties[index],
           messageId,
         });
       }

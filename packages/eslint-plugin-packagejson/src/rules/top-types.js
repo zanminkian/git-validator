@@ -12,11 +12,10 @@ export default {
       if (node.parent.type === "ExportDefaultDeclaration") {
         return;
       }
-      const isTypes = (p) => p.key.value === "types";
-      const index = node.properties.findIndex(isTypes);
+      const index = node.properties.findIndex((p) => p.key.value === "types");
       if (index > 0) {
         return context.report({
-          node: node.properties.find(isTypes),
+          node: node.properties[index],
           messageId,
         });
       }

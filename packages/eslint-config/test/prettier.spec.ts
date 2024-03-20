@@ -21,7 +21,9 @@ await describe("prettier", async () => {
       Object.keys(prettierConfig.rules).includes(rule);
 
     // 1
-    const jsForbidRule = Object.keys(jsConfig.rules).find(included);
+    const jsForbidRule = Object.keys(jsConfig.rules).find((rule) =>
+      included(rule),
+    );
     assert.strictEqual(jsForbidRule, undefined);
 
     // 2
@@ -29,11 +31,13 @@ await describe("prettier", async () => {
     assert.strictEqual(tsConfig.length, 2);
     const tsForbidRule = tsConfig
       .flatMap((config) => Object.keys(config.rules))
-      .find(included);
+      .find((rule) => included(rule));
     assert.strictEqual(tsForbidRule, undefined);
 
     // 3
-    const pacakgejsonRule = Object.keys(packagejsonConfig.rules).find(included);
+    const pacakgejsonRule = Object.keys(packagejsonConfig.rules).find((rule) =>
+      included(rule),
+    );
     assert.strictEqual(pacakgejsonRule, undefined);
   });
 });
