@@ -169,13 +169,13 @@ export async function analyze(dir = process.cwd()) {
     .map((i) => gitignoreToMinimatch(i));
 
   const result = {
-    anyTypes: 0,
-    assertions: 0,
-    nonNullAssertions: 0,
-    renamedImports: 0,
-    importExpressions: 0,
-    nodeProtocolImports: 0,
-    metaProperties: 0,
+    /** @type {string[]} */ anyTypes: [],
+    /** @type {string[]} */ assertions: [],
+    /** @type {string[]} */ nonNullAssertions: [],
+    /** @type {string[]} */ renamedImports: [],
+    /** @type {string[]} */ importExpressions: [],
+    /** @type {string[]} */ nodeProtocolImports: [],
+    /** @type {string[]} */ metaProperties: [],
     codeLines: 0,
     tsFiles: 0,
     jsFiles: 0,
@@ -186,15 +186,43 @@ export async function analyze(dir = process.cwd()) {
     try {
       const analysis = await getAnalysis(file);
 
-      result.anyTypes += analysis.anyTypes.length;
-      result.assertions += analysis.assertions.length;
-      result.nonNullAssertions += analysis.nonNullAssertions.length;
-      result.renamedImports += analysis.renamedImports.length;
-      result.importExpressions += analysis.importExpressions.length;
-      result.nodeProtocolImports += analysis.nodeProtocolImports.length;
-      result.metaProperties += analysis.metaProperties.length;
-      result.codeLines += analysis.codeLines;
+      result.anyTypes.push(
+        ...analysis.anyTypes.map(
+          (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
+        ),
+      );
+      result.assertions.push(
+        ...analysis.assertions.map(
+          (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
+        ),
+      );
+      result.nonNullAssertions.push(
+        ...analysis.nonNullAssertions.map(
+          (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
+        ),
+      );
+      result.renamedImports.push(
+        ...analysis.renamedImports.map(
+          (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
+        ),
+      );
+      result.importExpressions.push(
+        ...analysis.importExpressions.map(
+          (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
+        ),
+      );
+      result.nodeProtocolImports.push(
+        ...analysis.nodeProtocolImports.map(
+          (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
+        ),
+      );
+      result.metaProperties.push(
+        ...analysis.metaProperties.map(
+          (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
+        ),
+      );
 
+      result.codeLines += analysis.codeLines;
       result.tsFiles += isTs(file) ? 1 : 0;
       result.jsFiles += isJs(file) ? 1 : 0;
       result.analyzedFiles += 1;

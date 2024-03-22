@@ -76,9 +76,33 @@ program
 program
   .command("analyze")
   .description("analyze js/ts project quality and print the report")
+  .option("-d, --detail", "show analysis detail")
   .argument("[path]", "directory path storing js/ts files", ".")
-  .action(async (path) => {
+  .action(async (path, options) => {
     const analysis = await analyze(path);
+    if (options.detail) {
+      analysis.anyTypes.forEach((i) => {
+        console.log("Any Type", i);
+      });
+      analysis.assertions.forEach((i) => {
+        console.log("Assertion", i);
+      });
+      analysis.nonNullAssertions.forEach((i) => {
+        console.log("Non-null Assertion", i);
+      });
+      analysis.renamedImports.forEach((i) => {
+        console.log("Renamed Import", i);
+      });
+      analysis.importExpressions.forEach((i) => {
+        console.log("Import Expression", i);
+      });
+      analysis.nodeProtocolImports.forEach((i) => {
+        console.log("Node Protocol Import", i);
+      });
+      analysis.metaProperties.forEach((i) => {
+        console.log("Meta Property", i);
+      });
+    }
     console.log("1. Code lines and files count:");
     console.table({
       "Code Lines": analysis.codeLines,
@@ -88,19 +112,19 @@ program
     });
     console.log("2. Type flaws count:");
     console.table({
-      "Any Types": analysis.anyTypes,
-      Assertions: analysis.assertions,
-      "Non-null Assertions": analysis.nonNullAssertions,
+      "Any Types": analysis.anyTypes.length,
+      Assertions: analysis.assertions.length,
+      "Non-null Assertions": analysis.nonNullAssertions.length,
     });
     console.log("3. Code style flaws count:");
     console.table({
-      "Renamed Imports": analysis.renamedImports,
-      "Import Expressions": analysis.importExpressions,
+      "Renamed Imports": analysis.renamedImports.length,
+      "Import Expressions": analysis.importExpressions.length,
     });
     console.log("4. Cross-platform issues count:");
     console.table({
-      "Node Protocol Imports": analysis.nodeProtocolImports,
-      "Meta Properties": analysis.metaProperties,
+      "Node Protocol Imports": analysis.nodeProtocolImports.length,
+      "Meta Properties": analysis.metaProperties.length,
     });
   });
 
