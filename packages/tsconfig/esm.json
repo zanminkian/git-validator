@@ -16,7 +16,6 @@
     "checkJs": false, // Don't check js for better experience. User can add `// @ts-check` on the top of js file to check it manually.
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
 
     // Module. According to https://www.typescriptlang.org/docs/handbook/modules/theory.html, we should use Node16 only
     "module": "node16",
