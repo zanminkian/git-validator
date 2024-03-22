@@ -64,6 +64,11 @@ async function getAnalysis(filepath) {
       case "TSNonNullExpression":
         result.nonNullAssertions.push(node.loc);
         break;
+      case "PropertyDefinition":
+        if (node.definite) {
+          result.nonNullAssertions.push(node.loc);
+        }
+        break;
       case "ImportDeclaration":
         result.renamedImports.push(
           ...node.specifiers
