@@ -1,5 +1,12 @@
 # git-validator
 
+## 0.15.4
+
+### Patch Changes
+
+- 190bfc9: feat(git-validator): support show analysis detail
+- 2c3ef1a: fix(git-validator): count non null assertions in class property definitions
+
 ## 0.15.3
 
 ### Patch Changes
