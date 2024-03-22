@@ -26,13 +26,20 @@ function isJs(file) {
 async function getAnalysis(filepath) {
   const code = await fs.readFile(filepath, "utf-8");
   const result = {
-    anyTypes: 0,
-    assertions: 0,
-    nonNullAssertions: 0,
-    renamedImports: 0,
-    importExpressions: 0,
-    nodeProtocolImports: 0,
-    metaProperties: 0,
+    /** @type {{start:{line:number,column:number}}[]} */
+    anyTypes: [],
+    /** @type {{start:{line:number,column:number}}[]} */
+    assertions: [],
+    /** @type {{start:{line:number,column:number}}[]} */
+    nonNullAssertions: [],
+    /** @type {{start:{line:number,column:number}}[]} */
+    renamedImports: [],
+    /** @type {{start:{line:number,column:number}}[]} */
+    importExpressions: [],
+    /** @type {{start:{line:number,column:number}}[]} */
+    nodeProtocolImports: [],
+    /** @type {{start:{line:number,column:number}}[]} */
+    metaProperties: [],
     codeLines: code.split("\n").length,
   };
 
@@ -45,32 +52,33 @@ async function getAnalysis(filepath) {
     }
     switch (node.type) {
       case "TSAnyKeyword":
-        result.anyTypes += 1;
+        result.anyTypes.push(node.loc);
         break;
       case "TSAsExpression":
       case "TSTypeAssertion":
         if (node.typeAnnotation.typeName?.name === "const") {
           break;
         }
-        result.assertions += 1;
+        result.assertions.push(node.loc);
         break;
       case "TSNonNullExpression":
-        result.nonNullAssertions += 1;
+        result.nonNullAssertions.push(node.loc);
         break;
       case "ImportDeclaration":
-        result.renamedImports += node.specifiers
-          .filter((/** @type {any} */ s) => s.type === "ImportSpecifier")
-          .filter(
-            (/** @type {any} */ s) => s.imported.name !== s.local.name,
-          ).length;
+        result.renamedImports.push(
+          ...node.specifiers
+            .filter((/** @type {any} */ s) => s.type === "ImportSpecifier")
+            .filter((/** @type {any} */ s) => s.imported.name !== s.local.name)
+            .map((/** @type {any} */ s) => s.loc),
+        );
         if (node.source.value.startsWith("node:")) {
-          result.nodeProtocolImports += 1;
+          result.nodeProtocolImports.push(node.loc);
         }
         break;
       case "ImportExpression":
-        result.importExpressions += 1;
+        result.importExpressions.push(node.loc);
         if (node.source.value?.startsWith("node:")) {
-          result.nodeProtocolImports += 1;
+          result.nodeProtocolImports.push(node.loc);
         }
         break;
       case "VariableDeclarator":
@@ -79,14 +87,16 @@ async function getAnalysis(filepath) {
           node.init?.type === "AwaitExpression" &&
           node.init?.argument.type === "ImportExpression"
         ) {
-          result.renamedImports += node.id.properties.filter(
-            (/** @type {any} */ p) => p.key.name !== p.value.name,
-          ).length;
+          result.renamedImports.push(
+            ...node.id.properties
+              .filter((/** @type {any} */ p) => p.key.name !== p.value.name)
+              .map((/** @type {any} */ p) => p.loc),
+          );
         }
         break;
       case "MetaProperty":
         if (node.meta.name === "import" && node.property.name === "meta") {
-          result.metaProperties += 1;
+          result.metaProperties.push(node.loc);
         }
         break;
     }
@@ -102,7 +112,12 @@ async function getAnalysis(filepath) {
       );
     },
   );
-  walk(parse(code, { jsx: filepath.endsWith("x") || filepath.endsWith("js") }));
+  walk(
+    parse(code, {
+      jsx: filepath.endsWith("x") || filepath.endsWith("js"),
+      loc: true,
+    }),
+  );
   return result;
 }
 
@@ -171,13 +186,13 @@ export async function analyze(dir = process.cwd()) {
     try {
       const analysis = await getAnalysis(file);
 
-      result.anyTypes += analysis.anyTypes;
-      result.assertions += analysis.assertions;
-      result.nonNullAssertions += analysis.nonNullAssertions;
-      result.renamedImports += analysis.renamedImports;
-      result.importExpressions += analysis.importExpressions;
-      result.nodeProtocolImports += analysis.nodeProtocolImports;
-      result.metaProperties += analysis.metaProperties;
+      result.anyTypes += analysis.anyTypes.length;
+      result.assertions += analysis.assertions.length;
+      result.nonNullAssertions += analysis.nonNullAssertions.length;
+      result.renamedImports += analysis.renamedImports.length;
+      result.importExpressions += analysis.importExpressions.length;
+      result.nodeProtocolImports += analysis.nodeProtocolImports.length;
+      result.metaProperties += analysis.metaProperties.length;
       result.codeLines += analysis.codeLines;
 
       result.tsFiles += isTs(file) ? 1 : 0;
