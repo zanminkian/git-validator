@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.15.3
+
+### Patch Changes
+
+- 0736748: chore(tsconfig): remove `forceConsistentCasingInFileNames`
+- Updated dependencies [0736748]
+  - @git-validator/tsconfig@0.4.1
+
 ## 0.15.2
 
 ### Patch Changes
