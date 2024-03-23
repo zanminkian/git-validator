@@ -380,6 +380,7 @@ export default {
     "@git-validator/ban-ts-comment": "error",
     "@git-validator/import-regex": "error",
     "@git-validator/no-dynamic-import": "error",
+    "@git-validator/no-for-in": "error",
     "@git-validator/no-legacy-getter-setter": "error",
     "@git-validator/prefer-global-this": "error",
     "@git-validator/prefer-shortest-relative-path": "error",
