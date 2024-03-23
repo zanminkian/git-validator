@@ -143,6 +143,7 @@ const mainConfig = {
     // deprecation
     "deprecation/deprecation": "error",
     // git-validator
+    "@git-validator/exact-map-set-type": "error",
     "@git-validator/no-const-enum": "error",
     "@git-validator/no-declares-in-ts-file": "error",
     "@git-validator/no-export-assignment": "error",

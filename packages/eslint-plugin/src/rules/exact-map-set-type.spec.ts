@@ -1,0 +1,50 @@
+import { after, describe, it } from "node:test";
+import { RuleTester } from "@typescript-eslint/rule-tester";
+import { messageId, rule, ruleName } from "./exact-map-set-type.js";
+
+const valid = [
+  "const m = new Map([['a','b']])",
+  "const m = new Map<string, string>();",
+
+  "class A {name: Map<string, string>}",
+  "class A {name = new Map<string, string>}",
+
+  "function a(s: Set<number>): Map<string, string> {}",
+  "const a = (s: Set<number>): Map<string,string> => {}",
+
+  "interface A {m: Map<string, string>}",
+  "type A = {m: Map<string, string>}",
+  "type A = Map<string, string>",
+  "type A<T, U> = Map<T, U>",
+];
+
+const invalid = [
+  "const m = new Map();",
+  "const m: Map = new Map<string, string>()",
+
+  "class A {name: Map}",
+  "class A {name = new Map()}",
+  "class A {name: Map = new Map<string, string>()}",
+
+  "function a(s: Set<number>): Map {}",
+  "const a = (s: Set<number>): Map => {}",
+  "function a(s: Set): Map<string, number> {}",
+  "const a = (s: Set): Map<string, number> => {}",
+
+  "interface A {m: Map}",
+  "type A = {m: Map}",
+  "type A = Map",
+];
+
+RuleTester.afterAll = after;
+RuleTester.describe = describe;
+RuleTester.it = it;
+new RuleTester({
+  parser: "@typescript-eslint/parser",
+}).run(ruleName, rule, {
+  valid,
+  invalid: invalid.map((i) => ({
+    code: i,
+    errors: [{ messageId }],
+  })),
+});
