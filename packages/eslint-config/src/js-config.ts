@@ -311,6 +311,7 @@ export default {
     "no-shadow": ["error", { ignoreOnInitialization: true }],
     "no-unused-private-class-members": "error",
     "prefer-exponentiation-operator": "error",
+    "prefer-object-has-own": "error",
     // fp
     "fp/no-arguments": "error",
     "fp/no-delete": "error",
