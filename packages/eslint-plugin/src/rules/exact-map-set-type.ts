@@ -3,8 +3,8 @@ import { ESLintUtils } from "@typescript-eslint/utils";
 export const ruleName = "exact-map-set-type";
 export const messageId = "exactMapSetType";
 export const defaultOptions = [];
-const description = "Disallow using Map and Set without type arguments";
-const message = "Map and Set should have type arguments";
+const description = "Disallow using Map and Set without type arguments.";
+const message = "Map and Set should have type arguments.";
 
 export const rule = ESLintUtils.RuleCreator((name) => name)<
   typeof defaultOptions,
