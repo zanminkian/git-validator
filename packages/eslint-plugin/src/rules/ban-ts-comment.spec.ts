@@ -1,6 +1,5 @@
-import { after, describe, it } from "node:test";
-import { RuleTester } from "@typescript-eslint/rule-tester";
 import { messageId, rule, ruleName } from "./ban-ts-comment.js";
+import { test } from "./utils.spec.js";
 
 const directives = ["@ts-ignore", "@ts-expect-error", "@ts-nocheck"];
 
@@ -20,15 +19,4 @@ const invalid = directives.flatMap((d) => [
   `/** ${d} "${d}" */`,
 ]);
 
-RuleTester.afterAll = after;
-RuleTester.describe = describe;
-RuleTester.it = it;
-new RuleTester({
-  parser: "@typescript-eslint/parser",
-}).run(ruleName, rule, {
-  valid,
-  invalid: invalid.map((i) => ({
-    code: i,
-    errors: [{ messageId }],
-  })),
-});
+test({ valid, invalid, messageId, rule, ruleName });

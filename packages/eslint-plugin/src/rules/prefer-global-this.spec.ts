@@ -1,6 +1,5 @@
-import { after, describe, it } from "node:test";
-import { RuleTester } from "@typescript-eslint/rule-tester";
 import { messageId, rule, ruleName } from "./prefer-global-this.js";
+import { test } from "./utils.spec.js";
 
 const valid = [
   "foo.name",
@@ -35,15 +34,4 @@ const invalid = [
   // 'const self = {}; console.log(self)',
 ];
 
-RuleTester.afterAll = after;
-RuleTester.describe = describe;
-RuleTester.it = it;
-new RuleTester({
-  parser: "@typescript-eslint/parser",
-}).run(ruleName, rule, {
-  valid,
-  invalid: invalid.map((i) => ({
-    code: i,
-    errors: [{ messageId }],
-  })),
-});
+test({ valid, invalid, messageId, rule, ruleName });

@@ -1,6 +1,5 @@
-import { after, describe, it } from "node:test";
-import { RuleTester } from "@typescript-eslint/rule-tester";
 import { messageId, rule, ruleName } from "./prefer-shortest-relative-path.js";
+import { test } from "./utils.spec.js";
 
 const valid = [
   'import xxx from "../a"',
@@ -45,15 +44,4 @@ const invalid = [
   'export {a} from "./../foo"',
 ].map((code) => ({ code, filename: "/a/b/c/d/e.js" }));
 
-RuleTester.afterAll = after;
-RuleTester.describe = describe;
-RuleTester.it = it;
-new RuleTester({
-  parser: "@typescript-eslint/parser",
-}).run(ruleName, rule, {
-  valid,
-  invalid: invalid.map((i) => ({
-    ...i,
-    errors: [{ messageId }],
-  })),
-});
+test({ valid, invalid, messageId, rule, ruleName });
