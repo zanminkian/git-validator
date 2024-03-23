@@ -47,7 +47,7 @@ async function getAnalysis(filepath) {
    * @param {any} node
    */
   function walk(node) {
-    if (!(node instanceof Object)) {
+    if (!node || typeof node !== "object") {
       return;
     }
     switch (node.type) {
