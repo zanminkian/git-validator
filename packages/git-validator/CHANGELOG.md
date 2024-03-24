@@ -1,5 +1,17 @@
 # git-validator
 
+## 0.15.5
+
+### Patch Changes
+
+- df92eba: feat(git-validator): count for instanceof operators
+- Updated dependencies [5f85872]
+- Updated dependencies [5248c01]
+- Updated dependencies [a87f82d]
+- Updated dependencies [3af8795]
+- Updated dependencies [1ac0fc4]
+  - @git-validator/eslint-config@0.4.2
+
 ## 0.15.4
 
 ### Patch Changes

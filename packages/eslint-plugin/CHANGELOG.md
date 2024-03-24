@@ -1,5 +1,13 @@
 # @git-validator/eslint-plugin
 
+## 0.4.1
+
+### Patch Changes
+
+- 5f85872: feat(eslint-plugin): add `exact-map-set-type`
+- 5248c01: feat(eslint-plugin): add `no-for-in`
+- 1ac0fc4: feat(eslint-plugin): add `no-instanceof-builtin`
+
 ## 0.4.0
 
 ### Minor Changes
