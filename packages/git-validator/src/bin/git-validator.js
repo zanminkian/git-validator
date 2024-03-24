@@ -96,6 +96,9 @@ program
       analysis.importExpressions.forEach((i) => {
         console.log("Import Expression", i);
       });
+      analysis.instanceofOperators.forEach((i) => {
+        console.log("Instanceof Operator", i);
+      });
       analysis.nodeProtocolImports.forEach((i) => {
         console.log("Node Protocol Import", i);
       });
@@ -120,6 +123,7 @@ program
     console.table({
       "Renamed Imports": analysis.renamedImports.length,
       "Import Expressions": analysis.importExpressions.length,
+      "Instanceof Operators": analysis.instanceofOperators.length,
     });
     console.log("4. Cross-platform issues count:");
     console.table({

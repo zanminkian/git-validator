@@ -37,6 +37,8 @@ async function getAnalysis(filepath) {
     /** @type {{start:{line:number,column:number}}[]} */
     importExpressions: [],
     /** @type {{start:{line:number,column:number}}[]} */
+    instanceofOperators: [],
+    /** @type {{start:{line:number,column:number}}[]} */
     nodeProtocolImports: [],
     /** @type {{start:{line:number,column:number}}[]} */
     metaProperties: [],
@@ -84,6 +86,11 @@ async function getAnalysis(filepath) {
         result.importExpressions.push(node.loc);
         if (node.source.value?.startsWith("node:")) {
           result.nodeProtocolImports.push(node.loc);
+        }
+        break;
+      case "BinaryExpression":
+        if (node.operator === "instanceof") {
+          result.instanceofOperators.push(node.loc);
         }
         break;
       case "VariableDeclarator":
@@ -179,6 +186,7 @@ export async function analyze(dir = process.cwd()) {
     /** @type {string[]} */ nonNullAssertions: [],
     /** @type {string[]} */ renamedImports: [],
     /** @type {string[]} */ importExpressions: [],
+    /** @type {string[]} */ instanceofOperators: [],
     /** @type {string[]} */ nodeProtocolImports: [],
     /** @type {string[]} */ metaProperties: [],
     codeLines: 0,
@@ -213,6 +221,11 @@ export async function analyze(dir = process.cwd()) {
       );
       result.importExpressions.push(
         ...analysis.importExpressions.map(
+          (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
+        ),
+      );
+      result.instanceofOperators.push(
+        ...analysis.instanceofOperators.map(
           (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
         ),
       );
