@@ -1,5 +1,19 @@
 # @git-validator/eslint-config
 
+## 0.4.2
+
+### Patch Changes
+
+- 5f85872: feat(eslint-plugin): add `exact-map-set-type`
+- 5248c01: feat(eslint-plugin): add `no-for-in`
+- a87f82d: feat(eslint-config): add `prefer-object-has-own` and `@typescript-eslint/no-for-in-array`
+- 3af8795: feat(eslint-config): add `unicorn/no-for-loop`
+- 1ac0fc4: feat(eslint-plugin): add `no-instanceof-builtin`
+- Updated dependencies [5f85872]
+- Updated dependencies [5248c01]
+- Updated dependencies [1ac0fc4]
+  - @git-validator/eslint-plugin@0.4.1
+
 ## 0.4.1
 
 ### Patch Changes
