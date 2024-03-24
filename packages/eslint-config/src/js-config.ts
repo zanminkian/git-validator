@@ -381,6 +381,7 @@ export default {
     "@git-validator/import-regex": "error",
     "@git-validator/no-dynamic-import": "error",
     "@git-validator/no-for-in": "error",
+    "@git-validator/no-instanceof-builtin": "error",
     "@git-validator/no-legacy-getter-setter": "error",
     "@git-validator/prefer-global-this": "error",
     "@git-validator/prefer-shortest-relative-path": "error",

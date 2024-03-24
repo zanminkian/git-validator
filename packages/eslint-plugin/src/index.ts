@@ -6,6 +6,7 @@ import * as noDeclaresInTsFile from "./rules/no-declares-in-ts-file.js";
 import * as noDynamicImport from "./rules/no-dynamic-import.js";
 import * as noExportAssignment from "./rules/no-export-assignment.js";
 import * as noForIn from "./rules/no-for-in.js";
+import * as noInstanceofBuiltin from "./rules/no-instanceof-builtin.js";
 import * as noLegacyGetterSetter from "./rules/no-legacy-getter-setter.js";
 import * as preferGlobalThis from "./rules/prefer-global-this.js";
 import * as preferShortestRelativePath from "./rules/prefer-shortest-relative-path.js";
@@ -20,6 +21,7 @@ export default {
     [noDynamicImport.ruleName]: noDynamicImport.rule,
     [noExportAssignment.ruleName]: noExportAssignment.rule,
     [noForIn.ruleName]: noForIn.rule,
+    [noInstanceofBuiltin.ruleName]: noInstanceofBuiltin.rule,
     [noLegacyGetterSetter.ruleName]: noLegacyGetterSetter.rule,
     [preferGlobalThis.ruleName]: preferGlobalThis.rule,
     [preferShortestRelativePath.ruleName]: preferShortestRelativePath.rule,
