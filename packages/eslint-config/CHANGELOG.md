@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.4.4
+
+### Patch Changes
+
+- f604ff4: fix(eslint-config): move `@git-validator/no-property-decorator` to ts from js
+
 ## 0.4.3
 
 ### Patch Changes
