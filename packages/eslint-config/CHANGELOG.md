@@ -1,5 +1,13 @@
 # @git-validator/eslint-config
 
+## 0.4.3
+
+### Patch Changes
+
+- 6c0f136: feat(eslint-plugin): add `no-property-decorator`
+- Updated dependencies [6c0f136]
+  - @git-validator/eslint-plugin@0.4.2
+
 ## 0.4.2
 
 ### Patch Changes
