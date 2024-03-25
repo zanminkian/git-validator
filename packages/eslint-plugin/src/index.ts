@@ -8,6 +8,7 @@ import * as noExportAssignment from "./rules/no-export-assignment.js";
 import * as noForIn from "./rules/no-for-in.js";
 import * as noInstanceofBuiltin from "./rules/no-instanceof-builtin.js";
 import * as noLegacyGetterSetter from "./rules/no-legacy-getter-setter.js";
+import * as noPropertyDecorator from "./rules/no-property-decorator.js";
 import * as preferGlobalThis from "./rules/prefer-global-this.js";
 import * as preferShortestRelativePath from "./rules/prefer-shortest-relative-path.js";
 
@@ -23,6 +24,7 @@ export default {
     [noForIn.ruleName]: noForIn.rule,
     [noInstanceofBuiltin.ruleName]: noInstanceofBuiltin.rule,
     [noLegacyGetterSetter.ruleName]: noLegacyGetterSetter.rule,
+    [noPropertyDecorator.ruleName]: noPropertyDecorator.rule,
     [preferGlobalThis.ruleName]: preferGlobalThis.rule,
     [preferShortestRelativePath.ruleName]: preferShortestRelativePath.rule,
   },
