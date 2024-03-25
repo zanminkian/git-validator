@@ -147,6 +147,7 @@ const mainConfig = {
     "@git-validator/no-const-enum": "error",
     "@git-validator/no-declares-in-ts-file": "error",
     "@git-validator/no-export-assignment": "error",
+    "@git-validator/no-property-decorator": "error",
     // typescript
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/ban-ts-comment": [

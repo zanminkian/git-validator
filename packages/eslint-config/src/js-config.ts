@@ -383,7 +383,6 @@ export default {
     "@git-validator/no-for-in": "error",
     "@git-validator/no-instanceof-builtin": "error",
     "@git-validator/no-legacy-getter-setter": "error",
-    "@git-validator/no-property-decorator": "error",
     "@git-validator/prefer-global-this": "error",
     "@git-validator/prefer-shortest-relative-path": "error",
   },
