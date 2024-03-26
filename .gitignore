@@ -2,5 +2,6 @@ node_modules
 .vscode
 pnpm-lock.yaml
 dist
+out
 tmp
 v8-compile-cache-*

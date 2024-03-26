@@ -21,8 +21,8 @@
   "author": "hellozmj@qq.com",
   "type": "module",
   "exports": {
-    "./cli": "./dist/cli.js",
-    "./setup": "./dist/setup.js",
+    "./cli": "./out/cli.js",
+    "./setup": "./out/setup.js",
     "./cjs.json": "./cjs.json",
     "./esm.json": "./esm.json",
     "./tsconfig.json": "./tsconfig.json",
@@ -32,7 +32,7 @@
     ".": "./tsconfig.json"
   },
   "bin": {
-    "tsconfig": "./dist/cli.js"
+    "tsconfig": "./out/cli.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json"

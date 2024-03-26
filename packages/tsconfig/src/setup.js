@@ -24,7 +24,7 @@ async function exists(filepath) {
 export async function initAction(options) {
   const generatingTsconfigContent = `{
   "extends": "${
-    options.ext ?? process.env["TSCONFIG_EXTENDS"] ?? "@git-validator/tsconfig"
+    options.ext ?? process.env["TSCONFIG_EXTENDS"] ?? "@git-validator/tsconfig" // TODO: remove process.env
   }",
   "include": ["src"],
   "exclude": ["**/*.spec.ts", "**/*.test.ts"],
