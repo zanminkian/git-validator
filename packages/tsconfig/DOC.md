@@ -1,0 +1,6 @@
+- `"checkJs": false`: Don't check js for better experience. User can add `// @ts-check` on the top of js file to check it manually.
+- `"module": "node16"`: According to https://www.typescriptlang.org/docs/handbook/modules/theory.html, we should use Node16 only.
+- `"moduleDetection": "force"`: https://github.com/zanminkian/git-validator/issues/88#issuecomment-1734416707.
+- `"outDir": "dist"`: Enable it to prevent to override js file. And solve the error warning in vscode. Ref: https://github.com/Microsoft/TypeScript/issues/29172
+- `lib`: 1. Typescript will include APIs for newer JS features matching the `target`. See https://www.typescriptlang.org/tsconfig#lib. Therefore, there is no need to add "ESNext" to lib. 2. In ts 4.5, lib files can be overrode by npm modules. See https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#supporting-lib-from-node_modules. Therefore, libs like "DOM" can be included by installing `@types/web`. No need to add "DOM" to lib.
+- `types`: Ts will load all the `node_modules/@types/*` declaration files when `types` is removed. Remove it will improve the extensibility.
