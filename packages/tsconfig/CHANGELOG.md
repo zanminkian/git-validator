@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.4.2
+
+### Patch Changes
+
+- 24e5f5d: build(tsconfig): change the `outDir` to `out`
+
 ## 0.4.1
 
 ### Patch Changes
