@@ -1,5 +1,11 @@
 # @git-validator/prettier-config
 
+## 0.4.1-beta.0
+
+### Patch Changes
+
+- 0bcadde: chore: upgrade deps
+
 ## 0.4.0
 
 ### Minor Changes
