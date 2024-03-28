@@ -25,11 +25,11 @@
     "test": "globstar -- node --test --experimental-loader ts-node/esm src/**/*.spec.ts test/**/*.spec.ts"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "7.2.0"
+    "@typescript-eslint/utils": "7.4.0"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "7.2.0",
-    "@typescript-eslint/rule-tester": "7.2.0",
+    "@typescript-eslint/parser": "7.4.0",
+    "@typescript-eslint/rule-tester": "7.4.0",
     "eslint": "8.57.0",
     "ts-node": "10.9.2"
   }
