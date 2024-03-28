@@ -10,5 +10,8 @@
     "prettier-ignore": "0.1.0",
     "@git-validator/tsconfig": "0.4.1"
   },
-  "changesets": []
+  "changesets": [
+    "dry-boats-protect",
+    "thick-colts-shout"
+  ]
 }

@@ -1,5 +1,13 @@
 # @git-validator/eslint-config
 
+## 0.4.5-beta.0
+
+### Patch Changes
+
+- 0bcadde: chore: upgrade deps
+- Updated dependencies [0bcadde]
+  - @git-validator/eslint-plugin@0.4.3-beta.0
+
 ## 0.4.4
 
 ### Patch Changes
