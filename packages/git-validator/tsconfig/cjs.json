@@ -1,36 +1,3 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "allowUnusedLabels": false,
-    "allowUnreachableCode": false,
-    "exactOptionalPropertyTypes": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "isolatedModules": true,
-    "checkJs": false,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-
-    "module": "node16",
-    "target": "es2022",
-    "moduleResolution": "node16",
-
-    "allowJs": true,
-    "outDir": "dist",
-    "allowArbitraryExtensions": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "resolveJsonModule": true,
-    "stripInternal": true,
-    "declaration": true,
-    "declarationMap": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "jsx": "preserve"
-  }
+  "extends": "@git-validator/tsconfig/cjs.json"
 }
