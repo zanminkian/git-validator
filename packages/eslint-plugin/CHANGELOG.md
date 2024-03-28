@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.4.3
+
+### Patch Changes
+
+- 0bcadde: chore: upgrade deps
+
 ## 0.4.2
 
 ### Patch Changes
