@@ -37,6 +37,7 @@ type NoDuplicate<A extends unknown[]> = {
     ? never
     : A[I];
 };
+type NoDuplicateArray<T extends unknown[]> = [...NoDuplicate<T>];
 
 function factory(type: "pick" | "omit") {
   return (rules: readonly Key[]) => {
@@ -61,8 +62,8 @@ function factory(type: "pick" | "omit") {
   };
 }
 
-export const pick = <T extends Key[]>(rules: readonly [...NoDuplicate<T>]) =>
+export const pick = <T extends Key[]>(rules: NoDuplicateArray<T>) =>
   factory("pick")(rules);
-export const omit = <T extends Key[]>(rules: readonly [...NoDuplicate<T>]) =>
+export const omit = <T extends Key[]>(rules: NoDuplicateArray<T>) =>
   factory("omit")(rules);
 export default [ignore, ...config];
