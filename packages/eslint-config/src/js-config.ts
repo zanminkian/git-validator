@@ -258,9 +258,10 @@ export default {
     },
     globals: {
       // TODO Optimize it. Node code should not use browser's objects.
-      ...Object.entries(globals.browser).reduce(
-        (o, [k, v]) => (confusingKeys.includes(k) ? o : { ...o, [k]: v }),
-        {},
+      ...Object.fromEntries(
+        Object.entries(globals.browser).filter(
+          ([k]) => !confusingKeys.includes(k),
+        ),
       ),
     },
   },
