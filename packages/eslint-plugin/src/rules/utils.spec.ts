@@ -6,20 +6,20 @@ export type TestCase = string | { code: string; filename: string };
 export interface Info {
   valid: TestCase[];
   invalid: TestCase[];
-  ruleName: string;
+  name: string;
   rule: RuleModule<string, unknown[]>;
-  messageId: string;
+  messageId?: string;
 }
 
 export function test(info: Info): void {
-  const { ruleName, rule, valid, invalid, messageId } = info;
+  const { name, rule, valid, invalid, messageId = name } = info;
 
   RuleTester.afterAll = after;
   RuleTester.describe = describe;
   RuleTester.it = it;
   new RuleTester({
     parser: "@typescript-eslint/parser",
-  }).run(ruleName, rule, {
+  }).run(name, rule, {
     valid,
     invalid: invalid.map((i) => ({
       ...(typeof i === "string" ? { code: i } : i),
