@@ -1,6 +1,7 @@
 import * as banTsComment from "./rules/ban-ts-comment.js";
 import * as exactMapSetType from "./rules/exact-map-set-type.js";
 import * as importRegex from "./rules/import-regex.js";
+import * as newParens from "./rules/new-parens.js";
 import * as noConstEnum from "./rules/no-const-enum.js";
 import * as noDeclaresInTsFile from "./rules/no-declares-in-ts-file.js";
 import * as noDynamicImport from "./rules/no-dynamic-import.js";
@@ -17,6 +18,7 @@ export default {
     [banTsComment.ruleName]: banTsComment.rule,
     [exactMapSetType.ruleName]: exactMapSetType.rule,
     [importRegex.ruleName]: importRegex.rule,
+    [newParens.ruleName]: newParens.rule,
     [noConstEnum.ruleName]: noConstEnum.rule,
     [noDeclaresInTsFile.ruleName]: noDeclaresInTsFile.rule,
     [noDynamicImport.ruleName]: noDynamicImport.rule,
