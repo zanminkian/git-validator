@@ -1,5 +1,15 @@
 # @git-validator/eslint-plugin
 
+## 0.5.0
+
+### Minor Changes
+
+- 4ae0856: refactor(eslint-plugin): clean code
+
+### Patch Changes
+
+- 8408a08: feat: add `new-parens`
+
 ## 0.4.3
 
 ### Patch Changes

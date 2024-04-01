@@ -1,5 +1,17 @@
 # git-validator
 
+## 0.15.9
+
+### Patch Changes
+
+- 6c72cea: chore: upgrade deps
+- Updated dependencies [0666572]
+- Updated dependencies [6c72cea]
+- Updated dependencies [6142bbe]
+- Updated dependencies [8408a08]
+  - @git-validator/eslint-config@0.4.6
+  - @git-validator/prettier-config@0.4.2
+
 ## 0.15.8
 
 ### Patch Changes
