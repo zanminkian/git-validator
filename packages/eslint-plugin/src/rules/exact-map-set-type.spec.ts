@@ -1,4 +1,4 @@
-import { messageId, rule, ruleName } from "./exact-map-set-type.js";
+import rule from "./exact-map-set-type.js";
 import { test } from "./utils.spec.js";
 
 const valid = [
@@ -35,4 +35,4 @@ const invalid = [
   "type A = Map",
 ];
 
-test({ valid, invalid, messageId, rule, ruleName });
+test({ valid, invalid, ...rule });

@@ -1,44 +1,25 @@
-import { ESLintUtils } from "@typescript-eslint/utils";
+import { createSimpleRule } from "../utils.js";
 
-export const ruleName = "no-dynamic-import";
-export const messageId = "noDynamicImport";
-export const defaultOptions = [];
-const description = "Forbid `import()` calls with expressions.";
-const message = "`import()` should be called with string literal.";
-
-export const rule = ESLintUtils.RuleCreator((name) => name)<
-  typeof defaultOptions,
-  typeof messageId
->({
-  name: ruleName,
-  meta: {
-    type: "problem",
-    docs: {
-      description,
-    },
-    schema: [],
-    messages: {
-      [messageId]: message,
-    },
-  },
-  defaultOptions,
+export default createSimpleRule({
+  name: "no-dynamic-import",
+  message: "`import()` should be called with string literal.",
   create: (context) => ({
     ImportExpression: (node) => {
       const { source, attributes } = node;
       if (source.type !== "Literal") {
-        context.report({ node, messageId });
+        context.reportNode(node);
         return;
       }
       if (!("value" in source)) {
-        context.report({ node, messageId });
+        context.reportNode(node);
         return;
       }
       if (typeof source.value !== "string") {
-        context.report({ node, messageId });
+        context.reportNode(node);
         return;
       }
       if (attributes) {
-        context.report({ node, messageId });
+        context.reportNode(node);
       }
     },
   }),

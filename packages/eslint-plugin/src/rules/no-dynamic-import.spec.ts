@@ -1,4 +1,4 @@
-import { messageId, rule, ruleName } from "./no-dynamic-import.js";
+import rule from "./no-dynamic-import.js";
 import { test } from "./utils.spec.js";
 
 const valid = [
@@ -20,4 +20,4 @@ const invalid = [
   'import("foo", {})',
 ];
 
-test({ valid, invalid, messageId, rule, ruleName });
+test({ valid, invalid, ...rule });

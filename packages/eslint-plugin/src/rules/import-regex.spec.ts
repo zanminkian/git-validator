@@ -1,4 +1,4 @@
-import { messageId, rule, ruleName } from "./import-regex.js";
+import rule from "./import-regex.js";
 import { test } from "./utils.spec.js";
 
 const valid = [
@@ -53,4 +53,4 @@ const invalid = [
   'const foo = require("../../../foo")',
 ];
 
-test({ valid, invalid, messageId, rule, ruleName });
+test({ valid, invalid, ...rule });

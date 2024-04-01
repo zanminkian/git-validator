@@ -1,4 +1,4 @@
-import { messageId, rule, ruleName } from "./no-instanceof-builtin.js";
+import rule from "./no-instanceof-builtin.js";
 import { test } from "./utils.spec.js";
 
 const invalid = [
@@ -45,4 +45,4 @@ const valid = [
   "const i = {} instanceof await import('http')",
 ];
 
-test({ valid, invalid, messageId, rule, ruleName });
+test({ valid, invalid, ...rule });

@@ -1,27 +1,8 @@
-import { ESLintUtils } from "@typescript-eslint/utils";
+import { createSimpleRule } from "../utils.js";
 
-export const ruleName = "exact-map-set-type";
-export const messageId = "exactMapSetType";
-export const defaultOptions = [];
-const description = "Disallow using Map and Set without type arguments.";
-const message = "Map and Set should have type arguments.";
-
-export const rule = ESLintUtils.RuleCreator((name) => name)<
-  typeof defaultOptions,
-  typeof messageId
->({
-  name: ruleName,
-  meta: {
-    type: "problem",
-    docs: {
-      description,
-    },
-    schema: [],
-    messages: {
-      [messageId]: message,
-    },
-  },
-  defaultOptions,
+export default createSimpleRule({
+  name: "exact-map-set-type",
+  message: "Disallow using Map and Set without type arguments.",
   create: (context) => ({
     Identifier: (node) => {
       if (!["Map", "Set"].includes(node.name)) {
@@ -35,10 +16,7 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
         "typeArguments" in parent &&
         (parent.typeArguments?.params.length ?? 0) === 0
       ) {
-        context.report({
-          node,
-          messageId,
-        });
+        context.reportNode(node);
       }
     },
   }),

@@ -1,28 +1,8 @@
-import { ESLintUtils } from "@typescript-eslint/utils";
+import { createSimpleRule } from "../utils.js";
 
-export const ruleName = "no-instanceof-builtin";
-export const messageId = "noInstanceofBuiltin";
-export const defaultOptions = [];
-const description = "Right hand of `instanceof` can't be a builtin class.";
-const message =
-  "Right hand of `instanceof` can't be a builtin class. Use `typeof` or `node:util/types` instead.";
-
-export const rule = ESLintUtils.RuleCreator((name) => name)<
-  typeof defaultOptions,
-  typeof messageId
->({
-  name: ruleName,
-  meta: {
-    type: "problem",
-    docs: {
-      description,
-    },
-    schema: [],
-    messages: {
-      [messageId]: message,
-    },
-  },
-  defaultOptions,
+export default createSimpleRule({
+  name: "no-instanceof-builtin",
+  message: "Right hand of `instanceof` can't be a builtin class.",
   create: (context) => ({
     BinaryExpression: (node) => {
       if (node.right.type !== "Identifier") {
@@ -68,7 +48,7 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
       ];
 
       if (builtins.includes(node.right.name)) {
-        context.report({ node: node.right, messageId });
+        context.reportNode(node.right);
       }
     },
   }),

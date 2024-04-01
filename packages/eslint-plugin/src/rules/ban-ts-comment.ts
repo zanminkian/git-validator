@@ -1,27 +1,8 @@
-import { ESLintUtils } from "@typescript-eslint/utils";
+import { createSimpleRule } from "../utils.js";
 
-export const ruleName = "ban-ts-comment";
-export const messageId = "banTsComment";
-export const defaultOptions = [];
-const description = "Disallow using ts comment to suppress compilation errors.";
-const message = "Do not use ts comment to suppress compilation errors.";
-
-export const rule = ESLintUtils.RuleCreator((name) => name)<
-  typeof defaultOptions,
-  typeof messageId
->({
-  name: ruleName,
-  meta: {
-    type: "problem",
-    docs: {
-      description,
-    },
-    schema: [],
-    messages: {
-      [messageId]: message,
-    },
-  },
-  defaultOptions,
+export default createSimpleRule({
+  name: "ban-ts-comment",
+  message: "Disallow using ts comment to suppress compilation errors.",
   create: (context) => ({
     Program: () => {
       const comments = context.sourceCode.getAllComments();
@@ -36,10 +17,7 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
         if (validItems?.length === invalidItems?.length) {
           return;
         }
-        context.report({
-          node: comment,
-          messageId,
-        });
+        context.reportNode(comment);
       });
     },
   }),

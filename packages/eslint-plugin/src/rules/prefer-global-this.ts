@@ -1,29 +1,8 @@
-import { ESLintUtils } from "@typescript-eslint/utils";
+import { createSimpleRule } from "../utils.js";
 
-export const ruleName = "prefer-global-this";
-export const messageId = "preferGlobalThis";
-export const defaultOptions = [];
-const description =
-  "Disallow `global` or `self` object and prefer `globalThis`";
-const message =
-  "Do not use `global` or `self` object. Use `globalThis` instead";
-
-export const rule = ESLintUtils.RuleCreator((name) => name)<
-  typeof defaultOptions,
-  typeof messageId
->({
-  name: ruleName,
-  meta: {
-    type: "problem",
-    docs: {
-      description,
-    },
-    schema: [],
-    messages: {
-      [messageId]: message,
-    },
-  },
-  defaultOptions,
+export default createSimpleRule({
+  name: "prefer-global-this",
+  message: "Disallow `global` or `self` object and prefer `globalThis`",
   create: (context) => ({
     Program: (node) => {
       const banned = ["global", "self"];
@@ -32,20 +11,14 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
       scope.variables.forEach((v) => {
         if (banned.includes(v.name)) {
           v.references.forEach((ref) => {
-            context.report({
-              node: ref.identifier,
-              messageId,
-            });
+            context.reportNode(ref.identifier);
           });
         }
       });
       // Report variables not declared at all
       scope.through.forEach((ref) => {
         if (banned.includes(ref.identifier.name)) {
-          context.report({
-            node: ref.identifier,
-            messageId,
-          });
+          context.reportNode(ref.identifier);
         }
       });
     },

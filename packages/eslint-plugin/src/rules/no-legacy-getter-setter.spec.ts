@@ -1,4 +1,4 @@
-import { messageId, rule, ruleName } from "./no-legacy-getter-setter.js";
+import rule from "./no-legacy-getter-setter.js";
 import { test } from "./utils.spec.js";
 
 const valid = ["const foo = {}; foo.__proto__;"];
@@ -13,4 +13,4 @@ const invalid = [
   "const foo = {}; foo.__lookupSetter__;",
 ];
 
-test({ valid, invalid, messageId, rule, ruleName });
+test({ valid, invalid, ...rule });

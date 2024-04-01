@@ -1,4 +1,4 @@
-import { messageId, rule, ruleName } from "./prefer-global-this.js";
+import rule from "./prefer-global-this.js";
 import { test } from "./utils.spec.js";
 
 const valid = [
@@ -34,4 +34,4 @@ const invalid = [
   // 'const self = {}; console.log(self)',
 ];
 
-test({ valid, invalid, messageId, rule, ruleName });
+test({ valid, invalid, ...rule });

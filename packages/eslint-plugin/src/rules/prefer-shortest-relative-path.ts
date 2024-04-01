@@ -1,46 +1,21 @@
 import path from "node:path";
-import { ESLintUtils } from "@typescript-eslint/utils";
+import { createSimpleRule } from "../utils.js";
 
-export const ruleName = "prefer-shortest-relative-path";
-export const messageId = "preferShortestRelativePath";
-export const defaultOptions = [];
-const description = "Forbid redundant relative path when importing module.";
-const message = "The imported relative path can be shorter.";
-
-export const rule = ESLintUtils.RuleCreator((name) => name)<
-  typeof defaultOptions,
-  typeof messageId
->({
-  name: ruleName,
-  meta: {
-    type: "problem",
-    docs: {
-      description,
-    },
-    schema: [],
-    messages: {
-      [messageId]: message,
-    },
-  },
-  defaultOptions,
+export default createSimpleRule({
+  name: "prefer-shortest-relative-path",
+  message: "Forbid redundant relative path when importing module.",
   create: (context) => {
     const currentPath = path.dirname(context.filename);
     return {
       ImportDeclaration: (node) => {
         report(currentPath, node.source.value, () => {
-          context.report({
-            node,
-            messageId,
-          });
+          context.reportNode(node);
         });
       },
       ImportExpression: (node) => {
         if ("value" in node.source && typeof node.source.value === "string") {
           report(currentPath, node.source.value, () => {
-            context.report({
-              node,
-              messageId,
-            });
+            context.reportNode(node);
           });
         }
       },
@@ -53,28 +28,19 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
           typeof arg.value === "string"
         ) {
           report(currentPath, arg.value, () => {
-            context.report({
-              node,
-              messageId,
-            });
+            context.reportNode(node);
           });
         }
       },
       ExportAllDeclaration: (node) => {
         report(currentPath, node.source.value, () => {
-          context.report({
-            node,
-            messageId,
-          });
+          context.reportNode(node);
         });
       },
       ExportNamedDeclaration: (node) => {
         if (node.source) {
           report(currentPath, node.source.value, () => {
-            context.report({
-              node,
-              messageId,
-            });
+            context.reportNode(node);
           });
         }
       },

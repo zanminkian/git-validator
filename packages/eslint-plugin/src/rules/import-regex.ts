@@ -9,18 +9,18 @@ const defaultRegex = [
   .map((r) => `(${r})`)
   .join("|");
 
-export const ruleName = "import-regex";
-export const messageId = "importRegex";
-export const defaultOptions: Array<string> = [];
+const name = "import-regex";
+const messageId = name;
+const defaultOptions: Array<string> = [];
 const description = "Make the importing paths not match with the regex.";
 const message = `The path should not match with the regex. Default regex is: ${defaultRegex}.`;
 const schema: readonly JSONSchema4[] = [{ type: "string" }];
 
-export const rule = ESLintUtils.RuleCreator((name) => name)<
+const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
   typeof defaultOptions,
   typeof messageId
 >({
-  name: ruleName,
+  name,
   meta: {
     type: "problem",
     docs: {
@@ -73,3 +73,8 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
     };
   },
 });
+
+export default {
+  name,
+  rule,
+};

@@ -1,4 +1,4 @@
-import { messageId, rule, ruleName } from "./no-property-decorator.js";
+import rule from "./no-property-decorator.js";
 import { test } from "./utils.spec.js";
 
 const valid = [
@@ -24,4 +24,4 @@ const invalid = [
   }`,
 ];
 
-test({ valid, invalid, messageId, rule, ruleName });
+test({ valid, invalid, ...rule });

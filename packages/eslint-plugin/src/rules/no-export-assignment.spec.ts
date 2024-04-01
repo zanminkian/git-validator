@@ -1,4 +1,4 @@
-import { messageId, rule, ruleName } from "./no-export-assignment.js";
+import rule from "./no-export-assignment.js";
 import { test } from "./utils.spec.js";
 
 const valid = [
@@ -8,4 +8,4 @@ const valid = [
 
 const invalid = [{ code: "export = {}", filename: "test.ts" }];
 
-test({ valid, invalid, messageId, rule, ruleName });
+test({ valid, invalid, ...rule });

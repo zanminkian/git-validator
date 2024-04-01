@@ -1,27 +1,8 @@
-import { ESLintUtils } from "@typescript-eslint/utils";
+import { createSimpleRule } from "../utils.js";
 
-export const ruleName = "no-declares-in-ts-file";
-export const messageId = "noDeclaresInTsFile";
-export const defaultOptions = [];
-const description = "Disallow using `declare` statement in ts file.";
-const message = "Do not use `declare` statement in ts file.";
-
-export const rule = ESLintUtils.RuleCreator((name) => name)<
-  typeof defaultOptions,
-  typeof messageId
->({
-  name: ruleName,
-  meta: {
-    type: "problem",
-    docs: {
-      description,
-    },
-    schema: [],
-    messages: {
-      [messageId]: message,
-    },
-  },
-  defaultOptions,
+export default createSimpleRule({
+  name: "no-declares-in-ts-file",
+  message: "Disallow using `declare` statement in ts file.",
   create: (context) => {
     const { filename } = context;
     if (/.*\.d\.[mc]?ts$/.test(filename)) {
@@ -32,10 +13,7 @@ export const rule = ESLintUtils.RuleCreator((name) => name)<
         if (node["type"] === "PropertyDefinition") {
           return;
         }
-        context.report({
-          node,
-          messageId,
-        });
+        context.reportNode(node);
       },
     };
   },

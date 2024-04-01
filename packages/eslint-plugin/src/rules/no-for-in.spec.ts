@@ -1,4 +1,4 @@
-import { messageId, rule, ruleName } from "./no-for-in.js";
+import rule from "./no-for-in.js";
 import { test } from "./utils.spec.js";
 
 const valid = [
@@ -8,4 +8,4 @@ const valid = [
 
 const invalid = ["for(const i in arr) {}"];
 
-test({ valid, invalid, messageId, rule, ruleName });
+test({ valid, invalid, ...rule });
