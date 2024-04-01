@@ -1,5 +1,16 @@
 # @git-validator/eslint-config
 
+## 0.4.6
+
+### Patch Changes
+
+- 0666572: feat(eslint-config): add `@typescript-eslint/only-throw-error`
+- 6142bbe: feat(eslint-config): add some rules
+- 8408a08: feat: add `new-parens`
+- Updated dependencies [4ae0856]
+- Updated dependencies [8408a08]
+  - @git-validator/eslint-plugin@0.5.0
+
 ## 0.4.5
 
 ### Patch Changes
