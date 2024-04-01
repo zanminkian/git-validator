@@ -301,6 +301,8 @@ export default {
 
     // 3. ban some syntaxes to reduce mistakes
     "func-name-matching": "error",
+    "init-declarations": "error",
+    "max-params": ["error", { max: 4 }],
     "no-duplicate-imports": "error",
     "no-implicit-coercion": [
       "error",

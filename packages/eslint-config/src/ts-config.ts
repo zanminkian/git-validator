@@ -161,6 +161,7 @@ const mainConfig = {
     ],
     "@typescript-eslint/ban-types": "error",
     "@typescript-eslint/consistent-generic-constructors": "error",
+    "@typescript-eslint/consistent-indexed-object-style": "error",
     "@typescript-eslint/consistent-type-assertions": [
       "error",
       {
@@ -168,6 +169,7 @@ const mainConfig = {
         objectLiteralTypeAssertions: "allow-as-parameter",
       },
     ],
+    "@typescript-eslint/consistent-type-exports": "error",
     // "@typescript-eslint/consistent-type-imports": "error,
     "@typescript-eslint/method-signature-style": "error",
     "@typescript-eslint/naming-convention": [
@@ -186,6 +188,8 @@ const mainConfig = {
         format: ["PascalCase"],
       },
     ],
+    "@typescript-eslint/no-array-delete": "error",
+    "@typescript-eslint/no-confusing-non-null-assertion": "error",
     "@typescript-eslint/no-duplicate-enum-values": "error",
     "@typescript-eslint/no-duplicate-type-constituents": "error",
     "@typescript-eslint/no-floating-promises": [
