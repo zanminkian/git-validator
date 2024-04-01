@@ -66,6 +66,7 @@ function getTsExtensionRules() {
     "no-use-before-define",
     "no-useless-constructor",
     "object-curly-spacing",
+    "only-throw-error", // this rule based on 'eslint/no-throw-literal'
     "padding-line-between-statements",
     "prefer-destructuring",
     "prefer-promise-reject-errors",
@@ -213,6 +214,7 @@ const mainConfig = {
     "@typescript-eslint/no-require-imports": "error",
     "@typescript-eslint/no-unnecessary-condition": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/only-throw-error": "error",
     "@typescript-eslint/prefer-ts-expect-error": "error",
     "@typescript-eslint/restrict-plus-operands": "error",
     "@typescript-eslint/return-await": ["error", "always"],

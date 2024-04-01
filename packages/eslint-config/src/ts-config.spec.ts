@@ -40,6 +40,7 @@ await describe("ts config", async () => {
       "no-use-before-define",
       "no-useless-constructor",
       "object-curly-spacing",
+      "only-throw-error", // this rule based on 'eslint/no-throw-literal'
       "padding-line-between-statements",
       "prefer-destructuring",
       "prefer-promise-reject-errors",
