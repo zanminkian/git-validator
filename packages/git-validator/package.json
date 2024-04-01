@@ -54,7 +54,7 @@
     "eslint": "8.57.0",
     "lilconfig": "3.1.1",
     "lint-staged": "15.2.2",
-    "minimatch": "9.0.3",
+    "minimatch": "9.0.4",
     "prettier": "3.2.5",
     "prettier-ignore": "workspace:^"
   },
