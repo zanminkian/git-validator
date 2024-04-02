@@ -1,7 +1,12 @@
-import semver from "semver";
-
 const messageId = "exactDependencyVersion";
 const message = "Dependency is expected an exact version";
+
+function valid(version) {
+  // https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
+  return /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/.test(
+    version,
+  );
+}
 
 function isExactVersion(version) {
   if (!version) {
@@ -10,7 +15,7 @@ function isExactVersion(version) {
   if (version.startsWith("workspace:")) {
     return true;
   }
-  return semver.valid(version) === version;
+  return valid(version);
 }
 
 export default {

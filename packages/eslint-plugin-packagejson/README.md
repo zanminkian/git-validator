@@ -12,6 +12,7 @@ ESlint plugin for linting package json.
 
 - Lint `package.json`s in your project.
 - Simple. Tiny. Fast.
+- Zero dependencies.
 
 ## Usage
 
@@ -52,7 +53,7 @@ export default [
       /**
        * The root package.json should specify `engines` field.
        */
-      "packagejson/required-repository": "error",
+      "packagejson/required-engines": "error",
       /**
        * Public package should specify its repository address.
        */

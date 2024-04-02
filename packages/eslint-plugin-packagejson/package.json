@@ -24,8 +24,5 @@
   "exports": "./src/index.js",
   "scripts": {
     "build": "tsc --noEmit -p tsconfig.build.json"
-  },
-  "dependencies": {
-    "semver": "7.6.0"
   }
 }
