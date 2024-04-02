@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.2.2
+
+### Patch Changes
+
+- c11f37c: feat: add `required-engines`
+
 ## 0.2.1
 
 ### Patch Changes
