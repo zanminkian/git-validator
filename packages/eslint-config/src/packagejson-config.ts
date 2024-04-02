@@ -11,6 +11,7 @@ export default {
     "packagejson/exact-dependency-version": "error",
     "packagejson/top-types": "error",
     "packagejson/private-workspace-root": "error",
+    "packagejson/required-engines": "error",
     "packagejson/required-repository": "error",
     "packagejson/type-module": "error",
     "packagejson/no-dependencies-in-workspace-root": "error",

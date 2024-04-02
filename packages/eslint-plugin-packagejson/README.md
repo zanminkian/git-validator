@@ -50,6 +50,10 @@ export default [
        */
       "packagejson/private-workspace-root": "error",
       /**
+       * The root package.json should specify `engines` field.
+       */
+      "packagejson/required-repository": "error",
+      /**
        * Public package should specify its repository address.
        */
       "packagejson/required-repository": "error",
