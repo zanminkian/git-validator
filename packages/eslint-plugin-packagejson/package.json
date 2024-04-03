@@ -24,5 +24,8 @@
   "exports": "./src/index.js",
   "scripts": {
     "build": "tsc --noEmit -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.2"
   }
 }

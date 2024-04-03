@@ -18,5 +18,8 @@
   "exports": "./dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.2"
   }
 }
