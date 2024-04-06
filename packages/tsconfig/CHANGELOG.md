@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.4.3
+
+### Patch Changes
+
+- 9293f05: fix(tsconfig): do not diff `exclude` and `outDir`
+
 ## 0.4.2
 
 ### Patch Changes
