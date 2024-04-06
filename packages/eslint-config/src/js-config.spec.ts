@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
-import config from "../dist/js-config.js";
+import config from "./js-config.js";
 
 await describe("js config", async () => {
   await it("js config value should be error", () => {

@@ -2,8 +2,8 @@ import assert from "node:assert";
 import fs from "node:fs/promises";
 import { describe, it } from "node:test";
 import prettier from "prettier";
-import jsConfig from "../dist/js-config.js";
-import tsConfig from "../dist/ts-config.js";
+import jsConfig from "../src/js-config.js";
+import tsConfig from "../src/ts-config.js";
 
 function count(content: string, substring: string) {
   return (content.match(new RegExp(`"${substring}"`, "g")) ?? []).length;

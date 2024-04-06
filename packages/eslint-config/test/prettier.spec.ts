@@ -1,9 +1,9 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
 import prettierConfig from "eslint-config-prettier";
-import jsConfig from "../dist/js-config.js";
-import packagejsonConfig from "../dist/packagejson-config.js";
-import tsConfig from "../dist/ts-config.js";
+import jsConfig from "../src/js-config.js";
+import packagejsonConfig from "../src/packagejson-config.js";
+import tsConfig from "../src/ts-config.js";
 
 await describe("prettier", async () => {
   await it("prettier config should be standard", () => {
