@@ -16,12 +16,11 @@ async function getProjectTsconfig() {
   ];
   const index = (
     await Promise.all(
-      tsconfigs.map(
-        async (config) =>
-          await fs
-            .access(path.join(process.cwd(), config))
-            .then(() => true)
-            .catch(() => false),
+      tsconfigs.map((config) =>
+        fs
+          .access(path.join(process.cwd(), config))
+          .then(() => true)
+          .catch(() => false),
       ),
     )
   ).findIndex(Boolean);
