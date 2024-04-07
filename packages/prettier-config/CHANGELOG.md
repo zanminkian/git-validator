@@ -1,5 +1,11 @@
 # @git-validator/prettier-config
 
+## 0.4.3
+
+### Patch Changes
+
+- d0dce38: chore: bump version
+
 ## 0.4.2
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.4.8
+
+### Patch Changes
+
+- d0dce38: chore: bump version
+- Updated dependencies [d0dce38]
+  - @git-validator/eslint-plugin@0.5.1
+  - @git-validator/eslint-plugin-packagejson@0.2.3
+
 ## 0.4.7
 
 ### Patch Changes

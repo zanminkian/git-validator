@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.2.3
+
+### Patch Changes
+
+- d0dce38: chore: bump version
+
 ## 0.2.2
 
 ### Patch Changes

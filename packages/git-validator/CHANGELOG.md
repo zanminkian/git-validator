@@ -1,5 +1,17 @@
 # git-validator
 
+## 0.15.12
+
+### Patch Changes
+
+- d0dce38: chore: bump version
+- 0dddf34: feat(git-validator): count for `export default` expressions
+- Updated dependencies [d0dce38]
+  - @git-validator/eslint-config@0.4.8
+  - @git-validator/prettier-config@0.4.3
+  - prettier-ignore@0.1.1
+  - @git-validator/tsconfig@0.4.4
+
 ## 0.15.11
 
 ### Patch Changes
