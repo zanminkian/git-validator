@@ -1,6 +1,6 @@
 {
   "name": "prettier-ignore",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Commonly ignore patterns for Prettier",
   "keywords": [
     "prettier",
