@@ -95,14 +95,16 @@ Here are the best practices if you are using this package.
 │   │   ├── test
 │   │   │   └── main.spec.ts
 │   │   ├── package.json
-│   │   └── tsconfig.build.json
+│   │   ├── tsconfig.build.json
+│   │   └── tsconfig.json
 │   └── app2
 │       ├── src
 │       │   └── main.ts
 │       ├── test
 │       │   └── main.spec.ts
 │       ├── package.json
-│       └── tsconfig.build.json
+│       ├── tsconfig.build.json
+│       └── tsconfig.json
 ├── package.json
 └── tsconfig.json
 ```
@@ -115,11 +117,19 @@ Here are the best practices if you are using this package.
 }
 ```
 
+#### tsconfig.json in each app
+
+```json
+{
+  "extends": "../../tsconfig"
+}
+```
+
 #### tsconfig.build.json in each app
 
 ```json
 {
-  "extends": "../../tsconfig",
+  "extends": "./tsconfig",
   "include": ["src"],
   "exclude": ["**/*.spec.ts", "**/*.test.ts"],
   "compilerOptions": {
