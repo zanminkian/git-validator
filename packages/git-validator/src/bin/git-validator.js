@@ -99,6 +99,9 @@ program
       analysis.instanceofOperators.forEach((i) => {
         console.log("Instanceof Operator", i);
       });
+      analysis.exportDefaults.forEach((i) => {
+        console.log("Export Default", i);
+      });
       analysis.nodeProtocolImports.forEach((i) => {
         console.log("Node Protocol Import", i);
       });
@@ -125,7 +128,11 @@ program
       "Import Expressions": analysis.importExpressions.length,
       "Instanceof Operators": analysis.instanceofOperators.length,
     });
-    console.log("4. Cross-platform issues count:");
+    console.log("4. Module interop issues count:");
+    console.table({
+      "Export Defaults": analysis.exportDefaults.length,
+    });
+    console.log("5. Cross-platform issues count:");
     console.table({
       "Node Protocol Imports": analysis.nodeProtocolImports.length,
       "Meta Properties": analysis.metaProperties.length,

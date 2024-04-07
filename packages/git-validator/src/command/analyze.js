@@ -39,6 +39,8 @@ async function getAnalysis(filepath) {
     /** @type {{start:{line:number,column:number}}[]} */
     instanceofOperators: [],
     /** @type {{start:{line:number,column:number}}[]} */
+    exportDefaults: [],
+    /** @type {{start:{line:number,column:number}}[]} */
     nodeProtocolImports: [],
     /** @type {{start:{line:number,column:number}}[]} */
     metaProperties: [],
@@ -92,6 +94,9 @@ async function getAnalysis(filepath) {
         if (node.operator === "instanceof") {
           result.instanceofOperators.push(node.loc);
         }
+        break;
+      case "ExportDefaultDeclaration":
+        result.exportDefaults.push(node.loc);
         break;
       case "VariableDeclarator":
         if (
@@ -187,6 +192,7 @@ export async function analyze(dir = process.cwd()) {
     /** @type {string[]} */ renamedImports: [],
     /** @type {string[]} */ importExpressions: [],
     /** @type {string[]} */ instanceofOperators: [],
+    /** @type {string[]} */ exportDefaults: [],
     /** @type {string[]} */ nodeProtocolImports: [],
     /** @type {string[]} */ metaProperties: [],
     codeLines: 0,
@@ -226,6 +232,11 @@ export async function analyze(dir = process.cwd()) {
       );
       result.instanceofOperators.push(
         ...analysis.instanceofOperators.map(
+          (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
+        ),
+      );
+      result.exportDefaults.push(
+        ...analysis.exportDefaults.map(
           (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
         ),
       );
