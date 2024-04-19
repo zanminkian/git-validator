@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.4.9
+
+### Patch Changes
+
+- 7227983: feat(eslint-config): disable `no-floating-promise` in test file
+
 ## 0.4.8
 
 ### Patch Changes
