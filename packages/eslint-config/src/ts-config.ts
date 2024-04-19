@@ -236,11 +236,15 @@ const testConfig = {
   ],
   rules: {
     ...mainConfig.rules,
+    "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/unbound-method": "off",
   },
 };
 
-const config: Array<typeof mainConfig> = [mainConfig, testConfig];
-const empty: Array<typeof mainConfig> = [];
+const config: Array<typeof mainConfig | typeof testConfig> = [
+  mainConfig,
+  testConfig,
+];
+const empty: Array<typeof mainConfig | typeof testConfig> = [];
 
 export default tsconfig ? config : empty;
