@@ -24,7 +24,7 @@ async function globallyIgnore() {
 const ignore = await globallyIgnore();
 const config = [jsConfig, ...tsConfig, packagejsonConfig] satisfies Array<{
   files: string[];
-  plugins: Record<string, unknown>;
+  plugins?: Record<string, unknown>;
   rules: Record<string, unknown>;
 }>;
 

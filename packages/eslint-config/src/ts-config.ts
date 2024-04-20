@@ -228,14 +228,12 @@ const mainConfig = {
 };
 
 const testConfig = {
-  ...mainConfig,
   // https://github.com/motemen/minimatch-cheat-sheet
   files: [
     "**/__tests__/**/*.{ts,cts,mts,tsx}",
     "**/*.{test,spec}.{ts,cts,mts,tsx}",
   ],
   rules: {
-    ...mainConfig.rules,
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/unbound-method": "off",
   },
