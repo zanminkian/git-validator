@@ -13,6 +13,7 @@ const requireResolve = createRequire(import.meta.url).resolve;
  * @param {{update?: boolean, write?: boolean}} options
  */
 export async function format(paths = [], options = {}) {
+  console.time("Format");
   const { update, write } = options;
   const shouldWrite = update || write;
 
@@ -45,8 +46,10 @@ export async function format(paths = [], options = {}) {
     ],
     { stdio: "inherit" },
   );
-  return await new Promise((resolve, reject) => {
+  const result = await new Promise((resolve, reject) => {
     child.on("error", (err) => reject(err));
     child.on("close", (code, signal) => resolve({ code, signal }));
   });
+  console.timeEnd("Format");
+  return result;
 }

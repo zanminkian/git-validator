@@ -12,6 +12,7 @@ const requireResolve = createRequire(import.meta.url).resolve;
  * @param {{update?: boolean, fix?: boolean}} options
  */
 export async function lint(paths = [], options = {}) {
+  console.time("Lint");
   const { update, fix } = options;
   const shouldFix = update || fix;
 
@@ -40,8 +41,10 @@ export async function lint(paths = [], options = {}) {
       stdio: "inherit",
     },
   );
-  return await new Promise((resolve, reject) => {
+  const result = await new Promise((resolve, reject) => {
     child.on("error", (err) => reject(err));
     child.on("close", (code, signal) => resolve({ code, signal }));
   });
+  console.timeEnd("Lint");
+  return result;
 }
