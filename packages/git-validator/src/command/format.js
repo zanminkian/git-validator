@@ -1,5 +1,5 @@
 // @ts-check
-import { spawn } from "node:child_process";
+import childProcess from "node:child_process";
 import { createRequire } from "node:module";
 import path from "node:path";
 import process from "node:process";
@@ -32,7 +32,7 @@ export async function format(paths = [], options = {}) {
     (await resolveConfig("prettier"))?.filepath ??
     requireResolve("@git-validator/prettier-config");
 
-  const child = spawn(
+  const child = childProcess.spawn(
     "node",
     [
       path.join(dir(import.meta.url), "..", "bin", "prettier.js"),

@@ -351,7 +351,19 @@ export default {
       "error",
       { cases: { kebabCase: true, pascalCase: true } },
     ],
-    "unicorn/import-style": "error",
+    "unicorn/import-style": [
+      "error",
+      {
+        styles: {
+          fs: { default: true },
+          process: { default: true },
+          child_process: { default: true },
+          "node:fs": { default: true },
+          "node:process": { default: true },
+          "node:child_process": { default: true },
+        },
+      },
+    ],
     "unicorn/new-for-builtins": "error",
     "unicorn/no-abusive-eslint-disable": "error",
     "unicorn/no-array-callback-reference": "error",

@@ -1,5 +1,5 @@
 // @ts-check
-import { spawn } from "node:child_process";
+import childProcess from "node:child_process";
 import { createRequire } from "node:module";
 import path from "node:path";
 import process from "node:process";
@@ -27,7 +27,7 @@ export async function lint(paths = [], options = {}) {
   }
 
   console.log("Checking linting...");
-  const child = spawn(
+  const child = childProcess.spawn(
     "node",
     [
       path.join(dir(import.meta.url), "..", "bin", "eslint.js"),
