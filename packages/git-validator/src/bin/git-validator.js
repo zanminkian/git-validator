@@ -78,7 +78,7 @@ program
   .command("analyze")
   .description("analyze js/ts project quality and print the report")
   .option("-d, --detail", "show analysis detail")
-  .argument("[path]", "directory path storing js/ts files", ".")
+  .argument("[path]", "directory or file path. support globby pattern", ".")
   .action(async (path, options) => {
     const analysis = await analyze(path);
     if (options.detail) {

@@ -1,10 +1,7 @@
 // @ts-check
 // TODO move this logic to another package
 import fs from "node:fs/promises";
-import path from "node:path";
-import process from "node:process";
-import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
-import { minimatch } from "minimatch";
+import { globby } from "globby";
 
 /**
  * @param {string} file
@@ -139,52 +136,20 @@ async function getAnalysis(filepath) {
 }
 
 /**
- * @param {string} dir absolute directory path
- * @param {string[]} ignorePatterns
+ * @param {string} pattern
  * @param {(file: string)=>Promise<void>} cb
  */
-async function walkDir(dir, ignorePatterns, cb) {
-  /**
-   * @type {(filepath: string)=>boolean}
-   */
-  const ignoreDir = (filepath) =>
-    filepath.includes(`${path.sep}.git${path.sep}`) ||
-    filepath.includes(`${path.sep}node_modules${path.sep}`) ||
-    ignorePatterns.some((pattern) => minimatch(filepath, pattern));
-
-  /**
-   * @type {(filepath: string)=>boolean}
-   */
-  const ignoreFile = (filepath) =>
-    (!isTs(filepath) && !isJs(filepath)) || ignoreDir(filepath);
-
-  const promises = (await fs.readdir(dir))
-    .map((filepath) => path.resolve(dir, filepath))
-    .map(async (filepath) => {
-      if ((await fs.stat(filepath)).isDirectory()) {
-        if (!ignoreDir(filepath)) {
-          await walkDir(filepath, ignorePatterns, cb);
-        }
-      } else {
-        if (!ignoreFile(filepath)) {
-          await cb(filepath);
-        }
-      }
-    });
+async function walkDir(pattern, cb) {
+  const promises = (await globby(pattern, { absolute: true, gitignore: true }))
+    .filter((filePath) => isJs(filePath) || isTs(filePath))
+    .map((filePath) => cb(filePath));
   await Promise.all(promises);
 }
 
-export async function analyze(dir = process.cwd()) {
-  dir = path.resolve(process.cwd(), dir);
-  const ignores = (
-    await fs.readFile(path.resolve(dir, ".gitignore"), "utf-8").catch(() => "")
-  )
-    .split("\n")
-    .map((i) => i.trim())
-    .filter(Boolean)
-    .filter((i) => !i.startsWith("#"))
-    .map((i) => gitignoreToMinimatch(i));
-
+/**
+ * @param {string} pattern
+ */
+export async function analyze(pattern) {
   const result = {
     /** @type {string[]} */ anyTypes: [],
     /** @type {string[]} */ assertions: [],
@@ -201,7 +166,7 @@ export async function analyze(dir = process.cwd()) {
     analyzedFiles: 0,
   };
 
-  await walkDir(dir, ignores, async (file) => {
+  await walkDir(pattern, async (file) => {
     try {
       const analysis = await getAnalysis(file);
 
