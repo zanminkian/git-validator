@@ -137,10 +137,17 @@ async function getAnalysis(filepath) {
 
 /**
  * @param {string} pattern
+ * @param {string|undefined} ignore
  * @param {(file: string)=>Promise<void>} cb
  */
-async function walkDir(pattern, cb) {
-  const promises = (await globby(pattern, { absolute: true, gitignore: true }))
+async function walkDir(pattern, ignore, cb) {
+  const promises = (
+    await globby(pattern, {
+      absolute: true,
+      gitignore: true,
+      ...(!!ignore && { ignore: [ignore] }),
+    })
+  )
     .filter((filePath) => isJs(filePath) || isTs(filePath))
     .map((filePath) => cb(filePath));
   await Promise.all(promises);
@@ -148,8 +155,9 @@ async function walkDir(pattern, cb) {
 
 /**
  * @param {string} pattern
+ * @param {string|undefined} ignore
  */
-export async function analyze(pattern) {
+export async function analyze(pattern, ignore) {
   const result = {
     /** @type {string[]} */ anyTypes: [],
     /** @type {string[]} */ assertions: [],
@@ -166,7 +174,7 @@ export async function analyze(pattern) {
     analyzedFiles: 0,
   };
 
-  await walkDir(pattern, async (file) => {
+  await walkDir(pattern, ignore, async (file) => {
     try {
       const analysis = await getAnalysis(file);
 

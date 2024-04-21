@@ -78,9 +78,13 @@ program
   .command("analyze")
   .description("analyze js/ts project quality and print the report")
   .option("-d, --detail", "show analysis detail")
+  .option(
+    "-i, --ignore <path>",
+    "ignore directory or file path. support globby pattern",
+  )
   .argument("[path]", "directory or file path. support globby pattern", ".")
   .action(async (path, options) => {
-    const analysis = await analyze(path);
+    const analysis = await analyze(path, options.ignore);
     if (options.detail) {
       analysis.anyTypes.forEach((i) => {
         console.log("Any Type", i);
