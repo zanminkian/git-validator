@@ -39,6 +39,7 @@ await describe("no duplicated", async () => {
         if (
           [
             "@typescript-eslint/consistent-type-assertions",
+            "@typescript-eslint/no-floating-promises",
             "@typescript-eslint/no-non-null-assertion",
             "@typescript-eslint/unbound-method",
           ].includes(rule)

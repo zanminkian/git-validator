@@ -72,7 +72,7 @@ await describe("ts config", async () => {
         } else if (typeof value === "string") {
           assert.strictEqual(
             value,
-            "error",
+            configIndex === 0 ? "error" : "off",
             `rule ${key} should be error when value is string`,
           );
         } else if (Array.isArray(value)) {

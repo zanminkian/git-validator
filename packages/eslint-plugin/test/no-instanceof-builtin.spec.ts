@@ -1,5 +1,6 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
+// eslint-disable-next-line unicorn/import-style
 import types from "node:util/types";
 
 await describe("no-instanceof-builtin", async () => {
