@@ -1,5 +1,17 @@
 # @git-validator/eslint-config
 
+## 0.4.10
+
+### Patch Changes
+
+- 991e9f3: feat(eslint-config): fs,process,child_process should be named imported
+- ab8226c: chore: upgrade deps
+- 298a933: refactor(eslint-config): optimize ts test config
+- 1dbaf24: feat(eslint-config): restrict the import style of `fs/promises` and `util/types`
+- Updated dependencies [ab8226c]
+  - @git-validator/eslint-plugin-packagejson@0.2.4
+  - @git-validator/eslint-plugin@0.5.2
+
 ## 0.4.9
 
 ### Patch Changes

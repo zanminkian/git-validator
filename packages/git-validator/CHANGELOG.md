@@ -1,5 +1,26 @@
 # git-validator
 
+## 0.16.0
+
+### Minor Changes
+
+- 40a591c: feat(git-validator)!: `git-validator -u` do `format` -> `lint` -> `format`
+- bb7f060: feat(git-validator): support globby patter on analyzing command
+
+### Patch Changes
+
+- da4320c: feat(git-validator): support ignore on analyze command
+- 0bc27cd: feat(git-validator): print costed time after formatting or linting
+- ab8226c: chore: upgrade deps
+- Updated dependencies [991e9f3]
+- Updated dependencies [ab8226c]
+- Updated dependencies [298a933]
+- Updated dependencies [1dbaf24]
+  - @git-validator/eslint-config@0.4.10
+  - @git-validator/prettier-config@0.4.4
+  - prettier-ignore@0.1.2
+  - @git-validator/tsconfig@0.4.5
+
 ## 0.15.13
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.5.2
+
+### Patch Changes
+
+- ab8226c: chore: upgrade deps
+
 ## 0.5.1
 
 ### Patch Changes
