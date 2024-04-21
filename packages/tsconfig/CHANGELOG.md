@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.4.5
+
+### Patch Changes
+
+- ab8226c: chore: upgrade deps
+
 ## 0.4.4
 
 ### Patch Changes
