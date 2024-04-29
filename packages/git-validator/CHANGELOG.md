@@ -1,5 +1,14 @@
 # git-validator
 
+## 0.16.1
+
+### Patch Changes
+
+- 28f95d7: chore: upgrade deps
+- 2fa96b3: perf(git-validator): optimize lint-staged config
+- Updated dependencies [28f95d7]
+  - @git-validator/eslint-config@0.4.11
+
 ## 0.16.0
 
 ### Minor Changes
