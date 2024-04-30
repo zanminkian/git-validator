@@ -5,6 +5,7 @@
 [![](https://img.shields.io/npm/dm/@git-validator/eslint-config.svg)](https://www.npmjs.com/package/@git-validator/eslint-config)
 [![](https://img.shields.io/librariesio/release/npm/@git-validator/eslint-config)](https://www.npmjs.com/package/@git-validator/eslint-config)
 [![](https://packagephobia.com/badge?p=@git-validator/eslint-config)](https://packagephobia.com/result?p=@git-validator/eslint-config)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
 
 A strict eslint config for better code quality. Based on [standard.js](https://github.com/standard/standard) without any stylistic opinions.
 

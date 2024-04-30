@@ -5,6 +5,7 @@
 [![](https://img.shields.io/npm/dm/@git-validator/eslint-plugin-packagejson.svg)](https://www.npmjs.com/package/@git-validator/eslint-plugin-packagejson)
 [![](https://img.shields.io/librariesio/release/npm/@git-validator/eslint-plugin-packagejson)](https://www.npmjs.com/package/@git-validator/eslint-plugin-packagejson)
 [![](https://packagephobia.com/badge?p=@git-validator/eslint-plugin-packagejson)](https://packagephobia.com/result?p=@git-validator/eslint-plugin-packagejson)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
 
 ESlint plugin for linting package json.
 
