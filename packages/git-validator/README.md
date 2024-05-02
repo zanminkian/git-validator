@@ -13,15 +13,12 @@
 <a href="https://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"/></a>
 </p>
 
-## What is it
+## Features
 
-This is a cli tool for:
-
-- checking `js`/`jsx`/`ts`/`tsx` code style
-- blocking smelly commit messages when committing code
-- setting up git hooks to block 💩 slipping into your code base
-
-In short, this is an all-in-one tool for code quality. In other words, this is a **great alternative** to [standard](https://www.npmjs.com/package/standard) and [xo](https://www.npmjs.com/package/xo).
+- Check code style (using ESLint and Prettier under the hood).
+- Check git commit message (using commitlint under the hood).
+- Set up git hooks to automatically check code style and commit message.
+- Analyze project code quality (using `npx git-validator analyze -d`).
 
 ## Highlights
 
@@ -36,13 +33,13 @@ In short, this is an all-in-one tool for code quality. In other words, this is a
 
 ## Quick Start
 
-Run this command in your project directory to lint code.
+Run this command in your project to check code.
 
 ```sh
 npx git-validator
 ```
 
-Usually, we recommend you to install it and set it up in your project. Please continue reading the doc below.
+Usually, we recommend you to install it and set it up in your project. Please continue reading the document below.
 
 ## Install
 
@@ -91,7 +88,7 @@ For more best practices, please refer to the [document](https://www.npmjs.com/pa
 
 ### CLI
 
-There are some convenient built-in commands for you to lint and format code (using eslint and prettier under the hood). You can run `npx git-validator -h` for more details.
+There are some convenient built-in commands to lint and format code (using eslint and prettier under the hood). You can run `npx git-validator -h` for more details.
 
 ```
 Usage: git-validator [options] [command] [paths...]
@@ -145,7 +142,7 @@ export default {
 };
 ```
 
-By default, you don't need `.eslintignore` and `.prettierignore` files in the root of project. But you can still add them to ignore some files when linting or formatting.
+By default, you don't need `.eslintignore` and `.prettierignore` files in the root of project.
 
 > We recommend you to use this tool in zero configs. If you have better suggestions about linting and formatting rules, please submit the issue or PR. Any reasonable suggestions are welcome!
 

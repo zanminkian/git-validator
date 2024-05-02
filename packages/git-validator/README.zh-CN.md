@@ -13,15 +13,12 @@
 <a href="https://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"/></a>
 </p>
 
-## 这是什么
+## 特性
 
-这是一个 cli 工具，用于：
-
-- 检查 `js`/`jsx`/`ts`/`tsx` 的代码风格
-- 规范 git 提交信息
-- 设置 git hooks 来阻止垃圾代码提交
-
-简而言之, 这是一个 all-in-one 的用于提升代码质量的工具。换句话说，这是 [standard](https://www.npmjs.com/package/standard) 和 [xo](https://www.npmjs.com/package/xo) 的**绝佳替代方案**。
+- 检查代码风格（底层使用 ESLint 和 Prettier）。
+- 检查 Git 提交信息（底层使用 commitlint）。
+- 设置 Git 钩子，用于自动检查代码风格和提交信息。
+- 分析项目的代码质量（只需运行 `npx git-validator analyze -d`）。
 
 ## 亮点
 
@@ -145,7 +142,7 @@ export default {
 };
 ```
 
-默认情况下，你项目的根目录不需要有 `.eslintignore` 和 `.prettierignore` 文件。但是你仍然可以自行添加这两个文件来忽略你不想要被 lint 或 format 的文件。
+默认情况下，你项目的根目录不需要有 `.eslintignore` 和 `.prettierignore` 文件。
 
 > 我们推荐你零配置地使用这个工具。如果你有更好的关于 lint 或 format 的建议，请提交 issue 或者 PR。欢迎任何合理的建议！
 
