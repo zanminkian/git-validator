@@ -56,12 +56,12 @@ pnpm add -D git-validator
 
 ### 基础用法
 
-编辑 `package.json > postinstall` 脚本，然后运行一次。
+编辑 `package.json > prepare` 脚本，然后运行一次。
 
 ```json
 {
   "scripts": {
-    "postinstall": "git-validator install",
+    "prepare": "git-validator install",
     "style": "git-validator", // 运行这个命令可以检查整个项目的代码风格
     "style:update": "git-validator -u" // 运行这个命令可以检查整个项目的代码风格，并自动改正
   }
@@ -69,7 +69,7 @@ pnpm add -D git-validator
 ```
 
 ```sh
-pnpm run postinstall
+pnpm run prepare
 ```
 
 现在，你可以在你的项目中提交你的代码（用 Git）。任何不规范的代码和提交信息都会被自动阻止。
@@ -193,7 +193,7 @@ export default {
 ```json
 {
   "scripts": {
-    "postinstall": "git-validator install --pre-push 'npm run test'"
+    "prepare": "git-validator install --pre-push 'npm run test'"
   }
 }
 ```
@@ -205,7 +205,7 @@ export default {
 ```json
 {
   "scripts": {
-    "postinstall": "git-validator install --no-commit-msg"
+    "prepare": "git-validator install --no-commit-msg"
   }
 }
 ```
@@ -218,7 +218,7 @@ export default {
 {
   "scripts": {
     // 当你提交代码时，这将不会 lint 你的代码，只会 format 你的代码
-    "postinstall": "git-validator install --no-eslint",
+    "prepare": "git-validator install --no-eslint",
     "format": "git-validator format",
     "format:update": "git-validator format -u"
   }
@@ -229,7 +229,7 @@ export default {
 {
   "scripts": {
     // 当你提交代码时，这将不会 format 你的代码，只会 lint 你的代码
-    "postinstall": "git-validator install --no-prettier",
+    "prepare": "git-validator install --no-prettier",
     "lint": "git-validator lint",
     "lint:update": "git-validator lint -u"
   }

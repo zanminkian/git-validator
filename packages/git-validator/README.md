@@ -56,12 +56,12 @@ pnpm add -D git-validator
 
 ### Basic
 
-Edit `package.json > postinstall` script and run it once.
+Edit `package.json > prepare` script and run it once.
 
 ```json
 {
   "scripts": {
-    "postinstall": "git-validator install",
+    "prepare": "git-validator install",
     "style": "git-validator", // Run this to check the whole project code style
     "style:update": "git-validator -u" // Run this to check the whole project code style and apply fixes
   }
@@ -69,7 +69,7 @@ Edit `package.json > postinstall` script and run it once.
 ```
 
 ```sh
-pnpm run postinstall
+pnpm run prepare
 ```
 
 Now you can commit code (using Git) to your project. Invalid code or commit messages will be automatically blocked.
@@ -193,7 +193,7 @@ Running `git-validator install` writes `commit-msg` and `pre-commit` files only.
 ```json
 {
   "scripts": {
-    "postinstall": "git-validator install --pre-push 'npm run test'"
+    "prepare": "git-validator install --pre-push 'npm run test'"
   }
 }
 ```
@@ -205,7 +205,7 @@ If you don't want to check git commit messages, adding the `--no-commit-msg` opt
 ```json
 {
   "scripts": {
-    "postinstall": "git-validator install --no-commit-msg"
+    "prepare": "git-validator install --no-commit-msg"
   }
 }
 ```
@@ -218,7 +218,7 @@ When you commit you code, it will lint (using `eslint`) code first and then form
 {
   "scripts": {
     // it will not lint code and will only format code when you commit your code
-    "postinstall": "git-validator install --no-eslint",
+    "prepare": "git-validator install --no-eslint",
     "format": "git-validator format",
     "format:update": "git-validator format -u"
   }
@@ -229,7 +229,7 @@ When you commit you code, it will lint (using `eslint`) code first and then form
 {
   "scripts": {
     // it will not format code and will only lint code when you commit your code
-    "postinstall": "git-validator install --no-prettier",
+    "prepare": "git-validator install --no-prettier",
     "lint": "git-validator lint",
     "lint:update": "git-validator lint -u"
   }
