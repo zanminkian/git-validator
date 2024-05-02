@@ -2,6 +2,7 @@ import { processor } from "./processor.js";
 import bottomDefault from "./rules/bottom-default.js";
 import exactDependencyVersion from "./rules/exact-dependency-version.js";
 import noDependenciesInWorkspaceRoot from "./rules/no-dependencies-in-workspace-root.js";
+import noLifecycleScript from "./rules/no-lifecycle-script.js";
 import privateWorkspaceRoot from "./rules/private-workspace-root.js";
 import requiredEngines from "./rules/required-engines.js";
 import requiredRepository from "./rules/required-repository.js";
@@ -16,6 +17,7 @@ export default {
     "exact-dependency-version": exactDependencyVersion,
     "type-module": typeModule,
     "no-dependencies-in-workspace-root": noDependenciesInWorkspaceRoot,
+    "no-lifecycle-script": noLifecycleScript,
     "top-types": topTypes,
     "private-workspace-root": privateWorkspaceRoot,
     "required-engines": requiredEngines,
