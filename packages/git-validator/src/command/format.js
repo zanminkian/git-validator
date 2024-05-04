@@ -33,15 +33,17 @@ export async function format(paths = [], options = {}) {
     (await resolveConfig("prettier"))?.filepath ??
     requireResolve("@git-validator/prettier-config");
 
+  console.log("Checking formatting...");
   const child = childProcess.spawn(
     "node",
     [
       path.join(dir(import.meta.url), "..", "bin", "prettier.js"),
-      "--check",
+      "--log-level",
+      "warn",
       ...ignores,
       "--config",
       configPath,
-      ...(shouldWrite ? ["--write"] : []),
+      ...(shouldWrite ? ["--write"] : ["--check"]),
       ...ps,
     ],
     { stdio: "inherit" },
