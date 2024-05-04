@@ -1,5 +1,11 @@
 # prettier-ignore
 
+## 0.1.3
+
+### Patch Changes
+
+- 07366db: chore: upgrade deps
+
 ## 0.1.2
 
 ### Patch Changes
