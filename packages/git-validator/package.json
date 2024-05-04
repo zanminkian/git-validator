@@ -48,7 +48,7 @@
     "@git-validator/eslint-config": "workspace:^",
     "@git-validator/prettier-config": "workspace:^",
     "@git-validator/tsconfig": "workspace:^",
-    "@typescript-eslint/typescript-estree": "7.7.1",
+    "@typescript-eslint/typescript-estree": "7.8.0",
     "commander": "12.0.0",
     "eslint": "8.57.0",
     "globby": "14.0.1",
@@ -58,7 +58,7 @@
     "prettier-ignore": "workspace:^"
   },
   "devDependencies": {
-    "@types/node": "20.12.7"
+    "@types/node": "20.12.8"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
