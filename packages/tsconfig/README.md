@@ -5,7 +5,6 @@ Strict shared tsconfig out-of-box
 [![](https://img.shields.io/npm/l/@git-validator/tsconfig.svg)](https://github.com/zanminkian/git-validator/blob/main/LICENSE)
 [![](https://img.shields.io/npm/v/@git-validator/tsconfig.svg)](https://www.npmjs.com/package/@git-validator/tsconfig)
 [![](https://img.shields.io/npm/dm/@git-validator/tsconfig.svg)](https://www.npmjs.com/package/@git-validator/tsconfig)
-[![](https://img.shields.io/librariesio/release/npm/@git-validator/tsconfig)](https://www.npmjs.com/package/@git-validator/tsconfig)
 [![](https://packagephobia.com/badge?p=@git-validator/tsconfig)](https://packagephobia.com/result?p=@git-validator/tsconfig)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
 
