@@ -1,5 +1,12 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.2.5
+
+### Patch Changes
+
+- de7e7a9: feat: no lifecycle script
+- 07366db: chore: upgrade deps
+
 ## 0.2.4
 
 ### Patch Changes

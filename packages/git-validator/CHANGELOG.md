@@ -1,5 +1,22 @@
 # git-validator
 
+## 0.17.0
+
+### Minor Changes
+
+- 4635ad8: fix: do not update via linting on pre-commit stage
+
+### Patch Changes
+
+- dccb700: feat(git-validator): make formatter logger more silent
+- 07366db: chore: upgrade deps
+- Updated dependencies [de7e7a9]
+- Updated dependencies [07366db]
+  - @git-validator/eslint-config@0.4.12
+  - @git-validator/prettier-config@0.4.5
+  - prettier-ignore@0.1.3
+  - @git-validator/tsconfig@0.4.6
+
 ## 0.16.1
 
 ### Patch Changes

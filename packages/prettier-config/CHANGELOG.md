@@ -1,5 +1,11 @@
 # @git-validator/prettier-config
 
+## 0.4.5
+
+### Patch Changes
+
+- 07366db: chore: upgrade deps
+
 ## 0.4.4
 
 ### Patch Changes
