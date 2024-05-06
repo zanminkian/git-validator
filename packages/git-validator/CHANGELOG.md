@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.17.1
+
+### Patch Changes
+
+- 14da17b: fix(git-validator): ignore unknown for formatter, align with linter
+
 ## 0.17.0
 
 ### Minor Changes
