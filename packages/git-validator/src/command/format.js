@@ -43,6 +43,7 @@ export async function format(paths = [], options = {}) {
       ...ignores,
       "--config",
       configPath,
+      "--ignore-unknown",
       ...(shouldWrite ? ["--write"] : ["--check"]),
       ...ps,
     ],
