@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.4.13
+
+### Patch Changes
+
+- a3dfa23: feat(eslint-config): add `@typescript-eslint/dot-notation` for ts
+
 ## 0.4.12
 
 ### Patch Changes
