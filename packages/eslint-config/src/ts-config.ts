@@ -170,6 +170,7 @@ const mainConfig = {
     ],
     "@typescript-eslint/consistent-type-exports": "error",
     // "@typescript-eslint/consistent-type-imports": "error,
+    "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
     "@typescript-eslint/method-signature-style": "error",
     "@typescript-eslint/naming-convention": [
       "error",
