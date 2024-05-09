@@ -3,14 +3,21 @@ import jsConfig from "./js-config.js";
 import packagejsonConfig from "./packagejson-config.js";
 import tsConfig from "./ts-config.js";
 
-const config = [jsConfig, ...tsConfig, packagejsonConfig] satisfies Array<{
-  files: string[];
+const config = [
+  gitignoreConfig,
+  jsConfig,
+  ...tsConfig,
+  packagejsonConfig,
+] satisfies Array<{
+  ignores?: string[];
+  files?: string[];
   plugins?: Record<string, unknown>;
-  rules: Record<string, unknown>;
+  rules?: Record<string, unknown>;
 }>;
 
 type Keyof<T> = T extends infer U ? keyof U : never;
-type Key = Keyof<(typeof config)[number]["rules"]>;
+type GetRules<T> = T extends { rules: unknown } ? T["rules"] : never;
+type Key = Keyof<GetRules<(typeof config)[number]>>;
 type NoDuplicate<A extends unknown[]> = {
   [I in keyof A]: true extends {
     [J in keyof A]: J extends I ? false : A[J] extends A[I] ? true : false;
@@ -31,15 +38,14 @@ function factory(type: "pick" | "omit") {
       }
     };
 
-    return [
-      gitignoreConfig,
-      ...config.map((configItem) => ({
-        ...configItem,
+    return config.map((configItem) => ({
+      ...configItem,
+      ...("rules" in configItem && {
         rules: Object.fromEntries(
           Object.entries(configItem.rules).filter(([k]) => find(k)),
         ),
-      })),
-    ];
+      }),
+    }));
   };
 }
 
@@ -47,4 +53,4 @@ export const pick = <T extends Key[]>(rules: NoDuplicateArray<T>) =>
   factory("pick")(rules);
 export const omit = <T extends Key[]>(rules: NoDuplicateArray<T>) =>
   factory("omit")(rules);
-export default [gitignoreConfig, ...config];
+export default config;
