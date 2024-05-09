@@ -1,27 +1,8 @@
-import fs from "node:fs/promises";
-import path from "node:path";
-import process from "node:process";
-import { gitignoreToMinimatch } from "@humanwhocodes/gitignore-to-minimatch";
+import gitignoreConfig from "./gitignore-config.js";
 import jsConfig from "./js-config.js";
 import packagejsonConfig from "./packagejson-config.js";
 import tsConfig from "./ts-config.js";
 
-async function globallyIgnore() {
-  const ignores = (
-    await fs
-      .readFile(path.resolve(process.cwd(), ".gitignore"), "utf-8")
-      .catch(() => "")
-  )
-    .split("\n")
-    .map((i) => i.trim())
-    .filter(Boolean)
-    .filter((i) => !i.startsWith("#"))
-    .map((i) => gitignoreToMinimatch(i));
-  // Globally ignore. https://eslint.org/docs/latest/use/configure/configuration-files-new#globally-ignoring-files-with-ignores
-  return { ignores };
-}
-
-const ignore = await globallyIgnore();
 const config = [jsConfig, ...tsConfig, packagejsonConfig] satisfies Array<{
   files: string[];
   plugins?: Record<string, unknown>;
@@ -51,7 +32,7 @@ function factory(type: "pick" | "omit") {
     };
 
     return [
-      ignore,
+      gitignoreConfig,
       ...config.map((configItem) => ({
         ...configItem,
         rules: Object.fromEntries(
@@ -66,4 +47,4 @@ export const pick = <T extends Key[]>(rules: NoDuplicateArray<T>) =>
   factory("pick")(rules);
 export const omit = <T extends Key[]>(rules: NoDuplicateArray<T>) =>
   factory("omit")(rules);
-export default [ignore, ...config];
+export default [gitignoreConfig, ...config];
