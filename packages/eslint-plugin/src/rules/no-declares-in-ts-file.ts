@@ -1,3 +1,4 @@
+import type { TSESTree } from "@typescript-eslint/utils";
 import { createSimpleRule } from "../utils.js";
 
 export default createSimpleRule({
@@ -9,8 +10,8 @@ export default createSimpleRule({
       return {};
     }
     return {
-      "[declare=true]": (node) => {
-        if (node["type"] === "PropertyDefinition") {
+      "[declare=true]": (node: TSESTree.Node) => {
+        if (node.type === "PropertyDefinition") {
           return;
         }
         context.reportNode(node);
