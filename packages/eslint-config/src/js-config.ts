@@ -311,6 +311,26 @@ export default {
     "no-invalid-this": "error",
     "no-multi-assign": "error",
     "no-plusplus": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        patterns: [
+          {
+            group: ["**/node_modules/**"],
+            message: "Do not import module from a node_modules path",
+          },
+          {
+            group: ["js", "ts"].flatMap((js) => [
+              `*.d.${js}`,
+              `*.d.c${js}`,
+              `*.d.m${js}`,
+              `*.d.${js}x`,
+            ]),
+            message: "Do not import from a declaration file",
+          },
+        ],
+      },
+    ],
     "no-shadow": ["error", { ignoreOnInitialization: true }],
     "no-unused-private-class-members": "error",
     "prefer-exponentiation-operator": "error",
