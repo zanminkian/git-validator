@@ -404,7 +404,6 @@ export default {
     "unicorn/throw-new-error": "error",
 
     "@git-validator/ban-ts-comment": "error",
-    "@git-validator/import-regex": "error",
     "@git-validator/new-parens": "error",
     "@git-validator/no-dynamic-import": "error",
     "@git-validator/no-for-in": "error",
