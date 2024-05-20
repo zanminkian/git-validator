@@ -1,5 +1,16 @@
 # git-validator
 
+## 0.17.4
+
+### Patch Changes
+
+- 7cdfe03: fix(git-validator): resolve config from cwd
+- 9ff6df9: chore: upgrade deps
+- Updated dependencies [4e8e7b4]
+- Updated dependencies [9ff6df9]
+  - @git-validator/eslint-config@0.4.15
+  - @git-validator/tsconfig@0.4.7
+
 ## 0.17.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.6.1
+
+### Patch Changes
+
+- 9ff6df9: chore: upgrade deps
+
 ## 0.6.0
 
 ### Minor Changes
