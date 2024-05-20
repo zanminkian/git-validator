@@ -26,6 +26,6 @@
     "build": "tsc --noEmit -p tsconfig.build.json"
   },
   "devDependencies": {
-    "@types/node": "20.12.8"
+    "@types/node": "20.12.12"
   }
 }
