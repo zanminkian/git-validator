@@ -316,10 +316,6 @@ export default {
       {
         patterns: [
           {
-            group: ["**/node_modules/**"],
-            message: "Do not import module from a node_modules path",
-          },
-          {
             group: ["js", "ts"].flatMap((js) => [
               `*.d.${js}`,
               `*.d.c${js}`,
