@@ -1,6 +1,7 @@
 // @ts-check
 import fs from "node:fs/promises";
 import path from "node:path";
+import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { lilconfig } from "lilconfig";
 
@@ -28,7 +29,10 @@ export function dir(url) {
  * @param {string} dirName
  */
 export async function resolveConfig(module, dirName = dir(import.meta.url)) {
-  return await lilconfig(module).search(path.join(dirName, ".."));
+  return (
+    (await lilconfig(module).search(process.cwd())) ??
+    (await lilconfig(module).search(path.join(dirName, "..")))
+  );
 }
 
 /**

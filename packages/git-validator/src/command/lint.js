@@ -23,7 +23,7 @@ export async function lint(paths = [], options = {}) {
 
   let configPath = (await resolveConfig("eslint"))?.filepath;
   if (!configPath) {
-    process.env["ESLINT_USE_FLAT_CONFIG"] = "true";
+    process.env["ESLINT_USE_FLAT_CONFIG"] = "true"; // TODO remove it
     configPath = requireResolve("@git-validator/eslint-config");
   }
 
