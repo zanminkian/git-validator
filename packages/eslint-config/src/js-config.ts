@@ -362,6 +362,7 @@ export default {
     // unicorn
     // 'unicorn/no-null': 'error', // null can be useful when interact with json.
     "unicorn/consistent-destructuring": "error",
+    "unicorn/consistent-empty-array-spread": "error",
     "unicorn/error-message": "error",
     "unicorn/filename-case": [
       "error",
