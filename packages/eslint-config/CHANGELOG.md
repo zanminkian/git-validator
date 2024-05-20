@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.4.15
+
+### Patch Changes
+
+- 4e8e7b4: feat(eslint-config): add `unicorn/consistent-empty-array-spread`
+- 9ff6df9: chore: upgrade deps
+- Updated dependencies [9ff6df9]
+  - @git-validator/eslint-plugin@0.6.1
+
 ## 0.4.14
 
 ### Patch Changes
