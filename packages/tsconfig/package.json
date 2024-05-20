@@ -38,8 +38,8 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "commander": "12.0.0",
-    "get-tsconfig": "4.7.3",
+    "commander": "12.1.0",
+    "get-tsconfig": "4.7.5",
     "json5": "2.2.3",
     "print-diff": "2.0.0",
     "sort-keys": "5.0.0"
