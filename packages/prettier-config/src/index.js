@@ -7,13 +7,13 @@ import process from "node:process";
 const tailwindConfig = await getTailwindConfig();
 
 export default {
-  plugins: [
-    await getModulePath("prettier-plugin-curly"),
-    await getModulePath("prettier-plugin-packagejson"),
-    ...(tailwindConfig
-      ? [await getModulePath("prettier-plugin-tailwindcss")]
-      : []),
-  ],
+  plugins: await Promise.all(
+    [
+      "prettier-plugin-curly",
+      "prettier-plugin-packagejson",
+      ...(tailwindConfig ? ["prettier-plugin-tailwindcss"] : []),
+    ].map(async (moduleName) => await getModulePath(moduleName)),
+  ),
   ...(tailwindConfig ? { tailwindConfig } : {}),
 };
 
@@ -41,8 +41,7 @@ async function getModulePath(moduleName) {
   if (await exists(nodeModulePath)) {
     return moduleName;
   } else {
-    const requireResolve = createRequire(import.meta.url).resolve;
-    return requireResolve(moduleName);
+    return createRequire(import.meta.url).resolve(moduleName);
   }
 }
 
