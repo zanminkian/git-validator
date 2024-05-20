@@ -1,5 +1,15 @@
 # @git-validator/eslint-plugin
 
+## 0.6.0
+
+### Minor Changes
+
+- ac53ca5: refactor(eslint-plugin): remove `import-regex` rule
+
+### Patch Changes
+
+- ff873b4: feat(eslint-plugin): `no-git-ignored-imports` and `no-relative-parent-imports`
+
 ## 0.5.4
 
 ### Patch Changes

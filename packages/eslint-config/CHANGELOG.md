@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.4.14
+
+### Patch Changes
+
+- 03b51e2: fix(eslint-config): respect the non-root `.gitignore` file
+- Updated dependencies [ff873b4]
+- Updated dependencies [ac53ca5]
+  - @git-validator/eslint-plugin@0.6.0
+
 ## 0.4.13
 
 ### Patch Changes
