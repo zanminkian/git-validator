@@ -18,6 +18,24 @@ function isJs(file) {
 }
 
 /**
+ * @param {any} node
+ */
+function isInFunction(node) {
+  while ((node = node.parent)) {
+    if (
+      [
+        "ArrowFunctionExpression",
+        "FunctionDeclaration",
+        "FunctionExpression",
+      ].includes(node.type)
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
  * @param {string} filepath ts or js file absolute path
  */
 async function getAnalysis(filepath) {
@@ -37,6 +55,8 @@ async function getAnalysis(filepath) {
     instanceofOperators: [],
     /** @type {{start:{line:number,column:number}}[]} */
     exportDefaults: [],
+    /** @type {{start:{line:number,column:number}}[]} */
+    topLevelAwaits: [],
     /** @type {{start:{line:number,column:number}}[]} */
     nodeProtocolImports: [],
     /** @type {{start:{line:number,column:number}}[]} */
@@ -94,6 +114,11 @@ async function getAnalysis(filepath) {
         break;
       case "ExportDefaultDeclaration":
         result.exportDefaults.push(node.loc);
+        break;
+      case "AwaitExpression":
+        if (!isInFunction(node)) {
+          result.topLevelAwaits.push(node.loc);
+        }
         break;
       case "VariableDeclarator":
         if (
@@ -166,6 +191,7 @@ export async function analyze(pattern, ignore) {
     /** @type {string[]} */ importExpressions: [],
     /** @type {string[]} */ instanceofOperators: [],
     /** @type {string[]} */ exportDefaults: [],
+    /** @type {string[]} */ topLevelAwaits: [],
     /** @type {string[]} */ nodeProtocolImports: [],
     /** @type {string[]} */ metaProperties: [],
     codeLines: 0,
@@ -210,6 +236,11 @@ export async function analyze(pattern, ignore) {
       );
       result.exportDefaults.push(
         ...analysis.exportDefaults.map(
+          (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
+        ),
+      );
+      result.topLevelAwaits.push(
+        ...analysis.topLevelAwaits.map(
           (loc) => `${file} ${loc.start.line}:${loc.start.column}`,
         ),
       );

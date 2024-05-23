@@ -107,6 +107,9 @@ program
       analysis.exportDefaults.forEach((i) => {
         console.log("Export Default", i);
       });
+      analysis.topLevelAwaits.forEach((i) => {
+        console.log("Top Level Await", i);
+      });
       analysis.nodeProtocolImports.forEach((i) => {
         console.log("Node Protocol Import", i);
       });
@@ -136,6 +139,7 @@ program
     console.log("4. Module interop issues count:");
     console.table({
       "Export Defaults": analysis.exportDefaults.length,
+      "Top Level Awaits": analysis.topLevelAwaits.length, // It also is a performance issue
     });
     console.log("5. Cross-platform issues count:");
     console.table({
