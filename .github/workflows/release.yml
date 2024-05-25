@@ -24,8 +24,8 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Install Dependencies
-        run: corepack enable && pnpm i
+      - name: Prepare and Test
+        run: corepack enable && pnpm i && pnpm test
 
       - name: Create Release Pull Request or Publish
         # https://github.com/changesets/action
