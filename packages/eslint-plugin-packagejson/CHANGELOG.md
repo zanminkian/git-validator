@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.2.6
+
+### Patch Changes
+
+- eb8e9cc: fix(eslint-plugin-packagejson): workspace protocol should be exactly
+
 ## 0.2.5
 
 ### Patch Changes
