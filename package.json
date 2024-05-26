@@ -11,7 +11,7 @@
     "release": "changeset publish",
     "style": "git-validator",
     "style:update": "git-validator -u",
-    "test": "pnpm -r test"
+    "test": "pnpm -r test && pnpm style"
   },
   "devDependencies": {
     "@changesets/cli": "2.27.3",
