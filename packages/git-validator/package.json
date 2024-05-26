@@ -45,9 +45,9 @@
   "dependencies": {
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
-    "@git-validator/eslint-config": "workspace:^",
-    "@git-validator/prettier-config": "workspace:^",
-    "@git-validator/tsconfig": "workspace:^",
+    "@git-validator/eslint-config": "workspace:*",
+    "@git-validator/prettier-config": "workspace:*",
+    "@git-validator/tsconfig": "workspace:*",
     "@typescript-eslint/typescript-estree": "7.9.0",
     "commander": "12.1.0",
     "eslint": "8.57.0",
@@ -55,7 +55,7 @@
     "lilconfig": "3.1.1",
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
-    "prettier-ignore": "workspace:^"
+    "prettier-ignore": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "20.12.12"

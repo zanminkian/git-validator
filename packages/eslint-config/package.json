@@ -25,8 +25,8 @@
     "test": "globstar -- node --test --import @swc-node/register/esm-register src/**/*.spec.ts test/**/*.spec.ts"
   },
   "dependencies": {
-    "@git-validator/eslint-plugin": "workspace:^",
-    "@git-validator/eslint-plugin-packagejson": "workspace:^",
+    "@git-validator/eslint-plugin": "workspace:*",
+    "@git-validator/eslint-plugin-packagejson": "workspace:*",
     "@typescript-eslint/eslint-plugin": "7.9.0",
     "@typescript-eslint/parser": "7.9.0",
     "confusing-browser-globals": "1.0.11",
