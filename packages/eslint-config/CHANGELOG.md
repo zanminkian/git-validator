@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.4.16-beta.0
+
+### Patch Changes
+
+- 691145f: chore: lock dependencies version
+
 ## 0.4.15
 
 ### Patch Changes
