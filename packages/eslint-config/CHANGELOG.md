@@ -1,5 +1,16 @@
 # @git-validator/eslint-config
 
+## 0.4.16
+
+### Patch Changes
+
+- 76202ce: chore: upgrade deps
+- 691145f: chore: lock dependencies version
+- Updated dependencies [76202ce]
+- Updated dependencies [eb8e9cc]
+  - @git-validator/eslint-plugin@0.6.2
+  - @git-validator/eslint-plugin-packagejson@0.2.6
+
 ## 0.4.15
 
 ### Patch Changes

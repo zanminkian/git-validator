@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.17.5
+
+### Patch Changes
+
+- 76202ce: chore: upgrade deps
+- 691145f: chore: lock dependencies version
+- Updated dependencies [76202ce]
+- Updated dependencies [691145f]
+  - @git-validator/eslint-config@0.4.16
+
 ## 0.17.4
 
 ### Patch Changes
