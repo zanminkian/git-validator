@@ -13,7 +13,7 @@ function isExactVersion(version) {
     return false;
   }
   if (version.startsWith("workspace:")) {
-    return true;
+    return version === "workspace:*";
   }
   return valid(version);
 }
