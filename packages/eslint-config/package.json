@@ -27,8 +27,8 @@
   "dependencies": {
     "@git-validator/eslint-plugin": "workspace:*",
     "@git-validator/eslint-plugin-packagejson": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "7.9.0",
-    "@typescript-eslint/parser": "7.9.0",
+    "@typescript-eslint/eslint-plugin": "7.10.0",
+    "@typescript-eslint/parser": "7.10.0",
     "confusing-browser-globals": "1.0.11",
     "eslint-plugin-deprecation": "2.0.0",
     "eslint-plugin-fp": "2.3.0",
