@@ -1,0 +1,38 @@
+{
+  "name": "@git-validator/types",
+  "version": "0.0.0",
+  "description": "Type safe for JS built-in api.",
+  "keywords": [
+    "typescript",
+    "ts-reset",
+    "type-fest",
+    "types"
+  ],
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/types",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zanminkian/git-validator.git",
+    "directory": "packages/types"
+  },
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts"
+    },
+    "./array-is-array": {
+      "types": "./src/array-is-array.d.ts"
+    },
+    "./json-parse": {
+      "types": "./src/json-parse.d.ts"
+    }
+  },
+  "scripts": {
+    "test": "globstar -- node --test --import @swc-node/register/esm-register test/**/*.spec.ts"
+  },
+  "devDependencies": {
+    "@swc-node/register": "1.9.0",
+    "@total-typescript/ts-reset": "0.5.1"
+  }
+}
