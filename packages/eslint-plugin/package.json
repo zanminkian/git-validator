@@ -25,12 +25,12 @@
     "test": "globstar -- node --test --import @swc-node/register/esm-register src/**/*.spec.ts test/**/*.spec.ts"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "7.10.0"
+    "@typescript-eslint/utils": "7.12.0"
   },
   "devDependencies": {
     "@swc-node/register": "1.9.0",
     "@types/node": "20.14.2",
-    "@typescript-eslint/parser": "7.10.0",
+    "@typescript-eslint/parser": "7.12.0",
     "@typescript-eslint/rule-tester": "7.12.0",
     "eslint": "8.57.0"
   }

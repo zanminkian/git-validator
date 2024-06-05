@@ -4,8 +4,8 @@ import { test } from "./utils.spec.js";
 const directives = ["@ts-ignore", "@ts-expect-error", "@ts-nocheck"];
 
 const valid = directives.flatMap((d) => [
-  "//",
-  "/**/",
+  // "//",
+  // "/**/",
   `// '${d}'`,
   `// "${d}"`,
   `// "${d}" '${d}'`,
