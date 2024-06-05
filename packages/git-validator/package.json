@@ -54,11 +54,11 @@
     "globby": "14.0.1",
     "lilconfig": "3.1.1",
     "lint-staged": "15.2.5",
-    "prettier": "3.2.5",
+    "prettier": "3.3.0",
     "prettier-ignore": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "20.12.12"
+    "@types/node": "20.14.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
