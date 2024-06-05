@@ -331,6 +331,7 @@ export default {
     "no-unused-private-class-members": "error",
     "prefer-exponentiation-operator": "error",
     "prefer-object-has-own": "error",
+    "prefer-template": "error",
     // fp
     "fp/no-arguments": "error",
     "fp/no-delete": "error",
