@@ -228,6 +228,13 @@ const mainConfig = {
   },
 };
 
+const declarationConfig = {
+  files: ["**/*.d.{ts,cts,mts,tsx}"],
+  rules: {
+    "@typescript-eslint/no-restricted-imports": "off",
+  },
+};
+
 const testConfig = {
   // https://github.com/motemen/minimatch-cheat-sheet
   files: [
@@ -240,10 +247,11 @@ const testConfig = {
   },
 };
 
-const config: Array<typeof mainConfig | typeof testConfig> = [
-  mainConfig,
-  testConfig,
-];
-const empty: Array<typeof mainConfig | typeof testConfig> = [];
+const config: Array<
+  typeof mainConfig | typeof declarationConfig | typeof testConfig
+> = [mainConfig, declarationConfig, testConfig];
+const empty: Array<
+  typeof mainConfig | typeof declarationConfig | typeof testConfig
+> = [];
 
 export default tsconfig ? config : empty;
