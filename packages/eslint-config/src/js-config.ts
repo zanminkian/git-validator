@@ -316,13 +316,12 @@ export default {
       {
         patterns: [
           {
-            group: ["js", "ts"].flatMap((js) => [
-              `*.d.${js}`,
-              `*.d.c${js}`,
-              `*.d.m${js}`,
-              `*.d.${js}x`,
-            ]),
-            message: "Do not import from a declaration file",
+            group: [`*.d.js`, `*.d.cjs`, `*.d.mjs`, `*.d.jsx`],
+            message: "Do not import from a declaration style file",
+          },
+          {
+            group: ["*.ts", "*.cts", "*.mts", "*.tsx"],
+            message: "Do not import a ts file",
           },
         ],
       },
