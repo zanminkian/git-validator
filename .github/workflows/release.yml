@@ -19,13 +19,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js Env
+      - name: Setup Node.js Env and Test
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
-
-      - name: Prepare and Test
-        run: corepack enable && pnpm i && pnpm test
+      - run: corepack enable
+      - run: pnpm i
+      - run: pnpm test
 
       - name: Create Release Pull Request or Publish
         # https://github.com/changesets/action
