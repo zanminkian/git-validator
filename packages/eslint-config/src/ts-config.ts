@@ -189,6 +189,7 @@ const mainConfig = {
       },
     ],
     "@typescript-eslint/no-array-delete": "error",
+    "@typescript-eslint/no-base-to-string": ["error", { ignoredTypeNames: [] }],
     "@typescript-eslint/no-confusing-non-null-assertion": "error",
     "@typescript-eslint/no-duplicate-enum-values": "error",
     "@typescript-eslint/no-duplicate-type-constituents": "error",
@@ -217,10 +218,21 @@ const mainConfig = {
     "@typescript-eslint/no-non-null-assertion": "error",
     "@typescript-eslint/no-require-imports": "error",
     "@typescript-eslint/no-unnecessary-condition": "error",
+    "@typescript-eslint/no-unnecessary-template-expression": "error", // js also need this rule
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
     "@typescript-eslint/only-throw-error": "error",
     "@typescript-eslint/prefer-ts-expect-error": "error",
-    "@typescript-eslint/restrict-plus-operands": "error",
+    "@typescript-eslint/restrict-plus-operands": [
+      "error",
+      {
+        // allowAny: false,
+        allowBoolean: false,
+        allowNullish: false,
+        allowNumberAndString: false,
+        allowRegExp: false,
+      },
+    ],
+    // "@typescript-eslint/restrict-template-expressions": "error",
     "@typescript-eslint/return-await": ["error", "always"],
     "@typescript-eslint/unbound-method": "error",
 
