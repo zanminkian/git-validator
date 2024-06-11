@@ -1,5 +1,19 @@
 # @git-validator/eslint-config
 
+## 0.4.17
+
+### Patch Changes
+
+- ce32960: chore: upgrade deps
+- 25dba0e: fix(eslint-config): turn off @typescript-eslint/no-restricted-imports in declaration files
+- be836ea: feat(eslint-config): add some ts rules
+- 5460a42: feat(eslint-config): enable `prefer-template`
+- 01c72e8: feat(eslint-config): disallow to import from a ts file
+- f2b309e: chore: upgrade deps
+- Updated dependencies [ce32960]
+- Updated dependencies [f2b309e]
+  - @git-validator/eslint-plugin@0.6.3
+
 ## 0.4.16
 
 ### Patch Changes
