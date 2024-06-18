@@ -38,7 +38,7 @@ async function writePreCommit({ noEslint, noPrettier }) {
   }
   const content = [
     "#!/bin/sh",
-    `npx lint-staged --config ${path.join(dir(import.meta.url), "..", "config", config)}`,
+    `./node_modules/.bin/lint-staged --config ${path.join(dir(import.meta.url), "..", "config", config)}`,
   ].join("\n");
 
   await writeGitHook("pre-commit", content);
@@ -47,7 +47,7 @@ async function writePreCommit({ noEslint, noPrettier }) {
 async function writeCommitMsg() {
   const content = [
     "#!/bin/sh",
-    `npx commitlint --config ${path.join(
+    `./node_modules/.bin/commitlint --config ${path.join(
       dir(import.meta.url),
       "..",
       "config",
