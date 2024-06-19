@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.17.7
+
+### Patch Changes
+
+- 831a17a: chore: upgrade deps
+- a1356e0: fix(git-validator): remove npx
+- Updated dependencies [831a17a]
+  - @git-validator/prettier-config@0.4.7
+  - @git-validator/eslint-config@0.4.18
+
 ## 0.17.6
 
 ### Patch Changes
