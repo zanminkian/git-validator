@@ -48,13 +48,13 @@
     "@git-validator/eslint-config": "workspace:*",
     "@git-validator/prettier-config": "workspace:*",
     "@git-validator/tsconfig": "workspace:*",
-    "@typescript-eslint/typescript-estree": "7.13.0",
+    "@typescript-eslint/typescript-estree": "7.13.1",
     "commander": "12.1.0",
     "eslint": "8.57.0",
     "globby": "14.0.1",
     "lilconfig": "3.1.2",
-    "lint-staged": "15.2.5",
-    "prettier": "3.3.1",
+    "lint-staged": "15.2.7",
+    "prettier": "3.3.2",
     "prettier-ignore": "workspace:*"
   },
   "devDependencies": {
