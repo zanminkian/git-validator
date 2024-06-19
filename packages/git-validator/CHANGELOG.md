@@ -1,5 +1,11 @@
 # git-validator
 
+## 0.17.8
+
+### Patch Changes
+
+- 745e5a7: feat(git-validator): support to print json format on analyze command
+
 ## 0.17.7
 
 ### Patch Changes
