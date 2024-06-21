@@ -257,7 +257,6 @@ export default {
       },
     },
     globals: {
-      // TODO Optimize it. Node code should not use browser's objects.
       ...Object.fromEntries(
         Object.entries(globals.browser).filter(
           ([k]) => !confusingKeys.includes(k),
