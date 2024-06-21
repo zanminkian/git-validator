@@ -395,6 +395,7 @@ export default {
     "unicorn/no-typeof-undefined": "error",
     "unicorn/no-unreadable-iife": "error",
     "unicorn/prefer-array-flat-map": "error",
+    "unicorn/prefer-includes": "error",
     "unicorn/prefer-module": "error",
     "unicorn/prefer-number-properties": "error",
     "unicorn/prefer-string-slice": "error",
