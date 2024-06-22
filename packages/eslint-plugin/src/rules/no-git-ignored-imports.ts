@@ -50,10 +50,8 @@ function checkIgnored(filePath: string, source: string) {
   if (source.startsWith("/") && !source.startsWith(process.cwd())) {
     return true;
   }
-  // TODO This absolutePath may be a symbolic link, which may cause git check-ignore error.
-  const absolutePath = source.startsWith("/")
-    ? source
-    : path.join(path.dirname(filePath), source);
+  // This file of absolutePath may be a symbolic link
+  const absolutePath = path.resolve(path.dirname(filePath), source);
   if (!absolutePath.startsWith("/")) {
     throw new Error(
       `ESLint plugin internal error. Absolute path incorrect: ${absolutePath}.`,
@@ -80,7 +78,7 @@ function isIgnored(filePath: string) {
     ) {
       return false;
     }
-    // throw new Error("Execute git check-ignore command fail", { cause: e });
+    // We cannot throw an error here. So we have to return true to report the filePath is bad.
     return true;
   }
 }
