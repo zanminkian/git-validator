@@ -1,5 +1,12 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.2.7
+
+### Patch Changes
+
+- 7636080: feat: add `no-types-dependency-in-workspace-root`
+- f3614fb: feat: add no-conflict-types
+
 ## 0.2.6
 
 ### Patch Changes

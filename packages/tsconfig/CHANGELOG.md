@@ -1,5 +1,12 @@
 # @git-validator/tsconfig
 
+## 0.5.0
+
+### Minor Changes
+
+- 79a2fff: fix(tsconfig): add `lib` to prevent using window object in node project
+- 3bb8aee: refactor(tsconfig): remove `TSCONFIG_EXTENDS` env support
+
 ## 0.4.7
 
 ### Patch Changes
