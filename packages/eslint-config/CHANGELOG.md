@@ -1,5 +1,16 @@
 # @git-validator/eslint-config
 
+## 0.4.19
+
+### Patch Changes
+
+- 7636080: feat: add `no-types-dependency-in-workspace-root`
+- c2d6668: feat(eslint-config): enable `unicorn/prefer-includes`
+- f3614fb: feat: add no-conflict-types
+- Updated dependencies [7636080]
+- Updated dependencies [f3614fb]
+  - @git-validator/eslint-plugin-packagejson@0.2.7
+
 ## 0.4.18
 
 ### Patch Changes

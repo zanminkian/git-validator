@@ -1,5 +1,20 @@
 # git-validator
 
+## 0.17.9
+
+### Patch Changes
+
+- 8319a36: feat(git-validator): add `git-validator/types` support
+- Updated dependencies [1cab379]
+- Updated dependencies [7636080]
+- Updated dependencies [c2d6668]
+- Updated dependencies [f3614fb]
+- Updated dependencies [79a2fff]
+- Updated dependencies [3bb8aee]
+  - @git-validator/types@0.1.0
+  - @git-validator/eslint-config@0.4.19
+  - @git-validator/tsconfig@0.5.0
+
 ## 0.17.8
 
 ### Patch Changes

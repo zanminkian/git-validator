@@ -1,6 +1,6 @@
 {
   "name": "@git-validator/types",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Type safe for JS built-in api.",
   "keywords": [
     "typescript",
