@@ -4,6 +4,7 @@ import exactDependencyVersion from "./rules/exact-dependency-version.js";
 import noConflictTypes from "./rules/no-conflict-types.js";
 import noDependenciesInWorkspaceRoot from "./rules/no-dependencies-in-workspace-root.js";
 import noLifecycleScript from "./rules/no-lifecycle-script.js";
+import noTypesDependencyInWorkspaceRoot from "./rules/no-types-dependency-in-workspace-root.js";
 import privateWorkspaceRoot from "./rules/private-workspace-root.js";
 import requiredEngines from "./rules/required-engines.js";
 import requiredRepository from "./rules/required-repository.js";
@@ -20,6 +21,7 @@ export default {
     "type-module": typeModule,
     "no-dependencies-in-workspace-root": noDependenciesInWorkspaceRoot,
     "no-lifecycle-script": noLifecycleScript,
+    "no-types-dependency-in-workspace-root": noTypesDependencyInWorkspaceRoot,
     "top-types": topTypes,
     "private-workspace-root": privateWorkspaceRoot,
     "required-engines": requiredEngines,
