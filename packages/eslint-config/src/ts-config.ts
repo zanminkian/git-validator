@@ -123,7 +123,7 @@ const mainConfig = {
   files: ["**/*.{ts,cts,mts,tsx}"],
   languageOptions: {
     ...jsConfig.languageOptions,
-    parser: tsParser, // TODO: Unfortunately parser cannot be a string. Eslint should support it. https://eslint.org/docs/latest/use/configure/configuration-files-new#configuring-a-custom-parser-and-its-options
+    parser: tsParser, // Unfortunately parser cannot be a string. Eslint should support it. https://eslint.org/docs/latest/use/configure/configuration-files-new#configuring-a-custom-parser-and-its-options
     parserOptions: {
       ...jsConfig.languageOptions.parserOptions,
       tsconfigRootDir: process.cwd(),
