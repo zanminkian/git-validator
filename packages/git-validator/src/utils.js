@@ -39,6 +39,7 @@ export async function resolveConfig(module, dirName = dir(import.meta.url)) {
  * Usage: `importJson(import.meta.url, '../xx.json')`
  * @param {string} importMetaUrl
  * @param {string} jsonPath
+ * @returns {Promise<any>}
  */
 export async function importJson(importMetaUrl, jsonPath) {
   return JSON.parse(

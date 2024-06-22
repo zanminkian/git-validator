@@ -26,6 +26,9 @@
   "author": "hellozmj@qq.com",
   "type": "module",
   "exports": {
+    "./types": {
+      "types": "./types/index.d.ts"
+    },
     "./tsconfig": "./tsconfig/tsconfig.json",
     "./tsconfig/cjs": "./tsconfig/cjs.json",
     "./tsconfig/esm": "./tsconfig/esm.json",
@@ -48,6 +51,7 @@
     "@git-validator/eslint-config": "workspace:*",
     "@git-validator/prettier-config": "workspace:*",
     "@git-validator/tsconfig": "workspace:*",
+    "@git-validator/types": "workspace:*",
     "@typescript-eslint/typescript-estree": "7.13.1",
     "commander": "12.1.0",
     "eslint": "8.57.0",
