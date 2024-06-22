@@ -279,9 +279,6 @@ export default {
     "simple-import-sort": simpleImportSortPlugin,
     "@git-validator": gitValidatorPlugin,
   },
-  /**
-   * @type {Record<string, unknown>}
-   */
   rules: {
     // 1. standard config rules
     ...standardConfigRules,
