@@ -15,18 +15,19 @@ export default {
   },
   create: (context) => {
     const filename = context.getFilename();
+    if (!isWP || filename !== rootPkgJsonPath) {
+      return {};
+    }
     return {
       "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
-        if (isWP && filename === rootPkgJsonPath) {
-          const depsNode = node.properties.find(
-            (p) => p.key.value === "dependencies",
-          );
-          if (depsNode) {
-            return context.report({
-              node: depsNode,
-              messageId,
-            });
-          }
+        const depsNode = node.properties.find(
+          (p) => p.key.value === "dependencies",
+        );
+        if (depsNode) {
+          return context.report({
+            node: depsNode,
+            messageId,
+          });
         }
       },
     };
