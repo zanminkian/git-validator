@@ -324,6 +324,7 @@ export default {
     ],
     "no-shadow": ["error", { ignoreOnInitialization: true }],
     "no-unused-private-class-members": "error",
+    "prefer-arrow-callback": "error",
     "prefer-exponentiation-operator": "error",
     "prefer-object-has-own": "error",
     "prefer-template": "error",
