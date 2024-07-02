@@ -221,6 +221,7 @@ const mainConfig = {
     "@typescript-eslint/no-unnecessary-template-expression": "error", // js also need this rule
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
     "@typescript-eslint/only-throw-error": "error",
+    "@typescript-eslint/prefer-readonly": "error",
     "@typescript-eslint/prefer-ts-expect-error": "error",
     "@typescript-eslint/restrict-plus-operands": [
       "error",
