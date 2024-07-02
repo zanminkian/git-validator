@@ -30,6 +30,7 @@ export default createSimpleRule({
         context.reportNode(arg);
       }
     },
+    // TODO: should handle exports
   }),
 });
 
