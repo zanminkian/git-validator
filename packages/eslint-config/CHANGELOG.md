@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.4.20
+
+### Patch Changes
+
+- 57d7345: feat(eslint-config): enable `@typescript-eslint/prefer-readonly`
+
 ## 0.4.19
 
 ### Patch Changes
