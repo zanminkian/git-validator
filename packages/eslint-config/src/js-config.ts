@@ -408,5 +408,6 @@ export default {
     "@git-validator/no-relative-parent-imports": "error",
     "@git-validator/prefer-global-this": "error",
     "@git-validator/prefer-shortest-relative-path": "error",
+    "@git-validator/require-reduce-initial-value": "error",
   },
 };

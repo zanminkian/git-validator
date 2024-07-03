@@ -13,6 +13,7 @@ import noPropertyDecorator from "./rules/no-property-decorator.js";
 import noRelativeParentImports from "./rules/no-relative-parent-imports.js";
 import preferGlobalThis from "./rules/prefer-global-this.js";
 import preferShortestRelativePath from "./rules/prefer-shortest-relative-path.js";
+import requireReduceInitialValue from "./rules/require-reduce-initial-value.js";
 
 export default {
   rules: {
@@ -31,5 +32,6 @@ export default {
     [noRelativeParentImports.name]: noRelativeParentImports.rule,
     [preferGlobalThis.name]: preferGlobalThis.rule,
     [preferShortestRelativePath.name]: preferShortestRelativePath.rule,
+    [requireReduceInitialValue.name]: requireReduceInitialValue.rule,
   },
 };
