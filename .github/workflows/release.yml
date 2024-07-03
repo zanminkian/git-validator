@@ -28,6 +28,7 @@ jobs:
       - run: pnpm test
 
       - name: Create Release Pull Request or Publish
+        id: changesets
         # https://github.com/changesets/action
         uses: changesets/action@v1
         with:
