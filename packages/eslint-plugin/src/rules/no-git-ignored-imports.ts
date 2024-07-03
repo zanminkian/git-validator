@@ -34,7 +34,16 @@ export default createSimpleRule({
         context.reportNode(arg);
       }
     },
-    // TODO: should handle exports
+    ExportAllDeclaration: (node) => {
+      if (checkIgnored(context.filename, node.source.value)) {
+        context.reportNode(node.source);
+      }
+    },
+    ExportNamedDeclaration: (node) => {
+      if (node.source && checkIgnored(context.filename, node.source.value)) {
+        context.reportNode(node.source);
+      }
+    },
   }),
 });
 

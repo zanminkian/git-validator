@@ -6,6 +6,8 @@ const valid = [
   "import 'foo'",
   "require('foo')",
   "import('foo')",
+  "export * from 'foo'",
+  "export {name} from 'foo'",
 
   "import foo from '.foo'",
   "import foo from './foo'",
@@ -18,6 +20,8 @@ const invalid = [
   "import '../../../foo'",
   "require('../../../foo')",
   "import('../../../foo')",
+  "export * from '../../../foo'",
+  "export {name} from '../../../foo'",
 
   "import foo from '../../../../foo'",
 ];

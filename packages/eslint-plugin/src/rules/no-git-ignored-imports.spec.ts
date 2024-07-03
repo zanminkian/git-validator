@@ -8,6 +8,8 @@ const valid = [
   "import 'foo'",
   "require('foo')",
   "import('foo')",
+  "export * from 'foo'",
+  "export {name} from 'foo'",
 
   "import foo from '.foo'",
   "import foo from '../../../../for-test'",
@@ -21,6 +23,8 @@ const invalid = [
   "import './dist/foo'",
   "require('./dist/foo')",
   "import('./dist/foo')",
+  "export * from './dist/foo'",
+  "export {name} from './dist/foo'",
 
   "import foo from '../dist/index.js'",
   "import foo from '../../node_modules/foo/bar.js'",
