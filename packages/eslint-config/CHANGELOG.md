@@ -1,5 +1,16 @@
 # @git-validator/eslint-config
 
+## 0.4.20
+
+### Patch Changes
+
+- 57d7345: feat(eslint-config): enable `@typescript-eslint/prefer-readonly`
+- 63ceae5: feat(eslint-config): enable `prefer-arrow-callback`
+- 3edd6fa: feat: add rule `@git-validator/require-reduce-initial-value`
+- Updated dependencies [3edd6fa]
+- Updated dependencies [a251612]
+  - @git-validator/eslint-plugin@0.6.5
+
 ## 0.4.19
 
 ### Patch Changes
