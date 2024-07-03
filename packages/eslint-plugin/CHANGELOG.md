@@ -1,5 +1,12 @@
 # @git-validator/eslint-plugin
 
+## 0.6.5
+
+### Patch Changes
+
+- 3edd6fa: feat: add rule `@git-validator/require-reduce-initial-value`
+- a251612: fix(eslint-plugin): handle export expressions for those importing rules
+
 ## 0.6.4
 
 ### Patch Changes
