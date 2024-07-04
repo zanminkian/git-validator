@@ -300,6 +300,8 @@ export default {
     "init-declarations": "error",
     "max-params": ["error", { max: 4 }],
     "no-duplicate-imports": "error",
+    "no-empty-static-block": "error",
+    "no-empty-function": "error",
     "no-implicit-coercion": [
       "error",
       { disallowTemplateShorthand: true, allow: ["!!"] },
