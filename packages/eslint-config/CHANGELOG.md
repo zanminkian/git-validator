@@ -1,5 +1,12 @@
 # @git-validator/eslint-config
 
+## 0.4.21
+
+### Patch Changes
+
+- a0ba890: feat(eslint-config): consistent type definitions in ts
+- 704cab7: feat(eslint-config): no empty
+
 ## 0.4.20
 
 ### Patch Changes
