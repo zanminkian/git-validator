@@ -168,6 +168,7 @@ const mainConfig = {
         objectLiteralTypeAssertions: "allow-as-parameter",
       },
     ],
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"], // TODO should we change to 'type'?
     "@typescript-eslint/consistent-type-exports": "error",
     // "@typescript-eslint/consistent-type-imports": "error,
     "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
@@ -221,6 +222,7 @@ const mainConfig = {
     "@typescript-eslint/no-unnecessary-template-expression": "error", // js also need this rule
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
     "@typescript-eslint/only-throw-error": "error",
+    "@typescript-eslint/prefer-function-type": "error",
     "@typescript-eslint/prefer-readonly": "error",
     "@typescript-eslint/prefer-ts-expect-error": "error",
     "@typescript-eslint/restrict-plus-operands": [
