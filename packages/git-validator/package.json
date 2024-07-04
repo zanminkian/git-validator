@@ -62,7 +62,7 @@
     "prettier-ignore": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "20.14.7"
+    "@types/node": "20.14.9"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
