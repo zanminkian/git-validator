@@ -1,31 +1,9 @@
-import fs from "node:fs/promises";
-import path from "node:path";
 import process from "node:process";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import deprecationPlugin from "eslint-plugin-deprecation";
+import { tsconfig } from "./common.js";
 import jsConfig from "./js-config.js";
-
-const tsconfig = await getProjectTsconfig();
-
-async function getProjectTsconfig() {
-  const tsconfigs = [
-    "tsconfig.eslint.json",
-    "tsconfig.json",
-    "tsconfig.build.json",
-  ];
-  const index = (
-    await Promise.all(
-      tsconfigs.map((config) =>
-        fs
-          .access(path.join(process.cwd(), config))
-          .then(() => true)
-          .catch(() => false),
-      ),
-    )
-  ).findIndex(Boolean);
-  return tsconfigs[index];
-}
 
 function getTsExtensionRules() {
   // https://typescript-eslint.io/rules/?=extension
