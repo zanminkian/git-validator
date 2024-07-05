@@ -237,6 +237,10 @@ const mainConfig = {
     ],
     // "@typescript-eslint/restrict-template-expressions": "error",
     "@typescript-eslint/return-await": ["error", "always"],
+    "@typescript-eslint/switch-exhaustiveness-check": [
+      "error",
+      { requireDefaultForNonUnion: true },
+    ],
     "@typescript-eslint/unbound-method": "error",
 
     ...getStrictRules(),
