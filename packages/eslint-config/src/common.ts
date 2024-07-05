@@ -7,7 +7,7 @@ async function getProjectTsconfig() {
     "tsconfig.eslint.json",
     "tsconfig.json",
     "tsconfig.build.json",
-  ];
+  ] as const;
   const index = (
     await Promise.all(
       tsconfigs.map((config) =>

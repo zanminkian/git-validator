@@ -9,6 +9,7 @@ import reactHooksPlugin from "eslint-plugin-react-hooks";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 import unicornPlugin from "eslint-plugin-unicorn";
 import globals from "globals";
+import { tsconfig } from "./common.js";
 
 // copied from https://github.com/standard/eslint-config-standard/blob/master/src/index.ts
 // prettier-ignore
@@ -44,7 +45,7 @@ const standardConfigRules = {
   // curly: ['error', 'multi-line'],
   'default-case-last': 'error',
   // 'dot-location': ['error', 'property'],
-  // 'dot-notation': ['error', { allowKeywords: true }], // TODO: This should be enabled. Disable it as it conflicts with ts when enabling ts-check
+  'dot-notation': ['error', { allowKeywords: true }],
   // 'eol-last': 'error',
   eqeqeq: ['error', 'always', { null: 'ignore' }],
   // 'func-call-spacing': ['error', 'never'],
@@ -282,6 +283,7 @@ export default {
   rules: {
     // 1. standard config rules
     ...standardConfigRules,
+    ...(tsconfig ? { "dot-notation": "off" } : {}), // Disable it as it conflicts with ts when enabling ts-check
 
     // 2. code style for a better readability
     "arrow-body-style": ["error", "as-needed"],

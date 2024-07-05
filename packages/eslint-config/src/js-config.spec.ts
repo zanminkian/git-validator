@@ -2,15 +2,23 @@ import assert from "node:assert";
 import { describe, it } from "node:test";
 import config from "./js-config.js";
 
+function getValue(v: unknown): string {
+  if (typeof v === "string") {
+    return v;
+  } else if (Array.isArray(v) && typeof v[0] === "string") {
+    return v[0];
+  } else {
+    throw new Error("value should be string or array");
+  }
+}
+
 await describe("js config", async () => {
   await it("js config value should be error", () => {
-    Object.values(config.rules).forEach((value) => {
-      if (typeof value === "string") {
-        assert.strictEqual(value, "error");
-      } else if (Array.isArray(value)) {
-        assert.strictEqual(value[0], "error");
+    Object.entries(config.rules).forEach(([ruleName, ruleValue]) => {
+      if (ruleName === "dot-notation") {
+        assert.strictEqual(getValue(ruleValue), "off");
       } else {
-        throw new Error("value should be string or array");
+        assert.strictEqual(getValue(ruleValue), "error");
       }
     });
   });

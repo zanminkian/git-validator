@@ -20,7 +20,11 @@ await describe("no duplicated", async () => {
     );
 
     Object.keys(jsConfig.rules).forEach((rule) => {
-      assert.strictEqual(count(configContent, rule), 1);
+      if (rule === "dot-notation") {
+        assert.strictEqual(count(configContent, rule), 2);
+      } else {
+        assert.strictEqual(count(configContent, rule), 1);
+      }
     });
   });
 
