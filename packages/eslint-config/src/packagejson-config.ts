@@ -1,6 +1,7 @@
 import packagejson from "@git-validator/eslint-plugin-packagejson";
 
 export default {
+  name: "git-validator/packagejson",
   files: ["**/package.json"],
   processor: "packagejson/processor",
   plugins: {

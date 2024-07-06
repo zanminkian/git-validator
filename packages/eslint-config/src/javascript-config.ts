@@ -250,6 +250,7 @@ const standardConfigRules = {
 };
 
 export default {
+  name: "git-validator/javascript",
   files: ["**/*.{js,cjs,mjs,jsx}"],
   languageOptions: {
     parserOptions: {

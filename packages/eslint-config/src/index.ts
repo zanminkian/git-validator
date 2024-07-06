@@ -1,7 +1,7 @@
 import gitignoreConfig from "./gitignore-config.js";
-import jsConfig from "./js-config.js";
+import jsConfig from "./javascript-config.js";
 import packagejsonConfig from "./packagejson-config.js";
-import tsConfig from "./ts-config.js";
+import tsConfig from "./typescript-config.js";
 
 const config = [
   gitignoreConfig,
@@ -9,6 +9,7 @@ const config = [
   ...tsConfig,
   packagejsonConfig,
 ] satisfies Array<{
+  name?: string; // TODO remove the question mark
   ignores?: string[];
   files?: string[];
   plugins?: Record<string, unknown>;

@@ -14,7 +14,11 @@ async function globallyIgnore() {
   });
   const ignores = stdout.split("\n").filter(Boolean);
   // https://eslint.org/docs/latest/use/configure/configuration-files#specifying-files-and-ignores
-  return { ignores };
+  return {
+    // TODO waiting for eslint 9
+    // name: 'git-validator/ignore',
+    ignores,
+  };
 }
 
 export default await globallyIgnore();

@@ -2,8 +2,8 @@ import assert from "node:assert";
 import fs from "node:fs/promises";
 import { describe, it } from "node:test";
 import prettier from "prettier";
-import jsConfig from "../src/js-config.js";
-import tsConfig from "../src/ts-config.js";
+import jsConfig from "../src/javascript-config.js";
+import tsConfig from "../src/typescript-config.js";
 
 function count(content: string, substring: string) {
   return (content.match(new RegExp(`"${substring}"`, "g")) ?? []).length;
@@ -12,7 +12,7 @@ function count(content: string, substring: string) {
 await describe("no duplicated", async () => {
   await it("no duplicated js rules is defined", async () => {
     const configContent = await prettier.format(
-      (await fs.readFile("./src/js-config.ts", "utf-8")).replace(
+      (await fs.readFile("./src/javascript-config.ts", "utf-8")).replace(
         "// prettier-ignore",
         "",
       ),
@@ -30,7 +30,7 @@ await describe("no duplicated", async () => {
 
   await it("no duplicated ts rules is defined", async () => {
     const configContent = await prettier.format(
-      (await fs.readFile("./src/ts-config.ts", "utf-8")).replace(
+      (await fs.readFile("./src/typescript-config.ts", "utf-8")).replace(
         "// prettier-ignore",
         "",
       ),

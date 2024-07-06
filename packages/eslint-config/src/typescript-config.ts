@@ -3,7 +3,7 @@ import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import deprecationPlugin from "eslint-plugin-deprecation";
 import { tsconfig } from "./common.js";
-import jsConfig from "./js-config.js";
+import jsConfig from "./javascript-config.js";
 
 function getTsExtensionRules() {
   // https://typescript-eslint.io/rules/?=extension
@@ -98,6 +98,7 @@ function getStrictRules() {
 
 const mainConfig = {
   ...jsConfig,
+  name: "git-validator/typescript",
   files: ["**/*.{ts,cts,mts,tsx}"],
   languageOptions: {
     ...jsConfig.languageOptions,
@@ -227,6 +228,7 @@ const mainConfig = {
 };
 
 const declarationConfig = {
+  name: "git-validator/typescript/declaration",
   files: ["**/*.d.{ts,cts,mts,tsx}"],
   rules: {
     "@typescript-eslint/no-restricted-imports": "off",
@@ -235,6 +237,7 @@ const declarationConfig = {
 
 const testConfig = {
   // https://github.com/motemen/minimatch-cheat-sheet
+  name: "git-validator/typescript/test",
   files: [
     "**/__tests__/**/*.{ts,cts,mts,tsx}",
     "**/*.{test,spec}.{ts,cts,mts,tsx}",

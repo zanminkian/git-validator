@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
-import config from "./js-config.js";
+import config from "./javascript-config.js";
 
 function getValue(v: unknown): string {
   if (typeof v === "string") {
