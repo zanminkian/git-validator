@@ -1,7 +1,7 @@
-import { createSimpleRule } from "../utils.js";
+import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
-  name: "exact-map-set-type",
+  name: getRuleName(import.meta.url),
   message: "Disallow using Map and Set without type arguments.",
   create: (context) => ({
     Identifier: (node) => {

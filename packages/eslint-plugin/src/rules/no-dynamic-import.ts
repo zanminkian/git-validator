@@ -1,7 +1,7 @@
-import { createSimpleRule } from "../utils.js";
+import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
-  name: "no-dynamic-import",
+  name: getRuleName(import.meta.url),
   message: "`import()` should be called with string literal.",
   create: (context) => ({
     ImportExpression: (node) => {

@@ -1,7 +1,7 @@
-import { createSimpleRule } from "../utils.js";
+import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
-  name: "prefer-global-this",
+  name: getRuleName(import.meta.url),
   message: "Disallow `global` or `self` object and prefer `globalThis`",
   create: (context) => ({
     Program: (node) => {

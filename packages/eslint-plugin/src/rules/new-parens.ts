@@ -1,7 +1,7 @@
-import { createSimpleRule } from "../utils.js";
+import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
-  name: "new-parens",
+  name: getRuleName(import.meta.url),
   message: "When invoking a constructor, parentheses are required.",
   create: (context) => ({
     NewExpression: (node) => {

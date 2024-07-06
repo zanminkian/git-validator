@@ -1,8 +1,8 @@
 import path from "node:path";
-import { createSimpleRule } from "../utils.js";
+import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
-  name: "prefer-shortest-relative-path",
+  name: getRuleName(import.meta.url),
   message: "Forbid redundant relative path when importing module.",
   create: (context) => {
     const currentPath = path.dirname(context.filename);

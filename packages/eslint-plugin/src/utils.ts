@@ -1,3 +1,5 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { ESLintUtils, type TSESTree } from "@typescript-eslint/utils";
 import type {
   RuleContext,
@@ -47,4 +49,9 @@ export function createSimpleRule(options: {
     name,
     rule,
   };
+}
+
+export function getRuleName(importMetaUrl: string) {
+  // remove '.js' extension
+  return path.basename(fileURLToPath(importMetaUrl)).slice(0, -3);
 }

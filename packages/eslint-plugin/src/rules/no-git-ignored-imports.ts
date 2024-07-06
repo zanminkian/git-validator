@@ -2,10 +2,10 @@ import childProcess from "node:child_process";
 import path from "node:path";
 import process from "node:process";
 import { isNativeError } from "node:util/types";
-import { createSimpleRule } from "../utils.js";
+import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
-  name: "no-git-ignored-imports",
+  name: getRuleName(import.meta.url),
   message: "Disallow to import module from git-ignored path.",
   create: (context) => ({
     ImportDeclaration: (node) => {

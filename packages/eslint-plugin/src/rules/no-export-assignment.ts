@@ -1,7 +1,7 @@
-import { createSimpleRule } from "../utils.js";
+import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
-  name: "no-export-assignment",
+  name: getRuleName(import.meta.url),
   message: "Disallow using `export =` statement.",
   create: (context) => {
     const extension = context.filename.split(".").pop();

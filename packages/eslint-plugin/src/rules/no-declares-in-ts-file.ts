@@ -1,8 +1,8 @@
 import type { TSESTree } from "@typescript-eslint/utils";
-import { createSimpleRule } from "../utils.js";
+import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
-  name: "no-declares-in-ts-file",
+  name: getRuleName(import.meta.url),
   message: "Disallow using `declare` statement in ts file.",
   create: (context) => {
     const { filename } = context;

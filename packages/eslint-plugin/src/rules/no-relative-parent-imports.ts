@@ -1,7 +1,7 @@
-import { createSimpleRule } from "../utils.js";
+import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
-  name: "no-relative-parent-imports",
+  name: getRuleName(import.meta.url),
   message: "Disallow to import module from relative parent path too deeply.",
   create: (context) => ({
     ImportDeclaration: (node) => {

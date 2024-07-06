@@ -1,7 +1,7 @@
-import { createSimpleRule } from "../utils.js";
+import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
-  name: "no-const-enum",
+  name: getRuleName(import.meta.url),
   message: "Disallow using `const enum` expression.",
   create: (context) => ({
     TSEnumDeclaration: (node) => {
