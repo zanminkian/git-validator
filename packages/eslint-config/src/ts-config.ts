@@ -126,6 +126,7 @@ const mainConfig = {
     "@git-validator/no-declares-in-ts-file": "error",
     "@git-validator/no-export-assignment": "error",
     "@git-validator/no-property-decorator": "error",
+    "@git-validator/no-untyped-empty-array": "error",
     // typescript
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/ban-ts-comment": [
