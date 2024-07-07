@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.5.1
+
+### Patch Changes
+
+- 222f68a: refactor(tsconfig): remove json5
+
 ## 0.5.0
 
 ### Minor Changes
