@@ -19,5 +19,5 @@ export default {
     "packagejson/required-repository": "error",
     "packagejson/type-module": "error",
     "packagejson/no-dependencies-in-workspace-root": "error",
-  },
+  } as const,
 };

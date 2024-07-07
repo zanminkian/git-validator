@@ -60,20 +60,27 @@ function getTsExtensionRules() {
 
   type JsExtensionKey = Extract<ExtensionRuleKey, JsConfigRuleKey>; // Extract
   type TsExtensionKey = `@typescript-eslint/${JsExtensionKey}`;
-  const isExtensionKey = (key: string): key is JsExtensionKey =>
-    !!extensionRuleKeys.find((k) => k === key) &&
-    Object.keys(jsConfig.rules).includes(key);
 
-  const result: Partial<Record<JsExtensionKey | TsExtensionKey, unknown>> = {};
-  for (const [jsRuleKey, jsRuleValue] of Object.entries(jsConfig.rules)) {
-    if (isExtensionKey(jsRuleKey)) {
-      result[jsRuleKey] = "off";
-      result[`@typescript-eslint/${jsRuleKey}`] = jsRuleValue;
-    }
-  }
-  // To fix the typescript indent, see https://github.com/mightyiam/eslint-config-standard-with-typescript/pull/1200
+  type GetJsKey<T extends TsExtensionKey> =
+    T extends `@typescript-eslint/${infer K}` ? K : never;
+  type JsResult = {
+    [Key in JsExtensionKey]: "off";
+  };
+  type TsResult = {
+    [Key in TsExtensionKey]: (typeof jsConfig.rules)[GetJsKey<Key>];
+  };
+  type Result = JsResult & TsResult;
 
-  return result;
+  return Object.entries(jsConfig.rules)
+    .filter(([key]) => !!extensionRuleKeys.find((k) => k === key))
+    .reduce(
+      (prev, [jsRuleKey, jsRuleValue]) => ({
+        ...prev,
+        [jsRuleKey]: "off",
+        [`@typescript-eslint/${jsRuleKey}`]: jsRuleValue,
+      }),
+      {} as Result,
+    );
 }
 
 function getStrictRules() {
@@ -85,15 +92,9 @@ function getStrictRules() {
     ],
     "@typescript-eslint/no-non-null-assertion": "error",
   } as const;
-  type Result = Partial<Record<keyof typeof config, unknown>>;
-
-  const emptyResult: Result = {};
-  const fullResult: Result = config;
-  if (process.env["STRICT"] || process.env["ESLINT_STRICT"]) {
-    return fullResult;
-  } else {
-    return emptyResult;
-  }
+  const result: typeof config | undefined =
+    process.env["STRICT"] || process.env["ESLINT_STRICT"] ? config : undefined;
+  return result;
 }
 
 const mainConfig = {
@@ -224,7 +225,7 @@ const mainConfig = {
     "@typescript-eslint/unbound-method": "error",
 
     ...getStrictRules(),
-  },
+  } as const,
 };
 
 const declarationConfig = {
@@ -232,7 +233,7 @@ const declarationConfig = {
   files: ["**/*.d.{ts,cts,mts,tsx}"],
   rules: {
     "@typescript-eslint/no-restricted-imports": "off",
-  },
+  } as const,
 };
 
 const testConfig = {
@@ -245,14 +246,9 @@ const testConfig = {
   rules: {
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/unbound-method": "off",
-  },
+  } as const,
 };
 
-const config: Array<
-  typeof mainConfig | typeof declarationConfig | typeof testConfig
-> = [mainConfig, declarationConfig, testConfig];
-const empty: Array<
-  typeof mainConfig | typeof declarationConfig | typeof testConfig
-> = [];
-
-export default tsconfig ? config : empty;
+export default tsconfig
+  ? ([mainConfig, declarationConfig, testConfig] as const)
+  : ([] as const);

@@ -8,7 +8,7 @@ const config = [
   jsConfig,
   ...tsConfig,
   packagejsonConfig,
-] satisfies Array<{
+] as const satisfies Array<{
   name?: string; // TODO remove the question mark
   ignores?: string[];
   files?: string[];

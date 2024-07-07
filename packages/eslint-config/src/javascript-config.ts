@@ -247,7 +247,7 @@ const standardConfigRules = {
   'n/process-exit-as-throw': 'error',
 
   'promise/param-names': 'error'
-};
+} as const;
 
 export default {
   name: "git-validator/javascript",
@@ -415,5 +415,5 @@ export default {
     "@git-validator/prefer-global-this": "error",
     "@git-validator/prefer-shortest-relative-path": "error",
     "@git-validator/require-reduce-initial-value": "error",
-  },
+  } as const,
 };
