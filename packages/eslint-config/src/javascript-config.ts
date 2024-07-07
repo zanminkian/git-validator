@@ -317,7 +317,7 @@ export default {
       {
         patterns: [
           {
-            group: [`*.d.js`, `*.d.cjs`, `*.d.mjs`, `*.d.jsx`],
+            group: ["*.d.js", "*.d.cjs", "*.d.mjs", "*.d.jsx"],
             message: "Do not import from a declaration style file",
           },
           {
@@ -411,6 +411,7 @@ export default {
     "@git-validator/no-instanceof-builtin": "error",
     "@git-validator/no-legacy-getter-setter": "error",
     "@git-validator/no-relative-parent-imports": "error",
+    "@git-validator/no-unnecessary-template-string": "error",
     "@git-validator/prefer-global-this": "error",
     "@git-validator/prefer-shortest-relative-path": "error",
     "@git-validator/require-reduce-initial-value": "error",
