@@ -5,9 +5,9 @@ import tsConfig from "./typescript-config.js";
 
 const config = [
   gitignoreConfig,
+  packagejsonConfig,
   jsConfig,
   ...tsConfig,
-  packagejsonConfig,
 ] as const satisfies Array<{
   name?: string; // TODO remove the question mark
   ignores?: string[];
@@ -16,9 +16,10 @@ const config = [
   rules?: Record<string, unknown>;
 }>;
 
+type Config = typeof config;
 type Keyof<T> = T extends infer U ? keyof U : never;
 type GetRules<T> = T extends { rules: unknown } ? T["rules"] : never;
-type Key = Keyof<GetRules<(typeof config)[number]>>;
+type Key = Keyof<GetRules<Config[number]>>;
 type NoDuplicate<A extends unknown[]> = {
   [I in keyof A]: true extends {
     [J in keyof A]: J extends I ? false : A[J] extends A[I] ? true : false;
