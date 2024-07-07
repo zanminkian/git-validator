@@ -1,5 +1,18 @@
 # @git-validator/eslint-config
 
+## 0.4.22
+
+### Patch Changes
+
+- a93b53a: feat(eslint-config): enable `@typescript-eslint/switch-exhaustiveness-check`
+- 18617b4: feat: add rule `@git-validator/no-unnecessary-template-string`
+- 7ca4f81: chore: upgrade deps
+- be32605: feat: add `@git-validator/no-untyped-empty-array`
+- Updated dependencies [18617b4]
+- Updated dependencies [7ca4f81]
+- Updated dependencies [be32605]
+  - @git-validator/eslint-plugin@0.6.6
+
 ## 0.4.21
 
 ### Patch Changes

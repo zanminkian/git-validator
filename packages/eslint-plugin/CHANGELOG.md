@@ -1,5 +1,13 @@
 # @git-validator/eslint-plugin
 
+## 0.6.6
+
+### Patch Changes
+
+- 18617b4: feat: add rule `@git-validator/no-unnecessary-template-string`
+- 7ca4f81: chore: upgrade deps
+- be32605: feat: add `@git-validator/no-untyped-empty-array`
+
 ## 0.6.5
 
 ### Patch Changes
