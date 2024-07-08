@@ -1,7 +1,7 @@
 {
   "name": "@git-validator/eslint-config",
   "version": "0.4.22",
-  "description": "A strict eslint config for better code quality.",
+  "description": "A super strict eslint config for linting js/ts/package.json.",
   "keywords": [
     "opinionated",
     "strict",

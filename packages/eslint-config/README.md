@@ -85,7 +85,7 @@ export default omit([
 ]);
 ```
 
-> Tips: After enabling ts check by adding `// @ts-check` at the top, you will get auto suggestions when you are using `pick` and `omit`.
+> Tips: After enabling ts check by adding `// @ts-check` at the top, you will get auto suggestions in IDE or editor when you are using `pick` and `omit`.
 
 ## License
 
