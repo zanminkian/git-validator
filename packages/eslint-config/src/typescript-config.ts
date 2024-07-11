@@ -200,6 +200,7 @@ const mainConfig = {
     "@typescript-eslint/no-non-null-assertion": "error",
     "@typescript-eslint/no-require-imports": "error",
     "@typescript-eslint/no-unnecessary-condition": "error",
+    "@typescript-eslint/no-unnecessary-parameter-property-assignment": "error",
     "@typescript-eslint/no-unnecessary-template-expression": "error", // js also need this rule
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
     "@typescript-eslint/only-throw-error": "error",
