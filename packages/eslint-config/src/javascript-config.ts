@@ -364,6 +364,7 @@ export default {
     "unicorn/consistent-destructuring": "error",
     "unicorn/consistent-empty-array-spread": "error",
     "unicorn/error-message": "error",
+    "unicorn/explicit-length-check": "error",
     "unicorn/filename-case": [
       "error",
       { cases: { kebabCase: true, pascalCase: true } },
