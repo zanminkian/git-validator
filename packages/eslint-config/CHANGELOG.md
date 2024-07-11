@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.4.23
+
+### Patch Changes
+
+- 97007ad: feat(eslint-config): enable `unicorn/explicit-length-check`
+- a31d977: chore: upgrade deps
+- Updated dependencies [a31d977]
+  - @git-validator/eslint-plugin@0.6.7
+
 ## 0.4.22
 
 ### Patch Changes
