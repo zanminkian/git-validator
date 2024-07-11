@@ -18,7 +18,7 @@ async function globallyIgnore() {
     // TODO waiting for eslint 9
     // name: 'git-validator/ignore',
     ignores,
-  };
+  } as const;
 }
 
 export default await globallyIgnore();

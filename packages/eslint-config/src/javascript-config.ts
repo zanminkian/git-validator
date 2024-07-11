@@ -414,5 +414,5 @@ export default {
     "@git-validator/prefer-global-this": "error",
     "@git-validator/prefer-shortest-relative-path": "error",
     "@git-validator/require-reduce-initial-value": "error",
-  } as const,
-};
+  },
+} as const;

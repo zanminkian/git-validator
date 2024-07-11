@@ -226,16 +226,16 @@ const mainConfig = {
     "@typescript-eslint/unbound-method": "error",
 
     ...getStrictRules(),
-  } as const,
-};
+  },
+} as const;
 
 const declarationConfig = {
   name: "git-validator/typescript/declaration",
   files: ["**/*.d.{ts,cts,mts,tsx}"],
   rules: {
     "@typescript-eslint/no-restricted-imports": "off",
-  } as const,
-};
+  },
+} as const;
 
 const testConfig = {
   // https://github.com/motemen/minimatch-cheat-sheet
@@ -247,8 +247,8 @@ const testConfig = {
   rules: {
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/unbound-method": "off",
-  } as const,
-};
+  },
+} as const;
 
 export default tsconfig
   ? ([mainConfig, declarationConfig, testConfig] as const)

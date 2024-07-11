@@ -8,13 +8,7 @@ const config = [
   packagejsonConfig,
   jsConfig,
   ...tsConfig,
-] as const satisfies Array<{
-  name?: string; // TODO remove the question mark
-  ignores?: string[];
-  files?: string[];
-  plugins?: Record<string, unknown>;
-  rules?: Record<string, unknown>;
-}>;
+] as const;
 
 type Config = typeof config;
 type Keyof<T> = T extends infer U ? keyof U : never;
