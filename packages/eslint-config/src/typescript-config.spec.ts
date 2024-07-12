@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
-import configs from "./typescript-config.js";
+import { typescript } from "./typescript-config.js";
 
 await describe("ts config", async () => {
   await it("ts config value should be error", () => {
@@ -52,7 +52,7 @@ await describe("ts config", async () => {
       "space-before-function-paren",
       "space-infix-ops",
     ];
-    configs.forEach((config, configIndex) => {
+    typescript().forEach((config, configIndex) => {
       Object.entries(config.rules).forEach(([key, value]) => {
         if (extensionRuleKeys.includes(key)) {
           assert.strictEqual(
@@ -88,7 +88,7 @@ await describe("ts config", async () => {
     });
   });
   await it("ts main config rules values should be error", () => {
-    Object.entries(configs[0]?.rules ?? {}).forEach(([key, value]) => {
+    Object.entries(typescript()[0].rules).forEach(([key, value]) => {
       // https://typescript-eslint.io/rules/?=extension
       const extensionRuleKeys = [
         "block-spacing",
@@ -146,7 +146,7 @@ await describe("ts config", async () => {
     });
   });
   await it("ts rest configs rules values should be off", () => {
-    const [, ...restConfigs] = configs;
+    const [, ...restConfigs] = typescript();
     restConfigs.forEach((restConfig) => {
       Object.entries(restConfig.rules).forEach(([_key, value]) => {
         assert.strictEqual(getValueString(value), "off");

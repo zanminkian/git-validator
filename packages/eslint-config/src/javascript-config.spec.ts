@@ -1,10 +1,10 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
-import config from "./javascript-config.js";
+import { javascript } from "./javascript-config.js";
 
 await describe("js config", async () => {
   await it("js config value should be error", () => {
-    Object.values(config.rules).forEach((value) => {
+    Object.values(javascript()[0].rules).forEach((value) => {
       if (typeof value === "string") {
         assert.strictEqual(value, "error");
       } else if (Array.isArray(value)) {

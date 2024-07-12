@@ -2,8 +2,8 @@ import assert from "node:assert";
 import fs from "node:fs/promises";
 import { describe, it } from "node:test";
 import prettier from "prettier";
-import jsConfig from "../src/javascript-config.js";
-import tsConfig from "../src/typescript-config.js";
+import { javascript } from "../src/javascript-config.js";
+import { typescript } from "../src/typescript-config.js";
 
 function count(content: string, substring: string) {
   return (content.match(new RegExp(`"${substring}"`, "g")) ?? []).length;
@@ -19,7 +19,7 @@ await describe("no duplicated", async () => {
       { parser: "typescript", quoteProps: "consistent" },
     );
 
-    Object.keys(jsConfig.rules).forEach((rule) => {
+    Object.keys(javascript()[0].rules).forEach((rule) => {
       assert.strictEqual(count(configContent, rule), 1);
     });
   });
@@ -33,14 +33,14 @@ await describe("no duplicated", async () => {
       { parser: "typescript", quoteProps: "consistent" },
     );
 
-    tsConfig
+    typescript()
       .flatMap((c) => Object.keys(c.rules))
       .forEach((rule) => {
         if (
           [
-            "@typescript-eslint/consistent-type-assertions",
+            // "@typescript-eslint/consistent-type-assertions",
             "@typescript-eslint/no-floating-promises",
-            "@typescript-eslint/no-non-null-assertion",
+            // "@typescript-eslint/no-non-null-assertion",
             "@typescript-eslint/unbound-method",
           ].includes(rule)
         ) {

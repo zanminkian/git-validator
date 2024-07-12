@@ -1,9 +1,9 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
 import prettierConfig from "eslint-config-prettier";
-import jsConfig from "../src/javascript-config.js";
-import packagejsonConfig from "../src/packagejson-config.js";
-import tsConfig from "../src/typescript-config.js";
+import { javascript } from "../src/javascript-config.js";
+import { packagejson } from "../src/packagejson-config.js";
+import { typescript } from "../src/typescript-config.js";
 
 await describe("prettier", async () => {
   await it("prettier config should be standard", () => {
@@ -21,21 +21,21 @@ await describe("prettier", async () => {
       Object.keys(prettierConfig.rules).includes(rule);
 
     // 1
-    const jsForbidRule = Object.keys(jsConfig.rules).find((rule) =>
+    const jsForbidRule = Object.keys(javascript()[0].rules).find((rule) =>
       included(rule),
     );
     assert.strictEqual(jsForbidRule, undefined);
 
     // 2
-    assert.strictEqual(typeof tsConfig[0], "object");
-    assert.strictEqual(tsConfig.length, 3);
-    const tsForbidRule = tsConfig
+    assert.strictEqual(typeof typescript()[0], "object");
+    assert.strictEqual(typescript().length, 3);
+    const tsForbidRule = typescript()
       .flatMap((config) => Object.keys(config.rules))
       .find((rule) => included(rule));
     assert.strictEqual(tsForbidRule, undefined);
 
     // 3
-    const pacakgejsonRule = Object.keys(packagejsonConfig.rules).find((rule) =>
+    const pacakgejsonRule = Object.keys(packagejson()[0].rules).find((rule) =>
       included(rule),
     );
     assert.strictEqual(pacakgejsonRule, undefined);

@@ -1,52 +1,118 @@
-import gitignoreConfig from "./gitignore-config.js";
-import jsConfig from "./javascript-config.js";
-import packagejsonConfig from "./packagejson-config.js";
-import tsConfig from "./typescript-config.js";
+import { gitignore } from "./gitignore-config.js";
+import { javascript } from "./javascript-config.js";
+import { packagejson } from "./packagejson-config.js";
+import { typescript } from "./typescript-config.js";
 
-const config = [
-  gitignoreConfig,
-  packagejsonConfig,
-  jsConfig,
-  ...tsConfig,
-] as const;
+type Concat<T extends unknown[], I extends unknown[]> = [...T, ...I];
 
-type Config = typeof config;
+type GitignoreConfig = [...ReturnType<typeof gitignore>];
+type JavascriptConfig = [...ReturnType<typeof javascript>];
+type PackagejsonConfig = [...ReturnType<typeof packagejson>];
+type TypescriptConfig = [...ReturnType<typeof typescript>];
+
 type Keyof<T> = T extends infer U ? keyof U : never;
-type GetRules<T> = T extends { rules: unknown } ? T["rules"] : never;
-type Key = Keyof<GetRules<Config[number]>>;
-type NoDuplicate<A extends unknown[]> = {
-  [I in keyof A]: true extends {
-    [J in keyof A]: J extends I ? false : A[J] extends A[I] ? true : false;
-  }[number]
-    ? never
-    : A[I];
-};
-type NoDuplicateArray<T extends unknown[]> = [...NoDuplicate<T>];
+type RuleKeys<T extends { rules: object }[]> = Keyof<T[number]["rules"]>[];
 
-function factory(type: "pick" | "omit") {
-  return (rules: readonly Key[]) => {
-    const find = (key: string) => {
-      switch (type) {
-        case "pick":
-          return !!rules.find((rule) => rule === key)?.toString();
-        case "omit":
-          return !rules.find((rule) => rule === key)?.toString();
-      }
-    };
-
-    return config.map((configItem) => ({
-      ...configItem,
-      ...("rules" in configItem && {
-        rules: Object.fromEntries(
-          Object.entries(configItem.rules).filter(([k]) => find(k)),
-        ),
-      }),
-    }));
+type PickRules<T extends { rules: object }[], K extends string[]> = {
+  [I in keyof T]: Omit<T[I], "rules"> & {
+    rules: Pick<T[I]["rules"], Extract<K[number], keyof T[I]["rules"]>>;
   };
+};
+type OmitRules<T extends { rules: object }[], K extends string[]> = {
+  [I in keyof T]: Omit<T[I], "rules"> & {
+    rules: Omit<T[I]["rules"], Extract<K[number], keyof T[I]["rules"]>>;
+  };
+};
+
+export interface EnableOptions<R extends string[]> {
+  select?: { mode: "pick" | "omit"; rules: R };
+}
+export interface PickOptions<R extends string[]> {
+  select: { mode: "pick"; rules: R };
+}
+export interface OmitOptions<R extends string[]> {
+  select: { mode: "omit"; rules: R };
 }
 
-export const pick = <T extends Key[]>(rules: NoDuplicateArray<T>) =>
-  factory("pick")(rules);
-export const omit = <T extends Key[]>(rules: NoDuplicateArray<T>) =>
-  factory("omit")(rules);
-export default config;
+export class Builder<T extends unknown[] = GitignoreConfig> {
+  private readonly configs: object[] = [...gitignore()];
+
+  toConfig() {
+    return this.configs as unknown as T;
+  }
+
+  private setup(
+    subConfigs: readonly { rules: object }[],
+    options: EnableOptions<string[]> = {},
+  ): Builder<unknown[]> {
+    const { select } = options;
+    if (!select) {
+      this.configs.push(...subConfigs);
+      return this;
+    }
+    const pick = (ruleKey: string) => select.rules.includes(ruleKey);
+    const omit = (ruleKey: string) => !select.rules.includes(ruleKey);
+    this.configs.push(
+      ...subConfigs.map((config) => ({
+        ...config,
+        rules: Object.fromEntries(
+          Object.entries(config.rules).filter(([ruleKey]) =>
+            select.mode === "pick" ? pick(ruleKey) : omit(ruleKey),
+          ),
+        ),
+      })),
+    );
+    return this;
+  }
+
+  enableTypescript<K extends RuleKeys<TypescriptConfig>>(
+    options: PickOptions<K> & { project?: string },
+  ): Builder<Concat<T, PickRules<TypescriptConfig, K>>>;
+  enableTypescript<K extends RuleKeys<TypescriptConfig>>(
+    options: OmitOptions<K> & { project?: string },
+  ): Builder<Concat<T, OmitRules<TypescriptConfig, K>>>;
+  enableTypescript<K extends RuleKeys<TypescriptConfig>>(
+    options?: EnableOptions<K> & { project?: string },
+  ): Builder<Concat<T, TypescriptConfig>>;
+  enableTypescript<K extends RuleKeys<TypescriptConfig>>(
+    options?: EnableOptions<K> & { project?: string },
+  ) {
+    return this.setup(typescript(options?.project), options);
+  }
+
+  enableJavascript<K extends RuleKeys<JavascriptConfig>>(
+    options: PickOptions<K>,
+  ): Builder<Concat<T, PickRules<JavascriptConfig, K>>>;
+  enableJavascript<K extends RuleKeys<JavascriptConfig>>(
+    options: OmitOptions<K>,
+  ): Builder<Concat<T, OmitRules<JavascriptConfig, K>>>;
+  enableJavascript<K extends RuleKeys<JavascriptConfig>>(
+    options?: EnableOptions<K>,
+  ): Builder<Concat<T, JavascriptConfig>>;
+  enableJavascript<K extends RuleKeys<JavascriptConfig>>(
+    options?: EnableOptions<K>,
+  ) {
+    return this.setup(javascript(), options);
+  }
+
+  enablePackagejson<K extends RuleKeys<PackagejsonConfig>>(
+    options: PickOptions<K>,
+  ): Builder<Concat<T, PickRules<PackagejsonConfig, K>>>;
+  enablePackagejson<K extends RuleKeys<PackagejsonConfig>>(
+    options: OmitOptions<K>,
+  ): Builder<Concat<T, OmitRules<PackagejsonConfig, K>>>;
+  enablePackagejson<K extends RuleKeys<PackagejsonConfig>>(
+    options?: EnableOptions<K>,
+  ): Builder<Concat<T, PackagejsonConfig>>;
+  enablePackagejson<K extends RuleKeys<PackagejsonConfig>>(
+    options?: EnableOptions<K>,
+  ) {
+    return this.setup(packagejson(), options);
+  }
+}
+
+export default new Builder()
+  .enablePackagejson()
+  .enableJavascript()
+  .enableTypescript()
+  .toConfig();
