@@ -6,31 +6,31 @@
 [![](https://packagephobia.com/badge?p=@git-validator/eslint-config)](https://packagephobia.com/result?p=@git-validator/eslint-config)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
 
-A strict eslint config for better code quality. Based on [standard.js](https://github.com/standard/standard) without any stylistic opinions.
+A strict eslint config for linting `js` / `ts` / `package.json` files. Based on [standard.js](https://github.com/standard/standard) without any stylistic opinions.
 
 ## Feature
 
 - Lint `js` / `mjs` / `cjs` / `jsx` / `ts` / `mts` / `cts` / `tsx` / `package.json` files only.
+- One-line of config.
+- Type safe. TypeScript friendly.
+- Respect `.gitignore`.
 - Based on [standard.js](https://github.com/standard/standard).
 - Have no stylistic opinions. Prettier friendly.
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
 - Strict, but progressive.
-- One-line of config.
 - Modern. ESM first.
-- Respect `.gitignore`.
 - React friendly.
 - NestJS friendly.
-- Type safe.
 
 ## Usage
 
-Install
+Install it in the root of js / ts project.
 
 ```sh
-pnpm add -D eslint @git-validator/eslint-config
+npm install -D eslint @git-validator/eslint-config
 ```
 
-Config `eslint.config.js` (for ESM)
+Config `eslint.config.js` (for ESM).
 
 ```js
 import config from "@git-validator/eslint-config";
@@ -38,7 +38,7 @@ import config from "@git-validator/eslint-config";
 export default config;
 ```
 
-If you are in CommonJS, config `eslint.config.js` bellow
+If you are in CommonJS, config `eslint.config.js` bellow:
 
 ```js
 module.exports = import("@git-validator/eslint-config");
@@ -55,37 +55,39 @@ Config `package.json`
 }
 ```
 
-> Note: TypeScript project is required a `tsconfig.eslint.json` or `tsconfig.json` or `tsconfig.build.json` file in the root of the project. Otherwise, ts files will be ignored and only js files will be linted.
+> Note: TypeScript project is required a `tsconfig.json` file in the root.
 
-## Progressive Usage
+## Advanced Usage
 
-The default config is too strict for some projects. You can use `pick` or `omit` function in `eslint.config.js` to enable the rules step by step, progressively.
+### Config Builder
 
-```js
-// @ts-check
-import { pick } from "@git-validator/eslint-config";
+The default config is very strict. If you don't like the default config, use `Builder` to omit or pick some rules.
 
-// Enable the rules that you configured. The other builtin rules will not work.
-export default pick([
-  "unicorn/error-message",
-  "@typescript-eslint/no-floating-promises",
-  // Other rules key. You will get auto suggestions in VSCode here.
-]);
+```ts
+import { Builder } from "@git-validator/eslint-config";
+
+export default new Builder()
+  .enablePackagejson({
+    select: {
+      mode: "pick",
+      rules: ["packagejson/top-types"], // only these rules will work in 'pick' mode
+    },
+  })
+  .enableTypescript({
+    project: "tsconfig.json", // tsconfig.json path
+    select: {
+      mode: "omit",
+      rules: ["no-var"], // these rules will not work in 'omit' mode
+    },
+  })
+  .toConfig();
 ```
 
-```js
-// @ts-check
-import { omit } from "@git-validator/eslint-config";
+### Type Infer
 
-// Ignore the rules that you configure. The other builtin rules will work.
-export default omit([
-  "unicorn/error-message",
-  "@typescript-eslint/no-floating-promises",
-  // Other rules key. You will get auto suggestions in VSCode here.
-]);
-```
+By using `.toConfig()` at the end, TypeScript will infer the config type correctly, which is consistent with the enabled rules. You can hover your mouse (in VSCode) to have a look.
 
-> Tips: After enabling ts check by adding `// @ts-check` at the top, you will get auto suggestions in IDE or editor when you are using `pick` and `omit`.
+![type infer](https://raw.githubusercontent.com/zanminkian/static/main/git-validator/type-infer.png)
 
 ## License
 
