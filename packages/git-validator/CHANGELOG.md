@@ -1,5 +1,20 @@
 # git-validator
 
+## 0.18.0-beta.0
+
+### Minor Changes
+
+- 577e646: feat(tsconfig): add `${configDir}` template variable, requires ts 5.5
+
+### Patch Changes
+
+- edf2c80: chore: upgrade deps
+- Updated dependencies [577e646]
+- Updated dependencies [edf2c80]
+- Updated dependencies [fbdf8a3]
+  - @git-validator/tsconfig@0.6.0-beta.0
+  - @git-validator/eslint-config@0.5.0-beta.0
+
 ## 0.17.13
 
 ### Patch Changes
