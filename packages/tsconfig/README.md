@@ -10,7 +10,8 @@ Strict shared tsconfig out-of-box.
 
 ## Feature
 
-- Strictest configs with best practices.
+- The best practice about `tsconfig.json`.
+- Strictest.
 - One-line of tsconfig.
 - Support `ESM` and `CommonJS`.
 - Support FE (eg: [React](https://github.com/facebook/react)) & BE (eg: [Nest](https://github.com/nestjs/nest)) project.

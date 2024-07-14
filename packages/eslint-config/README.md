@@ -85,7 +85,7 @@ export default new Builder()
 
 ### Type Infer
 
-By using `.toConfig()` at the end, TypeScript will infer the config type correctly, which is consistent with the enabled rules. You can hover your mouse (in VSCode) to have a look.
+By using `.toConfig()` at the end, TypeScript will infer the config type correctly, which is consistent with the enabled rules. You can hover your mouse (in VSCode) to preview it.
 
 ![type infer](https://raw.githubusercontent.com/zanminkian/static/main/git-validator/type-infer.png)
 
