@@ -11,5 +11,9 @@
     "@git-validator/tsconfig": "0.5.1",
     "@git-validator/types": "0.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "afraid-students-tickle",
+    "chilled-bobcats-care",
+    "many-students-build"
+  ]
 }

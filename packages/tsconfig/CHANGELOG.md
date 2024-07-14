@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.6.0-beta.0
+
+### Minor Changes
+
+- 577e646: feat(tsconfig): add `${configDir}` template variable, requires ts 5.5
+
 ## 0.5.1
 
 ### Patch Changes
