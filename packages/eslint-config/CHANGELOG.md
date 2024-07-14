@@ -1,5 +1,15 @@
 # @git-validator/eslint-config
 
+## 0.5.0
+
+### Minor Changes
+
+- fbdf8a3: feat(eslint-config)!: add new builder, drop strict mode, tsconfig.json in project root is required for ts projects (js projects don't require it)
+
+### Patch Changes
+
+- edf2c80: chore: upgrade deps
+
 ## 0.4.23
 
 ### Patch Changes
