@@ -28,7 +28,7 @@
 ## 要求
 
 - Node >= 18
-- Typescript >= 5.0
+- Typescript >= 5.5
 
 ## 快速开始
 
@@ -121,13 +121,16 @@ Commands:
 
 ```js
 // 你也可以自行安装并使用其他 eslint config，例如 `@sxzz/eslint-config`
-import { omit } from "@git-validator/eslint-config";
+import { Builder } from "@git-validator/eslint-config";
 
-// 移除你不想要开启的规则
-export default omit([
-  "no-plusplus",
-  // ...
-]);
+export default new Builder()
+  .enableTypescript({
+    select: {
+      mode: "omit",
+      rules: ["no-plusplus"], // 移除你不想要开启的规则
+    },
+  })
+  .toConfig();
 ```
 
 `prettier.config.js` example.

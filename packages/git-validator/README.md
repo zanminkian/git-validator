@@ -121,13 +121,16 @@ The default linting rule is [@git-validator/eslint-config](https://www.npmjs.com
 
 ```js
 // You can also install and use other eslint config preset, like `@sxzz/eslint-config`.
-import { omit } from "@git-validator/eslint-config";
+import { Builder } from "@git-validator/eslint-config";
 
-// Omit the rules as you want
-export default omit([
-  "no-plusplus",
-  // ...
-]);
+export default new Builder()
+  .enableTypescript({
+    select: {
+      mode: "omit",
+      rules: ["no-plusplus"], // Omit the rules as you want
+    },
+  })
+  .toConfig();
 ```
 
 `prettier.config.js` example.
