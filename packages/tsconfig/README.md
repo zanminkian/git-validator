@@ -1,6 +1,6 @@
 # @git-validator/tsconfig
 
-Strict shared tsconfig out-of-box
+Strict shared tsconfig out-of-box.
 
 [![](https://img.shields.io/npm/l/@git-validator/tsconfig.svg)](https://github.com/zanminkian/git-validator/blob/main/LICENSE)
 [![](https://img.shields.io/npm/v/@git-validator/tsconfig.svg)](https://www.npmjs.com/package/@git-validator/tsconfig)
@@ -17,7 +17,7 @@ Strict shared tsconfig out-of-box
 
 ## Requirement
 
-- Typescript 5.0+.
+- Typescript 5.5+.
 - Node 18+.
 
 ## Usage
@@ -78,10 +78,7 @@ Here are the best practices if you are using this package.
 {
   "extends": "./tsconfig",
   "include": ["src"],
-  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
-  "compilerOptions": {
-    "outDir": "dist"
-  }
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }
 ```
 
@@ -131,10 +128,7 @@ Here are the best practices if you are using this package.
 {
   "extends": "./tsconfig",
   "include": ["src"],
-  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
-  "compilerOptions": {
-    "outDir": "dist"
-  }
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }
 ```
 

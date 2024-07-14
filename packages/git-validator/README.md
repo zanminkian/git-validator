@@ -28,7 +28,7 @@
 ## Requirement
 
 - Node >= 18
-- Typescript >= 5.0
+- Typescript >= 5.5
 
 ## Quick Start
 

@@ -24,16 +24,13 @@ export async function initAction(options) {
   const generatingTsconfigContent = `{
   "extends": "${options.ext ?? "@git-validator/tsconfig"}",
   "include": ["src"],
-  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
-  "compilerOptions": {
-    "outDir": "dist"
-  }
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }
 `;
 
   const { path: filepath, name, force } = options;
   const fullName = path.resolve(process.cwd(), filepath, name);
-  if (!(await exists(fullName)) || force) {
+  if (force || !(await exists(fullName))) {
     await fs.writeFile(fullName, generatingTsconfigContent);
   } else {
     throw new Error(

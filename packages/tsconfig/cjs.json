@@ -22,7 +22,7 @@
     "moduleResolution": "node16",
 
     "allowJs": true,
-    "outDir": "dist",
+    "outDir": "${configDir}/dist",
     "allowArbitraryExtensions": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

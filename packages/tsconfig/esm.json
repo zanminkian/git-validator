@@ -22,7 +22,7 @@
     "moduleResolution": "node16",
 
     "allowJs": true,
-    "outDir": "dist",
+    "outDir": "${configDir}/dist",
     "verbatimModuleSyntax": true,
     "allowArbitraryExtensions": true,
     "experimentalDecorators": true,
