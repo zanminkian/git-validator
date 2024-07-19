@@ -1,48 +1,14 @@
+import { create } from "../check-import.js";
 import { createSimpleRule, getRuleName } from "../utils.js";
+
+const depth = 3;
 
 export default createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Disallow to import module from relative parent path too deeply.",
-  create: (context) => ({
-    ImportDeclaration: (node) => {
-      if (checkDepth(node.source.value)) {
-        context.reportNode(node.source);
-      }
-    },
-    ImportExpression: (node) => {
-      if (
-        "value" in node.source &&
-        typeof node.source.value === "string" &&
-        checkDepth(node.source.value)
-      ) {
-        context.reportNode(node.source);
-      }
-    },
-    CallExpression: (node) => {
-      const arg = node.arguments[0];
-      if (
-        "name" in node.callee &&
-        node.callee.name === "require" &&
-        arg?.type === "Literal" &&
-        typeof arg.value === "string" &&
-        checkDepth(arg.value)
-      ) {
-        context.reportNode(arg);
-      }
-    },
-    ExportAllDeclaration: (node) => {
-      if (checkDepth(node.source.value)) {
-        context.reportNode(node.source);
-      }
-    },
-    ExportNamedDeclaration: (node) => {
-      if (node.source && checkDepth(node.source.value)) {
-        context.reportNode(node.source);
-      }
-    },
-  }),
+  create: (context) => create(context, checkDepth),
 });
 
-function checkDepth(source: string, depth = 3) {
+function checkDepth(_filename: string, source: string) {
   return new RegExp(`^(\\.\\./){${depth},}`).test(source);
 }

@@ -6,7 +6,7 @@ import type {
   RuleListener,
 } from "@typescript-eslint/utils/ts-eslint";
 
-interface Context extends RuleContext<string, unknown[]> {
+export interface Context extends RuleContext<string, unknown[]> {
   reportNode: (node: TSESTree.Node | TSESTree.Token) => void;
 }
 

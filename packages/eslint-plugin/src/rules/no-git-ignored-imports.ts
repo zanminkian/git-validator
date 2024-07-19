@@ -2,49 +2,13 @@ import childProcess from "node:child_process";
 import path from "node:path";
 import process from "node:process";
 import { isNativeError } from "node:util/types";
+import { create } from "../check-import.js";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
 export default createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Disallow to import module from git-ignored path.",
-  create: (context) => ({
-    ImportDeclaration: (node) => {
-      if (checkIgnored(context.filename, node.source.value)) {
-        context.reportNode(node.source);
-      }
-    },
-    ImportExpression: (node) => {
-      if (
-        "value" in node.source &&
-        typeof node.source.value === "string" &&
-        checkIgnored(context.filename, node.source.value)
-      ) {
-        context.reportNode(node.source);
-      }
-    },
-    CallExpression: (node) => {
-      const arg = node.arguments[0];
-      if (
-        "name" in node.callee &&
-        node.callee.name === "require" &&
-        arg?.type === "Literal" &&
-        typeof arg.value === "string" &&
-        checkIgnored(context.filename, arg.value)
-      ) {
-        context.reportNode(arg);
-      }
-    },
-    ExportAllDeclaration: (node) => {
-      if (checkIgnored(context.filename, node.source.value)) {
-        context.reportNode(node.source);
-      }
-    },
-    ExportNamedDeclaration: (node) => {
-      if (node.source && checkIgnored(context.filename, node.source.value)) {
-        context.reportNode(node.source);
-      }
-    },
-  }),
+  create: (context) => create(context, checkIgnored),
 });
 
 function checkIgnored(filePath: string, source: string) {
