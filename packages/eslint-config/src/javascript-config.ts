@@ -311,21 +311,6 @@ export function javascript() {
       "no-invalid-this": "error",
       "no-multi-assign": "error",
       "no-plusplus": "error",
-      "no-restricted-imports": [
-        "error",
-        {
-          patterns: [
-            {
-              group: ["*.d.js", "*.d.cjs", "*.d.mjs", "*.d.jsx"],
-              message: "Do not import from a declaration style file",
-            },
-            {
-              group: ["*.ts", "*.cts", "*.mts", "*.tsx"],
-              message: "Do not import a ts file",
-            },
-          ],
-        },
-      ],
       "no-shadow": ["error", { ignoreOnInitialization: true }],
       "no-unused-private-class-members": "error",
       "prefer-arrow-callback": "error",
@@ -411,6 +396,7 @@ export function javascript() {
       "@git-validator/no-instanceof-builtin": "error",
       "@git-validator/no-legacy-getter-setter": "error",
       "@git-validator/no-relative-parent-imports": "error",
+      "@git-validator/no-ts-file-imports": "error",
       "@git-validator/no-unnecessary-template-string": "error",
       "@git-validator/prefer-global-this": "error",
       "@git-validator/prefer-shortest-relative-path": "error",

@@ -11,6 +11,7 @@ import noInstanceofBuiltin from "./rules/no-instanceof-builtin.js";
 import noLegacyGetterSetter from "./rules/no-legacy-getter-setter.js";
 import noPropertyDecorator from "./rules/no-property-decorator.js";
 import noRelativeParentImports from "./rules/no-relative-parent-imports.js";
+import noTsFileImports from "./rules/no-ts-file-imports.js";
 import noUnnecessaryTemplateString from "./rules/no-unnecessary-template-string.js";
 import noUntypedEmptyArray from "./rules/no-untyped-empty-array.js";
 import preferGlobalThis from "./rules/prefer-global-this.js";
@@ -32,6 +33,7 @@ export default {
     [noLegacyGetterSetter.name]: noLegacyGetterSetter.rule,
     [noPropertyDecorator.name]: noPropertyDecorator.rule,
     [noRelativeParentImports.name]: noRelativeParentImports.rule,
+    [noTsFileImports.name]: noTsFileImports.rule,
     [noUnnecessaryTemplateString.name]: noUnnecessaryTemplateString.rule,
     [noUntypedEmptyArray.name]: noUntypedEmptyArray.rule,
     [preferGlobalThis.name]: preferGlobalThis.rule,

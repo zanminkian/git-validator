@@ -219,14 +219,6 @@ export function typescript(project?: string) {
     },
   } as const;
 
-  const declarationConfig = {
-    name: "git-validator/typescript/declaration",
-    files: ["**/*.d.{ts,cts,mts,tsx}"],
-    rules: {
-      "@typescript-eslint/no-restricted-imports": "off",
-    },
-  } as const;
-
   const testConfig = {
     // https://github.com/motemen/minimatch-cheat-sheet
     name: "git-validator/typescript/test",
@@ -240,5 +232,5 @@ export function typescript(project?: string) {
     },
   } as const;
 
-  return [mainConfig, declarationConfig, testConfig] as const;
+  return [mainConfig, testConfig] as const;
 }
