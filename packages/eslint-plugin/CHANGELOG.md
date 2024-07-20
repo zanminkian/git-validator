@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.6.8
+
+### Patch Changes
+
+- 9035843: feat(eslint-plugin): add rule `no-ts-file-imports`
+
 ## 0.6.7
 
 ### Patch Changes
