@@ -1,5 +1,12 @@
 # git-validator
 
+## 0.18.1
+
+### Patch Changes
+
+- 20296e9: perf(git-validator): don't format again when there was no changes during linting
+  - @git-validator/eslint-config@0.5.1
+
 ## 0.18.0
 
 ### Minor Changes
