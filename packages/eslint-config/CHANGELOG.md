@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.5.2
+
+### Patch Changes
+
+- ecb2565: feat(eslint-config): add rule `no-param-reassign`
+
 ## 0.5.1
 
 ### Patch Changes
