@@ -51,7 +51,7 @@ export async function format(paths = [], options = {}) {
   );
   const result = await new Promise((resolve, reject) => {
     child.on("error", (err) => reject(err));
-    child.on("close", (code, signal) => resolve({ code, signal }));
+    child.on("close", (code) => resolve(code));
   });
   console.timeEnd("Format");
   return result;

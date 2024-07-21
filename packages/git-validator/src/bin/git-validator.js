@@ -25,10 +25,9 @@ program
   )
   .argument("[paths...]", "dir or file paths to format and lint")
   .action(async (paths, options) => {
-    let code =
-      (await format(paths, options)).code || (await lint(paths, options)).code;
+    let code = (await format(paths, options)) || (await lint(paths, options));
     if (options.fix || options.update) {
-      code ||= (await format(paths, options)).code;
+      code ||= await format(paths, options);
     }
     process.exit(code ?? 0);
   });
