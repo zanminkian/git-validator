@@ -28,22 +28,23 @@ export async function lint(paths = [], options = {}) {
   }
 
   console.log("Checking linting...");
-  const child = childProcess.spawn(
-    "node",
-    [
-      path.join(dir(import.meta.url), "..", "bin", "eslint.js"),
-      "--config",
-      configPath,
-      ...(shouldFix ? ["--fix"] : []),
-      ...ps,
-    ],
-    {
-      stdio: "inherit",
-    },
-  );
-  const result = await new Promise((resolve, reject) => {
-    child.on("error", (err) => reject(err));
-    child.on("close", (code) => resolve(code));
+  const result = await new Promise((resolve) => {
+    childProcess.exec(
+      [
+        "node",
+        path.join(dir(import.meta.url), "..", "bin", "eslint.js"),
+        "--config",
+        configPath,
+        ...(shouldFix ? ["--fix"] : []),
+        ...ps,
+      ].join(" "),
+      { env: { FORCE_COLOR: "true", ...process.env }, encoding: "buffer" },
+      (error, stdout, stderr) => {
+        process.stdout.write(stdout);
+        process.stderr.write(stderr);
+        return resolve(error?.code ?? 0);
+      },
+    );
   });
   console.timeEnd("Lint");
   return result;

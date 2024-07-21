@@ -34,24 +34,27 @@ export async function format(paths = [], options = {}) {
     requireResolve("@git-validator/prettier-config");
 
   console.log("Checking formatting...");
-  const child = childProcess.spawn(
-    "node",
-    [
-      path.join(dir(import.meta.url), "..", "bin", "prettier.js"),
-      "--log-level",
-      "warn",
-      ...ignores,
-      "--config",
-      configPath,
-      "--ignore-unknown",
-      ...(shouldWrite ? ["--write"] : ["--check"]),
-      ...ps,
-    ],
-    { stdio: "inherit" },
-  );
-  const result = await new Promise((resolve, reject) => {
-    child.on("error", (err) => reject(err));
-    child.on("close", (code) => resolve(code));
+  const result = await new Promise((resolve) => {
+    childProcess.exec(
+      [
+        "node",
+        path.join(dir(import.meta.url), "..", "bin", "prettier.js"),
+        "--log-level",
+        "warn",
+        ...ignores,
+        "--config",
+        configPath,
+        "--ignore-unknown",
+        ...(shouldWrite ? ["--write"] : ["--check"]),
+        ...ps,
+      ].join(" "),
+      { env: { FORCE_COLOR: "true", ...process.env }, encoding: "buffer" },
+      (error, stdout, stderr) => {
+        process.stdout.write(stdout);
+        process.stderr.write(stderr);
+        return resolve(error?.code ?? 0);
+      },
+    );
   });
   console.timeEnd("Format");
   return result;
