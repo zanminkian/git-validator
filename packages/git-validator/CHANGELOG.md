@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.18.2
+
+### Patch Changes
+
+- bb788b7: feat(git-validator): show spin during running time
+- Updated dependencies [ecb2565]
+  - @git-validator/eslint-config@0.5.2
+
 ## 0.18.1
 
 ### Patch Changes
