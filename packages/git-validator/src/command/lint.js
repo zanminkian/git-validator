@@ -3,7 +3,8 @@ import childProcess from "node:child_process";
 import { createRequire } from "node:module";
 import path from "node:path";
 import process from "node:process";
-import { dir, resolveConfig } from "../utils.js";
+import ora from "ora";
+import { dir, getSpentTime, resolveConfig } from "../utils.js";
 
 const requireResolve = createRequire(import.meta.url).resolve;
 
@@ -12,7 +13,8 @@ const requireResolve = createRequire(import.meta.url).resolve;
  * @param {{update?: boolean, fix?: boolean}} options
  */
 export async function lint(paths = [], options = {}) {
-  console.time("Lint");
+  const startTime = Date.now();
+  const spinner = ora("Checking linting...").start();
   const { update, fix } = options;
   const shouldFix = update || fix;
 
@@ -27,8 +29,7 @@ export async function lint(paths = [], options = {}) {
     configPath = requireResolve("@git-validator/eslint-config");
   }
 
-  console.log("Checking linting...");
-  const result = await new Promise((resolve) => {
+  return new Promise((resolve) => {
     childProcess.exec(
       [
         "node",
@@ -40,12 +41,17 @@ export async function lint(paths = [], options = {}) {
       ].join(" "),
       { env: { FORCE_COLOR: "true", ...process.env }, encoding: "buffer" },
       (error, stdout, stderr) => {
+        if (error) {
+          spinner.fail(`Checking linting failed in ${getSpentTime(startTime)}`);
+        } else {
+          spinner.succeed(
+            `Checking linting succeeded in ${getSpentTime(startTime)}`,
+          );
+        }
         process.stdout.write(stdout);
         process.stderr.write(stderr);
         return resolve(error?.code ?? 0);
       },
     );
   });
-  console.timeEnd("Lint");
-  return result;
 }

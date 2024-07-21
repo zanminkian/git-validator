@@ -3,8 +3,9 @@ import childProcess from "node:child_process";
 import { createRequire } from "node:module";
 import path from "node:path";
 import process from "node:process";
+import ora from "ora";
 import { prettierignore } from "prettier-ignore";
-import { dir, exists, resolveConfig } from "../utils.js";
+import { dir, exists, getSpentTime, resolveConfig } from "../utils.js";
 
 const requireResolve = createRequire(import.meta.url).resolve;
 
@@ -13,7 +14,8 @@ const requireResolve = createRequire(import.meta.url).resolve;
  * @param {{update?: boolean, write?: boolean}} options
  */
 export async function format(paths = [], options = {}) {
-  console.time("Format");
+  const startTime = Date.now();
+  const spinner = ora("Checking formatting...").start();
   const { update, write } = options;
   const shouldWrite = update || write;
 
@@ -33,8 +35,7 @@ export async function format(paths = [], options = {}) {
     (await resolveConfig("prettier"))?.filepath ??
     requireResolve("@git-validator/prettier-config");
 
-  console.log("Checking formatting...");
-  const result = await new Promise((resolve) => {
+  return new Promise((resolve) => {
     childProcess.exec(
       [
         "node",
@@ -50,12 +51,19 @@ export async function format(paths = [], options = {}) {
       ].join(" "),
       { env: { FORCE_COLOR: "true", ...process.env }, encoding: "buffer" },
       (error, stdout, stderr) => {
+        if (error) {
+          spinner.fail(
+            `Checking formatting failed in ${getSpentTime(startTime)}`,
+          );
+        } else {
+          spinner.succeed(
+            `Checking formatting succeeded in ${getSpentTime(startTime)}`,
+          );
+        }
         process.stdout.write(stdout);
         process.stderr.write(stderr);
         return resolve(error?.code ?? 0);
       },
     );
   });
-  console.timeEnd("Format");
-  return result;
 }

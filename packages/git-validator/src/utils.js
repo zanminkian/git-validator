@@ -46,3 +46,18 @@ export async function importJson(importMetaUrl, jsonPath) {
     await fs.readFile(path.resolve(dir(importMetaUrl), jsonPath), "utf-8"),
   );
 }
+
+/**
+ * @param {number} startTime
+ */
+export function getSpentTime(startTime) {
+  const cost = Date.now() - startTime;
+  if (cost < 1000) {
+    return `${cost}ms`;
+  } else if (cost < 60 * 1000) {
+    return `${cost / 1000}s`;
+  } else {
+    const second = Math.floor(cost / 1000);
+    return `${Math.floor(second / 60)}m${Math.floor(second % 60)}s`;
+  }
+}
