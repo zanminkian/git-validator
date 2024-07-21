@@ -310,6 +310,7 @@ export function javascript() {
       ], // forbid code like `const num = +str`;
       "no-invalid-this": "error",
       "no-multi-assign": "error",
+      "no-param-reassign": "error",
       "no-plusplus": "error",
       "no-shadow": ["error", { ignoreOnInitialization: true }],
       "no-unused-private-class-members": "error",
