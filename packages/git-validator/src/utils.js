@@ -1,9 +1,11 @@
 // @ts-check
+import childProcess from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { lilconfig } from "lilconfig";
+import ora from "ora";
 
 /**
  * @param {string} filepath
@@ -50,7 +52,7 @@ export async function importJson(importMetaUrl, jsonPath) {
 /**
  * @param {number} startTime
  */
-export function getSpentTime(startTime) {
+function getSpentTime(startTime) {
   const cost = Date.now() - startTime;
   if (cost < 1000) {
     return `${cost}ms`;
@@ -60,4 +62,29 @@ export function getSpentTime(startTime) {
     const second = Math.floor(cost / 1000);
     return `${Math.floor(second / 60)}m${Math.floor(second % 60)}s`;
   }
+}
+
+/**
+ * @param {string} command
+ * @param {string} msg
+ */
+export async function execAsync(command, msg) {
+  const startTime = Date.now();
+  return new Promise((resolve) => {
+    const spinner = ora(`${msg}...`).start();
+    childProcess.exec(
+      command,
+      { env: { FORCE_COLOR: "true", ...process.env }, encoding: "buffer" },
+      (error, stdout, stderr) => {
+        if (error) {
+          spinner.fail(`${msg} failed in ${getSpentTime(startTime)}`);
+        } else {
+          spinner.succeed(`${msg} succeeded in ${getSpentTime(startTime)}`);
+        }
+        process.stdout.write(stdout);
+        process.stderr.write(stderr);
+        return resolve(error?.code ?? 0);
+      },
+    );
+  });
 }
