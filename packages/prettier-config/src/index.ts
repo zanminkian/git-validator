@@ -1,4 +1,3 @@
-// @ts-check
 import fs from "node:fs/promises";
 import { createRequire } from "node:module";
 import path from "node:path";
@@ -29,10 +28,7 @@ async function getTailwindConfig() {
   return configFilePaths[index];
 }
 
-/**
- * @param {string} moduleName
- */
-async function getModulePath(moduleName) {
+async function getModulePath(moduleName: string) {
   const nodeModulePath = path.resolve(
     process.cwd(),
     "node_modules",
@@ -45,10 +41,7 @@ async function getModulePath(moduleName) {
   }
 }
 
-/**
- * @param {string} filepath
- */
-async function exists(filepath) {
+async function exists(filepath: string) {
   return await fs
     .access(filepath)
     .then(() => true)
