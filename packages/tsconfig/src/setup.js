@@ -4,6 +4,7 @@ import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { parseTsconfig } from "get-tsconfig";
+import JSON5 from "json5";
 import { printUnifiedDiff } from "print-diff";
 import sortKeys from "sort-keys";
 
@@ -76,11 +77,11 @@ export async function diffAction(options) {
   }
 
   printUnifiedDiff(
-    JSON.stringify(sortKeys(recommendedTsconfig, { deep: true }), null, 2),
-    JSON.stringify(sortKeys(projectTsconfig, { deep: true }), null, 2),
+    JSON5.stringify(sortKeys(recommendedTsconfig, { deep: true }), null, 2),
+    JSON5.stringify(sortKeys(projectTsconfig, { deep: true }), null, 2),
     {
       write: (data) => {
-        console.log(
+        process.stdout.write(
           data
             .replace("+ expected", "+ current project tsconfig")
             .replace("- actual", "- recommended tsconfig"),
