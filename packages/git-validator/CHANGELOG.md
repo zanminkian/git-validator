@@ -1,5 +1,16 @@
 # git-validator
 
+## 0.18.3
+
+### Patch Changes
+
+- 28d1046: chore: upgrade deps
+- 131b1fe: feat(git-validator): optimize spinner log
+- Updated dependencies [28d1046]
+  - @git-validator/prettier-config@0.4.8
+  - @git-validator/eslint-config@0.5.3
+  - @git-validator/tsconfig@0.6.1
+
 ## 0.18.2
 
 ### Patch Changes
