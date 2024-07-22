@@ -1,8 +1,5 @@
 {
   "extends": "./tsconfig",
   "include": ["src"],
-  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
-  "compilerOptions": {
-    "outDir": "out"
-  }
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }
