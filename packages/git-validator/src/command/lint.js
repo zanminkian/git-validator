@@ -34,6 +34,6 @@ export async function lint(paths = [], options = {}) {
       ...(shouldFix ? ["--fix"] : []),
       ...ps,
     ].join(" "),
-    "Checking linting",
+    "📏 Checking linting",
   );
 }

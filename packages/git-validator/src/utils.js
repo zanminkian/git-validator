@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
+import chalk from "chalk";
 import { lilconfig } from "lilconfig";
 import ora from "ora";
 
@@ -77,9 +78,13 @@ export async function execAsync(command, msg) {
       { env: { FORCE_COLOR: "true", ...process.env }, encoding: "buffer" },
       (error, stdout, stderr) => {
         if (error) {
-          spinner.fail(`${msg} failed in ${getSpentTime(startTime)}`);
+          spinner.fail(
+            `${msg} failed in ${chalk.yellow(getSpentTime(startTime))}`,
+          );
         } else {
-          spinner.succeed(`${msg} succeeded in ${getSpentTime(startTime)}`);
+          spinner.succeed(
+            `${msg} succeeded in ${chalk.yellow(getSpentTime(startTime))}`,
+          );
         }
         process.stdout.write(stdout);
         process.stderr.write(stderr);

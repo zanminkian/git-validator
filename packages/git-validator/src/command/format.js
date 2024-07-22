@@ -44,6 +44,6 @@ export async function format(paths = [], options = {}) {
       ...(shouldWrite ? ["--write"] : ["--check"]),
       ...ps,
     ].join(" "),
-    "Checking formatting",
+    "💃 Checking formatting",
   );
 }
