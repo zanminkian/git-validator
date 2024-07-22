@@ -52,7 +52,7 @@
     "@git-validator/prettier-config": "workspace:*",
     "@git-validator/tsconfig": "workspace:*",
     "@git-validator/types": "workspace:*",
-    "@typescript-eslint/typescript-estree": "7.16.0",
+    "@typescript-eslint/typescript-estree": "7.16.1",
     "chalk": "5.3.0",
     "commander": "12.1.0",
     "eslint": "8.57.0",
