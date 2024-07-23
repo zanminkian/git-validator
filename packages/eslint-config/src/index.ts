@@ -38,7 +38,7 @@ export class Builder<T extends unknown[] = GitignoreConfig> {
   private readonly configs: object[] = [...gitignore()];
 
   toConfig() {
-    return this.configs as unknown as T;
+    return this.configs as T;
   }
 
   private setup(
