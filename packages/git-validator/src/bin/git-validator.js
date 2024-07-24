@@ -23,6 +23,10 @@ program
     "-u, --update",
     "automatically fix problems and format code using eslint and prettier",
   )
+  .option(
+    "-d, --dry-run",
+    "Print what command will be executed under the hood instead of executing",
+  )
   .argument("[paths...]", "dir or file paths to format and lint")
   .action(async (paths, options) => {
     let code = (await format(paths, options)) || (await lint(paths, options));

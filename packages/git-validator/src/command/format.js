@@ -9,10 +9,10 @@ const requireResolve = createRequire(import.meta.url).resolve;
 
 /**
  * @param {Array<string>} paths
- * @param {{update?: boolean, write?: boolean}} options
+ * @param {{update?: boolean, write?: boolean, dryRun?: boolean}} options
  */
 export async function format(paths = [], options = {}) {
-  const { update, write } = options;
+  const { update = false, write = false, dryRun = false } = options;
   const shouldWrite = update || write;
 
   const cwd = process.cwd();
@@ -44,6 +44,6 @@ export async function format(paths = [], options = {}) {
       ...(shouldWrite ? ["--write"] : ["--check"]),
       ...ps,
     ].join(" "),
-    "💃 Checking formatting",
+    { topic: "💃 Checking formatting", dryRun },
   );
 }

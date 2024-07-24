@@ -8,10 +8,10 @@ const requireResolve = createRequire(import.meta.url).resolve;
 
 /**
  * @param {Array<string>} paths
- * @param {{update?: boolean, fix?: boolean}} options
+ * @param {{update?: boolean, fix?: boolean, dryRun?: boolean}} options
  */
 export async function lint(paths = [], options = {}) {
-  const { update, fix } = options;
+  const { update = false, fix = false, dryRun = false } = options;
   const shouldFix = update || fix;
 
   const cwd = process.cwd();
@@ -34,6 +34,6 @@ export async function lint(paths = [], options = {}) {
       ...(shouldFix ? ["--fix"] : []),
       ...ps,
     ].join(" "),
-    "📏 Checking linting",
+    { topic: "📏 Checking linting", dryRun },
   );
 }

@@ -67,23 +67,29 @@ function getSpentTime(startTime) {
 
 /**
  * @param {string} command
- * @param {string} msg
+ * @param {{topic: string, dryRun: boolean}} options
+ * @returns {Promise<number>}
  */
-export async function execAsync(command, msg) {
+export async function execAsync(command, { topic, dryRun }) {
+  if (dryRun) {
+    const [cmd, ...args] = command.split(" ");
+    console.log(`${chalk.green(cmd)} ${args.join(" ")}`);
+    return 0;
+  }
   const startTime = Date.now();
   return new Promise((resolve) => {
-    const spinner = ora(`${msg}...`).start();
+    const spinner = ora(`${topic}...`).start();
     childProcess.exec(
       command,
       { env: { FORCE_COLOR: "true", ...process.env }, encoding: "buffer" },
       (error, stdout, stderr) => {
         if (error) {
           spinner.fail(
-            `${msg} failed in ${chalk.yellow(getSpentTime(startTime))}`,
+            `${topic} failed in ${chalk.yellow(getSpentTime(startTime))}`,
           );
         } else {
           spinner.succeed(
-            `${msg} succeeded in ${chalk.yellow(getSpentTime(startTime))}`,
+            `${topic} succeeded in ${chalk.yellow(getSpentTime(startTime))}`,
           );
         }
         process.stdout.write(stdout);
