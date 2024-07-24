@@ -43,7 +43,7 @@ program
   .option("-u, --update", "alias for '--fix' option")
   .argument("[paths...]", "dir or file paths to lint")
   .action(async (paths, options) =>
-    process.exit((await lint(paths, options)).code ?? 0),
+    process.exit((await lint(paths, options)) ?? 0),
   );
 
 program
@@ -53,7 +53,7 @@ program
   .option("-u, --update", "alias for '--write' option")
   .argument("[paths...]", "dir or file paths to format")
   .action(async (paths, options) =>
-    process.exit((await format(paths, options)).code ?? 0),
+    process.exit((await format(paths, options)) ?? 0),
   );
 
 program
