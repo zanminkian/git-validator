@@ -16,14 +16,9 @@ function check(filename: string, source: string) {
   ) {
     return false;
   }
-  return [
-    ".d.js",
-    ".d.cjs",
-    ".d.mjs",
-    ".d.jsx",
-    ".ts",
-    ".cts",
-    ".mts",
-    ".tsx",
-  ].some((ext) => source.endsWith(ext));
+  const file = source.split("/").at(-1);
+  if (!file || file.includes(".d.")) {
+    return true;
+  }
+  return [".ts", ".cts", ".mts", ".tsx"].some((ext) => file.endsWith(ext));
 }

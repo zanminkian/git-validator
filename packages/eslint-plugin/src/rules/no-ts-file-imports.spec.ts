@@ -7,6 +7,10 @@ const codes = [
   "import foo from './foo.mts'",
   "import foo from './foo.tsx'",
 
+  "import foo from 'foo.d.bar'",
+  "import foo from './foo.d.bar'",
+  "import foo from './foo/foo.d.bar'",
+
   "import foo from './foo.d.ts'",
   "import foo from './foo.d.cts'",
   "import foo from './foo.d.mts'",
