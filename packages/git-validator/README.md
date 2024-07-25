@@ -102,6 +102,7 @@ Options:
   -f, --fix                    automatically fix problems using eslint
   -w, --write                  automatically format code using prettier
   -u, --update                 automatically fix problems and format code using eslint and prettier
+  -d, --dry-run                print what command will be executed under the hood instead of executing
   -h, --help                   display help for command
 
 Commands:
