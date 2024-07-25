@@ -2,10 +2,12 @@ import { gitignore } from "./gitignore-config.js";
 import { javascript } from "./javascript-config.js";
 import { packagejson } from "./packagejson-config.js";
 import { typescript } from "./typescript-config.js";
+import { unsupported } from "./unsupported-config.js";
 
 type Concat<T extends unknown[], I extends unknown[]> = [...T, ...I];
 
 type GitignoreConfig = [...ReturnType<typeof gitignore>];
+type UnsupportedConfig = [...ReturnType<typeof unsupported>];
 type JavascriptConfig = [...ReturnType<typeof javascript>];
 type PackagejsonConfig = [...ReturnType<typeof packagejson>];
 type TypescriptConfig = [...ReturnType<typeof typescript>];
@@ -34,8 +36,10 @@ export interface OmitOptions<R extends string[]> {
   select: { mode: "omit"; rules: R };
 }
 
-export class Builder<T extends unknown[] = GitignoreConfig> {
-  private readonly configs: object[] = [...gitignore()];
+export class Builder<
+  T extends unknown[] = Concat<GitignoreConfig, UnsupportedConfig>,
+> {
+  private readonly configs: object[] = [...gitignore(), ...unsupported()];
 
   toConfig() {
     return this.configs as T;
