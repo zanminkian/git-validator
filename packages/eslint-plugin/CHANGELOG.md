@@ -1,5 +1,12 @@
 # @git-validator/eslint-plugin
 
+## 0.6.10
+
+### Patch Changes
+
+- 349c609: fix(eslint-plugin): fix `no-ts-file-imports` rule, report when file path includes `.d.`
+- 421f042: perf(eslint-plugin): add cache for `no-git-ignored-imports`
+
 ## 0.6.9
 
 ### Patch Changes

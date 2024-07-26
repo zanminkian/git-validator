@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.18.4
+
+### Patch Changes
+
+- a26419e: feat(git-validator): support `--dry-run` option for cli
+- Updated dependencies [ac9714c]
+  - @git-validator/eslint-config@0.5.4
+
 ## 0.18.3
 
 ### Patch Changes
