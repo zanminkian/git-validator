@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.5.4
+
+### Patch Changes
+
+- ac9714c: fix(eslint-config): don't throw errors when a dir does not contain supported files
+- Updated dependencies [349c609]
+- Updated dependencies [421f042]
+  - @git-validator/eslint-plugin@0.6.10
+
 ## 0.5.3
 
 ### Patch Changes
