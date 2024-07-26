@@ -31,7 +31,18 @@ function checkIgnored(filePath: string, source: string) {
       `ESLint plugin internal error. Absolute path incorrect: ${absolutePath}.`,
     );
   }
-  return isIgnored(absolutePath);
+  return isIgnoredByCache(absolutePath);
+}
+
+const cache = new Map<string, boolean>();
+function isIgnoredByCache(filePath: string) {
+  const result = cache.get(filePath);
+  if (result !== undefined) {
+    return result;
+  }
+  const ignored = isIgnored(filePath);
+  cache.set(filePath, ignored);
+  return ignored;
 }
 
 function isIgnored(filePath: string) {
