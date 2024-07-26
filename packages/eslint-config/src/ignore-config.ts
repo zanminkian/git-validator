@@ -1,10 +1,10 @@
 /**
  * This config is for suppressing error when linting a directory which does not contain supported files
  */
-export function unsupported() {
+export function ignore() {
   return [
     {
-      name: "git-validator/unsupported",
+      name: "git-validator/ignore",
       files: ["**"], // I've tried all. Only '**' works.
       ignores: [
         "**/*.{js,cjs,mjs,jsx}",
@@ -13,9 +13,9 @@ export function unsupported() {
       ],
       processor: {
         preprocess: (_text: string, filename: string) => [
-          { text: "export {};", filename },
+          { text: "", filename },
         ],
-        postprocess: (messages: unknown[][]) => messages[0],
+        postprocess: (_messages: unknown[][]) => [], // Returning empty array to ignore all errors
       },
       rules: {},
     },
