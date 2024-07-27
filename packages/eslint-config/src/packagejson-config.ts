@@ -13,6 +13,7 @@ export function packagejson() {
       "packagejson/exact-dependency-version": "error",
       "packagejson/no-conflict-types": "error",
       "packagejson/no-lifecycle-script": "error",
+      "packagejson/no-nonstandard-property": "error",
       "packagejson/no-types-dependency-in-workspace-root": "error",
       "packagejson/top-types": "error",
       "packagejson/private-workspace-root": "error",
