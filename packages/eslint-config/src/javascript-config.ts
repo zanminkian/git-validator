@@ -7,6 +7,7 @@ import promisePlugin from "eslint-plugin-promise";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
+import sonarjsPlugin from "eslint-plugin-sonarjs";
 import unicornPlugin from "eslint-plugin-unicorn";
 import globals from "globals";
 
@@ -277,6 +278,7 @@ export function javascript() {
       promise: promisePlugin,
       react: reactPlugin,
       "react-hooks": reactHooksPlugin,
+      sonarjs: sonarjsPlugin,
       unicorn: unicornPlugin,
       "simple-import-sort": simpleImportSortPlugin,
       "@git-validator": gitValidatorPlugin,
@@ -346,6 +348,11 @@ export function javascript() {
       // react-hooks
       "react-hooks/exhaustive-deps": "error",
       "react-hooks/rules-of-hooks": "error",
+      // sonarjs
+      "sonarjs/no-collapsible-if": "error",
+      "sonarjs/no-nested-switch": "error",
+      "sonarjs/no-useless-catch": "error",
+      "sonarjs/prefer-immediate-return": "error",
       // unicorn
       // 'unicorn/no-null': 'error', // null can be useful when interact with json.
       "unicorn/consistent-destructuring": "error",
