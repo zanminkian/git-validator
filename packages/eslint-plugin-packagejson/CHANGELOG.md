@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.2.8
+
+### Patch Changes
+
+- 71a4794: feat: add rule `packagejson/no-nonstandard-property`
+
 ## 0.2.7
 
 ### Patch Changes
