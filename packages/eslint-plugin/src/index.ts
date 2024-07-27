@@ -4,6 +4,7 @@ import newParens from "./rules/new-parens.js";
 import noConstEnum from "./rules/no-const-enum.js";
 import noDeclaresInTsFile from "./rules/no-declares-in-ts-file.js";
 import noDynamicImport from "./rules/no-dynamic-import.js";
+import noEs6GetterSetter from "./rules/no-es6-getter-setter.js";
 import noExportAssignment from "./rules/no-export-assignment.js";
 import noForIn from "./rules/no-for-in.js";
 import noGitIgnoredImports from "./rules/no-git-ignored-imports.js";
@@ -26,6 +27,7 @@ export default {
     [noConstEnum.name]: noConstEnum.rule,
     [noDeclaresInTsFile.name]: noDeclaresInTsFile.rule,
     [noDynamicImport.name]: noDynamicImport.rule,
+    [noEs6GetterSetter.name]: noEs6GetterSetter.rule,
     [noExportAssignment.name]: noExportAssignment.rule,
     [noForIn.name]: noForIn.rule,
     [noGitIgnoredImports.name]: noGitIgnoredImports.rule,
