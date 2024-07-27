@@ -389,6 +389,7 @@ export function javascript() {
       "unicorn/no-new-buffer": "error",
       "unicorn/no-typeof-undefined": "error",
       "unicorn/no-unreadable-iife": "error",
+      "unicorn/no-useless-spread": "error",
       "unicorn/prefer-array-flat-map": "error",
       "unicorn/prefer-includes": "error",
       "unicorn/prefer-module": "error",
