@@ -1,5 +1,18 @@
 # @git-validator/eslint-config
 
+## 0.5.5
+
+### Patch Changes
+
+- 08cbf99: feat: add rule `no-es6-getter-setter`
+- 71a4794: feat: add rule `packagejson/no-nonstandard-property`
+- 16b4a02: feat(eslint-config): add rule `unicorn/no-useless-spread`
+- b923cbb: feat(eslint-config): add plugin `eslint-plugin-sonarjs`
+- Updated dependencies [08cbf99]
+- Updated dependencies [71a4794]
+  - @git-validator/eslint-plugin@0.6.11
+  - @git-validator/eslint-plugin-packagejson@0.2.8
+
 ## 0.5.4
 
 ### Patch Changes

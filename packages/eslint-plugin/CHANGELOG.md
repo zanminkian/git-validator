@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.6.11
+
+### Patch Changes
+
+- 08cbf99: feat: add rule `no-es6-getter-setter`
+
 ## 0.6.10
 
 ### Patch Changes
