@@ -12,9 +12,7 @@ export function ignore() {
         "**/package.json",
       ],
       processor: {
-        preprocess: (_text: string, filename: string) => [
-          { text: "", filename },
-        ],
+        preprocess: (_text: string, _filename: string) => [""],
         postprocess: (_messages: unknown[][]) => [], // Returning empty array to ignore all errors
       },
       rules: {},
