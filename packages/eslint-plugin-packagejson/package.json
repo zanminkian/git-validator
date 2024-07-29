@@ -21,11 +21,13 @@
   "license": "MIT",
   "author": "hellozmj@qq.com",
   "type": "module",
-  "exports": "./src/index.js",
+  "exports": "./dist/index.js",
   "scripts": {
-    "build": "tsc --noEmit -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
+    "@types/eslint": "8.56.11",
+    "@types/estree": "1.0.5",
     "@types/node": "20.14.10"
   }
 }

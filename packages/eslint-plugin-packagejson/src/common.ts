@@ -1,4 +1,3 @@
-// @ts-check
 import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
@@ -21,10 +20,7 @@ export function getRootPackageJsonPath() {
   return path.join(process.cwd(), "package.json");
 }
 
-/**
- * @param {string} filepath
- */
-async function exists(filepath) {
+async function exists(filepath: string) {
   return await fs
     .access(filepath)
     .then(() => true)
