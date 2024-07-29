@@ -157,6 +157,18 @@ export function typescript(project?: string) {
           selector: "class",
           format: ["PascalCase"],
         },
+        {
+          selector: "interface",
+          format: ["PascalCase"],
+        },
+        {
+          selector: "typeAlias",
+          format: ["PascalCase"],
+        },
+        {
+          selector: "typeParameter",
+          format: ["UPPER_CASE"],
+        },
       ],
       "@typescript-eslint/no-array-delete": "error",
       "@typescript-eslint/no-base-to-string": [
