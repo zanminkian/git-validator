@@ -350,6 +350,7 @@ export function javascript() {
       "react-hooks/rules-of-hooks": "error",
       // sonarjs
       "sonarjs/no-collapsible-if": "error",
+      "sonarjs/no-inverted-boolean-check": "error",
       "sonarjs/no-nested-switch": "error",
       "sonarjs/no-useless-catch": "error",
       "sonarjs/prefer-immediate-return": "error",
