@@ -23,11 +23,14 @@
   "type": "module",
   "exports": "./dist/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json",
+    "test": "globstar -- node --test --import @swc-node/register/esm-register src/**/*.spec.ts"
   },
   "devDependencies": {
+    "@swc-node/register": "1.10.0",
     "@types/eslint": "8.56.11",
     "@types/estree": "1.0.5",
-    "@types/node": "20.14.10"
+    "@types/node": "20.14.10",
+    "eslint": "8.57.0"
   }
 }
