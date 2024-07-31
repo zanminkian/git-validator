@@ -1,11 +1,8 @@
-const messageId = "requiredRepository";
-const message =
-  "`repository` field should be specified in a public package.json";
-
-export default {
+export const name = "required-repository";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]: "`repository` field should be specified in a public package.json",
     },
   },
   create: (context) => ({
@@ -22,7 +19,7 @@ export default {
       if (!repositoryProperty) {
         return context.report({
           node,
-          messageId,
+          messageId: name,
         });
       }
       if (
@@ -33,7 +30,7 @@ export default {
       ) {
         return context.report({
           node: repositoryProperty,
-          messageId,
+          messageId: name,
         });
       }
     },

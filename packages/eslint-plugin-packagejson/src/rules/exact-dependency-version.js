@@ -1,6 +1,3 @@
-const messageId = "exactDependencyVersion";
-const message = "Dependency is expected an exact version";
-
 function valid(version) {
   // https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
   return /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/.test(
@@ -18,10 +15,11 @@ function isExactVersion(version) {
   return valid(version);
 }
 
-export default {
+export const name = "exact-dependency-version";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]: "Dependency is expected an exact version",
     },
   },
   create: (context) => ({
@@ -35,7 +33,7 @@ export default {
         .forEach((property) => {
           context.report({
             node: property.value,
-            messageId,
+            messageId: name,
           });
         });
     },

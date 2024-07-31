@@ -1,5 +1,5 @@
 import { test } from "../test.js";
-import bottomDefault from "./bottom-default.js";
+import { name, rule } from "./bottom-default.js";
 
 const valid = [
   { default: "foo", name: "foo" },
@@ -14,9 +14,4 @@ const invalid = [
   { exports: { foo: { default: "foo", types: "foo" } } },
 ];
 
-await test({
-  name: "bottom-default",
-  rule: bottomDefault,
-  valid,
-  invalid,
-});
+await test({ name, rule, valid, invalid });

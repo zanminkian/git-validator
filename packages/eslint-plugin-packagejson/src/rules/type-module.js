@@ -1,10 +1,8 @@
-const messageId = "typeModule";
-const message = "The value of 'type' field in package.json should be 'module'";
-
-export default {
+export const name = "type-module";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]: "The value of 'type' field in package.json should be 'module'",
     },
   },
   create: (context) => ({
@@ -13,13 +11,13 @@ export default {
       if (!typeProperty) {
         return context.report({
           node,
-          messageId,
+          messageId: name,
         });
       }
       if (typeProperty.value.value !== "module") {
         return context.report({
           node: typeProperty,
-          messageId,
+          messageId: name,
         });
       }
     },

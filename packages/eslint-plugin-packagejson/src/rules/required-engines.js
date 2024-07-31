@@ -1,12 +1,10 @@
 import { getRootPackageJsonPath } from "../common.js";
 
-const messageId = "requiredEngines";
-const message = "`engines` field should be specified in the root package.json";
-
-export default {
+export const name = "required-engines";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]: "`engines` field should be specified in the root package.json",
     },
   },
   create: (context) => {
@@ -18,13 +16,13 @@ export default {
       "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
         const engines = node.properties.find((p) => p.key.value === "engines");
         if (!engines) {
-          return context.report({ node, messageId });
+          return context.report({ node, messageId: name });
         }
         if (
           engines.value.type !== "ObjectExpression" ||
           engines.value.properties.length <= 0
         ) {
-          return context.report({ node: engines, messageId });
+          return context.report({ node: engines, messageId: name });
         }
       },
     };

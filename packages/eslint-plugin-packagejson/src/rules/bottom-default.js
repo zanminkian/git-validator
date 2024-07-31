@@ -1,10 +1,8 @@
-const messageId = "bottomDefault";
-const message = "'default' field must be on the bottom";
-
-export default {
+export const name = "bottom-default";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]: "'default' field must be on the bottom",
     },
   },
   create: (context) => ({
@@ -16,7 +14,7 @@ export default {
       if (index > -1 && index !== node.properties.length - 1) {
         return context.report({
           node: node.properties[index],
-          messageId,
+          messageId: name,
         });
       }
     },

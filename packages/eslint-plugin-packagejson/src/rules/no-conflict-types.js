@@ -1,11 +1,9 @@
-const messageId = "noConflictTypes";
-const message =
-  "'@types/web' and '@types/node' should not appear in the same package.json";
-
-export default {
+export const name = "no-conflict-types";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]:
+        "'@types/web' and '@types/node' should not appear in the same package.json",
     },
   },
   create: (context) => ({
@@ -22,7 +20,7 @@ export default {
         dependencies.forEach((dependency) => {
           context.report({
             node: dependency.key,
-            messageId,
+            messageId: name,
           });
         });
       }

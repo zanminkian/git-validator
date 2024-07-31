@@ -1,16 +1,13 @@
 import { getRootPackageJsonPath, isWorkspace } from "../common.js";
 
-const messageId = "noDependenciesInWorkspaceRoot";
-const message =
-  "Should not install packages into dependencies in workspace root";
-
 const isWP = await isWorkspace();
 const rootPkgJsonPath = getRootPackageJsonPath();
 
-export default {
+export const name = "no-dependencies-in-workspace-root";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]: "Should not install packages into dependencies in workspace root",
     },
   },
   create: (context) => {
@@ -26,7 +23,7 @@ export default {
         if (depsNode) {
           return context.report({
             node: depsNode,
-            messageId,
+            messageId: name,
           });
         }
       },

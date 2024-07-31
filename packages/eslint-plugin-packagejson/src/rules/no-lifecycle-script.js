@@ -1,11 +1,9 @@
-const messageId = "noLifecycleScript";
-const message =
-  "Using lifecycle script in public npm package is considered a bad practice. You should expose a cli entrance. Users who need it will invoke it manually";
-
-export default {
+export const name = "no-lifecycle-script";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]:
+        "Using lifecycle script in public npm package is considered a bad practice. You should expose a cli entrance. Users who need it will invoke it manually",
     },
   },
   create: (context) => ({
@@ -28,7 +26,7 @@ export default {
             "postuninstall",
           ];
           if (invalid.includes(property.key.value)) {
-            context.report({ node: property.key, messageId });
+            context.report({ node: property.key, messageId: name });
           }
         });
     },

@@ -1,10 +1,8 @@
-const messageId = "topTypes";
-const message = "'types' field in exports must be on the top";
-
-export default {
+export const name = "top-types";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]: "'types' field in exports must be on the top",
     },
   },
   create: (context) => ({
@@ -16,7 +14,7 @@ export default {
       if (index > 0) {
         return context.report({
           node: node.properties[index],
-          messageId,
+          messageId: name,
         });
       }
     },

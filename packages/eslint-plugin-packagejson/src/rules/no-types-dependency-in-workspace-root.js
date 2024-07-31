@@ -1,15 +1,13 @@
 import { getRootPackageJsonPath, isWorkspace } from "../common.js";
 
-const messageId = "noTypesDependencyInWorkspaceRoot";
-const message = "Should not install '@types/*' in workspace root";
-
 const isWP = await isWorkspace();
 const rootPkgJsonPath = getRootPackageJsonPath();
 
-export default {
+export const name = "no-types-dependency-in-workspace-root";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]: "Should not install '@types/*' in workspace root",
     },
   },
   create: (context) => {
@@ -28,7 +26,7 @@ export default {
           .forEach((property) => {
             context.report({
               node: property.key,
-              messageId,
+              messageId: name,
             });
           });
       },

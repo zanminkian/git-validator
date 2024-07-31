@@ -1,7 +1,3 @@
-const messageId = "noNonstandardProperty";
-const message =
-  "Disallow using the property that is out of node and npm standard";
-
 const standardProperties = new Set([
   // npm https://docs.npmjs.com/cli/v10/configuring-npm/package-json
   "name",
@@ -46,10 +42,12 @@ const standardProperties = new Set([
   "imports",
 ]);
 
-export default {
+export const name = "no-nonstandard-property";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]:
+        "Disallow using the property that is out of node and npm standard",
     },
   },
   create: (context) => ({
@@ -59,7 +57,7 @@ export default {
         .forEach((property) => {
           context.report({
             node: property.key,
-            messageId,
+            messageId: name,
           });
         });
     },

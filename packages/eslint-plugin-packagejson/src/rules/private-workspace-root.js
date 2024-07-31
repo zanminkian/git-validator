@@ -1,15 +1,13 @@
 import { getRootPackageJsonPath, isWorkspace } from "../common.js";
 
-const messageId = "privateWorkspaceRoot";
-const message = "Workspace root package.json should be private";
-
 const isWP = await isWorkspace();
 const rootPkgJsonPath = getRootPackageJsonPath();
 
-export default {
+export const name = "private-workspace-root";
+export const rule = {
   meta: {
     messages: {
-      [messageId]: message,
+      [name]: "Workspace root package.json should be private",
     },
   },
   create: (context) => {
@@ -23,13 +21,13 @@ export default {
           if (!privateProperty) {
             return context.report({
               node,
-              messageId,
+              messageId: name,
             });
           }
           if (privateProperty.value.value !== true) {
             return context.report({
               node: privateProperty,
-              messageId,
+              messageId: name,
             });
           }
         }
