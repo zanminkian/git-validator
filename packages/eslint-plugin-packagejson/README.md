@@ -6,7 +6,7 @@
 [![](https://packagephobia.com/badge?p=@git-validator/eslint-plugin-packagejson)](https://packagephobia.com/result?p=@git-validator/eslint-plugin-packagejson)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
 
-ESlint plugin for linting package json.
+ESlint plugin for linting package.json.
 
 ## Features
 
@@ -25,14 +25,12 @@ pnpm add -D eslint @git-validator/eslint-plugin-packagejson
 Config `eslint.config.js`
 
 ```js
-import packagejsonPlugin, {
-  processor,
-} from "@git-validator/eslint-plugin-packagejson";
+import * as packagejsonPlugin from "@git-validator/eslint-plugin-packagejson";
 
 export default [
   {
     files: ["**/package.json"],
-    processor,
+    processor: "packagejson/processor",
     plugins: {
       packagejson: packagejsonPlugin,
     },

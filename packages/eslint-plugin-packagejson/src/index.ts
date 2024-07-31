@@ -12,24 +12,20 @@ import * as requiredRepository from "./rules/required-repository.js";
 import * as topTypes from "./rules/top-types.js";
 import * as typeModule from "./rules/type-module.js";
 
-export { processor };
-
-export default {
-  rules: Object.fromEntries(
-    [
-      bottomDefault,
-      exactDependencyVersion,
-      noConflictTypes,
-      noDependenciesInWorkspaceRoot,
-      noLifecycleScript,
-      noNonstandardProperty,
-      noTypesDependencyInWorkspaceRoot,
-      privateWorkspaceRoot,
-      requiredEngines,
-      requiredRepository,
-      topTypes,
-      typeModule,
-    ].map((i) => [i.name, i.rule]),
-  ),
-  processors: { processor },
-};
+export const rules = Object.fromEntries(
+  [
+    bottomDefault,
+    exactDependencyVersion,
+    noConflictTypes,
+    noDependenciesInWorkspaceRoot,
+    noLifecycleScript,
+    noNonstandardProperty,
+    noTypesDependencyInWorkspaceRoot,
+    privateWorkspaceRoot,
+    requiredEngines,
+    requiredRepository,
+    topTypes,
+    typeModule,
+  ].map((i) => [i.name, i.rule]),
+);
+export const processors = { processor };

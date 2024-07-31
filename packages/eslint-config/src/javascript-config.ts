@@ -1,4 +1,4 @@
-import gitValidatorPlugin from "@git-validator/eslint-plugin";
+import * as gitValidatorPlugin from "@git-validator/eslint-plugin";
 import confusingKeys from "confusing-browser-globals";
 import fpPlugin from "eslint-plugin-fp";
 import importPlugin from "eslint-plugin-import";

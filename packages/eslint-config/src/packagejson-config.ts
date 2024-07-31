@@ -1,4 +1,4 @@
-import pkg from "@git-validator/eslint-plugin-packagejson";
+import * as pkg from "@git-validator/eslint-plugin-packagejson";
 
 export function packagejson() {
   const mainConfig = {
