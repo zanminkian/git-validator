@@ -1,4 +1,4 @@
-import rule from "./exact-map-set-type.js";
+import { rule } from "./exact-map-set-type.js";
 import { test } from "./utils.spec.js";
 
 const valid = [

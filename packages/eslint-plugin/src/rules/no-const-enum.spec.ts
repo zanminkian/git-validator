@@ -1,4 +1,4 @@
-import rule from "./no-const-enum.js";
+import { rule } from "./no-const-enum.js";
 import { test } from "./utils.spec.js";
 
 const valid = ["enum E {}"];

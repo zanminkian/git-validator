@@ -1,4 +1,4 @@
-import rule from "./no-es6-getter-setter.js";
+import { rule } from "./no-es6-getter-setter.js";
 import { test } from "./utils.spec.js";
 
 const valid = [

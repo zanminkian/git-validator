@@ -1,4 +1,4 @@
-import rule from "./no-for-in.js";
+import { rule } from "./no-for-in.js";
 import { test } from "./utils.spec.js";
 
 const valid = [

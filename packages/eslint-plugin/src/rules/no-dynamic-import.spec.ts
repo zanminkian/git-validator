@@ -1,4 +1,4 @@
-import rule from "./no-dynamic-import.js";
+import { rule } from "./no-dynamic-import.js";
 import { test } from "./utils.spec.js";
 
 const valid = [

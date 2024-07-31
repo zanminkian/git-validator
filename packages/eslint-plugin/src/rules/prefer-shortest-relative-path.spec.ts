@@ -1,4 +1,4 @@
-import rule from "./prefer-shortest-relative-path.js";
+import { rule } from "./prefer-shortest-relative-path.js";
 import { test } from "./utils.spec.js";
 
 const valid = [

@@ -1,4 +1,4 @@
-import rule from "./no-ts-file-imports.js";
+import { rule } from "./no-ts-file-imports.js";
 import { test } from "./utils.spec.js";
 
 const codes = [

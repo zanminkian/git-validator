@@ -1,6 +1,6 @@
 import { createSimpleRule, getRuleName } from "../utils.js";
 
-export default createSimpleRule({
+export const rule = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "When invoking a constructor, parentheses are required.",
   create: (context) => ({

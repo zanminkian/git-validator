@@ -1,23 +1,23 @@
-import banTsComment from "./rules/ban-ts-comment.js";
-import exactMapSetType from "./rules/exact-map-set-type.js";
-import newParens from "./rules/new-parens.js";
-import noConstEnum from "./rules/no-const-enum.js";
-import noDeclaresInTsFile from "./rules/no-declares-in-ts-file.js";
-import noDynamicImport from "./rules/no-dynamic-import.js";
-import noEs6GetterSetter from "./rules/no-es6-getter-setter.js";
-import noExportAssignment from "./rules/no-export-assignment.js";
-import noForIn from "./rules/no-for-in.js";
-import noGitIgnoredImports from "./rules/no-git-ignored-imports.js";
-import noInstanceofBuiltin from "./rules/no-instanceof-builtin.js";
-import noLegacyGetterSetter from "./rules/no-legacy-getter-setter.js";
-import noPropertyDecorator from "./rules/no-property-decorator.js";
-import noRelativeParentImports from "./rules/no-relative-parent-imports.js";
-import noTsFileImports from "./rules/no-ts-file-imports.js";
-import noUnnecessaryTemplateString from "./rules/no-unnecessary-template-string.js";
-import noUntypedEmptyArray from "./rules/no-untyped-empty-array.js";
-import preferGlobalThis from "./rules/prefer-global-this.js";
-import preferShortestRelativePath from "./rules/prefer-shortest-relative-path.js";
-import requireReduceInitialValue from "./rules/require-reduce-initial-value.js";
+import { rule as banTsComment } from "./rules/ban-ts-comment.js";
+import { rule as exactMapSetType } from "./rules/exact-map-set-type.js";
+import { rule as newParens } from "./rules/new-parens.js";
+import { rule as noConstEnum } from "./rules/no-const-enum.js";
+import { rule as noDeclaresInTsFile } from "./rules/no-declares-in-ts-file.js";
+import { rule as noDynamicImport } from "./rules/no-dynamic-import.js";
+import { rule as noEs6GetterSetter } from "./rules/no-es6-getter-setter.js";
+import { rule as noExportAssignment } from "./rules/no-export-assignment.js";
+import { rule as noForIn } from "./rules/no-for-in.js";
+import { rule as noGitIgnoredImports } from "./rules/no-git-ignored-imports.js";
+import { rule as noInstanceofBuiltin } from "./rules/no-instanceof-builtin.js";
+import { rule as noLegacyGetterSetter } from "./rules/no-legacy-getter-setter.js";
+import { rule as noPropertyDecorator } from "./rules/no-property-decorator.js";
+import { rule as noRelativeParentImports } from "./rules/no-relative-parent-imports.js";
+import { rule as noTsFileImports } from "./rules/no-ts-file-imports.js";
+import { rule as noUnnecessaryTemplateString } from "./rules/no-unnecessary-template-string.js";
+import { rule as noUntypedEmptyArray } from "./rules/no-untyped-empty-array.js";
+import { rule as preferGlobalThis } from "./rules/prefer-global-this.js";
+import { rule as preferShortestRelativePath } from "./rules/prefer-shortest-relative-path.js";
+import { rule as requireReduceInitialValue } from "./rules/require-reduce-initial-value.js";
 
 export default {
   rules: {

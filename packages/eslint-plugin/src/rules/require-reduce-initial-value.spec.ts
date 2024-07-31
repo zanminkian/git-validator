@@ -1,4 +1,4 @@
-import rule from "./require-reduce-initial-value.js";
+import { rule } from "./require-reduce-initial-value.js";
 import { test } from "./utils.spec.js";
 
 const valid = [

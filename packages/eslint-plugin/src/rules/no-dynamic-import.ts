@@ -1,6 +1,6 @@
 import { createSimpleRule, getRuleName } from "../utils.js";
 
-export default createSimpleRule({
+export const rule = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "`import()` should be called with string literal.",
   create: (context) => ({

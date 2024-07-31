@@ -1,4 +1,4 @@
-import rule from "./no-relative-parent-imports.js";
+import { rule } from "./no-relative-parent-imports.js";
 import { test } from "./utils.spec.js";
 
 const valid = [

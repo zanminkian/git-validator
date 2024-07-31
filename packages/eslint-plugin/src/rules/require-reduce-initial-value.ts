@@ -1,7 +1,7 @@
 import { createSimpleRule, getRuleName } from "../utils.js";
 
 // This rule doesn't handle call/apply/bind cases, and their corresponding Reflect apis.
-export default createSimpleRule({
+export const rule = createSimpleRule({
   name: getRuleName(import.meta.url),
   message:
     "When calling `reduce` or `reduceRight`, an initial value is required.",

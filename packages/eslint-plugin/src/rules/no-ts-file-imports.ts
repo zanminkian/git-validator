@@ -1,7 +1,7 @@
 import { create } from "../check-import.js";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
-export default createSimpleRule({
+export const rule = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Disallow importing from a declaration style file or a ts file",
   create: (context) => create(context, check),

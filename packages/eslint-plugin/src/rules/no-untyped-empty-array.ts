@@ -1,6 +1,6 @@
 import { createSimpleRule, getRuleName } from "../utils.js";
 
-export default createSimpleRule({
+export const rule = createSimpleRule({
   name: getRuleName(import.meta.url),
   message:
     "Defining a variable with an empty array should annotate the array type",

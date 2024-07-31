@@ -1,4 +1,4 @@
-import rule from "./no-untyped-empty-array.js";
+import { rule } from "./no-untyped-empty-array.js";
 import { test } from "./utils.spec.js";
 
 const valid = [

@@ -1,4 +1,4 @@
-import rule from "./prefer-global-this.js";
+import { rule } from "./prefer-global-this.js";
 import { test } from "./utils.spec.js";
 
 const valid = [

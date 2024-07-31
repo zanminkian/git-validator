@@ -5,7 +5,7 @@ import { isNativeError } from "node:util/types";
 import { create } from "../check-import.js";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
-export default createSimpleRule({
+export const rule = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Disallow to import module from git-ignored path.",
   create: (context) => create(context, checkIgnored),

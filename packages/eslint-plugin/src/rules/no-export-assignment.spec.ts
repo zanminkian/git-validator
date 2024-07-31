@@ -1,4 +1,4 @@
-import rule from "./no-export-assignment.js";
+import { rule } from "./no-export-assignment.js";
 import { test } from "./utils.spec.js";
 
 const valid = [

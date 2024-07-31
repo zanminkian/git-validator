@@ -1,4 +1,4 @@
-import rule from "./no-legacy-getter-setter.js";
+import { rule } from "./no-legacy-getter-setter.js";
 import { test } from "./utils.spec.js";
 
 const valid = ["const foo = {}; foo.__proto__;"];
