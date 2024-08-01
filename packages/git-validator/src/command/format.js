@@ -3,7 +3,7 @@ import { createRequire } from "node:module";
 import path from "node:path";
 import process from "node:process";
 import { prettierignore } from "prettier-ignore";
-import { dir, execAsync, exists, resolveConfig } from "../utils.js";
+import { execAsync, exists, getBinPath, resolveConfig } from "../utils.js";
 
 const requireResolve = createRequire(import.meta.url).resolve;
 
@@ -34,7 +34,7 @@ export async function format(paths = [], options = {}) {
   return execAsync(
     [
       "node",
-      path.join(dir(import.meta.url), "..", "bin", "prettier.js"),
+      await getBinPath("prettier"),
       "--log-level",
       "warn",
       ...ignores,

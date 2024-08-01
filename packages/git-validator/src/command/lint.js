@@ -2,7 +2,7 @@
 import { createRequire } from "node:module";
 import path from "node:path";
 import process from "node:process";
-import { dir, execAsync, resolveConfig } from "../utils.js";
+import { execAsync, getBinPath, resolveConfig } from "../utils.js";
 
 const requireResolve = createRequire(import.meta.url).resolve;
 
@@ -28,7 +28,7 @@ export async function lint(paths = [], options = {}) {
   return execAsync(
     [
       "node",
-      path.join(dir(import.meta.url), "..", "bin", "eslint.js"),
+      await getBinPath("eslint"),
       "--config",
       configPath,
       ...(shouldFix ? ["--fix"] : []),

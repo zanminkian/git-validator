@@ -1,6 +1,7 @@
 // @ts-check
 import childProcess from "node:child_process";
 import fs from "node:fs/promises";
+import { createRequire } from "node:module";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
@@ -98,4 +99,21 @@ export async function execAsync(command, { topic, dryRun }) {
       },
     );
   });
+}
+
+/**
+ * @param {string} moduleName `eslint` or `prettier` or `@commitlint/cli` or `lint-staged`
+ * @param {string} cliName
+ */
+export async function getBinPath(moduleName, cliName = moduleName) {
+  const packageJsonPath = createRequire(import.meta.url).resolve(
+    `${moduleName}/package.json`,
+  );
+  const packageJson = JSON.parse(await fs.readFile(packageJsonPath, "utf8"));
+  const modulePath = packageJsonPath.slice(0, -"/package.json".length);
+  const binPath =
+    typeof packageJson.bin === "string"
+      ? packageJson.bin
+      : packageJson.bin[cliName];
+  return path.resolve(modulePath, binPath);
 }

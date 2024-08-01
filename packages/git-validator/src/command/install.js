@@ -2,7 +2,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
-import { dir, exists } from "../utils.js";
+import { dir, exists, getBinPath } from "../utils.js";
 
 /**
  * @param {string} file
@@ -38,7 +38,7 @@ async function writePreCommit({ noEslint, noPrettier }) {
   }
   const content = [
     "#!/bin/sh",
-    `./node_modules/.bin/lint-staged --config ${path.join(dir(import.meta.url), "..", "config", config)}`,
+    `${await getBinPath("lint-staged")} --config ${path.join(dir(import.meta.url), "..", "config", config)}`,
   ].join("\n");
 
   await writeGitHook("pre-commit", content);
@@ -47,7 +47,7 @@ async function writePreCommit({ noEslint, noPrettier }) {
 async function writeCommitMsg() {
   const content = [
     "#!/bin/sh",
-    `./node_modules/.bin/commitlint --config ${path.join(
+    `${await getBinPath("@commitlint/cli", "commitlint")} --config ${path.join(
       dir(import.meta.url),
       "..",
       "config",
