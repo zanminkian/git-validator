@@ -1,4 +1,4 @@
-import { it } from "node:test";
+import { describe, it } from "node:test";
 import { type Rule, RuleTester } from "eslint";
 
 const tester = new RuleTester({
@@ -10,19 +10,39 @@ export async function test({
   rule,
   valid,
   invalid,
+  errors = 1,
 }: {
   name: string;
   rule: Rule.RuleModule;
   valid: object[];
   invalid: object[];
+  errors?: number;
 }) {
-  await it(name, () => {
-    tester.run(name, rule, {
-      valid: valid.map((code) => `export default ${JSON.stringify(code)}`),
-      invalid: invalid.map((code) => ({
-        code: `export default ${JSON.stringify(code)}`,
-        errors: 1,
-      })),
-    });
+  await describe(name, async () => {
+    await Promise.all(
+      valid
+        .map((json) => JSON.stringify(json))
+        .map(async (jsonStr) => {
+          await it(jsonStr, () => {
+            tester.run(name, rule, {
+              valid: [`export default ${jsonStr}`],
+              invalid: [],
+            });
+          });
+        }),
+    );
+
+    await Promise.all(
+      invalid
+        .map((json) => JSON.stringify(json))
+        .map(async (jsonStr) => {
+          await it(jsonStr, () => {
+            tester.run(name, rule, {
+              valid: [],
+              invalid: [{ code: `export default ${jsonStr}`, errors }],
+            });
+          });
+        }),
+    );
   });
 }
