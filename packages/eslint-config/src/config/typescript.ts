@@ -2,7 +2,7 @@ import process from "node:process";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import deprecationPlugin from "eslint-plugin-deprecation";
-import { javascript } from "./javascript-config.js";
+import { javascript } from "./javascript.js";
 
 export function typescript(project?: string) {
   const jsConfig = javascript()[0];

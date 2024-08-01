@@ -1,8 +1,8 @@
-import { gitignore } from "./gitignore-config.js";
-import { ignore } from "./ignore-config.js";
-import { javascript } from "./javascript-config.js";
-import { packagejson } from "./packagejson-config.js";
-import { typescript } from "./typescript-config.js";
+import { gitignore } from "./config/gitignore.js";
+import { ignore } from "./config/ignore.js";
+import { javascript } from "./config/javascript.js";
+import { packagejson } from "./config/packagejson.js";
+import { typescript } from "./config/typescript.js";
 
 type Concat<T extends unknown[], I extends unknown[]> = [...T, ...I];
 
