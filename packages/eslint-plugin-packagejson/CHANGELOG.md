@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.3.0
+
+### Minor Changes
+
+- cf9187a: refactor!: don't export default
+
 ## 0.2.8
 
 ### Patch Changes

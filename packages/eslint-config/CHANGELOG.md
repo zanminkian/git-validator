@@ -1,5 +1,16 @@
 # @git-validator/eslint-config
 
+## 0.5.6
+
+### Patch Changes
+
+- 4e50f10: feat(eslint-config): add more limitation for `naming-convention`
+- 40fff71: feat(eslint-config): no default export
+- 13b19ee: feat(eslint-config): enable `sonarjs/no-inverted-boolean-check`
+- Updated dependencies [cf9187a]
+  - @git-validator/eslint-plugin-packagejson@0.3.0
+  - @git-validator/eslint-plugin@0.7.0
+
 ## 0.5.5
 
 ### Patch Changes
