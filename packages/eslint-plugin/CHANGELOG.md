@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.7.0
+
+### Minor Changes
+
+- cf9187a: refactor!: don't export default
+
 ## 0.6.11
 
 ### Patch Changes
