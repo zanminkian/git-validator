@@ -16,7 +16,7 @@
   "license": "MIT",
   "author": "hellozmj@qq.com",
   "type": "module",
-  "exports": "./dist/index.js",
+  "exports": "./dist/prettier.config.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json"
   },

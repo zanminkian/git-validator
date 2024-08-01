@@ -19,7 +19,7 @@
   "license": "MIT",
   "author": "hellozmj@qq.com",
   "type": "module",
-  "exports": "./dist/index.js",
+  "exports": "./dist/eslint.config.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "test": "globstar -- node --test --import @swc-node/register/esm-register src/**/*.spec.ts test/**/*.spec.ts"

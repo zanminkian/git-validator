@@ -8,6 +8,12 @@ export async function isWorkspace() {
   const PNPM_WSP_YAML = path.join(CWD, "pnpm-workspace.yaml");
   const PNPM_WSP_YML = path.join(CWD, "pnpm-workspace.yml");
 
+  const exists = (filepath: string) =>
+    fs
+      .access(filepath)
+      .then(() => true)
+      .catch(() => false);
+
   return (
     ((await exists(ROOT_PKG_JSON_PATH)) &&
       JSON.parse(await fs.readFile(ROOT_PKG_JSON_PATH, "utf8")).workspaces) ||
@@ -18,11 +24,4 @@ export async function isWorkspace() {
 
 export function getRootPackageJsonPath() {
   return path.join(process.cwd(), "package.json");
-}
-
-async function exists(filepath: string) {
-  return await fs
-    .access(filepath)
-    .then(() => true)
-    .catch(() => false);
 }
