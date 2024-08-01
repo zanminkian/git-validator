@@ -255,6 +255,8 @@ export function javascript() {
     files: ["**/*.{js,cjs,mjs,jsx}"],
     languageOptions: {
       parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
         ecmaFeatures: {
           jsx: true,
         },
@@ -333,6 +335,11 @@ export function javascript() {
           allowPrimitiveModules: false,
         },
       ],
+      /**
+       * 1. The ESM specification didn’t say anything about interoperability with CommonJS. See: https://blog.andrewbran.ch/default-exports-in-commonjs-libraries/
+       * 2. Reexporting like `export * from 'foo'` will be difficult.
+       */
+      "import/no-default-export": "error",
       "import/no-dynamic-require": "error",
       "import/no-mutable-exports": "error", // forbid code like `export let count = 3`
       "import/no-relative-packages": "error", // forbid to import module from other monorepo packages by relative paths
@@ -415,5 +422,13 @@ export function javascript() {
     },
   } as const;
 
-  return [mainConfig] as const;
+  const configConfig = {
+    name: "git-validator/javascript/config",
+    files: ["**/*.config.{js,cjs,mjs,jsx}"],
+    rules: {
+      "import/no-default-export": "off",
+    },
+  } as const;
+
+  return [mainConfig, configConfig] as const;
 }

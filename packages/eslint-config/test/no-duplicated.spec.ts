@@ -19,9 +19,11 @@ await describe("no duplicated", async () => {
       { parser: "typescript", quoteProps: "consistent" },
     );
 
-    Object.keys(javascript()[0].rules).forEach((rule) => {
-      assert.strictEqual(count(configContent, rule), 1);
-    });
+    Object.keys(javascript()[0].rules)
+      .filter((rule) => !["import/no-default-export"].includes(rule))
+      .forEach((rule) => {
+        assert.strictEqual(count(configContent, rule), 1);
+      });
   });
 
   await it("no duplicated ts rules is defined", async () => {
@@ -42,6 +44,7 @@ await describe("no duplicated", async () => {
             "@typescript-eslint/no-floating-promises",
             // "@typescript-eslint/no-non-null-assertion",
             "@typescript-eslint/unbound-method",
+            "import/no-default-export",
           ].includes(rule)
         ) {
           assert.strictEqual(count(configContent, rule), 2);

@@ -5,13 +5,26 @@ import { javascript } from "./javascript-config.js";
 await describe("js config", async () => {
   await it("js config value should be error", () => {
     Object.values(javascript()[0].rules).forEach((value) => {
-      if (typeof value === "string") {
-        assert.strictEqual(value, "error");
-      } else if (Array.isArray(value)) {
-        assert.strictEqual(value[0], "error");
-      } else {
-        throw new Error("value should be string or array");
-      }
+      assert.strictEqual(getValueString(value), "error");
+    });
+  });
+
+  await it("js rest configs rules values should be off", () => {
+    const [, ...restConfigs] = javascript();
+    restConfigs.forEach((restConfig) => {
+      Object.entries(restConfig.rules).forEach(([_key, value]) => {
+        assert.strictEqual(getValueString(value), "off");
+      });
     });
   });
 });
+
+function getValueString(value: unknown): string {
+  if (typeof value === "string") {
+    return value;
+  } else if (Array.isArray(value) && typeof value[0] === "string") {
+    return value[0];
+  } else {
+    throw new Error("unknown value");
+  }
+}

@@ -231,6 +231,22 @@ export function typescript(project?: string) {
     },
   } as const;
 
+  const configConfig = {
+    name: "git-validator/typescript/config",
+    files: ["**/*.config.{ts,cts,mts,tsx}"],
+    rules: {
+      "import/no-default-export": "off",
+    },
+  } as const;
+
+  const declarationConfig = {
+    name: "git-validator/typescript/declaration",
+    files: ["**/*.d.{ts,cts,mts,tsx}"],
+    rules: {
+      "import/no-default-export": "off",
+    },
+  } as const;
+
   const testConfig = {
     // https://github.com/motemen/minimatch-cheat-sheet
     name: "git-validator/typescript/test",
@@ -244,5 +260,5 @@ export function typescript(project?: string) {
     },
   } as const;
 
-  return [mainConfig, testConfig] as const;
+  return [mainConfig, configConfig, declarationConfig, testConfig] as const;
 }
