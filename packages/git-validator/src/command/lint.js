@@ -27,13 +27,13 @@ export async function lint(paths = [], options = {}) {
 
   return execAsync(
     [
-      "node",
+      // "node",
       await getBinPath("eslint"),
       "--config",
       configPath,
       ...(shouldFix ? ["--fix"] : []),
       ...ps,
-    ].join(" "),
+    ],
     { topic: "📏 Checking linting", dryRun },
   );
 }

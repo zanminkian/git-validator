@@ -33,7 +33,7 @@ program
     if (options.fix || options.update) {
       code ||= await format(paths, options);
     }
-    process.exit(code ?? 0);
+    process.exit(code);
   });
 
 program
@@ -42,9 +42,7 @@ program
   .option("-f, --fix", "automatically fix problems")
   .option("-u, --update", "alias for '--fix' option")
   .argument("[paths...]", "dir or file paths to lint")
-  .action(async (paths, options) =>
-    process.exit((await lint(paths, options)) ?? 0),
-  );
+  .action(async (paths, options) => process.exit(await lint(paths, options)));
 
 program
   .command("format")
@@ -52,9 +50,7 @@ program
   .option("-w, --write", "automatically format code")
   .option("-u, --update", "alias for '--write' option")
   .argument("[paths...]", "dir or file paths to format")
-  .action(async (paths, options) =>
-    process.exit((await format(paths, options)) ?? 0),
-  );
+  .action(async (paths, options) => process.exit(await format(paths, options)));
 
 program
   .command("install")

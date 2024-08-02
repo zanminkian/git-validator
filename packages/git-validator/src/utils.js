@@ -1,4 +1,5 @@
 // @ts-check
+import { Buffer } from "node:buffer";
 import childProcess from "node:child_process";
 import fs from "node:fs/promises";
 import { createRequire } from "node:module";
@@ -67,38 +68,77 @@ function getSpentTime(startTime) {
 }
 
 /**
- * @param {string} command
+ * @param {string[]} command
  * @param {{topic: string, dryRun: boolean}} options
  * @returns {Promise<number>}
  */
 export async function execAsync(command, { topic, dryRun }) {
+  const [cmd, ...args] = command;
+  if (!cmd) {
+    throw new Error("cmd not found");
+  }
   if (dryRun) {
-    const [cmd, ...args] = command.split(" ");
     console.log(`${chalk.green(cmd)} ${args.join(" ")}`);
     return 0;
   }
   const startTime = Date.now();
   return new Promise((resolve) => {
     const spinner = ora(`${topic}...`).start();
-    childProcess.exec(
-      command,
-      { env: { FORCE_COLOR: "true", ...process.env }, encoding: "buffer" },
-      (error, stdout, stderr) => {
-        if (error) {
-          spinner.fail(
-            `${topic} failed in ${chalk.yellow(getSpentTime(startTime))}`,
-          );
-        } else {
-          spinner.succeed(
-            `${topic} succeeded in ${chalk.yellow(getSpentTime(startTime))}`,
-          );
-        }
-        process.stdout.write(stdout);
-        process.stderr.write(stderr);
-        return resolve(error?.code ?? 0);
-      },
-    );
+    const cp = childProcess.spawn(cmd, args, {
+      env: { FORCE_COLOR: "true", ...process.env },
+    });
+    let stdout = Buffer.from([]);
+    let stderr = Buffer.from([]);
+    cp.stdout.on("data", (data) => {
+      stdout = Buffer.concat([stdout, data]);
+    });
+    cp.stderr.on("data", (data) => {
+      stderr = Buffer.concat([stderr, data]);
+    });
+    // The 'close' event will always emit after 'exit' was already emitted, or 'error' if the child failed to spawn.
+    cp.on("close", () => {
+      process.stdout.write(stdout);
+      process.stderr.write(stderr);
+    });
+    cp.on("error", (err) => {
+      spinner.fail(
+        `${topic} got error in ${chalk.yellow(getSpentTime(startTime))}`,
+      );
+      resolve(getExitCode(err));
+    });
+    // The 'exit' event may or may not fire after an error has occurred.
+    cp.on("exit", (code, signal) => {
+      const exitCode = getExitCode({ code, signal });
+      if (exitCode === 0) {
+        spinner.succeed(
+          `${topic} succeeded in ${chalk.yellow(getSpentTime(startTime))}`,
+        );
+      } else {
+        spinner.fail(
+          `${topic} failed in ${chalk.yellow(getSpentTime(startTime))}`,
+        );
+      }
+      resolve(exitCode);
+    });
+    process.on("SIGINT", () => !cp.killed && cp.kill("SIGINT"));
+    process.on("SIGTERM", () => !cp.killed && cp.kill("SIGTERM"));
   });
+}
+
+/**
+ * @param {object} error
+ */
+function getExitCode(error) {
+  if ("signal" in error && error.signal === "SIGINT") {
+    return 2;
+  }
+  if ("signal" in error && error.signal === "SIGTERM") {
+    return 15;
+  }
+  if ("code" in error && typeof error.code === "number") {
+    return error.code;
+  }
+  return 1;
 }
 
 /**

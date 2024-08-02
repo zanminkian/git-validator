@@ -33,7 +33,7 @@ export async function format(paths = [], options = {}) {
 
   return execAsync(
     [
-      "node",
+      // "node",
       await getBinPath("prettier"),
       "--log-level",
       "warn",
@@ -43,7 +43,7 @@ export async function format(paths = [], options = {}) {
       "--ignore-unknown",
       ...(shouldWrite ? ["--write"] : ["--check"]),
       ...ps,
-    ].join(" "),
+    ],
     { topic: "💃 Checking formatting", dryRun },
   );
 }
