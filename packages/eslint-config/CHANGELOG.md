@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.5.7
+
+### Patch Changes
+
+- fed12fd: chore: upgrade deps
+
 ## 0.5.6
 
 ### Patch Changes
