@@ -1,5 +1,14 @@
 # git-validator
 
+## 0.18.7
+
+### Patch Changes
+
+- c7e97ea: refactor(git-validator): don't export unnecessary bin
+- 4602b54: fix(git-validator): subprocess will correctly be killed after process is killed
+- Updated dependencies [fed12fd]
+  - @git-validator/eslint-config@0.5.7
+
 ## 0.18.6
 
 ### Patch Changes
