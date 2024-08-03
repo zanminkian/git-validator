@@ -13,6 +13,7 @@ import { rule as noInstanceofBuiltin } from "./rules/no-instanceof-builtin.js";
 import { rule as noLegacyGetterSetter } from "./rules/no-legacy-getter-setter.js";
 import { rule as noPropertyDecorator } from "./rules/no-property-decorator.js";
 import { rule as noRelativeParentImports } from "./rules/no-relative-parent-imports.js";
+import { rule as noSideEffectImport } from "./rules/no-side-effect-import.js";
 import { rule as noTsFileImports } from "./rules/no-ts-file-imports.js";
 import { rule as noUnnecessaryTemplateString } from "./rules/no-unnecessary-template-string.js";
 import { rule as noUntypedEmptyArray } from "./rules/no-untyped-empty-array.js";
@@ -36,6 +37,7 @@ export const rules = {
   [noLegacyGetterSetter.name]: noLegacyGetterSetter.rule,
   [noPropertyDecorator.name]: noPropertyDecorator.rule,
   [noRelativeParentImports.name]: noRelativeParentImports.rule,
+  [noSideEffectImport.name]: noSideEffectImport.rule,
   [noTsFileImports.name]: noTsFileImports.rule,
   [noUnnecessaryTemplateString.name]: noUnnecessaryTemplateString.rule,
   [noUntypedEmptyArray.name]: noUntypedEmptyArray.rule,
