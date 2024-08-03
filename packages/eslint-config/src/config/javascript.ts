@@ -407,6 +407,7 @@ export function javascript() {
 
       "@git-validator/ban-ts-comment": "error",
       "@git-validator/new-parens": "error",
+      "@git-validator/no-directory-imports": "error",
       "@git-validator/no-dynamic-import": "error",
       "@git-validator/no-es6-getter-setter": "error",
       "@git-validator/no-for-in": "error",

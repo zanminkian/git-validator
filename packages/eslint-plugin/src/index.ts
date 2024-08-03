@@ -3,6 +3,7 @@ import { rule as exactMapSetType } from "./rules/exact-map-set-type.js";
 import { rule as newParens } from "./rules/new-parens.js";
 import { rule as noConstEnum } from "./rules/no-const-enum.js";
 import { rule as noDeclaresInTsFile } from "./rules/no-declares-in-ts-file.js";
+import { rule as noDirectoryImports } from "./rules/no-directory-imports.js";
 import { rule as noDynamicImport } from "./rules/no-dynamic-import.js";
 import { rule as noEs6GetterSetter } from "./rules/no-es6-getter-setter.js";
 import { rule as noExportAssignment } from "./rules/no-export-assignment.js";
@@ -25,6 +26,7 @@ export const rules = {
   [newParens.name]: newParens.rule,
   [noConstEnum.name]: noConstEnum.rule,
   [noDeclaresInTsFile.name]: noDeclaresInTsFile.rule,
+  [noDirectoryImports.name]: noDirectoryImports.rule,
   [noDynamicImport.name]: noDynamicImport.rule,
   [noEs6GetterSetter.name]: noEs6GetterSetter.rule,
   [noExportAssignment.name]: noExportAssignment.rule,

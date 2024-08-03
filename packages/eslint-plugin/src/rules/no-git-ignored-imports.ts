@@ -2,7 +2,7 @@ import childProcess from "node:child_process";
 import path from "node:path";
 import process from "node:process";
 import { isNativeError } from "node:util/types";
-import { create } from "../check-import.js";
+import { create, isRelativeImport } from "../check-import.js";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
 export const rule = createSimpleRule({
@@ -13,11 +13,7 @@ export const rule = createSimpleRule({
 
 function checkIgnored(filePath: string, source: string) {
   // from node_modules
-  if (
-    !source.startsWith("./") &&
-    !source.startsWith("../") &&
-    !source.startsWith("/")
-  ) {
+  if (!isRelativeImport(source)) {
     return false;
   }
   // out side of project root

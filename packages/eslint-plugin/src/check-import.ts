@@ -42,3 +42,13 @@ export const create = (
     }
   },
 });
+
+export function isRelativeImport(source: string) {
+  return (
+    source.startsWith("/") ||
+    source.startsWith("./") ||
+    source.startsWith("../") ||
+    source === "." ||
+    source === ".."
+  );
+}
