@@ -1,5 +1,5 @@
 import { describe, it } from "node:test";
-import { type Rule, RuleTester } from "eslint";
+import { RuleTester, type Rule } from "eslint";
 
 const tester = new RuleTester({
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },

@@ -1,5 +1,5 @@
 import { describe, it } from "node:test";
-import { type Rule, RuleTester } from "eslint";
+import { RuleTester, type Rule } from "eslint";
 
 export type TestCase = string | { code: string; filename: string };
 

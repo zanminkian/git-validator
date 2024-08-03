@@ -10,9 +10,11 @@ export default {
     [
       "prettier-plugin-curly",
       "prettier-plugin-packagejson",
+      "@ianvs/prettier-plugin-sort-imports",
       ...(tailwindConfig ? ["prettier-plugin-tailwindcss"] : []),
     ].map(async (moduleName) => await getModulePath(moduleName)),
   ),
+  importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
   ...(tailwindConfig ? { tailwindConfig } : {}),
 };
 

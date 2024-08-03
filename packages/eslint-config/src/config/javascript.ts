@@ -298,10 +298,11 @@ export function javascript() {
       // 2. code style for a better readability
       "arrow-body-style": ["error", "as-needed"],
       "import/newline-after-import": ["error", { count: 1 }],
-      "simple-import-sort/imports": [
-        "error",
-        { groups: [["^\\u0000", "^node:", "^@?\\w", "^", "^\\."]] },
-      ],
+      // Sort imports by prettier. Turn in off.
+      // "simple-import-sort/imports": [
+      //   "error",
+      //   { groups: [["^\\u0000", "^node:", "^@?\\w", "^", "^\\."]] },
+      // ],
       "simple-import-sort/exports": "error",
       "unicorn/prefer-node-protocol": "error",
       "unicorn/escape-case": "error", // '\ud834' -> '\uD834'
