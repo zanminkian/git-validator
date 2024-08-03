@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.7.1
+
+### Patch Changes
+
+- 05d4156: feat: add rule `no-directory-imports`
+
 ## 0.7.0
 
 ### Minor Changes
