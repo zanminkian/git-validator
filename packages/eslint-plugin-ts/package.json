@@ -1,0 +1,36 @@
+{
+  "name": "@git-validator/eslint-plugin-ts",
+  "version": "0.0.0",
+  "description": "An eslint plugin for TypeScript",
+  "keywords": [
+    "strict",
+    "eslint",
+    "plugin",
+    "eslint-plugin",
+    "typescript",
+    "unicorn"
+  ],
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zanminkian/git-validator.git",
+    "directory": "packages/eslint-plugin-ts"
+  },
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@typescript-eslint/utils": "7.16.1"
+  },
+  "devDependencies": {
+    "@swc-node/register": "1.10.0",
+    "@types/node": "22.1.0",
+    "@typescript-eslint/parser": "7.16.1",
+    "@typescript-eslint/rule-tester": "7.16.1",
+    "eslint": "8.57.0"
+  }
+}
