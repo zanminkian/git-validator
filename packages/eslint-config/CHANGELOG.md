@@ -1,5 +1,13 @@
 # @git-validator/eslint-config
 
+## 0.5.9
+
+### Patch Changes
+
+- c381164: feat: add rule `no-side-effect-import`
+- Updated dependencies [c381164]
+  - @git-validator/eslint-plugin@0.7.2
+
 ## 0.5.8
 
 ### Patch Changes
