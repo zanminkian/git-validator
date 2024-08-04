@@ -23,7 +23,6 @@
 
     "allowJs": true,
     "outDir": "${configDir}/dist",
-    "allowArbitraryExtensions": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "resolveJsonModule": true,

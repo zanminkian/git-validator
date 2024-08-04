@@ -24,7 +24,6 @@
     "allowJs": true,
     "outDir": "${configDir}/dist",
     "verbatimModuleSyntax": true,
-    "allowArbitraryExtensions": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "stripInternal": true,
