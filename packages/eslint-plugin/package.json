@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@swc-node/register": "1.10.0",
-    "@types/node": "22.0.2",
+    "@types/node": "22.1.0",
     "@typescript-eslint/parser": "7.16.1",
     "@typescript-eslint/rule-tester": "7.16.1",
     "eslint": "8.57.0"

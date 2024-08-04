@@ -45,6 +45,6 @@
     "sort-keys": "5.0.0"
   },
   "devDependencies": {
-    "@types/node": "22.0.2"
+    "@types/node": "22.1.0"
   }
 }
