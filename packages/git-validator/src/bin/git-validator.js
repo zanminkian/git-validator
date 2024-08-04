@@ -41,6 +41,10 @@ program
   .description("lint code using eslint")
   .option("-f, --fix", "automatically fix problems")
   .option("-u, --update", "alias for '--fix' option")
+  .option(
+    "-d, --dry-run",
+    "print what command will be executed under the hood instead of executing",
+  )
   .argument("[paths...]", "dir or file paths to lint")
   .action(async (paths, options) => process.exit(await lint(paths, options)));
 
@@ -49,6 +53,10 @@ program
   .description("format code using prettier")
   .option("-w, --write", "automatically format code")
   .option("-u, --update", "alias for '--write' option")
+  .option(
+    "-d, --dry-run",
+    "print what command will be executed under the hood instead of executing",
+  )
   .argument("[paths...]", "dir or file paths to format")
   .action(async (paths, options) => process.exit(await format(paths, options)));
 
