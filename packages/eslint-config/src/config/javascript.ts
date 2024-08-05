@@ -1,5 +1,6 @@
 import * as gitValidatorPlugin from "@git-validator/eslint-plugin";
 import confusingKeys from "confusing-browser-globals";
+import esxPlugin from "eslint-plugin-es-x";
 import fpPlugin from "eslint-plugin-fp";
 import importPlugin from "eslint-plugin-import";
 import nPlugin from "eslint-plugin-n";
@@ -282,6 +283,7 @@ export function javascript() {
       "react-hooks": reactHooksPlugin,
       sonarjs: sonarjsPlugin,
       unicorn: unicornPlugin,
+      "es-x": esxPlugin,
       "simple-import-sort": simpleImportSortPlugin,
       "@git-validator": gitValidatorPlugin,
     },
@@ -324,6 +326,9 @@ export function javascript() {
       "prefer-exponentiation-operator": "error",
       "prefer-object-has-own": "error",
       "prefer-template": "error",
+      // es
+      "es-x/no-generators": "error",
+      "es-x/no-legacy-object-prototype-accessor-methods": "error",
       // fp
       "fp/no-arguments": "error",
       "fp/no-delete": "error",

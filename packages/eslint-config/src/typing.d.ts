@@ -26,6 +26,10 @@ declare module "eslint-plugin-unicorn" {
   declare const plugin: unknown;
   export default plugin;
 }
+declare module "eslint-plugin-es-x" {
+  declare const plugin: unknown;
+  export default plugin;
+}
 declare module "eslint-plugin-react" {
   declare const plugin: unknown;
   export default plugin;
