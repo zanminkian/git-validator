@@ -303,6 +303,7 @@ export function javascript() {
 
       // 3. ban some syntaxes to reduce mistakes
       "func-name-matching": "error",
+      "getter-return": "error",
       "init-declarations": "error",
       "max-params": ["error", { max: 4 }],
       "no-duplicate-imports": "error",
@@ -316,6 +317,7 @@ export function javascript() {
       "no-multi-assign": "error",
       "no-param-reassign": "error",
       "no-plusplus": "error",
+      "no-setter-return": "error",
       "no-shadow": ["error", { ignoreOnInitialization: true }],
       "no-unused-private-class-members": "error",
       "prefer-arrow-callback": "error",
