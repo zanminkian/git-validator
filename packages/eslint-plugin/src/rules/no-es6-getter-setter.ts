@@ -1,5 +1,6 @@
 import { createSimpleRule, getRuleName } from "../utils.js";
 
+// TODO: remove it
 export const rule = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Disallow using es6 getter and setter.",
