@@ -31,12 +31,10 @@ export function dir(url) {
 
 /**
  * @param {string} module
- * @param {string} dirName
  */
-export async function resolveConfig(module, dirName = dir(import.meta.url)) {
-  return (
-    (await lilconfig(module).search(process.cwd())) ??
-    (await lilconfig(module).search(path.join(dirName, "..")))
+export async function resolveConfig(module) {
+  return await lilconfig(module, { stopDir: process.cwd() }).search(
+    process.cwd(),
   );
 }
 
