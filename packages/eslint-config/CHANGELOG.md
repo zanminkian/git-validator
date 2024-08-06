@@ -1,5 +1,12 @@
 # @git-validator/eslint-config
 
+## 0.5.10
+
+### Patch Changes
+
+- d1fa184: feat(eslint-config): enable `getter-return` and `no-setter-return`
+- ac82f47: feat(eslint-config): no generators
+
 ## 0.5.9
 
 ### Patch Changes
