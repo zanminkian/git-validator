@@ -328,6 +328,7 @@ export function javascript() {
       "prefer-template": "error",
       // es
       "es-x/no-accessor-properties": "error",
+      "es-x/no-async-iteration": "error",
       "es-x/no-generators": "error",
       "es-x/no-legacy-object-prototype-accessor-methods": "error",
       // fp
