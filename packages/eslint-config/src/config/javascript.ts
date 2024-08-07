@@ -254,8 +254,12 @@ export function javascript() {
   const mainConfig = {
     name: "git-validator/javascript",
     files: ["**/*.{js,cjs,mjs,jsx}"],
+    // https://eslint.org/docs/latest/use/configure/language-options
     languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
       parserOptions: {
+        // TODO import/no-default-export required this
         ecmaVersion: "latest",
         sourceType: "module",
         ecmaFeatures: {
