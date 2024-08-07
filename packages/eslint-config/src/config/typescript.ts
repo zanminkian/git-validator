@@ -178,6 +178,7 @@ export function typescript(project?: string) {
       "@typescript-eslint/no-confusing-non-null-assertion": "error",
       "@typescript-eslint/no-duplicate-enum-values": "error",
       "@typescript-eslint/no-duplicate-type-constituents": "error",
+      "@typescript-eslint/no-empty-object-type": "error",
       "@typescript-eslint/no-floating-promises": [
         "error",
         {
@@ -207,6 +208,8 @@ export function typescript(project?: string) {
         "error",
       "@typescript-eslint/no-unnecessary-template-expression": "error", // js also need this rule
       "@typescript-eslint/no-unnecessary-type-assertion": "error",
+      // '@typescript-eslint/no-unsafe-function-type': "error",
+      // "@typescript-eslint/no-wrapper-object-types": "error",
       "@typescript-eslint/only-throw-error": "error",
       "@typescript-eslint/prefer-function-type": "error",
       "@typescript-eslint/prefer-readonly": "error",
