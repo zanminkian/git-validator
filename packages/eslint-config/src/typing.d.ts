@@ -1,40 +1,4 @@
-declare module "@git-validator/eslint-plugin-packagejson" {
-  declare const plugin: unknown;
-  export default plugin;
-}
-declare module "eslint-plugin-fp" {
-  declare const plugin: unknown;
-  export default plugin;
-}
-declare module "eslint-plugin-import" {
-  declare const plugin: unknown;
-  export default plugin;
-}
-declare module "eslint-plugin-n" {
-  declare const plugin: unknown;
-  export default plugin;
-}
-declare module "eslint-plugin-promise" {
-  declare const plugin: unknown;
-  export default plugin;
-}
-declare module "eslint-plugin-simple-import-sort" {
-  declare const plugin: unknown;
-  export default plugin;
-}
-declare module "eslint-plugin-unicorn" {
-  declare const plugin: unknown;
-  export default plugin;
-}
-declare module "eslint-plugin-es-x" {
-  declare const plugin: unknown;
-  export default plugin;
-}
-declare module "eslint-plugin-react" {
-  declare const plugin: unknown;
-  export default plugin;
-}
-declare module "eslint-plugin-react-hooks" {
+declare module "eslint-plugin-*" {
   declare const plugin: unknown;
   export default plugin;
 }
