@@ -1,4 +1,5 @@
 import process from "node:process";
+import * as gitValidatorTsPlugin from "@git-validator/eslint-plugin-ts";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import deprecationPlugin from "eslint-plugin-deprecation";
@@ -102,6 +103,7 @@ export function typescript(project?: string) {
       ...jsConfig.plugins,
       deprecation: deprecationPlugin,
       "@typescript-eslint": tsPlugin,
+      "@git-validator-ts": gitValidatorTsPlugin,
     },
     rules: {
       ...jsConfig.rules,
@@ -111,12 +113,12 @@ export function typescript(project?: string) {
       // deprecation
       "deprecation/deprecation": "error",
       // git-validator
-      "@git-validator/exact-map-set-type": "error",
-      "@git-validator/no-const-enum": "error",
-      "@git-validator/no-declares-in-ts-file": "error",
-      "@git-validator/no-export-assignment": "error",
-      "@git-validator/no-property-decorator": "error",
-      "@git-validator/no-untyped-empty-array": "error",
+      "@git-validator-ts/exact-map-set-type": "error",
+      "@git-validator-ts/no-const-enum": "error",
+      "@git-validator-ts/no-declares-in-ts-file": "error",
+      "@git-validator-ts/no-export-assignment": "error",
+      "@git-validator-ts/no-property-decorator": "error",
+      "@git-validator-ts/no-untyped-empty-array": "error",
       // typescript
       "@typescript-eslint/await-thenable": "error",
       "@typescript-eslint/ban-ts-comment": [

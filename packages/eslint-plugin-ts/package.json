@@ -21,7 +21,8 @@
   "type": "module",
   "exports": "./dist/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json",
+    "test": "globstar -- node --test --import @swc-node/register/esm-register src/**/*.spec.ts"
   },
   "dependencies": {
     "@typescript-eslint/utils": "7.16.1"
