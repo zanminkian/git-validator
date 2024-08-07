@@ -21,7 +21,7 @@ export async function lint(paths = [], options = {}) {
 
   let configPath = (await resolveConfig("eslint"))?.filepath;
   if (!configPath) {
-    process.env["ESLINT_USE_FLAT_CONFIG"] = "true"; // TODO remove it
+    process.env["ESLINT_USE_FLAT_CONFIG"] = "true"; // TODO remove it for eslint 9
     configPath = requireResolve("@git-validator/eslint-config");
   }
 

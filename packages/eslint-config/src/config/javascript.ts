@@ -259,7 +259,7 @@ export function javascript() {
       ecmaVersion: "latest",
       sourceType: "module",
       parserOptions: {
-        // TODO import/no-default-export required this
+        // TODO `ecmaVersion` and `sourceType` are no standard here. import/no-default-export required this
         ecmaVersion: "latest",
         sourceType: "module",
         ecmaFeatures: {

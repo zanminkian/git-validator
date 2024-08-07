@@ -34,7 +34,7 @@ export function typescript(project?: string) {
       "no-implied-eval",
       "no-invalid-this",
       "no-loop-func",
-      "no-loss-of-precision",
+      "no-loss-of-precision", // TODO: remove it. https://typescript-eslint.io/rules/no-loss-of-precision/
       "no-magic-numbers",
       "no-redeclare",
       "no-restricted-imports",
@@ -179,6 +179,7 @@ export function typescript(project?: string) {
       "@typescript-eslint/no-duplicate-enum-values": "error",
       "@typescript-eslint/no-duplicate-type-constituents": "error",
       "@typescript-eslint/no-empty-object-type": "error",
+      "@typescript-eslint/no-extra-non-null-assertion": "error",
       "@typescript-eslint/no-floating-promises": [
         "error",
         {
@@ -203,14 +204,18 @@ export function typescript(project?: string) {
       "@typescript-eslint/no-namespace": "error",
       "@typescript-eslint/no-non-null-assertion": "error",
       "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-this-alias": "error",
       "@typescript-eslint/no-unnecessary-condition": "error",
       "@typescript-eslint/no-unnecessary-parameter-property-assignment":
         "error",
       "@typescript-eslint/no-unnecessary-template-expression": "error", // js also need this rule
       "@typescript-eslint/no-unnecessary-type-assertion": "error",
+      "@typescript-eslint/no-unnecessary-type-constraint": "error",
+      "@typescript-eslint/no-unsafe-declaration-merging": "error",
       // '@typescript-eslint/no-unsafe-function-type': "error",
       // "@typescript-eslint/no-wrapper-object-types": "error",
       "@typescript-eslint/only-throw-error": "error",
+      "@typescript-eslint/prefer-as-const": "error",
       "@typescript-eslint/prefer-function-type": "error",
       "@typescript-eslint/prefer-readonly": "error",
       "@typescript-eslint/prefer-ts-expect-error": "error",
