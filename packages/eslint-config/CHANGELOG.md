@@ -1,5 +1,12 @@
 # @git-validator/eslint-config
 
+## 0.5.12
+
+### Patch Changes
+
+- acd5b9d: feat(eslint-config): enable rule `@typescript-eslint/no-empty-object-type`
+- 5dc822f: feat(eslint-config): add some `@typescript-eslint/*` rules
+
 ## 0.5.11
 
 ### Patch Changes
