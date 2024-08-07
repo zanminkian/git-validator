@@ -1,5 +1,12 @@
 # @git-validator/eslint-config
 
+## 0.5.11
+
+### Patch Changes
+
+- 3114cc6: feat(eslint-config): add rule `es-x/no-async-iteration`
+- f008e5f: feat(eslint-config): add rule `es-x/no-accessor-properties`
+
 ## 0.5.10
 
 ### Patch Changes
