@@ -35,7 +35,7 @@ export function typescript(project?: string) {
       "no-implied-eval",
       "no-invalid-this",
       "no-loop-func",
-      "no-loss-of-precision", // TODO: remove it. https://typescript-eslint.io/rules/no-loss-of-precision/
+      // "no-loss-of-precision",
       "no-magic-numbers",
       "no-redeclare",
       "no-restricted-imports",
