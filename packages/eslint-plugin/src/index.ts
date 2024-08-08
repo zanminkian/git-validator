@@ -2,11 +2,9 @@ import { rule as banTsComment } from "./rules/ban-ts-comment.js";
 import { rule as newParens } from "./rules/new-parens.js";
 import { rule as noDirectoryImports } from "./rules/no-directory-imports.js";
 import { rule as noDynamicImport } from "./rules/no-dynamic-import.js";
-import { rule as noEs6GetterSetter } from "./rules/no-es6-getter-setter.js";
 import { rule as noForIn } from "./rules/no-for-in.js";
 import { rule as noGitIgnoredImports } from "./rules/no-git-ignored-imports.js";
 import { rule as noInstanceofBuiltin } from "./rules/no-instanceof-builtin.js";
-import { rule as noLegacyGetterSetter } from "./rules/no-legacy-getter-setter.js";
 import { rule as noRelativeParentImports } from "./rules/no-relative-parent-imports.js";
 import { rule as noSideEffectImport } from "./rules/no-side-effect-import.js";
 import { rule as noTsFileImports } from "./rules/no-ts-file-imports.js";
@@ -20,11 +18,9 @@ export const rules = {
   [newParens.name]: newParens.rule,
   [noDirectoryImports.name]: noDirectoryImports.rule,
   [noDynamicImport.name]: noDynamicImport.rule,
-  [noEs6GetterSetter.name]: noEs6GetterSetter.rule,
   [noForIn.name]: noForIn.rule,
   [noGitIgnoredImports.name]: noGitIgnoredImports.rule,
   [noInstanceofBuiltin.name]: noInstanceofBuiltin.rule,
-  [noLegacyGetterSetter.name]: noLegacyGetterSetter.rule,
   [noRelativeParentImports.name]: noRelativeParentImports.rule,
   [noSideEffectImport.name]: noSideEffectImport.rule,
   [noTsFileImports.name]: noTsFileImports.rule,
