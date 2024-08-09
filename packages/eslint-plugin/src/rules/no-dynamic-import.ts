@@ -5,20 +5,19 @@ export const rule = createSimpleRule({
   message: "`import()` should be called with string literal.",
   create: (context) => ({
     ImportExpression: (node) => {
-      const { source, attributes } = node;
-      if (source.type !== "Literal") {
+      if (node.source.type !== "Literal") {
         context.reportNode(node);
         return;
       }
-      if (!("value" in source)) {
+      if (!("value" in node.source)) {
         context.reportNode(node);
         return;
       }
-      if (typeof source.value !== "string") {
+      if (typeof node.source.value !== "string") {
         context.reportNode(node);
         return;
       }
-      if (attributes) {
+      if ("attributes" in node && node.attributes) {
         context.reportNode(node);
       }
     },

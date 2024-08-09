@@ -1,55 +1,28 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { ESLintUtils, type TSESTree } from "@typescript-eslint/utils";
-import type {
-  RuleContext,
-  RuleListener,
-} from "@typescript-eslint/utils/ts-eslint";
+import type { Rule } from "eslint";
+import type { Node } from "estree";
 
-export interface Context
-  extends Omit<RuleContext<string, unknown[]>, "report"> {
-  reportNode: (node: TSESTree.Node | TSESTree.Token) => void;
+export interface Context extends Omit<Rule.RuleContext, "report"> {
+  reportNode: (node: Node) => void;
 }
 
 export function createSimpleRule(options: {
   name: string;
   message: string;
-  create: (context: Context) => RuleListener;
-}) {
+  create: (context: Context) => Rule.RuleListener;
+}): { name: string; rule: Rule.RuleModule } {
   const { name, message, create } = options;
-  const messageId = name;
-  const defaultOptions: unknown[] = [];
-
-  const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
-    typeof defaultOptions,
-    typeof messageId
-  >({
-    name,
-    meta: {
-      type: "problem",
-      docs: {
-        description: message,
-      },
-      schema: [],
-      messages: {
-        [messageId]: message,
-      },
-    },
-    defaultOptions,
-    create: (context) => {
+  const rule = {
+    create: (context: Rule.RuleContext) => {
       const ctx = Object.assign({}, context, {
-        reportNode: (node: TSESTree.Node | TSESTree.Token) =>
-          context.report({ node, messageId }),
+        reportNode: (node: Node) => context.report({ node, message }),
       });
       Object.setPrototypeOf(ctx, Object.getPrototypeOf(context));
       return create(ctx);
     },
-  });
-
-  return {
-    name,
-    rule,
   };
+  return { name, rule };
 }
 
 export function getRuleName(importMetaUrl: string) {

@@ -1,12 +1,15 @@
-import type { RuleListener } from "@typescript-eslint/utils/ts-eslint";
+import type { Rule } from "eslint";
 import type { Context } from "./utils.js";
 
 export const create = (
   context: Context,
   check: (filename: string, source: string) => boolean,
-): RuleListener => ({
+): Rule.RuleListener => ({
   ImportDeclaration: (node) => {
-    if (check(context.filename, node.source.value)) {
+    if (
+      typeof node.source.value !== "string" ||
+      check(context.filename, node.source.value)
+    ) {
       context.reportNode(node.source);
     }
   },
@@ -32,12 +35,21 @@ export const create = (
     }
   },
   ExportAllDeclaration: (node) => {
-    if (check(context.filename, node.source.value)) {
+    if (
+      typeof node.source.value !== "string" ||
+      check(context.filename, node.source.value)
+    ) {
       context.reportNode(node.source);
     }
   },
   ExportNamedDeclaration: (node) => {
-    if (node.source && check(context.filename, node.source.value)) {
+    if (!node.source) {
+      return;
+    }
+    if (
+      typeof node.source.value !== "string" ||
+      check(context.filename, node.source.value)
+    ) {
       context.reportNode(node.source);
     }
   },

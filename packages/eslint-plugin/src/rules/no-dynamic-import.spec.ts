@@ -16,8 +16,8 @@ const invalid = [
   "import(`foo`)",
   "import(foo)",
   "const foo = await import(foo)",
-  "import(foo, {})",
-  'import("foo", {})',
+  // "import(foo, {})", // only ts support it, not ecmascript
+  // 'import("foo", {})', // only ts support it, not ecmascript
 ];
 
 test({ valid, invalid, ...rule });

@@ -17,7 +17,7 @@ export const rule = createSimpleRule({
         if (validItems?.length === invalidItems?.length) {
           return;
         }
-        context.reportNode(comment);
+        context.reportNode(comment as any);
       });
     },
   }),

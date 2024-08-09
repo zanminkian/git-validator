@@ -29,7 +29,11 @@ export const rule = createSimpleRule({
     const ignoreExps = ignores.map((ignore) => new RegExp(ignore));
     return {
       ImportDeclaration: (node) => {
-        if (ignoreExps.some((exp) => exp.test(node.source.value))) {
+        const { value } = node.source;
+        if (typeof value !== "string") {
+          return context.reportNode(node);
+        }
+        if (ignoreExps.some((exp) => exp.test(value))) {
           return;
         }
         if (node.specifiers.length <= 0) {
