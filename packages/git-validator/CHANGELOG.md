@@ -1,5 +1,26 @@
 # git-validator
 
+## 0.19.0
+
+### Minor Changes
+
+- 681c8ba: feat: migrate ts rules from `@git-validator/eslint-plugin` to `@git-validator/eslint-plugin-ts`
+- 623c34c: feat: sorting imports by prettier instead of eslint
+- 1249b7a: perf(git-validator)!: only load custom config from `process.cwd()`
+- eaf5caa: perf(git-validator)!: do not load config twice. drop support for legacy eslint config
+- 7692950: feat: remove `allowArbitraryExtensions` option from tsconfig
+
+### Patch Changes
+
+- Updated dependencies [83a0c36]
+- Updated dependencies [f143acf]
+- Updated dependencies [623c34c]
+- Updated dependencies [26cf6b3]
+- Updated dependencies [7692950]
+  - @git-validator/eslint-config@0.6.0
+  - @git-validator/prettier-config@0.5.0
+  - @git-validator/tsconfig@0.7.0
+
 ## 0.18.12
 
 ### Patch Changes

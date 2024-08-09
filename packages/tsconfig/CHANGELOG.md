@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.7.0
+
+### Minor Changes
+
+- 7692950: feat: remove `allowArbitraryExtensions` option from tsconfig
+
 ## 0.6.1
 
 ### Patch Changes

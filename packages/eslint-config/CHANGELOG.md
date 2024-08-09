@@ -1,5 +1,21 @@
 # @git-validator/eslint-config
 
+## 0.6.0
+
+### Minor Changes
+
+- 83a0c36: refactor(eslint-config): remove `@typescript-eslint/no-loss-of-precision`
+- 623c34c: feat: sorting imports by prettier instead of eslint
+- 26cf6b3: refactor: remove `@git-validator/no-es6-getter-setter` and `@git-validator/no-legacy-getter-setter`
+
+### Patch Changes
+
+- f143acf: feat(eslint-config): add some sonarjs rules
+- Updated dependencies [681c8ba]
+- Updated dependencies [26cf6b3]
+  - @git-validator/eslint-plugin@0.8.0
+  - @git-validator/eslint-plugin-ts@0.1.1
+
 ## 0.5.12
 
 ### Patch Changes

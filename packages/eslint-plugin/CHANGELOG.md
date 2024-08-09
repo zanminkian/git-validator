@@ -1,5 +1,12 @@
 # @git-validator/eslint-plugin
 
+## 0.8.0
+
+### Minor Changes
+
+- 681c8ba: feat: migrate ts rules from `@git-validator/eslint-plugin` to `@git-validator/eslint-plugin-ts`
+- 26cf6b3: refactor: remove `@git-validator/no-es6-getter-setter` and `@git-validator/no-legacy-getter-setter`
+
 ## 0.7.2
 
 ### Patch Changes
