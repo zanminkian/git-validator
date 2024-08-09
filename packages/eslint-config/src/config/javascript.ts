@@ -370,6 +370,10 @@ export function javascript() {
       "react-hooks/rules-of-hooks": "error",
       // sonarjs
       "sonarjs/no-collapsible-if": "error",
+      "sonarjs/no-all-duplicated-branches": "error",
+      "sonarjs/no-identical-conditions": "error",
+      "sonarjs/no-identical-expressions": "error",
+      "sonarjs/no-ignored-return": "error",
       "sonarjs/no-inverted-boolean-check": "error",
       "sonarjs/no-nested-switch": "error",
       "sonarjs/no-useless-catch": "error",
