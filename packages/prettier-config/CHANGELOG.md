@@ -1,5 +1,11 @@
 # @git-validator/prettier-config
 
+## 0.5.0
+
+### Minor Changes
+
+- 623c34c: feat: sorting imports by prettier instead of eslint
+
 ## 0.4.8
 
 ### Patch Changes
