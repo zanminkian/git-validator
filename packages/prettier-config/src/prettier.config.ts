@@ -9,8 +9,8 @@ const tailwindConfig = await getTailwindConfig();
 
 export default {
   plugins: [
-    "prettier-plugin-curly",
     "prettier-plugin-packagejson",
+    "prettier-plugin-curly",
     "@ianvs/prettier-plugin-sort-imports",
     ...(tailwindConfig ? ["prettier-plugin-tailwindcss"] : []),
   ].map((moduleName) => resolve(moduleName)),
