@@ -17,7 +17,6 @@
 - Check code style (using ESLint and Prettier under the hood).
 - Check git commit message (using commitlint under the hood).
 - Set up git hooks to automatically check code style and commit message.
-- Analyze project code quality (using `npx git-validator analyze -d`).
 
 ## Highlights
 
@@ -109,7 +108,6 @@ Commands:
   lint [options] [paths...]    lint code using eslint
   format [options] [paths...]  format code using prettier
   install [options]            install git-validator config files by writing git hook files to .git/hooks
-  analyze [options] [path]     analyze js/ts project quality and print the report
   init-tsconfig [options]      init a tsconfig file
   diff-tsconfig [options]      show differences between recommended tsconfig and current project tsconfig
 ```

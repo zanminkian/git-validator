@@ -17,7 +17,6 @@
 - 检查代码风格（底层使用 ESLint 和 Prettier）。
 - 检查 Git 提交信息（底层使用 commitlint）。
 - 设置 Git 钩子，用于自动检查代码风格和提交信息。
-- 分析项目的代码质量（只需运行 `npx git-validator analyze -d`）。
 
 ## 亮点
 
@@ -109,7 +108,6 @@ Commands:
   lint [options] [paths...]    lint code using eslint
   format [options] [paths...]  format code using prettier
   install [options]            install git-validator config files by writing git hook files to .git/hooks
-  analyze [options] [path]     analyze js/ts project quality and print the report
   init-tsconfig [options]      init a tsconfig file
   diff-tsconfig [options]      show differences between recommended tsconfig and current project tsconfig
 ```

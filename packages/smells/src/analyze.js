@@ -1,5 +1,4 @@
 // @ts-check
-// TODO move this logic to another package
 import fs from "node:fs/promises";
 import { globby } from "globby";
 
