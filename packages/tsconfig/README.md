@@ -133,6 +133,8 @@ Here are the best practices if you are using this package.
 }
 ```
 
+> Tips: Why do we still need a `tsconfig.json` in each app? In short, for the DX. VSCode usually use the nearest `tsconfig.json` as the TypeScript config for the opening ts file. If there is only one `tsconfig.json` in the root, the declarations in one app will affect the others. Thus, VSCode will perform wrong type hints. If VSCode smart enough to use nearest `tsconfig.build.json` rather than `tsconfig.json`, we don't need a `tsconfig.json` in each app.
+
 ## Commands
 
 After installing `@git-validator/tsconfig`, you can run `npx tsconfig init` command to generate a `tsconfig.json` file. Run `npx tsconfig -h` for all commands details:
