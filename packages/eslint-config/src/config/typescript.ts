@@ -192,16 +192,7 @@ export function typescript(project?: string) {
       "@typescript-eslint/no-import-type-side-effects": "error",
       "@typescript-eslint/no-inferrable-types": "error",
       "@typescript-eslint/no-misused-new": "error",
-      "@typescript-eslint/no-misused-promises": [
-        "error",
-        {
-          checksVoidReturn: {
-            returns: false,
-            arguments: false,
-            variables: false,
-          },
-        },
-      ],
+      "@typescript-eslint/no-misused-promises": "error",
       "@typescript-eslint/no-mixed-enums": "error",
       "@typescript-eslint/no-namespace": "error",
       "@typescript-eslint/no-non-null-assertion": "error",

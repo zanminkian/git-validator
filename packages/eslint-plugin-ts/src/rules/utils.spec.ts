@@ -15,8 +15,12 @@ export function test(info: Info): void {
   const { name, rule, valid, invalid, messageId = name } = info;
 
   RuleTester.afterAll = after;
-  RuleTester.describe = describe;
-  RuleTester.it = it;
+  RuleTester.describe = (...args) => {
+    describe(...args);
+  };
+  RuleTester.it = (...args) => {
+    it(...args);
+  };
   new RuleTester({
     parser: "@typescript-eslint/parser",
   }).run(name, rule, {
