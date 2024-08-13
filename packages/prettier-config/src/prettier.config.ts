@@ -19,15 +19,15 @@ export default {
 };
 
 async function getTailwindConfig() {
-  const configFilePaths = ["js", "ts", "json"].map((i) =>
-    path.resolve(process.cwd(), `tailwind.config.${i}`),
-  );
-  const index = (
+  return (
     await Promise.all(
-      configFilePaths.map(async (filepath) => await exists(filepath)),
+      ["js", "ts", "json"]
+        .map((i) => path.resolve(process.cwd(), `tailwind.config.${i}`))
+        .map(async (filepath) =>
+          (await exists(filepath)) ? filepath : undefined,
+        ),
     )
-  ).findIndex(Boolean);
-  return configFilePaths[index];
+  ).find(Boolean);
 }
 
 async function exists(filepath: string) {
