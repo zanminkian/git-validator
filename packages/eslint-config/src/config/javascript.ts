@@ -251,202 +251,201 @@ export function javascript() {
     'promise/param-names': 'error'
   } as const;
 
-  const mainConfig = {
-    name: "git-validator/javascript",
-    files: ["**/*.{js,cjs,mjs,jsx}"],
-    // https://eslint.org/docs/latest/use/configure/language-options
-    languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-      parserOptions: {
-        // TODO `ecmaVersion` and `sourceType` are no standard here. import/no-default-export required this
+  return [
+    {
+      name: "git-validator/javascript",
+      files: ["**/*.{js,cjs,mjs,jsx}"],
+      // https://eslint.org/docs/latest/use/configure/language-options
+      languageOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-      globals: {
-        ...Object.fromEntries(
-          Object.entries(globals.browser).filter(
-            ([k]) => !confusingKeys.includes(k),
-          ),
-        ),
-      },
-    },
-    linterOptions: {
-      // noInlineConfig: true, // too strict
-      reportUnusedDisableDirectives: true,
-    },
-    plugins: {
-      fp: fpPlugin,
-      n: nPlugin,
-      import: importPlugin,
-      promise: promisePlugin,
-      react: reactPlugin,
-      "react-hooks": reactHooksPlugin,
-      sonarjs: sonarjsPlugin,
-      unicorn: unicornPlugin,
-      "es-x": esxPlugin,
-      "simple-import-sort": simpleImportSortPlugin,
-      "@git-validator": gitValidatorPlugin,
-    },
-    rules: {
-      // 1. standard config rules
-      ...standardConfigRules,
-
-      // 2. code style for a better readability
-      "arrow-body-style": ["error", "as-needed"],
-      "import/newline-after-import": ["error", { count: 1 }],
-      // Sort imports by prettier. Turn in off.
-      // "simple-import-sort/imports": [
-      //   "error",
-      //   { groups: [["^\\u0000", "^node:", "^@?\\w", "^", "^\\."]] },
-      // ],
-      "simple-import-sort/exports": "error",
-      "unicorn/prefer-node-protocol": "error",
-      "unicorn/escape-case": "error", // '\ud834' -> '\uD834'
-      // "unicorn/number-literal-case": "error", // 0XFF -> 0xFF // conflict with prettier
-
-      // 3. ban some syntaxes to reduce mistakes
-      "func-name-matching": "error",
-      "getter-return": "error",
-      "init-declarations": "error",
-      "max-params": ["error", { max: 4 }],
-      "no-duplicate-imports": "error",
-      "no-empty-static-block": "error",
-      "no-empty-function": "error",
-      "no-implicit-coercion": [
-        "error",
-        { disallowTemplateShorthand: true, allow: ["!!"] },
-      ], // forbid code like `const num = +str`;
-      "no-invalid-this": "error",
-      "no-multi-assign": "error",
-      "no-param-reassign": "error",
-      "no-plusplus": "error",
-      "no-setter-return": "error",
-      "no-shadow": ["error", { ignoreOnInitialization: true }],
-      "no-unused-private-class-members": "error",
-      "prefer-arrow-callback": "error",
-      "prefer-exponentiation-operator": "error",
-      "prefer-object-has-own": "error",
-      "prefer-template": "error",
-      // es
-      "es-x/no-accessor-properties": "error",
-      "es-x/no-async-iteration": "error",
-      "es-x/no-generators": "error",
-      "es-x/no-legacy-object-prototype-accessor-methods": "error",
-      // fp
-      "fp/no-arguments": "error",
-      "fp/no-delete": "error",
-      // import
-      "import/extensions": ["error", "always", { ignorePackages: true }],
-      "import/no-commonjs": [
-        "error",
-        {
-          allowRequire: false,
-          allowConditionalRequire: false,
-          allowPrimitiveModules: false,
-        },
-      ],
-      /**
-       * 1. The ESM specification didn’t say anything about interoperability with CommonJS. See: https://blog.andrewbran.ch/default-exports-in-commonjs-libraries/
-       * 2. Reexporting like `export * from 'foo'` will be difficult.
-       */
-      "import/no-default-export": "error",
-      "import/no-dynamic-require": "error",
-      "import/no-mutable-exports": "error", // forbid code like `export let count = 3`
-      "import/no-relative-packages": "error", // forbid to import module from other monorepo packages by relative paths
-      "import/no-self-import": "error",
-      // n
-      "n/no-sync": "error",
-      "n/prefer-global/process": ["error", "never"],
-      "n/prefer-global/buffer": ["error", "never"],
-      // react
-      "react/jsx-key": "error",
-      "react/jsx-no-duplicate-props": "error",
-      "react/jsx-no-undef": "error",
-      // react-hooks
-      "react-hooks/exhaustive-deps": "error",
-      "react-hooks/rules-of-hooks": "error",
-      // sonarjs
-      "sonarjs/no-collapsible-if": "error",
-      "sonarjs/no-all-duplicated-branches": "error",
-      "sonarjs/no-identical-conditions": "error",
-      "sonarjs/no-identical-expressions": "error",
-      "sonarjs/no-ignored-return": "error",
-      "sonarjs/no-inverted-boolean-check": "error",
-      "sonarjs/no-nested-switch": "error",
-      "sonarjs/no-useless-catch": "error",
-      "sonarjs/prefer-immediate-return": "error",
-      // unicorn
-      // 'unicorn/no-null': 'error', // null can be useful when interact with json.
-      "unicorn/consistent-destructuring": "error",
-      "unicorn/consistent-empty-array-spread": "error",
-      "unicorn/error-message": "error",
-      "unicorn/explicit-length-check": "error",
-      "unicorn/filename-case": [
-        "error",
-        { cases: { kebabCase: true, pascalCase: true } },
-      ],
-      "unicorn/import-style": [
-        "error",
-        {
-          styles: {
-            child_process: { default: true },
-            fs: { default: true },
-            "fs/promises": { default: true },
-            process: { default: true },
-            "util/types": { named: true },
-            "node:child_process": { default: true },
-            "node:fs": { default: true },
-            "node:fs/promises": { default: true },
-            "node:process": { default: true },
-            "node:util/types": { named: true },
+        parserOptions: {
+          // TODO `ecmaVersion` and `sourceType` are no standard here. import/no-default-export required this
+          ecmaVersion: "latest",
+          sourceType: "module",
+          ecmaFeatures: {
+            jsx: true,
           },
         },
-      ],
-      "unicorn/new-for-builtins": "error",
-      "unicorn/no-abusive-eslint-disable": "error",
-      "unicorn/no-array-callback-reference": "error",
-      "unicorn/no-for-loop": "error",
-      "unicorn/no-instanceof-array": "error",
-      "unicorn/no-new-array": "error",
-      "unicorn/no-new-buffer": "error",
-      "unicorn/no-typeof-undefined": "error",
-      "unicorn/no-unreadable-iife": "error",
-      "unicorn/no-useless-spread": "error",
-      "unicorn/prefer-array-flat-map": "error",
-      "unicorn/prefer-includes": "error",
-      "unicorn/prefer-module": "error",
-      "unicorn/prefer-number-properties": "error",
-      "unicorn/prefer-string-slice": "error",
-      "unicorn/throw-new-error": "error",
+        globals: {
+          ...Object.fromEntries(
+            Object.entries(globals.browser).filter(
+              ([k]) => !confusingKeys.includes(k),
+            ),
+          ),
+        },
+      },
+      linterOptions: {
+        // noInlineConfig: true, // too strict
+        reportUnusedDisableDirectives: true,
+      },
+      plugins: {
+        fp: fpPlugin,
+        n: nPlugin,
+        import: importPlugin,
+        promise: promisePlugin,
+        react: reactPlugin,
+        "react-hooks": reactHooksPlugin,
+        sonarjs: sonarjsPlugin,
+        unicorn: unicornPlugin,
+        "es-x": esxPlugin,
+        "simple-import-sort": simpleImportSortPlugin,
+        "@git-validator": gitValidatorPlugin,
+      },
+      rules: {
+        // 1. standard config rules
+        ...standardConfigRules,
 
-      "@git-validator/ban-ts-comment": "error",
-      "@git-validator/new-parens": "error",
-      "@git-validator/no-directory-imports": "error",
-      "@git-validator/no-dynamic-import": "error",
-      "@git-validator/no-for-in": "error",
-      "@git-validator/no-git-ignored-imports": "error",
-      "@git-validator/no-instanceof-builtin": "error",
-      "@git-validator/no-relative-parent-imports": "error",
-      "@git-validator/no-side-effect-import": "error",
-      "@git-validator/no-ts-file-imports": "error",
-      "@git-validator/no-unnecessary-template-string": "error",
-      "@git-validator/prefer-global-this": "error",
-      "@git-validator/prefer-shortest-relative-path": "error",
-      "@git-validator/require-reduce-initial-value": "error",
+        // 2. code style for a better readability
+        "arrow-body-style": ["error", "as-needed"],
+        "import/newline-after-import": ["error", { count: 1 }],
+        // Sort imports by prettier. Turn in off.
+        // "simple-import-sort/imports": [
+        //   "error",
+        //   { groups: [["^\\u0000", "^node:", "^@?\\w", "^", "^\\."]] },
+        // ],
+        "simple-import-sort/exports": "error",
+        "unicorn/prefer-node-protocol": "error",
+        "unicorn/escape-case": "error", // '\ud834' -> '\uD834'
+        // "unicorn/number-literal-case": "error", // 0XFF -> 0xFF // conflict with prettier
+
+        // 3. ban some syntaxes to reduce mistakes
+        "func-name-matching": "error",
+        "getter-return": "error",
+        "init-declarations": "error",
+        "max-params": ["error", { max: 4 }],
+        "no-duplicate-imports": "error",
+        "no-empty-static-block": "error",
+        "no-empty-function": "error",
+        "no-implicit-coercion": [
+          "error",
+          { disallowTemplateShorthand: true, allow: ["!!"] },
+        ], // forbid code like `const num = +str`;
+        "no-invalid-this": "error",
+        "no-multi-assign": "error",
+        "no-param-reassign": "error",
+        "no-plusplus": "error",
+        "no-setter-return": "error",
+        "no-shadow": ["error", { ignoreOnInitialization: true }],
+        "no-unused-private-class-members": "error",
+        "prefer-arrow-callback": "error",
+        "prefer-exponentiation-operator": "error",
+        "prefer-object-has-own": "error",
+        "prefer-template": "error",
+        // es
+        "es-x/no-accessor-properties": "error",
+        "es-x/no-async-iteration": "error",
+        "es-x/no-generators": "error",
+        "es-x/no-legacy-object-prototype-accessor-methods": "error",
+        // fp
+        "fp/no-arguments": "error",
+        "fp/no-delete": "error",
+        // import
+        "import/extensions": ["error", "always", { ignorePackages: true }],
+        "import/no-commonjs": [
+          "error",
+          {
+            allowRequire: false,
+            allowConditionalRequire: false,
+            allowPrimitiveModules: false,
+          },
+        ],
+        /**
+         * 1. The ESM specification didn’t say anything about interoperability with CommonJS. See: https://blog.andrewbran.ch/default-exports-in-commonjs-libraries/
+         * 2. Reexporting like `export * from 'foo'` will be difficult.
+         */
+        "import/no-default-export": "error",
+        "import/no-dynamic-require": "error",
+        "import/no-mutable-exports": "error", // forbid code like `export let count = 3`
+        "import/no-relative-packages": "error", // forbid to import module from other monorepo packages by relative paths
+        "import/no-self-import": "error",
+        // n
+        "n/no-sync": "error",
+        "n/prefer-global/process": ["error", "never"],
+        "n/prefer-global/buffer": ["error", "never"],
+        // react
+        "react/jsx-key": "error",
+        "react/jsx-no-duplicate-props": "error",
+        "react/jsx-no-undef": "error",
+        // react-hooks
+        "react-hooks/exhaustive-deps": "error",
+        "react-hooks/rules-of-hooks": "error",
+        // sonarjs
+        "sonarjs/no-collapsible-if": "error",
+        "sonarjs/no-all-duplicated-branches": "error",
+        "sonarjs/no-identical-conditions": "error",
+        "sonarjs/no-identical-expressions": "error",
+        "sonarjs/no-ignored-return": "error",
+        "sonarjs/no-inverted-boolean-check": "error",
+        "sonarjs/no-nested-switch": "error",
+        "sonarjs/no-useless-catch": "error",
+        "sonarjs/prefer-immediate-return": "error",
+        // unicorn
+        // 'unicorn/no-null': 'error', // null can be useful when interact with json.
+        "unicorn/consistent-destructuring": "error",
+        "unicorn/consistent-empty-array-spread": "error",
+        "unicorn/error-message": "error",
+        "unicorn/explicit-length-check": "error",
+        "unicorn/filename-case": [
+          "error",
+          { cases: { kebabCase: true, pascalCase: true } },
+        ],
+        "unicorn/import-style": [
+          "error",
+          {
+            styles: {
+              child_process: { default: true },
+              fs: { default: true },
+              "fs/promises": { default: true },
+              process: { default: true },
+              "util/types": { named: true },
+              "node:child_process": { default: true },
+              "node:fs": { default: true },
+              "node:fs/promises": { default: true },
+              "node:process": { default: true },
+              "node:util/types": { named: true },
+            },
+          },
+        ],
+        "unicorn/new-for-builtins": "error",
+        "unicorn/no-abusive-eslint-disable": "error",
+        "unicorn/no-array-callback-reference": "error",
+        "unicorn/no-for-loop": "error",
+        "unicorn/no-instanceof-array": "error",
+        "unicorn/no-new-array": "error",
+        "unicorn/no-new-buffer": "error",
+        "unicorn/no-typeof-undefined": "error",
+        "unicorn/no-unreadable-iife": "error",
+        "unicorn/no-useless-spread": "error",
+        "unicorn/prefer-array-flat-map": "error",
+        "unicorn/prefer-includes": "error",
+        "unicorn/prefer-module": "error",
+        "unicorn/prefer-number-properties": "error",
+        "unicorn/prefer-string-slice": "error",
+        "unicorn/throw-new-error": "error",
+
+        "@git-validator/ban-ts-comment": "error",
+        "@git-validator/new-parens": "error",
+        "@git-validator/no-directory-imports": "error",
+        "@git-validator/no-dynamic-import": "error",
+        "@git-validator/no-for-in": "error",
+        "@git-validator/no-git-ignored-imports": "error",
+        "@git-validator/no-instanceof-builtin": "error",
+        "@git-validator/no-relative-parent-imports": "error",
+        "@git-validator/no-side-effect-import": "error",
+        "@git-validator/no-ts-file-imports": "error",
+        "@git-validator/no-unnecessary-template-string": "error",
+        "@git-validator/prefer-global-this": "error",
+        "@git-validator/prefer-shortest-relative-path": "error",
+        "@git-validator/require-reduce-initial-value": "error",
+      },
     },
-  } as const;
-
-  const configConfig = {
-    name: "git-validator/javascript/config",
-    files: ["**/*.config.{js,cjs,mjs,jsx}"],
-    rules: {
-      "import/no-default-export": "off",
+    {
+      name: "git-validator/javascript/config",
+      files: ["**/*.config.{js,cjs,mjs,jsx}"],
+      rules: {
+        "import/no-default-export": "off",
+      },
     },
-  } as const;
-
-  return [mainConfig, configConfig] as const;
+  ] as const;
 }

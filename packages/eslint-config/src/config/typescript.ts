@@ -86,180 +86,180 @@ export function typescript(project?: string) {
       );
   };
 
-  const mainConfig = {
-    ...jsConfig,
-    name: "git-validator/typescript",
-    files: ["**/*.{ts,cts,mts,tsx}"],
-    languageOptions: {
-      ...jsConfig.languageOptions,
-      parser: tsParser, // Unfortunately parser cannot be a string. Eslint should support it. https://eslint.org/docs/latest/use/configure/configuration-files-new#configuring-a-custom-parser-and-its-options
-      parserOptions: {
-        ...jsConfig.languageOptions.parserOptions,
-        tsconfigRootDir: process.cwd(),
-        project: project ?? "tsconfig.json",
+  return [
+    {
+      ...jsConfig,
+      name: "git-validator/typescript",
+      files: ["**/*.{ts,cts,mts,tsx}"],
+      languageOptions: {
+        ...jsConfig.languageOptions,
+        parser: tsParser, // Unfortunately parser cannot be a string. Eslint should support it. https://eslint.org/docs/latest/use/configure/configuration-files-new#configuring-a-custom-parser-and-its-options
+        parserOptions: {
+          ...jsConfig.languageOptions.parserOptions,
+          tsconfigRootDir: process.cwd(),
+          project: project ?? "tsconfig.json",
+        },
+      },
+      plugins: {
+        ...jsConfig.plugins,
+        deprecation: deprecationPlugin,
+        "@typescript-eslint": tsPlugin,
+        "@git-validator-ts": gitValidatorTsPlugin,
+      },
+      rules: {
+        ...jsConfig.rules,
+        ...getTsExtensionRules(),
+
+        // ban some syntaxes to reduce mistakes
+        // deprecation
+        "deprecation/deprecation": "error",
+        // git-validator
+        "@git-validator-ts/exact-map-set-type": "error",
+        "@git-validator-ts/no-const-enum": "error",
+        "@git-validator-ts/no-declares-in-ts-file": "error",
+        "@git-validator-ts/no-export-assignment": "error",
+        "@git-validator-ts/no-property-decorator": "error",
+        "@git-validator-ts/no-untyped-empty-array": "error",
+        // typescript
+        "@typescript-eslint/await-thenable": "error",
+        "@typescript-eslint/ban-ts-comment": [
+          "error",
+          {
+            "ts-expect-error": true,
+            "ts-ignore": true,
+            "ts-nocheck": true,
+          },
+        ],
+        "@typescript-eslint/ban-types": "error",
+        "@typescript-eslint/consistent-generic-constructors": "error",
+        "@typescript-eslint/consistent-indexed-object-style": "error",
+        "@typescript-eslint/consistent-type-assertions": [
+          "error",
+          {
+            assertionStyle: "as",
+            objectLiteralTypeAssertions: "allow-as-parameter",
+          },
+        ],
+        "@typescript-eslint/consistent-type-definitions": [
+          "error",
+          "interface",
+        ], // TODO should we change to 'type'?
+        "@typescript-eslint/consistent-type-exports": "error",
+        // "@typescript-eslint/consistent-type-imports": "error,
+        "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
+        "@typescript-eslint/method-signature-style": "error",
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            selector: "function",
+            format: ["camelCase", "PascalCase"],
+          },
+          {
+            selector: "variable",
+            types: ["function"],
+            format: ["camelCase", "PascalCase"], // decorators need PascalCase
+          },
+          {
+            selector: "class",
+            format: ["PascalCase"],
+          },
+          {
+            selector: "interface",
+            format: ["PascalCase"],
+          },
+          {
+            selector: "typeAlias",
+            format: ["PascalCase"],
+          },
+          {
+            selector: "typeParameter",
+            format: ["UPPER_CASE", "PascalCase"],
+          },
+        ],
+        "@typescript-eslint/no-array-delete": "error",
+        "@typescript-eslint/no-base-to-string": [
+          "error",
+          { ignoredTypeNames: [] },
+        ],
+        "@typescript-eslint/no-confusing-non-null-assertion": "error",
+        "@typescript-eslint/no-duplicate-enum-values": "error",
+        "@typescript-eslint/no-duplicate-type-constituents": "error",
+        "@typescript-eslint/no-empty-object-type": "error",
+        "@typescript-eslint/no-extra-non-null-assertion": "error",
+        "@typescript-eslint/no-floating-promises": [
+          "error",
+          {
+            ignoreVoid: false,
+          },
+        ],
+        "@typescript-eslint/no-for-in-array": "error",
+        "@typescript-eslint/no-import-type-side-effects": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/no-misused-new": "error",
+        "@typescript-eslint/no-misused-promises": "error",
+        "@typescript-eslint/no-mixed-enums": "error",
+        "@typescript-eslint/no-namespace": "error",
+        "@typescript-eslint/no-non-null-assertion": "error",
+        "@typescript-eslint/no-require-imports": "error",
+        "@typescript-eslint/no-this-alias": "error",
+        "@typescript-eslint/no-unnecessary-condition": "error",
+        "@typescript-eslint/no-unnecessary-parameter-property-assignment":
+          "error",
+        "@typescript-eslint/no-unnecessary-template-expression": "error", // js also need this rule
+        "@typescript-eslint/no-unnecessary-type-assertion": "error",
+        "@typescript-eslint/no-unnecessary-type-constraint": "error",
+        "@typescript-eslint/no-unsafe-declaration-merging": "error",
+        // '@typescript-eslint/no-unsafe-function-type': "error",
+        // "@typescript-eslint/no-wrapper-object-types": "error",
+        "@typescript-eslint/only-throw-error": "error",
+        "@typescript-eslint/prefer-as-const": "error",
+        "@typescript-eslint/prefer-function-type": "error",
+        "@typescript-eslint/prefer-readonly": "error",
+        "@typescript-eslint/prefer-ts-expect-error": "error",
+        "@typescript-eslint/restrict-plus-operands": [
+          "error",
+          {
+            // allowAny: false,
+            allowBoolean: false,
+            allowNullish: false,
+            allowNumberAndString: false,
+            allowRegExp: false,
+          },
+        ],
+        // "@typescript-eslint/restrict-template-expressions": "error",
+        "@typescript-eslint/return-await": ["error", "always"],
+        "@typescript-eslint/switch-exhaustiveness-check": [
+          "error",
+          { requireDefaultForNonUnion: true },
+        ],
+        "@typescript-eslint/unbound-method": "error",
       },
     },
-    plugins: {
-      ...jsConfig.plugins,
-      deprecation: deprecationPlugin,
-      "@typescript-eslint": tsPlugin,
-      "@git-validator-ts": gitValidatorTsPlugin,
+    {
+      name: "git-validator/typescript/config",
+      files: ["**/*.config.{ts,cts,mts,tsx}"],
+      rules: {
+        "import/no-default-export": "off",
+      },
     },
-    rules: {
-      ...jsConfig.rules,
-      ...getTsExtensionRules(),
-
-      // ban some syntaxes to reduce mistakes
-      // deprecation
-      "deprecation/deprecation": "error",
-      // git-validator
-      "@git-validator-ts/exact-map-set-type": "error",
-      "@git-validator-ts/no-const-enum": "error",
-      "@git-validator-ts/no-declares-in-ts-file": "error",
-      "@git-validator-ts/no-export-assignment": "error",
-      "@git-validator-ts/no-property-decorator": "error",
-      "@git-validator-ts/no-untyped-empty-array": "error",
-      // typescript
-      "@typescript-eslint/await-thenable": "error",
-      "@typescript-eslint/ban-ts-comment": [
-        "error",
-        {
-          "ts-expect-error": true,
-          "ts-ignore": true,
-          "ts-nocheck": true,
-        },
-      ],
-      "@typescript-eslint/ban-types": "error",
-      "@typescript-eslint/consistent-generic-constructors": "error",
-      "@typescript-eslint/consistent-indexed-object-style": "error",
-      "@typescript-eslint/consistent-type-assertions": [
-        "error",
-        {
-          assertionStyle: "as",
-          objectLiteralTypeAssertions: "allow-as-parameter",
-        },
-      ],
-      "@typescript-eslint/consistent-type-definitions": ["error", "interface"], // TODO should we change to 'type'?
-      "@typescript-eslint/consistent-type-exports": "error",
-      // "@typescript-eslint/consistent-type-imports": "error,
-      "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
-      "@typescript-eslint/method-signature-style": "error",
-      "@typescript-eslint/naming-convention": [
-        "error",
-        {
-          selector: "function",
-          format: ["camelCase", "PascalCase"],
-        },
-        {
-          selector: "variable",
-          types: ["function"],
-          format: ["camelCase", "PascalCase"], // decorators need PascalCase
-        },
-        {
-          selector: "class",
-          format: ["PascalCase"],
-        },
-        {
-          selector: "interface",
-          format: ["PascalCase"],
-        },
-        {
-          selector: "typeAlias",
-          format: ["PascalCase"],
-        },
-        {
-          selector: "typeParameter",
-          format: ["UPPER_CASE", "PascalCase"],
-        },
-      ],
-      "@typescript-eslint/no-array-delete": "error",
-      "@typescript-eslint/no-base-to-string": [
-        "error",
-        { ignoredTypeNames: [] },
-      ],
-      "@typescript-eslint/no-confusing-non-null-assertion": "error",
-      "@typescript-eslint/no-duplicate-enum-values": "error",
-      "@typescript-eslint/no-duplicate-type-constituents": "error",
-      "@typescript-eslint/no-empty-object-type": "error",
-      "@typescript-eslint/no-extra-non-null-assertion": "error",
-      "@typescript-eslint/no-floating-promises": [
-        "error",
-        {
-          ignoreVoid: false,
-        },
-      ],
-      "@typescript-eslint/no-for-in-array": "error",
-      "@typescript-eslint/no-import-type-side-effects": "error",
-      "@typescript-eslint/no-inferrable-types": "error",
-      "@typescript-eslint/no-misused-new": "error",
-      "@typescript-eslint/no-misused-promises": "error",
-      "@typescript-eslint/no-mixed-enums": "error",
-      "@typescript-eslint/no-namespace": "error",
-      "@typescript-eslint/no-non-null-assertion": "error",
-      "@typescript-eslint/no-require-imports": "error",
-      "@typescript-eslint/no-this-alias": "error",
-      "@typescript-eslint/no-unnecessary-condition": "error",
-      "@typescript-eslint/no-unnecessary-parameter-property-assignment":
-        "error",
-      "@typescript-eslint/no-unnecessary-template-expression": "error", // js also need this rule
-      "@typescript-eslint/no-unnecessary-type-assertion": "error",
-      "@typescript-eslint/no-unnecessary-type-constraint": "error",
-      "@typescript-eslint/no-unsafe-declaration-merging": "error",
-      // '@typescript-eslint/no-unsafe-function-type': "error",
-      // "@typescript-eslint/no-wrapper-object-types": "error",
-      "@typescript-eslint/only-throw-error": "error",
-      "@typescript-eslint/prefer-as-const": "error",
-      "@typescript-eslint/prefer-function-type": "error",
-      "@typescript-eslint/prefer-readonly": "error",
-      "@typescript-eslint/prefer-ts-expect-error": "error",
-      "@typescript-eslint/restrict-plus-operands": [
-        "error",
-        {
-          // allowAny: false,
-          allowBoolean: false,
-          allowNullish: false,
-          allowNumberAndString: false,
-          allowRegExp: false,
-        },
-      ],
-      // "@typescript-eslint/restrict-template-expressions": "error",
-      "@typescript-eslint/return-await": ["error", "always"],
-      "@typescript-eslint/switch-exhaustiveness-check": [
-        "error",
-        { requireDefaultForNonUnion: true },
-      ],
-      "@typescript-eslint/unbound-method": "error",
+    {
+      name: "git-validator/typescript/declaration",
+      files: ["**/*.d.{ts,cts,mts,tsx}"],
+      rules: {
+        "import/no-default-export": "off",
+      },
     },
-  } as const;
-
-  const configConfig = {
-    name: "git-validator/typescript/config",
-    files: ["**/*.config.{ts,cts,mts,tsx}"],
-    rules: {
-      "import/no-default-export": "off",
+    {
+      // https://github.com/motemen/minimatch-cheat-sheet
+      name: "git-validator/typescript/test",
+      files: [
+        "**/__tests__/**/*.{ts,cts,mts,tsx}",
+        "**/*.{test,spec}.{ts,cts,mts,tsx}",
+      ],
+      rules: {
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/unbound-method": "off",
+      },
     },
-  } as const;
-
-  const declarationConfig = {
-    name: "git-validator/typescript/declaration",
-    files: ["**/*.d.{ts,cts,mts,tsx}"],
-    rules: {
-      "import/no-default-export": "off",
-    },
-  } as const;
-
-  const testConfig = {
-    // https://github.com/motemen/minimatch-cheat-sheet
-    name: "git-validator/typescript/test",
-    files: [
-      "**/__tests__/**/*.{ts,cts,mts,tsx}",
-      "**/*.{test,spec}.{ts,cts,mts,tsx}",
-    ],
-    rules: {
-      "@typescript-eslint/no-floating-promises": "off",
-      "@typescript-eslint/unbound-method": "off",
-    },
-  } as const;
-
-  return [mainConfig, configConfig, declarationConfig, testConfig] as const;
+  ] as const;
 }
