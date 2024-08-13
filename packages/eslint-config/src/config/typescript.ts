@@ -153,7 +153,7 @@ export function typescript(project?: string) {
         {
           selector: "variable",
           types: ["function"],
-          format: ["camelCase", "PascalCase"],
+          format: ["camelCase", "PascalCase"], // decorators need PascalCase
         },
         {
           selector: "class",
@@ -169,7 +169,7 @@ export function typescript(project?: string) {
         },
         {
           selector: "typeParameter",
-          format: ["UPPER_CASE"],
+          format: ["UPPER_CASE", "PascalCase"],
         },
       ],
       "@typescript-eslint/no-array-delete": "error",
