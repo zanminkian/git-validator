@@ -2,7 +2,9 @@ import { after, describe, it } from "node:test";
 import { RuleTester } from "@typescript-eslint/rule-tester";
 import type { RuleModule } from "@typescript-eslint/utils/ts-eslint";
 
-export type TestCase = string | { code: string; filename: string };
+export type TestCase =
+  | string
+  | { code: string; filename: string; options?: unknown[] };
 export interface Info {
   valid: TestCase[];
   invalid: TestCase[];

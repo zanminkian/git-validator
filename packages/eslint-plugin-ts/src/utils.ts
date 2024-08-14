@@ -1,36 +1,34 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ESLintUtils, type TSESTree } from "@typescript-eslint/utils";
+import type { JSONSchema4 } from "@typescript-eslint/utils/json-schema";
 import type {
   RuleContext,
   RuleListener,
 } from "@typescript-eslint/utils/ts-eslint";
 
-export interface Context
-  extends Omit<RuleContext<string, unknown[]>, "report"> {
+export interface Context<O> extends Omit<RuleContext<string, O[]>, "report"> {
   reportNode: (node: TSESTree.Node | TSESTree.Token) => void;
 }
 
-export function createSimpleRule(options: {
+export function createSimpleRule<O>(options: {
   name: string;
   message: string;
-  create: (context: Context) => RuleListener;
+  create: (context: Context<O>) => RuleListener;
+  schema?: JSONSchema4[];
+  defaultOptions?: O[];
 }) {
-  const { name, message, create } = options;
+  const { name, message, create, schema = [], defaultOptions = [] } = options;
   const messageId = name;
-  const defaultOptions: unknown[] = [];
 
-  const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)<
-    typeof defaultOptions,
-    typeof messageId
-  >({
+  const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)({
     name,
     meta: {
       type: "problem",
       docs: {
         description: message,
       },
-      schema: [],
+      schema,
       messages: {
         [messageId]: message,
       },

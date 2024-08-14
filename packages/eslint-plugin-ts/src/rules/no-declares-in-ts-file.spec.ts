@@ -16,18 +16,24 @@ const codes = [
   "declare module 'moment' { export function foo(): string }",
 ];
 
-const invalid = codes.map((code) => ({ code, filename: "foo.ts" }));
-const valid = codes
+const propertyCodes = [
+  "class A { declare name: string }",
+  "class A { declare getName: () => string }",
+  "class A { private declare name: string }",
+  "class A { declare private name: string }",
+];
+
+const invalid = [...codes, ...propertyCodes].map((code) => ({
+  code,
+  filename: "foo.ts",
+}));
+const valid = [...codes, ...propertyCodes]
   .map((code) => ({ code, filename: "foo.d.ts" }))
   .concat(
-    [
-      "class A { declare name: string }",
-      "class A { declare getName: () => string }",
-      "class A { private declare name: string }",
-      "class A { declare private name: string }",
-    ].map((code) => ({
+    propertyCodes.map((code) => ({
       code,
       filename: "foo.ts",
+      options: [{ ignorePropertyDefinition: true }],
     })),
   );
 
