@@ -61,33 +61,32 @@ Config `package.json`
 
 ### Config Builder
 
-The default config is very strict. If you don't like the default config, use `Builder` to omit or pick some rules.
+The default config is very strict. If you don't like the default config, use `Builder` to customize your own.
 
 ```ts
 import { Builder } from "@git-validator/eslint-config";
 
 export default new Builder()
   .enablePackagejson({
-    select: {
-      mode: "pick",
-      rules: ["packagejson/top-types"], // only these rules will work in 'pick' mode
-    },
+    pick: ["packagejson/top-types"], // only these rules will work for package.json files
+  })
+  .enableJavascript({
+    omit: ["no-var"], // these rules will not work for js files
   })
   .enableTypescript({
     project: "tsconfig.json", // tsconfig.json path
-    select: {
-      mode: "omit",
-      rules: ["no-var"], // these rules will not work in 'omit' mode
+    extend: {
+      // apply additional rules for ts files
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/consistent-type-assertions": [
+        "error",
+        { assertionStyle: "never" },
+      ],
+      "@typescript-eslint/no-non-null-assertion": "error",
     },
   })
   .toConfig();
 ```
-
-### Type Infer
-
-By using `.toConfig()` at the end, TypeScript will infer the config type correctly, which is consistent with the enabled rules. You can hover your mouse (in VSCode) to preview it.
-
-![type infer](https://raw.githubusercontent.com/zanminkian/static/main/git-validator/type-infer.png)
 
 ## License
 

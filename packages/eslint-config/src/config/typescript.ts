@@ -110,7 +110,6 @@ export function typescript(project?: string) {
         ...jsConfig.rules,
         ...getTsExtensionRules(),
 
-        // ban some syntaxes to reduce mistakes
         // deprecation
         "deprecation/deprecation": "error",
         // git-validator
