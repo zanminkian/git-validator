@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.6.1
+
+### Patch Changes
+
+- 059bc5f: fix(eslint-config): allow PascalCase for type parameters
+- 26bc106: feat(eslint-config): make `@typescript-eslint/no-misused-promises` stricter
+- Updated dependencies [6f77d2a]
+  - @git-validator/eslint-plugin-ts@0.2.0
+
 ## 0.6.0
 
 ### Minor Changes

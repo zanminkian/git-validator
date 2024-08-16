@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-ts
 
+## 0.2.0
+
+### Minor Changes
+
+- 6f77d2a: feat(eslint-plugin-ts)!: `no-declares-in-ts-file` and `no-property-decorator` now will report for the declared property
+
 ## 0.1.1
 
 ### Patch Changes
