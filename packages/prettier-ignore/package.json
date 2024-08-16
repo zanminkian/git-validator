@@ -20,6 +20,6 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
-    "@types/node": "22.1.0"
+    "@types/node": "22.3.0"
   }
 }

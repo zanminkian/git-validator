@@ -54,13 +54,13 @@
     "eslint": "8.57.0",
     "globby": "14.0.2",
     "lilconfig": "3.1.2",
-    "lint-staged": "15.2.8",
+    "lint-staged": "15.2.9",
     "ora": "8.0.1",
     "prettier": "3.3.3",
     "prettier-ignore": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "22.1.0"
+    "@types/node": "22.3.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
