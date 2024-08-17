@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-ts
 
+## 0.2.1
+
+### Patch Changes
+
+- 6a8cd8e: fix(eslint-plugin-ts): `exact-map-set-type` reports for WeakMap and WeakSet
+
 ## 0.2.0
 
 ### Minor Changes
