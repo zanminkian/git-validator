@@ -25,8 +25,11 @@ export class Builder {
   }
 
   private setup(
-    [mainConfig, ...otherConfigs]: readonly [{ rules: object }, ...object[]],
-    { pick, omit, extend }: Options<string>,
+    [mainConfig, ...otherConfigs]: readonly [
+      { plugins: object; rules: object },
+      ...object[],
+    ],
+    { pick, omit, extend = {} }: Options<string>,
   ) {
     const select = (ruleKey: string) => {
       if (!pick && !omit) {
@@ -39,13 +42,34 @@ export class Builder {
         throw new Error("You cannot specify both pick and omit");
       }
     };
-    const rules = {
-      ...Object.fromEntries(
-        Object.entries(mainConfig.rules).filter(([ruleKey]) => select(ruleKey)),
-      ),
-      ...extend,
-    };
-    this.configs.push({ ...mainConfig, rules }, ...otherConfigs);
+    const rules = Object.fromEntries(
+      Object.entries(mainConfig.rules).filter(([ruleKey]) => select(ruleKey)),
+    );
+    // check `extend` field
+    Object.keys(extend).forEach((key) => {
+      if (key in rules) {
+        throw new Error(
+          `The extending rule key ${key} is already existing. If you want to override it, you should omit it first.`,
+        );
+      }
+      if (key.includes("/")) {
+        const pluginName = key.split("/")[0];
+        if (!pluginName)
+          throw new Error(`The extending rule key '${key}' is invalid`);
+        if (!(pluginName in mainConfig.plugins)) {
+          const supportedPlugins = Object.keys(mainConfig.plugins)
+            .map((k) => `'${k}'`)
+            .join(",");
+          throw new Error(
+            `The plugin name '${pluginName}' of extending rule key '${key}' is not supported. Only ${supportedPlugins} plugins are supported.`,
+          );
+        }
+      }
+    });
+    this.configs.push(
+      { ...mainConfig, rules: { ...rules, ...extend } },
+      ...otherConfigs,
+    );
     return this;
   }
 
