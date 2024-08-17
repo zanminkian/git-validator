@@ -1,5 +1,17 @@
 # git-validator
 
+## 0.20.0
+
+### Minor Changes
+
+- 28c8284: feat: migrate analyze command from `git-validator` to `smells`
+
+### Patch Changes
+
+- Updated dependencies [302d2dc]
+- Updated dependencies [63dee26]
+  - @git-validator/eslint-config@0.7.0
+
 ## 0.19.1
 
 ### Patch Changes

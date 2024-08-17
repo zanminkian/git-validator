@@ -1,5 +1,17 @@
 # @git-validator/eslint-config
 
+## 0.7.0
+
+### Minor Changes
+
+- 302d2dc: feat(eslint-config): allow to extend the config
+
+### Patch Changes
+
+- 63dee26: feat(eslint-config): add some rules
+- Updated dependencies [6a8cd8e]
+  - @git-validator/eslint-plugin-ts@0.2.1
+
 ## 0.6.1
 
 ### Patch Changes
