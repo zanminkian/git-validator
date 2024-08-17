@@ -120,6 +120,8 @@ export function typescript(project?: string) {
         "@git-validator-ts/no-property-decorator": "error",
         "@git-validator-ts/no-untyped-empty-array": "error",
         // typescript
+        "@typescript-eslint/adjacent-overload-signatures": "error",
+        // "@typescript-eslint/array-type": ["error", 'array-simple'], // The default option is 'array'. Not very sure if we need to change the option. So disabled it.
         "@typescript-eslint/await-thenable": "error",
         "@typescript-eslint/ban-ts-comment": [
           "error",
@@ -198,6 +200,7 @@ export function typescript(project?: string) {
         "@typescript-eslint/no-misused-promises": "error",
         "@typescript-eslint/no-mixed-enums": "error",
         "@typescript-eslint/no-namespace": "error",
+        "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
         "@typescript-eslint/no-non-null-assertion": "error",
         "@typescript-eslint/no-require-imports": "error",
         "@typescript-eslint/no-this-alias": "error",
@@ -232,6 +235,7 @@ export function typescript(project?: string) {
           { requireDefaultForNonUnion: true },
         ],
         "@typescript-eslint/unbound-method": "error",
+        "@typescript-eslint/unified-signatures": "error",
       },
     },
     {

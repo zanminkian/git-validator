@@ -310,6 +310,7 @@ export function javascript() {
         // "unicorn/number-literal-case": "error", // 0XFF -> 0xFF // conflict with prettier
 
         // 3. ban some syntaxes to reduce mistakes
+        "default-param-last": "error",
         "func-name-matching": "error",
         "getter-return": "error",
         "init-declarations": "error",
