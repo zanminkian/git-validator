@@ -5,7 +5,7 @@ export const rule = createSimpleRule({
   message: "Disallow using Map and Set without type arguments.",
   create: (context) => ({
     Identifier: (node) => {
-      if (!["Map", "Set"].includes(node.name)) {
+      if (!["Map", "Set", "WeakMap", "WeakSet"].includes(node.name)) {
         return;
       }
       const { parent } = node;
