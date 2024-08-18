@@ -5,6 +5,7 @@ import { rule as noDynamicImport } from "./rules/no-dynamic-import.js";
 import { rule as noForIn } from "./rules/no-for-in.js";
 import { rule as noGitIgnoredImports } from "./rules/no-git-ignored-imports.js";
 import { rule as noInstanceofBuiltin } from "./rules/no-instanceof-builtin.js";
+import { rule as noPhantomDepImports } from "./rules/no-phantom-dep-imports.js";
 import { rule as noRelativeParentImports } from "./rules/no-relative-parent-imports.js";
 import { rule as noSideEffectImport } from "./rules/no-side-effect-import.js";
 import { rule as noTsFileImports } from "./rules/no-ts-file-imports.js";
@@ -21,6 +22,7 @@ export const rules = {
   [noForIn.name]: noForIn.rule,
   [noGitIgnoredImports.name]: noGitIgnoredImports.rule,
   [noInstanceofBuiltin.name]: noInstanceofBuiltin.rule,
+  [noPhantomDepImports.name]: noPhantomDepImports.rule,
   [noRelativeParentImports.name]: noRelativeParentImports.rule,
   [noSideEffectImport.name]: noSideEffectImport.rule,
   [noTsFileImports.name]: noTsFileImports.rule,

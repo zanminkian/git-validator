@@ -1,7 +1,7 @@
 import { describe, it } from "node:test";
 import { RuleTester, type Rule } from "eslint";
 
-export type TestCase = string | { code: string; filename: string };
+export type TestCase = string | { code: string; filename?: string };
 
 const tester = new RuleTester({
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },

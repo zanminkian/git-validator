@@ -432,6 +432,7 @@ export function javascript() {
         "@git-validator/no-for-in": "error",
         "@git-validator/no-git-ignored-imports": "error",
         "@git-validator/no-instanceof-builtin": "error",
+        "@git-validator/no-phantom-dep-imports": "error",
         "@git-validator/no-relative-parent-imports": "error",
         "@git-validator/no-side-effect-import": "error",
         "@git-validator/no-ts-file-imports": "error",

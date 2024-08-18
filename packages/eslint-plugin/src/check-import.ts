@@ -1,14 +1,28 @@
 import type { Rule } from "eslint";
+import type {
+  CallExpression,
+  ExportAllDeclaration,
+  ExportNamedDeclaration,
+  ImportDeclaration,
+  ImportExpression,
+} from "estree";
 import type { Context } from "./utils.js";
+
+export type ImportationNode =
+  | ImportDeclaration
+  | ImportExpression
+  | CallExpression
+  | ExportAllDeclaration
+  | ExportNamedDeclaration;
 
 export const create = (
   context: Context,
-  check: (filename: string, source: string) => boolean,
+  check: (filename: string, source: string, node: ImportationNode) => boolean,
 ): Rule.RuleListener => ({
   ImportDeclaration: (node) => {
     if (
       typeof node.source.value !== "string" ||
-      check(context.filename, node.source.value)
+      check(context.filename, node.source.value, node)
     ) {
       context.reportNode(node.source);
     }
@@ -17,7 +31,7 @@ export const create = (
     if (
       "value" in node.source &&
       typeof node.source.value === "string" &&
-      check(context.filename, node.source.value)
+      check(context.filename, node.source.value, node)
     ) {
       context.reportNode(node.source);
     }
@@ -29,7 +43,7 @@ export const create = (
       node.callee.name === "require" &&
       arg?.type === "Literal" &&
       typeof arg.value === "string" &&
-      check(context.filename, arg.value)
+      check(context.filename, arg.value, node)
     ) {
       context.reportNode(arg);
     }
@@ -37,7 +51,7 @@ export const create = (
   ExportAllDeclaration: (node) => {
     if (
       typeof node.source.value !== "string" ||
-      check(context.filename, node.source.value)
+      check(context.filename, node.source.value, node)
     ) {
       context.reportNode(node.source);
     }
@@ -48,7 +62,7 @@ export const create = (
     }
     if (
       typeof node.source.value !== "string" ||
-      check(context.filename, node.source.value)
+      check(context.filename, node.source.value, node)
     ) {
       context.reportNode(node.source);
     }
