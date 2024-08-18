@@ -17,8 +17,7 @@ await describe("prettier", async () => {
   });
 
   await it("should not have prettier-conflicted rules", () => {
-    const included = (rule: string) =>
-      Object.keys(prettierConfig.rules).includes(rule);
+    const included = (rule: string) => rule in prettierConfig.rules;
 
     // 1
     const jsForbidRule = Object.keys(javascript()[0].rules).find((rule) =>
