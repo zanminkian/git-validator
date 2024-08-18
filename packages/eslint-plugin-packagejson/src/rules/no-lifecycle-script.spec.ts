@@ -1,4 +1,4 @@
-import { test } from "../test.js";
+import { test } from "../test.spec.js";
 import { name, rule } from "./no-lifecycle-script.js";
 
 const valid = [

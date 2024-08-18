@@ -1,4 +1,4 @@
-import { test } from "../test.js";
+import { test } from "../test.spec.js";
 import { name, rule } from "./bottom-default.js";
 
 const valid = [
