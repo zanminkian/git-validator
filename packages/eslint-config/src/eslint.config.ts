@@ -15,6 +15,9 @@ interface Options<T extends string> {
     string,
     "error" | "warn" | "off" | ["error" | "warn", ...unknown[]]
   >;
+  override?: Partial<
+    Record<T, "error" | "warn" | "off" | ["error" | "warn", ...unknown[]]>
+  >;
 }
 
 export class Builder {
@@ -29,7 +32,7 @@ export class Builder {
       { plugins: object; rules: object },
       ...object[],
     ],
-    { pick, omit, extend = {} }: Options<string>,
+    { pick, omit, extend = {}, override = {} }: Options<string>,
   ) {
     const select = (ruleKey: string) => {
       if (!pick && !omit) {
@@ -45,12 +48,16 @@ export class Builder {
     const rules = Object.fromEntries(
       Object.entries(mainConfig.rules).filter(([ruleKey]) => select(ruleKey)),
     );
+    // check `override` field
+    Object.keys(override).forEach((key) => {
+      if (!(key in rules)) {
+        throw new Error(`The overriding rule key ${key} is not existing.`);
+      }
+    });
     // check `extend` field
     Object.keys(extend).forEach((key) => {
       if (key in rules) {
-        throw new Error(
-          `The extending rule key ${key} is already existing. If you want to override it, you should omit it first.`,
-        );
+        throw new Error(`The extending rule key ${key} is already existing.`);
       }
       if (key.includes("/")) {
         const pluginName = key.split("/")[0];
@@ -67,7 +74,7 @@ export class Builder {
       }
     });
     this.configs.push(
-      { ...mainConfig, rules: { ...rules, ...extend } },
+      { ...mainConfig, rules: { ...rules, ...override, ...extend } },
       ...otherConfigs,
     );
     return this;
