@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./new-parens.js";
-import { test } from "./utils.spec.js";
 
 const valid = ["const a = new Student();", "const a = new Student('jim');"];
 

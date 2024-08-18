@@ -1,7 +1,7 @@
 import process from "node:process";
 import { fileURLToPath } from "node:url";
+import { test } from "../test.spec.js";
 import { rule } from "./no-git-ignored-imports.js";
-import { test } from "./utils.spec.js";
 
 const valid = [
   "import foo from 'foo'",

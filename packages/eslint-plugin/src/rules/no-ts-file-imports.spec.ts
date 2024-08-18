@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./no-ts-file-imports.js";
-import { test } from "./utils.spec.js";
 
 const codes = [
   "import foo from './foo.ts'",

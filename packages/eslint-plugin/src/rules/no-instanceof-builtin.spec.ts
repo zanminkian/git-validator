@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./no-instanceof-builtin.js";
-import { test } from "./utils.spec.js";
 
 const invalid = [
   // Primitive

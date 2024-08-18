@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./no-export-assignment.js";
-import { test } from "./utils.spec.js";
 
 const valid = [
   { code: "export default {}", filename: "test.ts" },

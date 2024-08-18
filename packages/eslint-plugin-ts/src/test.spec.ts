@@ -18,10 +18,14 @@ export function test(info: Info): void {
 
   RuleTester.afterAll = after;
   RuleTester.describe = (...args) => {
-    describe(...args);
+    describe(...args).catch((e) => {
+      throw e;
+    });
   };
   RuleTester.it = (...args) => {
-    it(...args);
+    it(...args).catch((e) => {
+      throw e;
+    });
   };
   new RuleTester({
     parser: "@typescript-eslint/parser",

@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./no-declares-in-ts-file.js";
-import { test } from "./utils.spec.js";
 
 const codes = [
   "declare class A {}",

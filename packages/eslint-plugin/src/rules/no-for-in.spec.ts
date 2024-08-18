@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./no-for-in.js";
-import { test } from "./utils.spec.js";
 
 const valid = [
   "for(const i of arr) {}",

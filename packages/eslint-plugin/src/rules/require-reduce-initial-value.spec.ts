@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./require-reduce-initial-value.js";
-import { test } from "./utils.spec.js";
 
 const valid = [
   "[].reduce(()=>123, 0)",

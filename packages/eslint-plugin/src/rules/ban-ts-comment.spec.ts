@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./ban-ts-comment.js";
-import { test } from "./utils.spec.js";
 
 const directives = ["@ts-ignore", "@ts-expect-error", "@ts-nocheck"];
 

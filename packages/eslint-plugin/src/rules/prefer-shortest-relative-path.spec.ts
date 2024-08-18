@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./prefer-shortest-relative-path.js";
-import { test } from "./utils.spec.js";
 
 const valid = [
   'import xxx from "../a"',

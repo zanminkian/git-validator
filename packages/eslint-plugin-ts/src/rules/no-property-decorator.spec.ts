@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./no-property-decorator.js";
-import { test } from "./utils.spec.js";
 
 const valid = [
   `class A {

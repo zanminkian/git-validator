@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./exact-map-set-type.js";
-import { test } from "./utils.spec.js";
 
 const valid = [
   "const m = new Map([['a','b']])",

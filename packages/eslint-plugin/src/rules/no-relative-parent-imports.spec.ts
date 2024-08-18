@@ -1,5 +1,5 @@
+import { test } from "../test.spec.js";
 import { rule } from "./no-relative-parent-imports.js";
-import { test } from "./utils.spec.js";
 
 const valid = [
   "import foo from 'foo'",
