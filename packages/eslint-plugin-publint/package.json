@@ -1,0 +1,35 @@
+{
+  "name": "eslint-plugin-publint",
+  "version": "0.0.0",
+  "description": "ESLint plugin for publint",
+  "keywords": [
+    "eslint",
+    "plugin",
+    "publint",
+    "publish",
+    "lint"
+  ],
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-publint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zanminkian/git-validator.git",
+    "directory": "packages/eslint-plugin-publint"
+  },
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "publint": "0.2.10"
+  },
+  "devDependencies": {
+    "@swc-node/register": "1.10.0",
+    "@types/eslint": "8.56.11",
+    "@types/estree": "1.0.5",
+    "@types/node": "22.3.0",
+    "eslint": "8.57.0"
+  }
+}
