@@ -1,4 +1,5 @@
 import * as pkg from "@git-validator/eslint-plugin-packagejson";
+import * as publint from "eslint-plugin-publint";
 
 export function packagejson() {
   return [
@@ -8,6 +9,7 @@ export function packagejson() {
       processor: "packagejson/processor",
       plugins: {
         packagejson: pkg,
+        publint,
       },
       rules: {
         "packagejson/bottom-default": "error",
@@ -22,6 +24,9 @@ export function packagejson() {
         "packagejson/required-repository": "error",
         "packagejson/type-module": "error",
         "packagejson/no-dependencies-in-workspace-root": "error",
+        // "publint/suggestion": "error",
+        "publint/warning": "error",
+        "publint/error": "error",
       },
     },
   ] as const;

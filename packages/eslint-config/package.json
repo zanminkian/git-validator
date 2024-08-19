@@ -13,7 +13,7 @@
   "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-config",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zanminkian/git-validator.git",
+    "url": "git+https://github.com/zanminkian/git-validator.git",
     "directory": "packages/eslint-config"
   },
   "license": "MIT",
@@ -37,6 +37,7 @@
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-n": "17.10.2",
     "eslint-plugin-promise": "7.1.0",
+    "eslint-plugin-publint": "workspace:*",
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-simple-import-sort": "12.1.1",

@@ -15,7 +15,7 @@
   "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-packagejson",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zanminkian/git-validator.git",
+    "url": "git+https://github.com/zanminkian/git-validator.git",
     "directory": "packages/eslint-plugin-packagejson"
   },
   "license": "MIT",

@@ -12,7 +12,7 @@
   "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-publint",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zanminkian/git-validator.git",
+    "url": "git+https://github.com/zanminkian/git-validator.git",
     "directory": "packages/eslint-plugin-publint"
   },
   "license": "MIT",
