@@ -168,7 +168,7 @@ export function javascript() {
     'no-throw-literal': 'error',
     // 'no-trailing-spaces': 'error',
     'no-undef': 'error',
-    'no-undef-init': 'error',
+    // 'no-undef-init': 'error', // It conflict with `init-declarations`
     // 'no-unexpected-multiline': 'error',
     'no-unmodified-loop-condition': 'error',
     'no-unneeded-ternary': ['error', { defaultAssignment: false }],
