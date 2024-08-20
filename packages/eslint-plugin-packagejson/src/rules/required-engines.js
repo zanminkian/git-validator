@@ -8,8 +8,7 @@ export const rule = {
     },
   },
   create: (context) => {
-    const filename = context.getFilename();
-    if (filename !== getRootPackageJsonPath()) {
+    if (context.filename !== getRootPackageJsonPath()) {
       return {};
     }
     return {

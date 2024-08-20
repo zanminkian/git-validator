@@ -8,6 +8,7 @@ import * as noNonstandardProperty from "./rules/no-nonstandard-property.js";
 import * as noTypesDependencyInWorkspaceRoot from "./rules/no-types-dependency-in-workspace-root.js";
 import * as privateWorkspaceRoot from "./rules/private-workspace-root.js";
 import * as requiredEngines from "./rules/required-engines.js";
+import * as requiredHashbang from "./rules/required-hashbang.js";
 import * as requiredRepository from "./rules/required-repository.js";
 import * as topTypes from "./rules/top-types.js";
 import * as typeModule from "./rules/type-module.js";
@@ -23,6 +24,7 @@ export const rules = Object.fromEntries(
     noTypesDependencyInWorkspaceRoot,
     privateWorkspaceRoot,
     requiredEngines,
+    requiredHashbang,
     requiredRepository,
     topTypes,
     typeModule,

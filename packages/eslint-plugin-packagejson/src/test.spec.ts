@@ -14,18 +14,25 @@ export async function test({
 }: {
   name: string;
   rule: Rule.RuleModule;
-  valid: object[];
-  invalid: object[];
+  valid: (object | { code: object; filename: string })[];
+  invalid: (object | { code: object; filename: string })[];
   errors?: number;
 }) {
   await describe(name, async () => {
     await Promise.all(
       valid
-        .map((json) => JSON.stringify(json))
-        .map(async (jsonStr) => {
-          await it(jsonStr, () => {
+        .map((item) =>
+          "code" in item && "filename" in item
+            ? {
+                code: `export default ${JSON.stringify(item.code)}`,
+                filename: item.filename,
+              }
+            : { code: `export default ${JSON.stringify(item)}` },
+        )
+        .map(async (item) => {
+          await it(item.code, () => {
             tester.run(name, rule, {
-              valid: [`export default ${jsonStr}`],
+              valid: [item],
               invalid: [],
             });
           });
@@ -34,12 +41,19 @@ export async function test({
 
     await Promise.all(
       invalid
-        .map((json) => JSON.stringify(json))
-        .map(async (jsonStr) => {
-          await it(jsonStr, () => {
+        .map((item) =>
+          "code" in item && "filename" in item
+            ? {
+                code: `export default ${JSON.stringify(item.code)}`,
+                filename: item.filename,
+              }
+            : { code: `export default ${JSON.stringify(item)}` },
+        )
+        .map(async (item) => {
+          await it(item.code, () => {
             tester.run(name, rule, {
               valid: [],
-              invalid: [{ code: `export default ${jsonStr}`, errors }],
+              invalid: [{ ...item, errors }],
             });
           });
         }),
