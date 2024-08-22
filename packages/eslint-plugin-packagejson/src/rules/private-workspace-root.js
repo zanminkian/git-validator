@@ -1,7 +1,4 @@
-import { getRootPackageJsonPath, isWorkspace } from "../common.js";
-
-const isWP = await isWorkspace();
-const rootPkgJsonPath = getRootPackageJsonPath();
+import { isWorkspaceRootPkg } from "../common.js";
 
 export const name = "private-workspace-root";
 export const rule = {
@@ -11,25 +8,26 @@ export const rule = {
     },
   },
   create: (context) => {
-    const filename = context.getFilename();
+    // only check workspace root package.json
+    if (!isWorkspaceRootPkg(context.filename)) {
+      return {};
+    }
     return {
       "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
-        if (isWP && filename === rootPkgJsonPath) {
-          const privateProperty = node.properties.find(
-            (p) => p.key.value === "private",
-          );
-          if (!privateProperty) {
-            return context.report({
-              node,
-              messageId: name,
-            });
-          }
-          if (privateProperty.value.value !== true) {
-            return context.report({
-              node: privateProperty,
-              messageId: name,
-            });
-          }
+        const privateProperty = node.properties.find(
+          (p) => p.key.value === "private",
+        );
+        if (!privateProperty) {
+          return context.report({
+            node,
+            messageId: name,
+          });
+        }
+        if (privateProperty.value.value !== true) {
+          return context.report({
+            node: privateProperty,
+            messageId: name,
+          });
         }
       },
     };

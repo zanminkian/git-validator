@@ -1,27 +1,14 @@
-import fs from "node:fs/promises";
+import fs from "node:fs";
 import path from "node:path";
-import process from "node:process";
 
-export async function isWorkspace() {
-  const CWD = process.cwd();
-  const ROOT_PKG_JSON_PATH = path.join(CWD, "package.json");
-  const PNPM_WSP_YAML = path.join(CWD, "pnpm-workspace.yaml");
-  const PNPM_WSP_YML = path.join(CWD, "pnpm-workspace.yml");
-
-  const exists = (filepath: string) =>
-    fs
-      .access(filepath)
-      .then(() => true)
-      .catch(() => false);
-
+export function isWorkspaceRootPkg(pkgPath: string) {
+  const dir = path.dirname(pkgPath);
   return (
-    ((await exists(ROOT_PKG_JSON_PATH)) &&
-      JSON.parse(await fs.readFile(ROOT_PKG_JSON_PATH, "utf8")).workspaces) ||
-    (await exists(PNPM_WSP_YAML)) ||
-    (await exists(PNPM_WSP_YML))
+    // eslint-disable-next-line n/no-sync
+    !!JSON.parse(fs.readFileSync(pkgPath, "utf8")).workspaces ||
+    // eslint-disable-next-line n/no-sync
+    fs.existsSync(path.join(dir, "pnpm-workspace.yaml")) ||
+    // eslint-disable-next-line n/no-sync
+    fs.existsSync(path.join(dir, "pnpm-workspace.yml"))
   );
-}
-
-export function getRootPackageJsonPath() {
-  return path.join(process.cwd(), "package.json");
 }

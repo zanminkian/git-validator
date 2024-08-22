@@ -1,4 +1,5 @@
-import { getRootPackageJsonPath } from "../common.js";
+import path from "node:path";
+import process from "node:process";
 
 export const name = "required-engines";
 export const rule = {
@@ -8,7 +9,7 @@ export const rule = {
     },
   },
   create: (context) => {
-    if (context.filename !== getRootPackageJsonPath()) {
+    if (context.filename !== path.join(process.cwd(), "package.json")) {
       return {};
     }
     return {

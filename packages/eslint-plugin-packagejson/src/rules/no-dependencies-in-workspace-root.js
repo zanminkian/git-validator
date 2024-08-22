@@ -1,7 +1,4 @@
-import { getRootPackageJsonPath, isWorkspace } from "../common.js";
-
-const isWP = await isWorkspace();
-const rootPkgJsonPath = getRootPackageJsonPath();
+import { isWorkspaceRootPkg } from "../common.js";
 
 export const name = "no-dependencies-in-workspace-root";
 export const rule = {
@@ -11,8 +8,8 @@ export const rule = {
     },
   },
   create: (context) => {
-    const filename = context.getFilename();
-    if (!isWP || filename !== rootPkgJsonPath) {
+    // only check workspace root package.json
+    if (!isWorkspaceRootPkg(context.filename)) {
       return {};
     }
     return {
