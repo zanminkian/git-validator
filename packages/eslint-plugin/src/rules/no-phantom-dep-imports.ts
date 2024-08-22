@@ -1,7 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
-import { create, type ImportationNode } from "../check-import.js";
+import {
+  create,
+  isRelativeImport,
+  type ImportationNode,
+} from "../check-import.js";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
 function isObject(value: unknown) {
@@ -59,12 +63,7 @@ function check(filename: string, source: string, node: ImportationNode) {
     return false;
   }
   // ignore `import {foo} from './'`
-  if (
-    source.startsWith("/") ||
-    source.startsWith("./") ||
-    source.startsWith("../") ||
-    source.startsWith("node:")
-  ) {
+  if (isRelativeImport(source) || source.startsWith("node:")) {
     return false;
   }
   const pkgJson = getPkgJson(path.dirname(filename));
