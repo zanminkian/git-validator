@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.8.1
+
+### Patch Changes
+
+- 4e14cce: feat: add rule `no-phantom-dep-imports`
+
 ## 0.8.0
 
 ### Minor Changes

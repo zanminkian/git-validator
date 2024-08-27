@@ -1,5 +1,21 @@
 # @git-validator/eslint-config
 
+## 0.7.1
+
+### Patch Changes
+
+- c05b382: feat: add rule `required-hashbang`
+- d3d4d00: fix(eslint-config): remove `no-undef-init` as it will be conflict with `init-declaration`
+- b124509: feat(eslint-config): allow to override the buit-in rules
+- 1305b27: feat(eslint-config): integrate publint
+- 4e14cce: feat: add rule `no-phantom-dep-imports`
+- Updated dependencies [36a745f]
+- Updated dependencies [c05b382]
+- Updated dependencies [4e14cce]
+  - eslint-plugin-publint@0.0.1
+  - @git-validator/eslint-plugin-packagejson@0.3.1
+  - @git-validator/eslint-plugin@0.8.1
+
 ## 0.7.0
 
 ### Minor Changes

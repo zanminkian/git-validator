@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.3.1
+
+### Patch Changes
+
+- c05b382: feat: add rule `required-hashbang`
+
 ## 0.3.0
 
 ### Minor Changes
