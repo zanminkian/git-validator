@@ -1,5 +1,20 @@
 # git-validator
 
+## 0.20.1
+
+### Patch Changes
+
+- ddc3e1d: perf(git-validator): dynamically load default config
+- 81f2bb9: chore: upgrade deps
+- Updated dependencies [c05b382]
+- Updated dependencies [d3d4d00]
+- Updated dependencies [b124509]
+- Updated dependencies [1305b27]
+- Updated dependencies [81f2bb9]
+- Updated dependencies [4e14cce]
+  - @git-validator/eslint-config@0.7.1
+  - @git-validator/prettier-config@0.5.1
+
 ## 0.20.0
 
 ### Minor Changes
