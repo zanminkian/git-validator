@@ -33,6 +33,6 @@
   },
   "devDependencies": {
     "@swc-node/register": "1.10.0",
-    "@total-typescript/ts-reset": "0.5.1"
+    "@total-typescript/ts-reset": "0.6.0"
   }
 }
