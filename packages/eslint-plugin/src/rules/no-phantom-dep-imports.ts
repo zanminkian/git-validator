@@ -29,26 +29,24 @@ function getPkgJson(
     return cache.get(dir);
   }
   const pkgJsonPath = path.join(dir, "package.json");
-  if (!isFile(pkgJsonPath)) {
-    if (dir === process.cwd() || dir === "/") {
-      // stop here
-      cache.set(dir, undefined);
-      return undefined;
-    } else {
-      const result = getPkgJson(path.join(dir, ".."));
-      cache.set(dir, result);
-      return result;
-    }
-  } else {
+  if (isFile(pkgJsonPath)) {
     // eslint-disable-next-line n/no-sync
     const content: unknown = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
-    const result =
-      content && typeof content === "object"
-        ? { path: pkgJsonPath, content }
-        : undefined;
+    const result = isObject(content)
+      ? { path: pkgJsonPath, content }
+      : undefined;
     cache.set(dir, result);
     return result;
   }
+
+  // if it is a directory
+  if (dir === process.cwd() || dir === "/") {
+    // stop here
+    cache.set(dir, undefined);
+    return undefined;
+  }
+
+  return getPkgJson(path.join(dir, ".."));
 }
 
 export const rule = createSimpleRule({
