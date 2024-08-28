@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import { javascript } from "./javascript.js";
 
 await describe("js config", async () => {
-  await it("js config value should be error", () => {
+  await it("js main config value should be error", () => {
     Object.values(javascript()[0].rules).forEach((value) => {
       assert.strictEqual(getValueString(value), "error");
     });

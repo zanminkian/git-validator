@@ -74,8 +74,9 @@ export function typescript(project?: string) {
     };
     type Result = JsResult & TsResult;
 
+    const extensionRuleKeySet = new Set<string>(extensionRuleKeys);
     return Object.entries(jsConfig.rules)
-      .filter(([key]) => !!extensionRuleKeys.find((k) => k === key))
+      .filter(([key]) => extensionRuleKeySet.has(key))
       .reduce(
         (prev, [jsRuleKey, jsRuleValue]) => ({
           ...prev,
