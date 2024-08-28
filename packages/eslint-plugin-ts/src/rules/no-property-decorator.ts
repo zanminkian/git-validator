@@ -1,3 +1,4 @@
+import type { TSESTree } from "@typescript-eslint/utils";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
 export const rule = createSimpleRule({
@@ -15,16 +16,17 @@ export const rule = createSimpleRule({
   ],
   defaultOptions: [{ ignoreDeclaration: false }],
   create: (context) => ({
-    PropertyDefinition: (node) => {
-      if (node.parent.type !== "ClassBody") {
+    "ClassBody > PropertyDefinition[decorators.length>0]": (
+      node: TSESTree.Node,
+    ) => {
+      if (
+        "declare" in node &&
+        node.declare &&
+        context.options[0]?.ignoreDeclaration
+      ) {
         return;
       }
-      if (node.declare && context.options[0]?.ignoreDeclaration) {
-        return;
-      }
-      if (node.decorators.length > 0) {
-        context.reportNode(node);
-      }
+      context.reportNode(node);
     },
   }),
 });

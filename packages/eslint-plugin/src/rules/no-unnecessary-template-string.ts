@@ -7,10 +7,9 @@ export const rule = createSimpleRule({
   create: (context) => ({
     TemplateLiteral: (node) => {
       if (
-        !node.loc ||
-        (node.quasis.length === 1 &&
-          node.expressions.length === 0 &&
-          node.loc.start.line === node.loc.end.line)
+        node.quasis.length === 1 &&
+        node.expressions.length === 0 &&
+        node.loc?.start.line === node.loc?.end.line
       ) {
         context.reportNode(node);
       }
