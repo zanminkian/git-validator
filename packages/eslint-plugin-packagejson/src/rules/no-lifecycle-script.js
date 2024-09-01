@@ -1,3 +1,12 @@
+const invalid = new Set([
+  "preinstall",
+  "install",
+  "postinstall",
+  "preuninstall",
+  "uninstall",
+  "postuninstall",
+]);
+
 export const name = "no-lifecycle-script";
 export const rule = {
   meta: {
@@ -16,18 +25,11 @@ export const rule = {
       }
       node.properties
         .find((p) => p.key?.value === "scripts")
-        ?.value?.properties?.forEach((property) => {
-          const invalid = [
-            "preinstall",
-            "install",
-            "postinstall",
-            "preuninstall",
-            "uninstall",
-            "postuninstall",
-          ];
-          if (invalid.includes(property.key.value)) {
-            context.report({ node: property.key, messageId: name });
-          }
+        ?.value?.properties?.filter((property) =>
+          invalid.has(property.key.value),
+        )
+        .forEach((property) => {
+          context.report({ node: property.key, messageId: name });
         });
     },
   }),

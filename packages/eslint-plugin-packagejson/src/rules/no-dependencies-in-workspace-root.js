@@ -14,15 +14,14 @@ export const rule = {
     }
     return {
       "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
-        const depsNode = node.properties.find(
-          (p) => p.key.value === "dependencies",
-        );
-        if (depsNode) {
-          return context.report({
-            node: depsNode,
-            messageId: name,
+        node.properties
+          .filter((p) => p.key.value === "dependencies")
+          .forEach((property) => {
+            context.report({
+              node: property,
+              messageId: name,
+            });
           });
-        }
       },
     };
   },
