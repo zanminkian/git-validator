@@ -7,12 +7,14 @@ const valid = [
   { exports: { types: "foo" } },
   { exports: { types: "foo", default: "foo" } },
   { exports: { require: { types: "foo", default: "foo" } } },
+  { exports: { foo: { bar: { types: "" } } } },
 ];
 
 const invalid = [
   { exports: { default: "foo", types: "foo" } },
   { exports: { require: { default: "foo", types: "foo" } } },
   { exports: { foo: { default: "foo", types: "foo" } } },
+  { exports: { foo: { bar: { x: "", types: "" } } } },
 ];
 
 await test({ name, rule, valid, invalid });

@@ -9,6 +9,7 @@ const valid = [
   "const arr = [[]]",
   "const arr = [{}]",
   "class A {names = []}",
+  "const foo = {arr: []}",
 ];
 
 const invalid = [
