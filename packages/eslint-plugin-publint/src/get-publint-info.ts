@@ -5,7 +5,11 @@ import { fileURLToPath } from "node:url";
 import type { Message, Result } from "publint";
 import type { Pkg } from "publint/utils";
 
-function getPublintResult(pkgDir: string): Result {
+/**
+ * Sync function of `(await import('publint')).publint()`.
+ * If publint provides sync function, this function should be deleted.
+ */
+function publint(pkgDir: string): Result {
   // publint doesn't provide sync function
   const publintPath = path.join(
     path.dirname(fileURLToPath(import.meta.url)),
@@ -34,7 +38,7 @@ export function getPublintInfo(pkgPath: string): PublintInfo {
   const result = {
     // eslint-disable-next-line n/no-sync
     pkg: JSON.parse(fs.readFileSync(pkgPath, "utf8")),
-    messages: getPublintResult(path.dirname(pkgPath)).messages,
+    messages: publint(path.dirname(pkgPath)).messages,
   };
   cache.set(pkgPath, result);
   return result;

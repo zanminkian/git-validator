@@ -2,8 +2,8 @@ import type { Rule } from "eslint";
 import type { ObjectExpression } from "estree";
 import type { MessageType } from "publint";
 import { formatMessage } from "publint/utils";
-import { getReportingNode } from "./ast.js";
 import { getPublintInfo } from "./get-publint-info.js";
+import { getReportingNode } from "./get-reporting-node.js";
 
 // Copied from https://www.npmjs.com/package/ansi-regex
 function ansiRegex({ onlyFirst = false } = {}) {

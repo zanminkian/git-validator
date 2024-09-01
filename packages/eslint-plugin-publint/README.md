@@ -63,6 +63,14 @@ Config `package.json`
 }
 ```
 
+## Rules
+
+This plugin contains only 3 rules, which have no options to configure.
+
+- `publint/suggestion`: correspond with the `Suggestions` section of publint outputs.
+- `publint/waning`: correspond with the `Warnings` section of publint outputs.
+- `publint/error`: correspond with the `Errors` section of publint outputs.
+
 ## License
 
 MIT
