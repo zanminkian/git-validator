@@ -34,9 +34,9 @@ await describe("prettier", async () => {
     assert.strictEqual(tsForbidRule, undefined);
 
     // 3
-    const pacakgejsonRule = Object.keys(packagejson()[0].rules).find((rule) =>
+    const packagejsonRule = Object.keys(packagejson()[0].rules).find((rule) =>
       included(rule),
     );
-    assert.strictEqual(pacakgejsonRule, undefined);
+    assert.strictEqual(packagejsonRule, undefined);
   });
 });
