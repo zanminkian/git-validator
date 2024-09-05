@@ -42,8 +42,8 @@
     "build": "tsc --noEmit -p tsconfig.build.json"
   },
   "dependencies": {
-    "@commitlint/cli": "19.4.0",
-    "@commitlint/config-conventional": "19.2.2",
+    "@commitlint/cli": "19.4.1",
+    "@commitlint/config-conventional": "19.4.1",
     "@git-validator/eslint-config": "workspace:*",
     "@git-validator/prettier-config": "workspace:*",
     "@git-validator/tsconfig": "workspace:*",
@@ -52,7 +52,7 @@
     "commander": "12.1.0",
     "eslint": "8.57.0",
     "lilconfig": "3.1.2",
-    "lint-staged": "15.2.9",
+    "lint-staged": "15.2.10",
     "ora": "8.1.0",
     "prettier": "3.3.3",
     "prettier-ignore": "workspace:*"
