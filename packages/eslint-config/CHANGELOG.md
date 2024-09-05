@@ -1,5 +1,14 @@
 # @git-validator/eslint-config
 
+## 0.7.2
+
+### Patch Changes
+
+- 6f5ceae: chore: upgrade deps
+- 9f7bb83: feat(eslint-plugin): add rule `no-rename-imports`
+- Updated dependencies [9f7bb83]
+  - @git-validator/eslint-plugin@0.8.2
+
 ## 0.7.1
 
 ### Patch Changes
