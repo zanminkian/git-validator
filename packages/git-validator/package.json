@@ -58,7 +58,7 @@
     "prettier-ignore": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "22.5.0"
+    "@types/node": "22.5.4"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
