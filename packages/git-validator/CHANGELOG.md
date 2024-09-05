@@ -1,5 +1,15 @@
 # git-validator
 
+## 0.20.2
+
+### Patch Changes
+
+- 6f5ceae: chore: upgrade deps
+- Updated dependencies [6f5ceae]
+- Updated dependencies [9f7bb83]
+  - @git-validator/eslint-config@0.7.2
+  - @git-validator/tsconfig@0.7.1
+
 ## 0.20.1
 
 ### Patch Changes

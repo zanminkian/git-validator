@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.8.2
+
+### Patch Changes
+
+- 9f7bb83: feat(eslint-plugin): add rule `no-rename-imports`
+
 ## 0.8.1
 
 ### Patch Changes
