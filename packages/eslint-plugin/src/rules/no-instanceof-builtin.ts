@@ -1,6 +1,6 @@
 import { createSimpleRule, getRuleName } from "../utils.js";
 
-export const rule = createSimpleRule({
+export const noInstanceofBuiltin = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Right hand of `instanceof` can't be a builtin class.",
   create: (context) => ({

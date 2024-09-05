@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./prefer-shortest-relative-path.js";
+import { preferShortestRelativePath } from "./prefer-shortest-relative-path.js";
 
 const valid = [
   'import xxx from "../a"',
@@ -44,4 +44,4 @@ const invalid = [
   'export {a} from "./../foo"',
 ].map((code) => ({ code, filename: "/a/b/c/d/e.js" }));
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...preferShortestRelativePath });

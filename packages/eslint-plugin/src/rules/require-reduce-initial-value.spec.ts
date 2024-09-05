@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./require-reduce-initial-value.js";
+import { requireReduceInitialValue } from "./require-reduce-initial-value.js";
 
 const valid = [
   "[].reduce(()=>123, 0)",
@@ -21,4 +21,4 @@ const invalid = [
   "foo.reduceRight(bar)",
 ];
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...requireReduceInitialValue });

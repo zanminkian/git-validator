@@ -3,7 +3,7 @@ import path from "node:path";
 import { create, isRelativeImport } from "../check-import.js";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
-export const rule = createSimpleRule({
+export const noDirectoryImports = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Disallow importing from a directory.",
   create: (context) => create(context, check),

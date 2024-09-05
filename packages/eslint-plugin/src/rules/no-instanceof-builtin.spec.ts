@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./no-instanceof-builtin.js";
+import { noInstanceofBuiltin } from "./no-instanceof-builtin.js";
 
 const invalid = [
   // Primitive
@@ -45,4 +45,4 @@ const valid = [
   "const i = {} instanceof await import('http')",
 ];
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...noInstanceofBuiltin });

@@ -49,7 +49,7 @@ function getPkgJson(
   return getPkgJson(path.join(dir, ".."));
 }
 
-export const rule = createSimpleRule({
+export const noPhantomDepImports = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "The nearest `package.json` doesn't have such dependency.",
   create: (context) => create(context, check),

@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./no-relative-parent-imports.js";
+import { noRelativeParentImports } from "./no-relative-parent-imports.js";
 
 const valid = [
   "import foo from 'foo'",
@@ -26,4 +26,4 @@ const invalid = [
   "import foo from '../../../../foo'",
 ];
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...noRelativeParentImports });

@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./no-unnecessary-template-string.js";
+import { noUnnecessaryTemplateString } from "./no-unnecessary-template-string.js";
 
 const valid = [
   "'abc'",
@@ -13,4 +13,4 @@ const valid = [
 
 const invalid = ["``", "`abc`", "`abc\\n`", "`\\nabc`", "`a\\nbc`"];
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...noUnnecessaryTemplateString });

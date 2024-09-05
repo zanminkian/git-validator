@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./no-property-decorator.js";
+import { noPropertyDecorator } from "./no-property-decorator.js";
 
 const valid = [
   `class A {
@@ -37,4 +37,4 @@ const invalid = [
   }`,
 ];
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...noPropertyDecorator });

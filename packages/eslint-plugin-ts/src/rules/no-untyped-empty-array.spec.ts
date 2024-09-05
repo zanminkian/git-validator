@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./no-untyped-empty-array.js";
+import { noUntypedEmptyArray } from "./no-untyped-empty-array.js";
 
 const valid = [
   "const arr: number[] = []",
@@ -20,4 +20,4 @@ const invalid = [
   "var arr1,arr2=[]",
 ];
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...noUntypedEmptyArray });

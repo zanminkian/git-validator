@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./no-declares-in-ts-file.js";
+import { noDeclaresInTsFile } from "./no-declares-in-ts-file.js";
 
 const codes = [
   "declare class A {}",
@@ -37,4 +37,4 @@ const valid = [...codes, ...propertyCodes]
     })),
   );
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...noDeclaresInTsFile });

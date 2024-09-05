@@ -1,7 +1,7 @@
 import type { TSESTree } from "@typescript-eslint/utils";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
-export const rule = createSimpleRule({
+export const noDeclaresInTsFile = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Disallow using `declare` statement in ts file.",
   schema: [

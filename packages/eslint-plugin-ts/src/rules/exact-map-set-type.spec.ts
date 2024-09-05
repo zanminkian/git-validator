@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./exact-map-set-type.js";
+import { exactMapSetType } from "./exact-map-set-type.js";
 
 const valid = [
   "const m = new Map([['a','b']])",
@@ -35,4 +35,4 @@ const invalid = [
   "type A = Map",
 ];
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...exactMapSetType });

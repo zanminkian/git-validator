@@ -1,7 +1,7 @@
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { test } from "../test.spec.js";
-import { rule } from "./no-directory-imports.js";
+import { noDirectoryImports } from "./no-directory-imports.js";
 
 const valid = [
   "import foo from 'foo'",
@@ -28,4 +28,4 @@ const invalid = [
   filename: fileURLToPath(import.meta.url),
 }));
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...noDirectoryImports });

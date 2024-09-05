@@ -1,6 +1,6 @@
 import { createSimpleRule, getRuleName } from "../utils.js";
 
-export const rule = createSimpleRule({
+export const noForIn = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Disallow using for-in statement.",
   create: (context) => ({

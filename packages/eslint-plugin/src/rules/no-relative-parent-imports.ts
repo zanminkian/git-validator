@@ -3,7 +3,7 @@ import { createSimpleRule, getRuleName } from "../utils.js";
 
 const depth = 3;
 
-export const rule = createSimpleRule({
+export const noRelativeParentImports = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Disallow to import module from relative parent path too deeply.",
   create: (context) => create(context, checkDepth),

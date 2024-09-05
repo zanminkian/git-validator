@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./prefer-global-this.js";
+import { preferGlobalThis } from "./prefer-global-this.js";
 
 const valid = [
   "foo.name",
@@ -34,4 +34,4 @@ const invalid = [
   // 'const self = {}; console.log(self)',
 ];
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...preferGlobalThis });

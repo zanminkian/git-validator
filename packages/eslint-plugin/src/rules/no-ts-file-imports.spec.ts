@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./no-ts-file-imports.js";
+import { noTsFileImports } from "./no-ts-file-imports.js";
 
 const codes = [
   "import foo from './foo.ts'",
@@ -36,4 +36,4 @@ const valid = codes.flatMap((code) => [
   { code, filename: "bar.d.tsx" },
 ]);
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...noTsFileImports });

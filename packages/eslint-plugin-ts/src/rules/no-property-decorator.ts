@@ -1,7 +1,7 @@
 import type { TSESTree } from "@typescript-eslint/utils";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
-export const rule = createSimpleRule({
+export const noPropertyDecorator = createSimpleRule({
   name: getRuleName(import.meta.url),
   message:
     "Disallow using property decorator. Consider adding `declare` keyword in front of the property to fix it.",

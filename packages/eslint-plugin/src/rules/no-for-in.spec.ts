@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./no-for-in.js";
+import { noForIn } from "./no-for-in.js";
 
 const valid = [
   "for(const i of arr) {}",
@@ -8,4 +8,4 @@ const valid = [
 
 const invalid = ["for(const i in arr) {}"];
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...noForIn });

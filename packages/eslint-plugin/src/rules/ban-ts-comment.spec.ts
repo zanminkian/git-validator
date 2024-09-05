@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { rule } from "./ban-ts-comment.js";
+import { banTsComment } from "./ban-ts-comment.js";
 
 const directives = ["@ts-ignore", "@ts-expect-error", "@ts-nocheck"];
 
@@ -19,4 +19,4 @@ const invalid = directives.flatMap((d) => [
   `/** ${d} "${d}" */`,
 ]);
 
-test({ valid, invalid, ...rule });
+test({ valid, invalid, ...banTsComment });
