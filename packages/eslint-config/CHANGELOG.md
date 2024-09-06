@@ -1,5 +1,13 @@
 # @git-validator/eslint-config
 
+## 0.7.3
+
+### Patch Changes
+
+- c982671: feat: add rule `no-rename-exports`
+- Updated dependencies [c982671]
+  - @git-validator/eslint-plugin@0.8.3
+
 ## 0.7.2
 
 ### Patch Changes
