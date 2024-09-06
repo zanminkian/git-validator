@@ -7,6 +7,7 @@ import { noGitIgnoredImports } from "./rules/no-git-ignored-imports.js";
 import { noInstanceofBuiltin } from "./rules/no-instanceof-builtin.js";
 import { noPhantomDepImports } from "./rules/no-phantom-dep-imports.js";
 import { noRelativeParentImports } from "./rules/no-relative-parent-imports.js";
+import { noRenameExports } from "./rules/no-rename-exports.js";
 import { noRenameImports } from "./rules/no-rename-imports.js";
 import { noSideEffectImport } from "./rules/no-side-effect-import.js";
 import { noTsFileImports } from "./rules/no-ts-file-imports.js";
@@ -25,6 +26,7 @@ export const rules = {
   [noInstanceofBuiltin.name]: noInstanceofBuiltin.rule,
   [noPhantomDepImports.name]: noPhantomDepImports.rule,
   [noRelativeParentImports.name]: noRelativeParentImports.rule,
+  [noRenameExports.name]: noRenameExports.rule,
   [noRenameImports.name]: noRenameImports.rule,
   [noSideEffectImport.name]: noSideEffectImport.rule,
   [noTsFileImports.name]: noTsFileImports.rule,
