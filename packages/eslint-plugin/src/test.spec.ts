@@ -1,9 +1,11 @@
+import { createRequire } from "node:module";
 import { describe, it } from "node:test";
 import { RuleTester, type Rule } from "eslint";
 
 export type TestCase = string | { code: string; filename?: string };
 
 const tester = new RuleTester({
+  parser: createRequire(import.meta.url).resolve("@typescript-eslint/parser"),
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
 });
 

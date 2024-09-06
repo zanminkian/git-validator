@@ -14,6 +14,9 @@ const invalid = [
   "let foo=1; export {foo as default}",
   "export {foo as bar} from './foo'",
   "export {default as foo} from './foo'",
+  // ts
+  "export {type Foo as Bar}",
+  "export type {Foo as Bar}",
 ];
 
 test({ valid, invalid, ...noRenameExports });
