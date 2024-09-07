@@ -10,7 +10,7 @@ ESlint plugin for linting package.json.
 
 ## Features
 
-- Lint `package.json`s in your project.
+- Lint `package.json`s.
 - Simple. Tiny. Fast.
 - Zero dependencies.
 
