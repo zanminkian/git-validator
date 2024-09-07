@@ -1,3 +1,4 @@
+import type { Node } from "estree";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
 export const noExportAssignment = createSimpleRule({
@@ -9,7 +10,7 @@ export const noExportAssignment = createSimpleRule({
       return {};
     }
     return {
-      TSExportAssignment: (node) => {
+      TSExportAssignment: (node: Node) => {
         context.reportNode(node);
       },
     };

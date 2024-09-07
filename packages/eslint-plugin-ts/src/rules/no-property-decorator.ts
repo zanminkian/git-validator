@@ -1,4 +1,4 @@
-import type { TSESTree } from "@typescript-eslint/utils";
+import type { Node } from "estree";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
 export const noPropertyDecorator = createSimpleRule({
@@ -14,11 +14,8 @@ export const noPropertyDecorator = createSimpleRule({
       additionalProperties: false,
     },
   ],
-  defaultOptions: [{ ignoreDeclaration: false }],
   create: (context) => ({
-    "ClassBody > PropertyDefinition[decorators.length>0]": (
-      node: TSESTree.Node,
-    ) => {
+    "ClassBody > PropertyDefinition[decorators.length>0]": (node: Node) => {
       if (
         "declare" in node &&
         node.declare &&

@@ -1,4 +1,4 @@
-import type { TSESTree } from "@typescript-eslint/utils";
+import type { Node } from "estree";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
 export const noDeclaresInTsFile = createSimpleRule({
@@ -13,14 +13,13 @@ export const noDeclaresInTsFile = createSimpleRule({
       additionalProperties: false,
     },
   ],
-  defaultOptions: [{ ignorePropertyDefinition: false }],
   create: (context) => {
     const { filename, options } = context;
     if (/.*\.d\.[mc]?ts$/.test(filename)) {
       return {};
     }
     return {
-      "[declare=true]": (node: TSESTree.Node) => {
+      "[declare=true]": (node: Node) => {
         if (
           options[0]?.ignorePropertyDefinition &&
           node.type === "PropertyDefinition"

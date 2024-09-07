@@ -1,53 +1,33 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { ESLintUtils, type TSESTree } from "@typescript-eslint/utils";
-import type { JSONSchema4 } from "@typescript-eslint/utils/json-schema";
-import type {
-  RuleContext,
-  RuleListener,
-} from "@typescript-eslint/utils/ts-eslint";
+import type { Rule } from "eslint";
+import type { Node } from "estree";
+import type { JSONSchema4 } from "json-schema";
 
-export interface Context<O> extends Omit<RuleContext<string, O[]>, "report"> {
-  reportNode: (node: TSESTree.Node | TSESTree.Token) => void;
+export interface Context extends Omit<Rule.RuleContext, "report"> {
+  reportNode: (node: Node) => void;
 }
 
-export function createSimpleRule<O>(options: {
+export function createSimpleRule(options: {
   name: string;
   message: string;
-  create: (context: Context<O>) => RuleListener;
   schema?: JSONSchema4[];
-  defaultOptions?: O[];
-}) {
-  const { name, message, create, schema = [], defaultOptions = [] } = options;
-  const messageId = name;
-
-  const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)({
-    name,
+  create: (context: Context) => Rule.RuleListener;
+}): { name: string; rule: Rule.RuleModule } {
+  const { name, message, schema, create } = options;
+  const rule: Rule.RuleModule = {
     meta: {
-      type: "problem",
-      docs: {
-        description: message,
-      },
-      schema,
-      messages: {
-        [messageId]: message,
-      },
+      ...(schema && { schema }),
     },
-    defaultOptions,
-    create: (context) => {
+    create: (context: Rule.RuleContext) => {
       const ctx = Object.assign({}, context, {
-        reportNode: (node: TSESTree.Node | TSESTree.Token) =>
-          context.report({ node, messageId }),
+        reportNode: (node: Node) => context.report({ node, message }),
       });
       Object.setPrototypeOf(ctx, Object.getPrototypeOf(context));
       return create(ctx);
     },
-  });
-
-  return {
-    name,
-    rule,
   };
+  return { name, rule };
 }
 
 export function getRuleName(importMetaUrl: string) {
