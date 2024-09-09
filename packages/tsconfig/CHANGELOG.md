@@ -1,5 +1,11 @@
 # @git-validator/tsconfig
 
+## 0.7.2
+
+### Patch Changes
+
+- 06c52c7: chore: upgrade deps
+
 ## 0.7.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @git-validator/eslint-config
 
+## 0.7.4
+
+### Patch Changes
+
+- Updated dependencies [6e12f6c]
+  - @git-validator/eslint-plugin-ts@0.2.2
+
 ## 0.7.3
 
 ### Patch Changes
