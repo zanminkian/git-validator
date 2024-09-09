@@ -1,5 +1,13 @@
 # git-validator
 
+## 0.20.4
+
+### Patch Changes
+
+- Updated dependencies [06c52c7]
+  - @git-validator/tsconfig@0.7.2
+  - @git-validator/eslint-config@0.7.4
+
 ## 0.20.3
 
 ### Patch Changes

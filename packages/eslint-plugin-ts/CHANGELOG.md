@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-ts
 
+## 0.2.2
+
+### Patch Changes
+
+- 6e12f6c: refactor(eslint-plugin-ts): make it zero dependencies
+
 ## 0.2.1
 
 ### Patch Changes
