@@ -427,7 +427,6 @@ export function javascript() {
         "unicorn/prefer-string-slice": "error",
         "unicorn/throw-new-error": "error",
 
-        "@git-validator/ban-ts-comment": "error",
         "@git-validator/new-parens": "error",
         "@git-validator/no-directory-imports": "error",
         "@git-validator/no-dynamic-import": "error",
@@ -441,7 +440,6 @@ export function javascript() {
         "@git-validator/no-side-effect-import": "error",
         "@git-validator/no-ts-file-imports": "error",
         "@git-validator/no-unnecessary-template-string": "error",
-        "@git-validator/prefer-global-this": "error",
         "@git-validator/prefer-shortest-relative-path": "error",
         "@git-validator/require-reduce-initial-value": "error",
 
