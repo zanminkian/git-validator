@@ -363,8 +363,13 @@ export function javascript() {
         "import/no-relative-packages": "error", // forbid to import module from other monorepo packages by relative paths
         "import/no-self-import": "error",
         // n
-        "n/prefer-global/process": ["error", "never"],
         "n/prefer-global/buffer": ["error", "never"],
+        "n/prefer-global/console": "error",
+        "n/prefer-global/process": ["error", "never"],
+        "n/prefer-global/text-decoder": "error",
+        "n/prefer-global/text-encoder": "error",
+        "n/prefer-global/url": "error",
+        "n/prefer-global/url-search-params": "error",
         // react
         "react/jsx-key": "error",
         "react/jsx-no-duplicate-props": "error",
@@ -420,6 +425,7 @@ export function javascript() {
         "unicorn/no-unreadable-iife": "error",
         "unicorn/no-useless-spread": "error",
         "unicorn/prefer-array-flat-map": "error",
+        // "unicorn/prefer-global-this": "error", // TODO: wait for it
         "unicorn/prefer-includes": "error",
         "unicorn/prefer-module": "error",
         "unicorn/prefer-number-properties": "error",
