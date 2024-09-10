@@ -2,6 +2,7 @@ import * as gitValidatorPlugin from "@git-validator/eslint-plugin";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import confusingKeys from "confusing-browser-globals";
 import esxPlugin from "eslint-plugin-es-x";
+import * as esmPlugin from "eslint-plugin-esm";
 import fpPlugin from "eslint-plugin-fp";
 import importPlugin from "eslint-plugin-import";
 import nPlugin from "eslint-plugin-n";
@@ -290,6 +291,7 @@ export function javascript() {
         sonarjs: sonarjsPlugin,
         unicorn: unicornPlugin,
         "es-x": esxPlugin,
+        esm: esmPlugin,
         "simple-import-sort": simpleImportSortPlugin,
         "@git-validator": gitValidatorPlugin,
         "@typescript-eslint": tsPlugin,
@@ -340,6 +342,17 @@ export function javascript() {
         "es-x/no-async-iteration": "error",
         "es-x/no-generators": "error",
         "es-x/no-legacy-object-prototype-accessor-methods": "error",
+        // esm
+        "esm/no-directory-imports": "error",
+        "esm/no-dynamic-import": "error",
+        "esm/no-git-ignored-imports": "error",
+        "esm/no-phantom-dep-imports": "error",
+        "esm/no-relative-parent-imports": "error",
+        "esm/no-rename-exports": "error",
+        "esm/no-rename-imports": "error",
+        "esm/no-side-effect-import": "error",
+        "esm/no-ts-file-imports": "error",
+        "esm/prefer-shortest-relative-path": "error",
         // fp
         "fp/no-arguments": "error",
         "fp/no-delete": "error",
@@ -433,19 +446,9 @@ export function javascript() {
         "unicorn/throw-new-error": "error",
 
         "@git-validator/new-parens": "error",
-        "@git-validator/no-directory-imports": "error",
-        "@git-validator/no-dynamic-import": "error",
         "@git-validator/no-for-in": "error",
-        "@git-validator/no-git-ignored-imports": "error",
         "@git-validator/no-instanceof-builtin": "error",
-        "@git-validator/no-phantom-dep-imports": "error",
-        "@git-validator/no-relative-parent-imports": "error",
-        "@git-validator/no-rename-exports": "error",
-        "@git-validator/no-rename-imports": "error",
-        "@git-validator/no-side-effect-import": "error",
-        "@git-validator/no-ts-file-imports": "error",
         "@git-validator/no-unnecessary-template-string": "error",
-        "@git-validator/prefer-shortest-relative-path": "error",
         "@git-validator/require-reduce-initial-value": "error",
 
         "@typescript-eslint/ban-ts-comment": [

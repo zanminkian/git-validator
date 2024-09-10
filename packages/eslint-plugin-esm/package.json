@@ -1,0 +1,40 @@
+{
+  "name": "eslint-plugin-esm",
+  "version": "0.0.0",
+  "description": "ESLint plugin for linting ESM (import/export syntax)",
+  "keywords": [
+    "eslint",
+    "plugin",
+    "eslint-plugin",
+    "eslint-plugin-import",
+    "eslint-plugin-import-x",
+    "esm",
+    "import",
+    "export",
+    "es6",
+    "module"
+  ],
+  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-esm",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zanminkian/git-validator.git",
+    "directory": "packages/eslint-plugin-esm"
+  },
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "globstar -- node --test --import @swc-node/register/esm-register src/**/*.spec.ts"
+  },
+  "devDependencies": {
+    "@swc-node/register": "1.10.0",
+    "@types/eslint": "8.56.11",
+    "@types/estree": "1.0.5",
+    "@types/json-schema": "7.0.15",
+    "@types/node": "22.5.4",
+    "@typescript-eslint/parser": "7.16.1",
+    "eslint": "8.57.0"
+  }
+}
