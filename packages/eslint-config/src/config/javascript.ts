@@ -1,4 +1,5 @@
 import * as gitValidatorPlugin from "@git-validator/eslint-plugin";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
 import confusingKeys from "confusing-browser-globals";
 import esxPlugin from "eslint-plugin-es-x";
 import fpPlugin from "eslint-plugin-fp";
@@ -291,6 +292,7 @@ export function javascript() {
         "es-x": esxPlugin,
         "simple-import-sort": simpleImportSortPlugin,
         "@git-validator": gitValidatorPlugin,
+        "@typescript-eslint": tsPlugin,
       },
       rules: {
         // 1. standard config rules
@@ -442,6 +444,15 @@ export function javascript() {
         "@git-validator/prefer-global-this": "error",
         "@git-validator/prefer-shortest-relative-path": "error",
         "@git-validator/require-reduce-initial-value": "error",
+
+        "@typescript-eslint/ban-ts-comment": [
+          "error",
+          {
+            "ts-expect-error": true,
+            "ts-ignore": true,
+            "ts-nocheck": true,
+          },
+        ],
       },
     },
     {

@@ -1,6 +1,5 @@
 import process from "node:process";
 import * as gitValidatorTsPlugin from "@git-validator/eslint-plugin-ts";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import deprecationPlugin from "eslint-plugin-deprecation";
 import { javascript } from "./javascript.js";
@@ -104,7 +103,6 @@ export function typescript(project?: string) {
       plugins: {
         ...jsConfig.plugins,
         deprecation: deprecationPlugin,
-        "@typescript-eslint": tsPlugin,
         "@git-validator-ts": gitValidatorTsPlugin,
       },
       rules: {
@@ -124,14 +122,6 @@ export function typescript(project?: string) {
         "@typescript-eslint/adjacent-overload-signatures": "error",
         // "@typescript-eslint/array-type": ["error", 'array-simple'], // The default option is 'array'. Not very sure if we need to change the option. So disabled it.
         "@typescript-eslint/await-thenable": "error",
-        "@typescript-eslint/ban-ts-comment": [
-          "error",
-          {
-            "ts-expect-error": true,
-            "ts-ignore": true,
-            "ts-nocheck": true,
-          },
-        ],
         "@typescript-eslint/ban-types": "error",
         "@typescript-eslint/consistent-generic-constructors": "error",
         "@typescript-eslint/consistent-indexed-object-style": "error",
