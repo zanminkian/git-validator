@@ -363,7 +363,6 @@ export function javascript() {
         "import/no-relative-packages": "error", // forbid to import module from other monorepo packages by relative paths
         "import/no-self-import": "error",
         // n
-        "n/no-sync": "error",
         "n/prefer-global/process": ["error", "never"],
         "n/prefer-global/buffer": ["error", "never"],
         // react

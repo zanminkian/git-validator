@@ -3,7 +3,6 @@ import childProcess from "node:child_process";
 export function gitignore() {
   let stdout = "";
   try {
-    // eslint-disable-next-line n/no-sync
     stdout = childProcess.execSync(
       "git ls-files --others --ignored --exclude-standard --directory",
       { encoding: "utf8" },

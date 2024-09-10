@@ -38,7 +38,6 @@ function isDirByCache(filePath: string) {
 
 function isDir(filePath: string) {
   try {
-    // eslint-disable-next-line n/no-sync
     return fs.statSync(filePath).isDirectory();
   } catch (e) {
     return false;

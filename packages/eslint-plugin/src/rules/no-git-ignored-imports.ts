@@ -44,7 +44,6 @@ function isIgnoredByCache(filePath: string) {
 function isIgnored(filePath: string) {
   try {
     return (
-      // eslint-disable-next-line n/no-sync
       childProcess
         .execSync(`git check-ignore ${filePath}`, { encoding: "utf8" })
         .trim() === filePath

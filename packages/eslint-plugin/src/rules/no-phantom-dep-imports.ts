@@ -14,7 +14,6 @@ function isObject(value: unknown) {
 
 function isFile(filePath: string) {
   try {
-    // eslint-disable-next-line n/no-sync
     return fs.statSync(filePath).isFile();
   } catch (e) {
     return false;
@@ -30,7 +29,6 @@ function getPkgJson(
   }
   const pkgJsonPath = path.join(dir, "package.json");
   if (isFile(pkgJsonPath)) {
-    // eslint-disable-next-line n/no-sync
     const content: unknown = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
     const result = isObject(content)
       ? { path: pkgJsonPath, content }

@@ -16,7 +16,6 @@ function publint(pkgDir: string): Result {
     "publint.cli.js",
   );
   return JSON.parse(
-    // eslint-disable-next-line n/no-sync
     childProcess.execSync(`node ${publintPath} ${pkgDir}`, {
       encoding: "utf8",
     }),
@@ -36,7 +35,6 @@ export function getPublintInfo(pkgPath: string): PublintInfo {
   }
 
   const result = {
-    // eslint-disable-next-line n/no-sync
     pkg: JSON.parse(fs.readFileSync(pkgPath, "utf8")),
     messages: publint(path.dirname(pkgPath)).messages,
   };

@@ -50,7 +50,6 @@ function reportInvalidBinPath(context, node) {
 function isValidBinPath(filename, binPath) {
   const filePath = path.resolve(path.dirname(filename), binPath);
   try {
-    // eslint-disable-next-line n/no-sync
     return fs.readFileSync(filePath, "utf8").trimStart().startsWith("#!");
   } catch (e) {
     return false;
