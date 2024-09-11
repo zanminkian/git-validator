@@ -1,3 +1,4 @@
+import type { ImportDeclaration } from "estree";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
 const ignores = [
@@ -28,17 +29,15 @@ export const noSideEffectImport = createSimpleRule({
     }
     const ignoreExps = ignores.map((ignore) => new RegExp(ignore));
     return {
-      ImportDeclaration: (node) => {
-        const { value } = node.source;
-        if (typeof value !== "string") {
-          return context.reportNode(node);
-        }
-        if (ignoreExps.some((exp) => exp.test(value))) {
+      "ImportDeclaration[specifiers.length=0]": (node: ImportDeclaration) => {
+        if (
+          ignoreExps.some((exp) =>
+            exp.test(node.source.value?.toString() ?? ""),
+          )
+        ) {
           return;
         }
-        if (node.specifiers.length <= 0) {
-          context.reportNode(node);
-        }
+        context.reportNode(node);
       },
     };
   },
