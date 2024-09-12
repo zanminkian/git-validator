@@ -21,7 +21,6 @@ const valid = [
 const invalid = [
   "import foo from './dist/foo'",
   "import './dist/foo'",
-  "require('./dist/foo')",
   "import('./dist/foo')",
   "export * from './dist/foo'",
   "export {name} from './dist/foo'",

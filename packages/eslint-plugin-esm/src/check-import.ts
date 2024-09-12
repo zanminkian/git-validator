@@ -1,6 +1,5 @@
 import type { Rule } from "eslint";
 import type {
-  CallExpression,
   ExportAllDeclaration,
   ExportNamedDeclaration,
   ImportDeclaration,
@@ -11,63 +10,40 @@ import type { Context } from "./utils.js";
 export type ImportationNode =
   | ImportDeclaration
   | ImportExpression
-  | CallExpression
   | ExportAllDeclaration
   | ExportNamedDeclaration;
 
+type CheckFunc = (
+  filename: string,
+  source: string,
+  node: ImportationNode,
+) => boolean;
+
 export const create = (
   context: Context,
-  check: (filename: string, source: string, node: ImportationNode) => boolean,
+  check: CheckFunc,
 ): Rule.RuleListener => ({
   ImportDeclaration: (node) => {
-    if (
-      typeof node.source.value !== "string" ||
-      check(context.filename, node.source.value, node)
-    ) {
-      context.reportNode(node.source);
-    }
+    handle(context, node, check);
   },
   ImportExpression: (node) => {
-    if (
-      "value" in node.source &&
-      typeof node.source.value === "string" &&
-      check(context.filename, node.source.value, node)
-    ) {
-      context.reportNode(node.source);
-    }
-  },
-  CallExpression: (node) => {
-    const arg = node.arguments[0];
-    if (
-      "name" in node.callee &&
-      node.callee.name === "require" &&
-      arg?.type === "Literal" &&
-      typeof arg.value === "string" &&
-      check(context.filename, arg.value, node)
-    ) {
-      context.reportNode(arg);
-    }
+    handle(context, node, check);
   },
   ExportAllDeclaration: (node) => {
-    if (
-      typeof node.source.value !== "string" ||
-      check(context.filename, node.source.value, node)
-    ) {
-      context.reportNode(node.source);
-    }
+    handle(context, node, check);
   },
   ExportNamedDeclaration: (node) => {
-    if (!node.source) {
-      return;
-    }
-    if (
-      typeof node.source.value !== "string" ||
-      check(context.filename, node.source.value, node)
-    ) {
-      context.reportNode(node.source);
-    }
+    handle(context, node, check);
   },
 });
+
+function handle(context: Context, node: ImportationNode, check: CheckFunc) {
+  if (!node.source) return;
+  if (!("value" in node.source)) return;
+  if (typeof node.source.value !== "string") return;
+  if (check(context.filename, node.source.value, node))
+    context.reportNode(node.source);
+}
 
 export function isRelativeImport(source: string) {
   return (
