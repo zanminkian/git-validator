@@ -8,6 +8,7 @@ Disallow importing from a module which the nearest `package.json` doesn't includ
 ### Fail
 
 ```ts
+import {type Foo} from 'foo'
 import foo from 'foo' // filename: /foo/src/rules/no-phantom-dep-imports.spec.ts
 import eslint from 'eslint' // filename: /foo/foo.js
 ```
@@ -19,6 +20,7 @@ import foo from '/foo'
 import foo from './foo'
 import foo from '../foo'
 import foo from 'node:foo'
+import type {Foo} from 'foo'
 import eslint from 'eslint' // filename: /foo/src/rules/no-phantom-dep-imports.spec.ts
 ```
 <!-- prettier-ignore-end -->

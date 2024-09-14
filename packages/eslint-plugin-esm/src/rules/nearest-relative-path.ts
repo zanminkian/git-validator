@@ -7,18 +7,18 @@ export const nearestRelativePath = createRule({
   create: (context) => create(context, check),
 });
 
-function check(filename: string, importedPath: string) {
-  if (getSourceType(importedPath) !== "local" || importedPath.startsWith("/")) {
+function check(filename: string, source: string) {
+  if (getSourceType(source) !== "local" || source.startsWith("/")) {
     return false;
   }
   const currentPath = path.dirname(filename);
-  const absoluteImportedPath = path.resolve(currentPath, importedPath);
+  const absoluteSource = path.resolve(currentPath, source);
   // compatible with windows
   let resultPath = path
-    .relative(currentPath, absoluteImportedPath)
+    .relative(currentPath, absoluteSource)
     .replaceAll("\\", "/");
   if (!resultPath.startsWith("./") && !resultPath.startsWith("../")) {
     resultPath = `./${resultPath}`;
   }
-  return resultPath !== importedPath;
+  return resultPath !== source;
 }

@@ -9,7 +9,7 @@ const valid = [
   { code: "import foo from './foo'" },
   { code: "import foo from '../foo'" },
   { code: "import foo from 'node:foo'" },
-  // {code: "import type {Foo} from 'foo'"},
+  { code: "import type {Foo} from 'foo'" },
   {
     code: "import eslint from 'eslint'",
     filename: fileURLToPath(import.meta.url),
@@ -17,6 +17,7 @@ const valid = [
 ];
 
 const invalid = [
+  { code: "import {type Foo} from 'foo'" },
   { code: "import foo from 'foo'", filename: fileURLToPath(import.meta.url) },
   {
     code: "import eslint from 'eslint'",

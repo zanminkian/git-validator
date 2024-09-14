@@ -11,7 +11,7 @@ export const noGitIgnoredImports = createRule({
   create: (context) => create(context, checkIgnored),
 });
 
-function checkIgnored(filePath: string, source: string) {
+function checkIgnored(filename: string, source: string) {
   // from node_modules
   if (getSourceType(source) !== "local") {
     return false;
@@ -21,7 +21,7 @@ function checkIgnored(filePath: string, source: string) {
     return true;
   }
   // This file of absolutePath may be a symbolic link
-  const absolutePath = path.resolve(path.dirname(filePath), source);
+  const absolutePath = path.resolve(path.dirname(filename), source);
   if (!absolutePath.startsWith("/")) {
     throw new Error(
       `ESLint plugin internal error. Absolute path incorrect: ${absolutePath}.`,
