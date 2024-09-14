@@ -80,17 +80,26 @@ async function genDoc({
       )
       .join("\n");
   const mdContent = outdent`
+    <!-- prettier-ignore-start -->
     # ${name}
+
     ${rule.meta?.docs?.description}
+
     ## Rule Details
+
     ### Fail
+
     \`\`\`ts
     ${handle(invalid)}
     \`\`\`
+
     ### Pass
+
     \`\`\`ts
     ${handle(valid)}
     \`\`\`
+    <!-- prettier-ignore-end -->
+
   `.replaceAll(process.cwd(), "/foo");
 
   const currentDir = path.dirname(fileURLToPath(import.meta.url));
