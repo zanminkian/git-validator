@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { noDynamicImport } from "./no-dynamic-import.js";
+import { noDynamicImports } from "./no-dynamic-imports.js";
 
 const valid = [
   "import('foo')",
@@ -24,4 +24,4 @@ const invalid = [
   // 'import("foo", {})', // only ts support it, not ecmascript
 ];
 
-test({ valid, invalid, ...noDynamicImport });
+test({ valid, invalid, ...noDynamicImports });

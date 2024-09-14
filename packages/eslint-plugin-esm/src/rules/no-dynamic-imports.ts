@@ -1,15 +1,15 @@
 import type { Node } from "estree";
-import { createSimpleRule, getRuleName } from "../utils.js";
+import { createRule, DEFAULT_MESSAGE_ID, getRuleName } from "../common.js";
 
-export const noDynamicImport = createSimpleRule({
+export const noDynamicImports = createRule({
   name: getRuleName(import.meta.url),
   message: "`import()` should be called with string literal.",
   create: (context) => ({
     "ImportExpression > :not(Literal)": (node: Node) => {
-      context.reportNode(node);
+      context.report({ node, messageId: DEFAULT_MESSAGE_ID });
     },
     "ImportExpression > Literal[raw=/^[^'\"].*[^'\"]$/]": (node: Node) => {
-      context.reportNode(node);
+      context.report({ node, messageId: DEFAULT_MESSAGE_ID });
     },
   }),
 });

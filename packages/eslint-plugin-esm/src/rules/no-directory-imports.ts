@@ -1,16 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
-import { create, isRelativeImport } from "../check-import.js";
-import { createSimpleRule, getRuleName } from "../utils.js";
+import { create, createRule, getRuleName, getSourceType } from "../common.js";
+import { memoize } from "../utils.js";
 
-export const noDirectoryImports = createSimpleRule({
+export const noDirectoryImports = createRule({
   name: getRuleName(import.meta.url),
   message: "Disallow importing from a directory.",
   create: (context) => create(context, check),
 });
 
 function check(filename: string, source: string) {
-  if (!isRelativeImport(source)) {
+  if (getSourceType(source) !== "local") {
     return false;
   }
   if (source.endsWith(".") || source.endsWith("./")) {
@@ -22,24 +22,13 @@ function check(filename: string, source: string) {
       `ESLint plugin internal error. Absolute path incorrect: ${absolutePath}.`,
     );
   }
-  return isDirByCache(absolutePath);
+  return isDir(absolutePath);
 }
 
-const cache = new Map<string, boolean>();
-function isDirByCache(filePath: string) {
-  const result = cache.get(filePath);
-  if (result !== undefined) {
-    return result;
-  }
-  const isDirectory = isDir(filePath);
-  cache.set(filePath, isDirectory);
-  return isDirectory;
-}
-
-function isDir(filePath: string) {
+const isDir = memoize((filePath: string) => {
   try {
     return fs.statSync(filePath).isDirectory();
   } catch (e) {
     return false;
   }
-}
+});

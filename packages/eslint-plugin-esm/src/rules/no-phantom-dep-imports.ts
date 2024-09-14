@@ -3,10 +3,11 @@ import path from "node:path";
 import process from "node:process";
 import {
   create,
-  isRelativeImport,
+  createRule,
+  getRuleName,
+  getSourceType,
   type ImportationNode,
-} from "../check-import.js";
-import { createSimpleRule, getRuleName } from "../utils.js";
+} from "../common.js";
 
 function isObject(value: unknown) {
   return value !== null && typeof value === "object";
@@ -47,9 +48,10 @@ function getPkgJson(
   return getPkgJson(path.join(dir, ".."));
 }
 
-export const noPhantomDepImports = createSimpleRule({
+export const noPhantomDepImports = createRule({
   name: getRuleName(import.meta.url),
-  message: "The nearest `package.json` doesn't have such dependency.",
+  message:
+    "Disallow importing from a module which the nearest `package.json` doesn't include it.",
   create: (context) => create(context, check),
 });
 
@@ -59,7 +61,7 @@ function check(filename: string, source: string, node: ImportationNode) {
     return false;
   }
   // ignore `import {foo} from './'`
-  if (isRelativeImport(source) || source.startsWith("node:")) {
+  if (getSourceType(source) !== "module") {
     return false;
   }
   const pkgJson = getPkgJson(path.dirname(filename));

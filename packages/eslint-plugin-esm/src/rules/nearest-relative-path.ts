@@ -1,19 +1,17 @@
 import path from "node:path";
-import { create } from "../check-import.js";
-import { createSimpleRule, getRuleName } from "../utils.js";
+import { create, createRule, getRuleName, getSourceType } from "../common.js";
 
-export const preferShortestRelativePath = createSimpleRule({
+export const nearestRelativePath = createRule({
   name: getRuleName(import.meta.url),
-  message: "Forbid redundant relative path when importing module.",
+  message: "The relative source path should be a nearest relative path.",
   create: (context) => create(context, check),
 });
 
 function check(filename: string, importedPath: string) {
-  const currentPath = path.dirname(filename);
-  if (!importedPath.startsWith("./") && !importedPath.startsWith("../")) {
+  if (getSourceType(importedPath) !== "local" || importedPath.startsWith("/")) {
     return false;
   }
-
+  const currentPath = path.dirname(filename);
   const absoluteImportedPath = path.resolve(currentPath, importedPath);
   // compatible with windows
   let resultPath = path

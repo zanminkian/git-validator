@@ -1,5 +1,5 @@
 import type { ImportDeclaration } from "estree";
-import { createSimpleRule, getRuleName } from "../utils.js";
+import { createRule, DEFAULT_MESSAGE_ID, getRuleName } from "../common.js";
 
 const ignores = [
   "^reflect-metadata$",
@@ -15,7 +15,7 @@ const ignores = [
 ];
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
-export const noSideEffectImport = createSimpleRule({
+export const noSideEffectImports = createRule({
   name: getRuleName(import.meta.url),
   message:
     "Side effect import is often used for polyfills and css. It's unsafe to use it.",
@@ -37,7 +37,7 @@ export const noSideEffectImport = createSimpleRule({
         ) {
           return;
         }
-        context.reportNode(node);
+        context.report({ node, messageId: DEFAULT_MESSAGE_ID });
       },
     };
   },

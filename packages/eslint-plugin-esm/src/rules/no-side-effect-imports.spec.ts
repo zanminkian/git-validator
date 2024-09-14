@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { noSideEffectImport } from "./no-side-effect-import.js";
+import { noSideEffectImports } from "./no-side-effect-imports.js";
 
 const valid = [
   "import 'reflect-metadata'",
@@ -22,4 +22,4 @@ const invalid = [
   "import 'foo.module.css'",
 ].map((code) => ({ code, filename: "foo.ts" }));
 
-test({ valid, invalid, ...noSideEffectImport });
+test({ valid, invalid, ...noSideEffectImports });

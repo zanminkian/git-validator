@@ -1,6 +1,11 @@
+import fs from "node:fs/promises";
 import { createRequire } from "node:module";
+import path from "node:path";
+import process from "node:process";
 import { describe, it } from "node:test";
+import { fileURLToPath } from "node:url";
 import { RuleTester, type Rule } from "eslint";
+import { outdent } from "outdent";
 
 export type TestCase = string | { code: string; filename?: string };
 
@@ -47,5 +52,50 @@ export async function test({
         });
       }),
     );
+
+    await genDoc({ name, rule, valid, invalid });
   });
+}
+
+async function genDoc({
+  name,
+  rule,
+  valid,
+  invalid,
+}: {
+  name: string;
+  rule: Rule.RuleModule;
+  valid: TestCase[];
+  invalid: TestCase[];
+}) {
+  const handle = (testCases: TestCase[]) =>
+    testCases
+      .map((testCase) =>
+        typeof testCase === "string" ? { code: testCase } : testCase,
+      )
+      .map((testCase) =>
+        testCase.filename
+          ? `${testCase.code} // filename: ${testCase.filename}`
+          : testCase.code,
+      )
+      .join("\n");
+  const mdContent = outdent`
+    # ${name}
+    ${rule.meta?.docs?.description}
+    ## Rule Details
+    ### Fail
+    \`\`\`ts
+    ${handle(invalid)}
+    \`\`\`
+    ### Pass
+    \`\`\`ts
+    ${handle(valid)}
+    \`\`\`
+  `.replaceAll(process.cwd(), "/foo");
+
+  const currentDir = path.dirname(fileURLToPath(import.meta.url));
+  await fs.writeFile(
+    path.join(currentDir, "..", "doc", "rules", `${name}.md`),
+    mdContent,
+  );
 }

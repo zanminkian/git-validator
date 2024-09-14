@@ -2,18 +2,18 @@ import childProcess from "node:child_process";
 import path from "node:path";
 import process from "node:process";
 import { isNativeError } from "node:util/types";
-import { create, isRelativeImport } from "../check-import.js";
-import { createSimpleRule, getRuleName } from "../utils.js";
+import { create, createRule, getRuleName, getSourceType } from "../common.js";
+import { memoize } from "../utils.js";
 
-export const noGitIgnoredImports = createSimpleRule({
+export const noGitIgnoredImports = createRule({
   name: getRuleName(import.meta.url),
-  message: "Disallow to import module from git-ignored path.",
+  message: "Disallow to import module from a git-ignored path.",
   create: (context) => create(context, checkIgnored),
 });
 
 function checkIgnored(filePath: string, source: string) {
   // from node_modules
-  if (!isRelativeImport(source)) {
+  if (getSourceType(source) !== "local") {
     return false;
   }
   // out side of project root
@@ -27,21 +27,10 @@ function checkIgnored(filePath: string, source: string) {
       `ESLint plugin internal error. Absolute path incorrect: ${absolutePath}.`,
     );
   }
-  return isIgnoredByCache(absolutePath);
+  return isIgnored(absolutePath);
 }
 
-const cache = new Map<string, boolean>();
-function isIgnoredByCache(filePath: string) {
-  const result = cache.get(filePath);
-  if (result !== undefined) {
-    return result;
-  }
-  const ignored = isIgnored(filePath);
-  cache.set(filePath, ignored);
-  return ignored;
-}
-
-function isIgnored(filePath: string) {
+const isIgnored = memoize((filePath: string) => {
   try {
     return (
       childProcess
@@ -61,4 +50,4 @@ function isIgnored(filePath: string) {
     // We cannot throw an error here. So we have to return true to report the filePath is bad.
     return true;
   }
-}
+});

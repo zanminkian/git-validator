@@ -1,11 +1,10 @@
-import { create } from "../check-import.js";
-import { createSimpleRule, getRuleName } from "../utils.js";
+import { create, createRule, getRuleName } from "../common.js";
 
 const depth = 3;
 
-export const noRelativeParentImports = createSimpleRule({
+export const noRelativeParentImports = createRule({
   name: getRuleName(import.meta.url),
-  message: "Disallow to import module from relative parent path too deeply.",
+  message: "Disallow importing module from a relative parent path too deeply.",
   create: (context) => create(context, checkDepth),
 });
 
