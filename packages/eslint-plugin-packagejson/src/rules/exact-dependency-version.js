@@ -19,7 +19,7 @@ export const name = "exact-dependency-version";
 export const rule = {
   meta: {
     messages: {
-      [name]: "Dependency is expected an exact version",
+      [name]: "Dependencies are expected an exact version",
     },
   },
   create: (context) => ({

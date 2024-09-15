@@ -4,7 +4,7 @@ export const name = "no-types-dependency-in-workspace-root";
 export const rule = {
   meta: {
     messages: {
-      [name]: "Should not install '@types/*' in workspace root",
+      [name]: "Should not install `@types/*` in workspace root",
     },
   },
   create: (context) => {

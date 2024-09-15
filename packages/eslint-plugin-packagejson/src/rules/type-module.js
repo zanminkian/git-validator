@@ -2,7 +2,7 @@ export const name = "type-module";
 export const rule = {
   meta: {
     messages: {
-      [name]: "The value of 'type' field in package.json should be 'module'",
+      [name]: "`type` field in package.json should be 'module'",
     },
   },
   create: (context) => ({

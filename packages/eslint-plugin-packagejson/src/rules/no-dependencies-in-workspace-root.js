@@ -4,7 +4,8 @@ export const name = "no-dependencies-in-workspace-root";
 export const rule = {
   meta: {
     messages: {
-      [name]: "Should not install packages into dependencies in workspace root",
+      [name]:
+        "Should not install packages into `dependencies` in workspace root",
     },
   },
   create: (context) => {

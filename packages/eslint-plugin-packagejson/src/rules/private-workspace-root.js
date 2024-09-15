@@ -4,7 +4,7 @@ export const name = "private-workspace-root";
 export const rule = {
   meta: {
     messages: {
-      [name]: "Workspace root package.json should be private",
+      [name]: "`package.json` in workspace root should be private",
     },
   },
   create: (context) => {

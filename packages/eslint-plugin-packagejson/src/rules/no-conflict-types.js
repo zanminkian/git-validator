@@ -3,7 +3,7 @@ export const rule = {
   meta: {
     messages: {
       [name]:
-        "'@types/web' and '@types/node' should not appear in the same package.json",
+        "Dependencies '@types/web' and '@types/node' should not be installed in the same package.json",
     },
   },
   create: (context) => ({

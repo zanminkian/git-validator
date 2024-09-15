@@ -2,7 +2,7 @@ export const name = "bottom-default";
 export const rule = {
   meta: {
     messages: {
-      [name]: "'default' field must be on the bottom",
+      [name]: "`default` field must be on the bottom of an object",
     },
   },
   create: (context) => ({
