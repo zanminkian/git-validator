@@ -3,6 +3,11 @@ import path from "node:path";
 
 export const name = "required-hashbang";
 export const rule = {
+  meta: {
+    docs: {
+      description: "The bin file should starts with a hashbang",
+    },
+  },
   create: (context) => ({
     "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
       const bin = node.properties.find((p) => p.key.value === "bin");

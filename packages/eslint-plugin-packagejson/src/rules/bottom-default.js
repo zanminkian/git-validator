@@ -4,6 +4,9 @@ export const rule = {
     messages: {
       [name]: "`default` field must be on the bottom of an object",
     },
+    docs: {
+      description: "`default` field must be on the bottom of an object",
+    },
   },
   create: (context) => ({
     "Program > ExportDefaultDeclaration ObjectExpression": (node) => {

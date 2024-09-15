@@ -6,6 +6,9 @@ export const rule = {
     messages: {
       [name]: "`package.json` in workspace root should be private",
     },
+    docs: {
+      description: "`package.json` in workspace root should be private",
+    },
   },
   create: (context) => {
     // only check workspace root package.json

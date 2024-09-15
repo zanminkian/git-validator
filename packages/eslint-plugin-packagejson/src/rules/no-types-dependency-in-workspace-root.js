@@ -6,6 +6,9 @@ export const rule = {
     messages: {
       [name]: "Should not install `@types/*` in workspace root",
     },
+    docs: {
+      description: "Should not install `@types/*` in workspace root",
+    },
   },
   create: (context) => {
     // only check workspace root package.json

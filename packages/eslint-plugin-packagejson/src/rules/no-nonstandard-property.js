@@ -49,6 +49,10 @@ export const rule = {
       [name]:
         "Disallow using the property that is out of node and npm standard",
     },
+    docs: {
+      description:
+        "Disallow using the property that is out of node and npm standard",
+    },
   },
   create: (context) => ({
     "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {

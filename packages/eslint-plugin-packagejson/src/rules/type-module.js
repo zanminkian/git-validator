@@ -4,6 +4,9 @@ export const rule = {
     messages: {
       [name]: "`type` field in package.json should be 'module'",
     },
+    docs: {
+      description: "`type` field in package.json should be 'module'",
+    },
   },
   create: (context) => ({
     "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {

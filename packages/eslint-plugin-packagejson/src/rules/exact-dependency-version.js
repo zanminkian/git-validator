@@ -21,6 +21,9 @@ export const rule = {
     messages: {
       [name]: "Dependencies are expected an exact version",
     },
+    docs: {
+      description: "Dependencies are expected an exact version",
+    },
   },
   create: (context) => ({
     "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {

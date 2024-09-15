@@ -4,6 +4,10 @@ export const rule = {
     messages: {
       [name]: "`repository` field should be specified in a public package.json",
     },
+    docs: {
+      description:
+        "`repository` field should be specified in a public package.json",
+    },
   },
   create: (context) => ({
     "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {

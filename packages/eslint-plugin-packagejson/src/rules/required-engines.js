@@ -7,6 +7,10 @@ export const rule = {
     messages: {
       [name]: "`engines` field should be specified in the root package.json",
     },
+    docs: {
+      description:
+        "`engines` field should be specified in the root package.json",
+    },
   },
   create: (context) => {
     if (context.filename !== path.join(process.cwd(), "package.json")) {

@@ -14,6 +14,10 @@ export const rule = {
       [name]:
         "Using lifecycle script in public npm package is considered a bad practice. You should expose a cli entrance. Users who need it will invoke it manually",
     },
+    docs: {
+      description:
+        "Using lifecycle script in public npm package is considered a bad practice. You should expose a cli entrance. Users who need it will invoke it manually",
+    },
   },
   create: (context) => ({
     "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {

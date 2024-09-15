@@ -5,6 +5,10 @@ export const rule = {
       [name]:
         "Dependencies '@types/web' and '@types/node' should not be installed in the same package.json",
     },
+    docs: {
+      description:
+        "Dependencies '@types/web' and '@types/node' should not be installed in the same package.json",
+    },
   },
   create: (context) => ({
     "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {

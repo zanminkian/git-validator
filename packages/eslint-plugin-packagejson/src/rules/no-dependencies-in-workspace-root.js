@@ -7,6 +7,10 @@ export const rule = {
       [name]:
         "Should not install packages into `dependencies` in workspace root",
     },
+    docs: {
+      description:
+        "Should not install packages into `dependencies` in workspace root",
+    },
   },
   create: (context) => {
     // only check workspace root package.json

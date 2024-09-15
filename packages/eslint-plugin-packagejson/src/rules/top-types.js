@@ -4,6 +4,9 @@ export const rule = {
     messages: {
       [name]: "`types` field in exports must be on the top of an object",
     },
+    docs: {
+      description: "`types` field in exports must be on the top of an object",
+    },
   },
   create: (context) => ({
     "Program > ExportDefaultDeclaration ObjectExpression": (node) => {
