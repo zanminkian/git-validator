@@ -2,6 +2,7 @@ import { test } from "../test.spec.js";
 import { requireReduceInitialValue } from "./require-reduce-initial-value.js";
 
 const valid = [
+  "foo.reduce()",
   "[].reduce(()=>123, 0)",
   "foo.reduce(()=>123, 0)",
   "foo.reduce(bar, baz)",

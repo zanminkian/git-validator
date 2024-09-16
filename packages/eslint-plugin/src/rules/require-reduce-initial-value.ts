@@ -7,7 +7,7 @@ export const requireReduceInitialValue = createSimpleRule({
   message:
     "When calling `reduce` or `reduceRight`, an initial value is required.",
   create: (context) => ({
-    "CallExpression[callee.type='MemberExpression'][callee.property.name=/^(reduce|reduceRight)$/][arguments.length<2]":
+    "CallExpression[callee.type='MemberExpression'][callee.property.name=/^(reduce|reduceRight)$/][arguments.length=1]":
       (node: Node) => {
         context.reportNode(node);
       },
