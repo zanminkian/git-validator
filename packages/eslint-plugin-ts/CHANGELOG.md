@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-ts
 
+## 0.2.3
+
+### Patch Changes
+
+- 4a8d62f: refactor(eslint-plugin-ts): optimize selector
+
 ## 0.2.2
 
 ### Patch Changes
