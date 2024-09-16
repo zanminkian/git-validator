@@ -29,16 +29,14 @@ pnpm add -D eslint @git-validator/eslint-plugin-packagejson
 Config `eslint.config.js`
 
 ```js
-import * as packagejsonPlugin from "@git-validator/eslint-plugin-packagejson";
+import * as packagejson from "@git-validator/eslint-plugin-packagejson";
 
 export default [
   ...
   {
     files: ["**/package.json"],
     processor: "packagejson/processor",
-    plugins: {
-      packagejson: packagejsonPlugin,
-    },
+    plugins: { packagejson },
     rules: {
       "packagejson/no-lifecycle-script": "error",
       ...
