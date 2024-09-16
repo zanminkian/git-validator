@@ -443,6 +443,7 @@ export function javascript() {
         "unicorn/prefer-module": "error",
         "unicorn/prefer-number-properties": "error",
         "unicorn/prefer-string-slice": "error",
+        "unicorn/prefer-ternary": "error",
         "unicorn/throw-new-error": "error",
 
         "@git-validator/new-parens": "error",
