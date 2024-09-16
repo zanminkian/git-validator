@@ -5,17 +5,6 @@ import { formatMessage } from "publint/utils";
 import { getPublintInfo } from "./get-publint-info.js";
 import { getReportingNode } from "./get-reporting-node.js";
 
-// Copied from https://www.npmjs.com/package/ansi-regex
-function ansiRegex({ onlyFirst = false } = {}) {
-  const pattern = [
-    "[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)",
-    "(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-ntqry=><~]))",
-  ].join("|");
-  return new RegExp(pattern, onlyFirst ? undefined : "g");
-}
-
-const regex = ansiRegex();
-
 export function createRule(type: MessageType): Rule.RuleModule {
   return {
     create: (context: Rule.RuleContext) => {
@@ -30,7 +19,7 @@ export function createRule(type: MessageType): Rule.RuleModule {
             context.report({
               node: getReportingNode(node, msg.path),
               message:
-                formatMessage(msg, pkg)?.replace(regex, "") ??
+                formatMessage(msg, pkg, { color: false }) ??
                 JSON.stringify(msg),
             });
           });

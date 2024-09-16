@@ -39,12 +39,12 @@
   },
   "dependencies": {
     "commander": "12.1.0",
-    "get-tsconfig": "4.8.0",
+    "get-tsconfig": "4.8.1",
     "json5": "2.2.3",
     "print-diff": "2.0.0",
     "sort-keys": "5.1.0"
   },
   "devDependencies": {
-    "@types/node": "22.5.4"
+    "@types/node": "22.5.5"
   }
 }

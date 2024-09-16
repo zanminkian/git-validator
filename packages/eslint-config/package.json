@@ -39,7 +39,7 @@
     "eslint-plugin-n": "17.10.2",
     "eslint-plugin-promise": "7.1.0",
     "eslint-plugin-publint": "workspace:*",
-    "eslint-plugin-react": "7.35.2",
+    "eslint-plugin-react": "7.36.1",
     "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "eslint-plugin-sonarjs": "1.0.4",
@@ -49,7 +49,7 @@
   "devDependencies": {
     "@swc-node/register": "1.10.0",
     "@types/eslint-config-prettier": "6.11.3",
-    "@types/node": "22.5.4",
+    "@types/node": "22.5.5",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "prettier": "3.3.3"
