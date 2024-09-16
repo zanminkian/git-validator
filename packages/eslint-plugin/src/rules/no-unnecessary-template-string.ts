@@ -1,5 +1,6 @@
 import { createSimpleRule, getRuleName } from "../utils.js";
 
+// TODO deprecate this rule if https://github.com/sindresorhus/eslint-plugin-unicorn/issues/71 is implemented.
 export const noUnnecessaryTemplateString = createSimpleRule({
   name: getRuleName(import.meta.url),
   message:
