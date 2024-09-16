@@ -1,5 +1,12 @@
 # @git-validator/eslint-plugin
 
+## 0.9.0
+
+### Minor Changes
+
+- d0491d8: refactor: migrate rules from `@git-validator/eslint-plugin` to `eslint-plugin-esm`
+- aaeacd0: refactor: remove rules `ban-ts-comment` and `prefer-global-this`
+
 ## 0.8.3
 
 ### Patch Changes

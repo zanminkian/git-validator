@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin-packagejson
 
+## 0.3.2
+
+### Patch Changes
+
+- 2e127fc: chore: update report message
+
 ## 0.3.1
 
 ### Patch Changes

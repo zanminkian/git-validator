@@ -1,5 +1,28 @@
 # @git-validator/eslint-config
 
+## 0.8.0
+
+### Minor Changes
+
+- d0491d8: refactor: migrate rules from `@git-validator/eslint-plugin` to `eslint-plugin-esm`
+- aaeacd0: refactor: remove rules `ban-ts-comment` and `prefer-global-this`
+
+### Patch Changes
+
+- d5f82e6: refactor(eslint-config): remove rule `n/no-sync`
+- a94ac0a: chore: upgrade deps
+- 1e8b9f0: feat(eslint-config): add `n/prefer-global/*` rules
+- Updated dependencies [4a8d62f]
+- Updated dependencies [a94ac0a]
+- Updated dependencies [2e127fc]
+- Updated dependencies [d0491d8]
+- Updated dependencies [aaeacd0]
+  - @git-validator/eslint-plugin-ts@0.2.3
+  - eslint-plugin-publint@0.0.2
+  - @git-validator/eslint-plugin-packagejson@0.3.2
+  - @git-validator/eslint-plugin@0.9.0
+  - eslint-plugin-esm@0.1.0
+
 ## 0.7.4
 
 ### Patch Changes
