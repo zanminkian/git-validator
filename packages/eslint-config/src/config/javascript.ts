@@ -446,8 +446,8 @@ export function javascript() {
         "unicorn/throw-new-error": "error",
 
         "@git-validator/new-parens": "error",
-        "@git-validator/no-for-in": "error",
         "@git-validator/no-instanceof-builtin": "error",
+        "@git-validator/no-restricted-loops": "error",
         "@git-validator/no-unnecessary-template-string": "error",
         "@git-validator/require-reduce-initial-value": "error",
 
