@@ -14,6 +14,10 @@ ESlint plugin for linting package.json.
 - Simple. Tiny. Fast.
 - Zero dependencies.
 
+## Requirement
+
+- ESLint >= 8.57.0
+
 ## Usage
 
 Install
@@ -28,6 +32,7 @@ Config `eslint.config.js`
 import * as packagejsonPlugin from "@git-validator/eslint-plugin-packagejson";
 
 export default [
+  ...
   {
     files: ["**/package.json"],
     processor: "packagejson/processor",
@@ -35,41 +40,12 @@ export default [
       packagejson: packagejsonPlugin,
     },
     rules: {
-      /**
-       * Force 'default' field on the bottom of 'exports'.
-       */
-      "packagejson/bottom-default": "error",
-      /**
-       * `dependencies` and `devDependencies` are expected exact package versions.
-       * Versions like`"foo": "^1.0.0"` are not allowed.
-       */
-      "packagejson/exact-dependency-version": "error",
-      /**
-       * In monorepo, root 'package.json' should be private.
-       */
-      "packagejson/private-workspace-root": "error",
-      /**
-       * The root package.json should specify `engines` field.
-       */
-      "packagejson/required-engines": "error",
-      /**
-       * Public package should specify its repository address.
-       */
-      "packagejson/required-repository": "error",
-      /**
-       * Force 'types' field on the top of 'exports'.
-       */
-      "packagejson/top-types": "error",
-      /**
-       * Force 'type' field to be 'module'. It means your project should be ESM.
-       */
-      "packagejson/type-module": "warn",
-      /**
-       * In monorepo, root 'package.json' should not install any packages to 'dependencies'.
-       */
-      "packagejson/no-dependencies-in-workspace-root": "warn",
+      "packagejson/no-lifecycle-script": "error",
+      ...
+      // Visit https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-packagejson/doc/rules for more other rules
     },
   },
+  ...
 ];
 ```
 
@@ -83,6 +59,10 @@ Config `package.json`
   }
 }
 ```
+
+## Rules
+
+Click [here](https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-packagejson/doc/rules).
 
 ## License
 

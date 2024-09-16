@@ -33,7 +33,7 @@ export default [
     rules: {
       "esm/no-git-ignored-imports": "error"
       ...
-      // See https://github.com/zanminkian/git-validator/packages/eslint-plugin-esm/doc/rules for more other rules
+      // Visit https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-esm/doc/rules for more other rules
     },
   },
   ...
@@ -53,7 +53,7 @@ Config `package.json`
 
 ## Rules
 
-Click [here](https://github.com/zanminkian/git-validator/packages/eslint-plugin-esm/doc/rules).
+Click [here](https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-esm/doc/rules).
 
 ## License
 
