@@ -1,5 +1,12 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import process from "node:process";
 import { describe, it } from "node:test";
+import { fileURLToPath } from "node:url";
 import { RuleTester, type Rule } from "eslint";
+import { outdent } from "outdent";
+
+export type TestCase = string | { code: string; filename?: string };
 
 const tester = new RuleTester({
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
@@ -14,20 +21,20 @@ export async function test({
 }: {
   name: string;
   rule: Rule.RuleModule;
-  valid: (object | { code: object; filename: string })[];
-  invalid: (object | { code: object; filename: string })[];
+  valid: TestCase[];
+  invalid: TestCase[];
   errors?: number;
 }) {
   await describe(name, async () => {
     await Promise.all(
       valid
         .map((item) =>
-          "code" in item && "filename" in item
+          typeof item !== "string"
             ? {
-                code: `export default ${JSON.stringify(item.code)}`,
+                code: `export default ${item.code}`,
                 filename: item.filename,
               }
-            : { code: `export default ${JSON.stringify(item)}` },
+            : { code: `export default ${item}` },
         )
         .map(async (item) => {
           await it(item.code, () => {
@@ -42,12 +49,12 @@ export async function test({
     await Promise.all(
       invalid
         .map((item) =>
-          "code" in item && "filename" in item
+          typeof item !== "string"
             ? {
-                code: `export default ${JSON.stringify(item.code)}`,
+                code: `export default ${item.code}`,
                 filename: item.filename,
               }
-            : { code: `export default ${JSON.stringify(item)}` },
+            : { code: `export default ${item}` },
         )
         .map(async (item) => {
           await it(item.code, () => {
@@ -58,5 +65,59 @@ export async function test({
           });
         }),
     );
+
+    await genDoc({ name, rule, valid, invalid });
   });
+}
+
+async function genDoc({
+  name,
+  rule,
+  valid,
+  invalid,
+}: {
+  name: string;
+  rule: Rule.RuleModule;
+  valid: TestCase[];
+  invalid: TestCase[];
+}) {
+  const handle = (testCases: TestCase[]) =>
+    testCases
+      .map((testCase) =>
+        typeof testCase === "string" ? { code: testCase } : testCase,
+      )
+      .map((testCase) =>
+        testCase.filename
+          ? `${testCase.code} // filename: ${testCase.filename}`
+          : testCase.code,
+      )
+      .join("\n");
+  const mdContent = outdent`
+    <!-- prettier-ignore-start -->
+    # ${name}
+
+    ${rule.meta?.docs?.description}
+
+    ## Rule Details
+
+    ### Fail
+
+    \`\`\`ts
+    ${handle(invalid)}
+    \`\`\`
+
+    ### Pass
+
+    \`\`\`ts
+    ${handle(valid)}
+    \`\`\`
+    <!-- prettier-ignore-end -->
+
+  `.replaceAll(process.cwd(), "/foo");
+
+  const currentDir = path.dirname(fileURLToPath(import.meta.url));
+  await fs.writeFile(
+    path.join(currentDir, "..", "doc", "rules", `${name}.md`),
+    mdContent,
+  );
 }

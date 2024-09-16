@@ -1,20 +1,22 @@
 import { test } from "../test.spec.js";
 import { name, rule } from "./no-lifecycle-script.js";
 
+const s = JSON.stringify;
+
 const valid = [
-  {},
-  { private: true, scripts: { postinstall: "foo" } },
-  { foo: { postinstall: "bar" } },
+  s({}),
+  s({ private: true, scripts: { postinstall: "foo" } }),
+  s({ foo: { postinstall: "bar" } }),
 ];
 
 const invalid = [
-  { private: false, scripts: { postinstall: "foo" } },
-  { scripts: { preinstall: "foo" } },
-  { scripts: { install: "foo" } },
-  { scripts: { postinstall: "foo" } },
-  { scripts: { preuninstall: "foo" } },
-  { scripts: { uninstall: "foo" } },
-  { scripts: { postuninstall: "foo" } },
+  s({ private: false, scripts: { postinstall: "foo" } }),
+  s({ scripts: { preinstall: "foo" } }),
+  s({ scripts: { install: "foo" } }),
+  s({ scripts: { postinstall: "foo" } }),
+  s({ scripts: { preuninstall: "foo" } }),
+  s({ scripts: { uninstall: "foo" } }),
+  s({ scripts: { postuninstall: "foo" } }),
 ];
 
 await test({ name, rule, valid, invalid });

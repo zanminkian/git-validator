@@ -1,7 +1,7 @@
 <!-- prettier-ignore-start -->
-# bottom-default
+# top-types
 
-`default` field must be on the bottom of an object
+`types` field in exports must be on the top of an object
 
 ## Rule Details
 
@@ -11,16 +11,17 @@
 {"exports":{"default":"foo","types":"foo"}}
 {"exports":{"require":{"default":"foo","types":"foo"}}}
 {"exports":{"foo":{"default":"foo","types":"foo"}}}
-{"exports":{"foo":{"bar":{"default":"","x":""}}}}
+{"exports":{"foo":{"bar":{"x":"","types":""}}}}
 ```
 
 ### Pass
 
 ```ts
-{"default":"foo","name":"foo"}
-{"exports":{"default":"foo"}}
+{"name":"foo","types":"foo"}
+{"exports":{}}
+{"exports":{"types":"foo"}}
 {"exports":{"types":"foo","default":"foo"}}
 {"exports":{"require":{"types":"foo","default":"foo"}}}
-{"exports":{"foo":{"bar":{"default":""}}}}
+{"exports":{"foo":{"bar":{"types":""}}}}
 ```
 <!-- prettier-ignore-end -->

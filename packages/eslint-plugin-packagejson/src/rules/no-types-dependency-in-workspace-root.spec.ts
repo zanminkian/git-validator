@@ -3,42 +3,44 @@ import process from "node:process";
 import { test } from "../test.spec.js";
 import { name, rule } from "./no-types-dependency-in-workspace-root.js";
 
+const s = JSON.stringify;
+
 const valid = [
   {
-    code: { dependencies: { "@types/node": "foo" } },
+    code: s({ dependencies: { "@types/node": "foo" } }),
     filename: path.join(process.cwd(), "./package.json"),
   },
   {
-    code: { devDependencies: { "@types/node": "foo" } },
+    code: s({ devDependencies: { "@types/node": "foo" } }),
     filename: path.join(process.cwd(), "./package.json"),
   },
   {
-    code: { dependencies: {} },
+    code: s({ dependencies: {} }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
   {
-    code: { dependencies: { "types/node": "foo" } },
+    code: s({ dependencies: { "types/node": "foo" } }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
   {
-    code: { devDependencies: { "@types": "foo" } },
+    code: s({ devDependencies: { "@types": "foo" } }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
 ];
 const invalid = [
   {
-    code: { dependencies: { "@types/node": "foo", "@types/bar": "bar" } },
+    code: s({ dependencies: { "@types/node": "foo", "@types/bar": "bar" } }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
   {
-    code: {
+    code: s({
       dependencies: { "@types/node": "foo" },
       devDependencies: { "@types/types": "bar" },
-    },
+    }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
   {
-    code: { dependencies: { "@types/node": "foo", "@types/types": "bar" } },
+    code: s({ dependencies: { "@types/node": "foo", "@types/types": "bar" } }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
 ];

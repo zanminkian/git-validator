@@ -3,27 +3,29 @@ import process from "node:process";
 import { test } from "../test.spec.js";
 import { name, rule } from "./private-workspace-root.js";
 
+const s = JSON.stringify;
+
 const valid = [
   {
-    code: {},
+    code: s({}),
     filename: path.join(process.cwd(), "./package.json"),
   },
   {
-    code: { private: true },
+    code: s({ private: true }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
 ];
 const invalid = [
   {
-    code: {},
+    code: s({}),
     filename: path.join(process.cwd(), "../../package.json"),
   },
   {
-    code: { private: false },
+    code: s({ private: false }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
   {
-    code: { private: "true" },
+    code: s({ private: "true" }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
 ];

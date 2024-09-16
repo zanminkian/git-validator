@@ -1,14 +1,16 @@
 import { test } from "../test.spec.js";
 import { name, rule } from "./no-nonstandard-property.js";
 
+const s = JSON.stringify;
+
 const valid = [
-  {},
-  { name: "foo", type: "foo", config: "foo", packageManager: "foo" },
-  { dependencies: { foo: "foo" }, config: { bar: "bar" } },
+  s({}),
+  s({ name: "foo", type: "foo", config: "foo", packageManager: "foo" }),
+  s({ dependencies: { foo: "foo" }, config: { bar: "bar" } }),
 ];
 const invalid = [
-  { name: "", foo: "foo", bar: "bar" },
-  { author: "", public: true, pnpm: {} },
+  s({ name: "", foo: "foo", bar: "bar" }),
+  s({ author: "", public: true, pnpm: {} }),
 ];
 
 await test({ name, rule, valid, invalid, errors: 2 });

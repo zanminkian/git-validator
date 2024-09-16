@@ -3,21 +3,26 @@ import process from "node:process";
 import { test } from "../test.spec.js";
 import { name, rule } from "./required-engines.js";
 
+const s = JSON.stringify;
+
 const valid = [
-  { code: {}, filename: "" },
-  { code: {}, filename: undefined },
+  { code: s({}), filename: "" },
+  { code: s({}), filename: undefined },
   {
-    code: { engines: { node: "1.0.0" } },
+    code: s({ engines: { node: "1.0.0" } }),
     filename: path.join(process.cwd(), "package.json"),
   },
 ];
 const invalid = [
-  { code: {}, filename: path.join(process.cwd(), "package.json") },
+  { code: s({}), filename: path.join(process.cwd(), "package.json") },
   {
-    code: { engines: null },
+    code: s({ engines: null }),
     filename: path.join(process.cwd(), "package.json"),
   },
-  { code: { engines: {} }, filename: path.join(process.cwd(), "package.json") },
+  {
+    code: s({ engines: {} }),
+    filename: path.join(process.cwd(), "package.json"),
+  },
 ];
 
 await test({ name, rule, valid, invalid });

@@ -3,27 +3,29 @@ import process from "node:process";
 import { test } from "../test.spec.js";
 import { name, rule } from "./no-dependencies-in-workspace-root.js";
 
+const s = JSON.stringify;
+
 const valid = [
   {
-    code: { dependencies: {} },
+    code: s({ dependencies: {} }),
     filename: path.join(process.cwd(), "./package.json"),
   },
   {
-    code: { dependencies: { foo: "bar" } },
+    code: s({ dependencies: { foo: "bar" } }),
     filename: path.join(process.cwd(), "./package.json"),
   },
   {
-    code: { devDependencies: {} },
+    code: s({ devDependencies: {} }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
 ];
 const invalid = [
   {
-    code: { dependencies: {} },
+    code: s({ dependencies: {} }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
   {
-    code: { devDependencies: {}, dependencies: { foo: "bar" } },
+    code: s({ devDependencies: {}, dependencies: { foo: "bar" } }),
     filename: path.join(process.cwd(), "../../package.json"),
   },
 ];

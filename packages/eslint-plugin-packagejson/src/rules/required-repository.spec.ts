@@ -1,20 +1,22 @@
 import { test } from "../test.spec.js";
 import { name, rule } from "./required-repository.js";
 
+const s = JSON.stringify;
+
 const valid = [
-  { private: true, name: "foo" },
-  { private: true },
-  { repository: "http://example.com" },
-  { repository: { url: "" } },
+  s({ private: true, name: "foo" }),
+  s({ private: true }),
+  s({ repository: "http://example.com" }),
+  s({ repository: { url: "" } }),
 ];
 
 const invalid = [
-  {},
-  { name: "foo" },
-  { private: false },
-  { private: false, repository: "" },
-  { repository: "" },
-  { repository: {} },
+  s({}),
+  s({ name: "foo" }),
+  s({ private: false }),
+  s({ private: false, repository: "" }),
+  s({ repository: "" }),
+  s({ repository: {} }),
 ];
 
 await test({ name, rule, valid, invalid });
