@@ -1,10 +1,19 @@
-import { createSimpleRule, getRuleName } from "../utils.js";
+import type { Rule } from "eslint";
+import { getRuleName } from "../utils.js";
 
 // TODO deprecate this rule if https://github.com/sindresorhus/eslint-plugin-unicorn/issues/71 is implemented.
-export const noUnnecessaryTemplateString = createSimpleRule({
-  name: getRuleName(import.meta.url),
-  message:
-    "Disallow using template string when it's unnecessary. Use normal literal string expression instead.",
+const name = getRuleName(import.meta.url);
+const rule: Rule.RuleModule = {
+  meta: {
+    docs: {
+      description:
+        "Disallow using template string when it's unnecessary. Use normal literal string expression instead.",
+    },
+    messages: {
+      [`${name}/error`]:
+        "Disallow using template string when it's unnecessary. Use normal literal string expression instead.",
+    },
+  },
   create: (context) => ({
     TemplateLiteral: (node) => {
       if (
@@ -12,8 +21,9 @@ export const noUnnecessaryTemplateString = createSimpleRule({
         node.expressions.length === 0 &&
         node.loc?.start.line === node.loc?.end.line
       ) {
-        context.reportNode(node);
+        context.report({ node, messageId: `${name}/error` });
       }
     },
   }),
-});
+};
+export const noUnnecessaryTemplateString = { name, rule };

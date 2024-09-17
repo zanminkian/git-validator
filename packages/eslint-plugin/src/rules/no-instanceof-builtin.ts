@@ -1,9 +1,17 @@
-import { createSimpleRule, getRuleName } from "../utils.js";
+import type { Rule } from "eslint";
+import { getRuleName } from "../utils.js";
 
 // TODO: If https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2452 is accepted, migrate this rule to `eslint-plugin-unicorn`
-export const noInstanceofBuiltin = createSimpleRule({
-  name: getRuleName(import.meta.url),
-  message: "Right hand of `instanceof` can't be a builtin class.",
+const name = getRuleName(import.meta.url);
+const rule: Rule.RuleModule = {
+  meta: {
+    docs: {
+      description: "Right hand of `instanceof` can't be a builtin class.",
+    },
+    messages: {
+      [`${name}/error`]: "Right hand of `instanceof` can't be a builtin class.",
+    },
+  },
   create: (context) => {
     let builtins = new Set<string>();
     return {
@@ -21,9 +29,11 @@ export const noInstanceofBuiltin = createSimpleRule({
         }
 
         if (builtins.has(node.right.name)) {
-          context.reportNode(node.right);
+          context.report({ node: node.right, messageId: `${name}/error` });
         }
       },
     };
   },
-});
+};
+
+export const noInstanceofBuiltin = { name, rule };
