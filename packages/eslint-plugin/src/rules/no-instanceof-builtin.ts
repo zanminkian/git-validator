@@ -1,5 +1,6 @@
 import { createSimpleRule, getRuleName } from "../utils.js";
 
+// TODO: If https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2452 is accepted, migrate this rule to `eslint-plugin-unicorn`
 export const noInstanceofBuiltin = createSimpleRule({
   name: getRuleName(import.meta.url),
   message: "Right hand of `instanceof` can't be a builtin class.",

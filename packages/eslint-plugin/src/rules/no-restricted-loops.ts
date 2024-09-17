@@ -1,6 +1,7 @@
 import type { Node } from "estree";
 import { createSimpleRule, getRuleName } from "../utils.js";
 
+// TODO: If https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2453 is accepted, migrate this rule to `eslint-plugin-unicorn`
 /**
  * Only allow `while` and `for-of` loops. `for`, `for-in`, `do-while` and `for-await-of` loops are disallowed.
  * Visit https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2453 for more details.
