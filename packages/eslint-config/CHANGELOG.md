@@ -1,5 +1,16 @@
 # @git-validator/eslint-config
 
+## 0.8.1
+
+### Patch Changes
+
+- 605aba8: refactor(eslint-plugin)!: change `no-for-in` to `no-restricted-loops`
+- aafe41a: feat(eslint-config): add rule `unicorn/prefer-ternary`
+- Updated dependencies [e8324b1]
+- Updated dependencies [605aba8]
+- Updated dependencies [dec91cb]
+  - @git-validator/eslint-plugin@0.10.0
+
 ## 0.8.0
 
 ### Minor Changes
