@@ -1,5 +1,16 @@
 # @git-validator/eslint-plugin
 
+## 0.10.0
+
+### Minor Changes
+
+- 605aba8: refactor(eslint-plugin)!: change `no-for-in` to `no-restricted-loops`
+
+### Patch Changes
+
+- e8324b1: refactor(eslint-plugin): optimize no-instance-of-builtin
+- dec91cb: fix(eslint-plugin): do not report when the length of `reduce` arguments is zero
+
 ## 0.9.0
 
 ### Minor Changes
