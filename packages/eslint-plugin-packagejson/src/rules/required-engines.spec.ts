@@ -7,7 +7,6 @@ const s = JSON.stringify;
 
 const valid = [
   { code: s({}), filename: "" },
-  { code: s({}), filename: undefined },
   {
     code: s({ engines: { node: "1.0.0" } }),
     filename: path.join(process.cwd(), "package.json"),

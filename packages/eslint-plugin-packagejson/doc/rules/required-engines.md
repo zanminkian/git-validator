@@ -17,7 +17,6 @@
 
 ```ts
 {}
-{}
 {"engines":{"node":"1.0.0"}} // filename: /foo/package.json
 ```
 <!-- prettier-ignore-end -->
