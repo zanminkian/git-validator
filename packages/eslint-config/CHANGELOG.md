@@ -1,5 +1,17 @@
 # @git-validator/eslint-config
 
+## 0.8.2
+
+### Patch Changes
+
+- 1e65b26: feat(eslint-config): add rule `@typescript-eslint/prefer-optional-chain`
+- 6443828: refactor: remove rule `new-parens`
+- Updated dependencies [52c7428]
+- Updated dependencies [6443828]
+- Updated dependencies [638cdbb]
+  - eslint-plugin-esm@0.1.1
+  - @git-validator/eslint-plugin@0.11.0
+
 ## 0.8.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @git-validator/eslint-plugin
 
+## 0.11.0
+
+### Minor Changes
+
+- 6443828: refactor: remove rule `new-parens`
+- 638cdbb: feat(eslint-plugin): remove rule `require-reduce-initial-value` and add rule `arguments-length`
+
 ## 0.10.0
 
 ### Minor Changes
