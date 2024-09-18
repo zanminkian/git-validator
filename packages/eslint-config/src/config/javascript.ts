@@ -271,9 +271,9 @@ export function javascript() {
         },
         globals: {
           ...Object.fromEntries(
-            Object.entries(globals.browser).filter(
-              ([k]) => !confusingKeys.includes(k),
-            ),
+            Object.entries(globals.browser)
+              .filter(([k]) => !confusingKeys.includes(k))
+              .filter(([k]) => !["self", "global"].includes(k)), // prefer `globalThis`
           ),
         },
       },
