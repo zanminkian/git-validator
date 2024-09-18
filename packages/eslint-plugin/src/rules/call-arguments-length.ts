@@ -94,6 +94,7 @@ const rule: Rule.RuleModule = {
         "*.reduceRight": 2,
         "*.push": { min: 1 },
         "new Set": { max: 1 },
+        "new Map": { max: 1 },
       },
     );
     return {
