@@ -1,5 +1,13 @@
 # @git-validator/eslint-config
 
+## 0.8.3
+
+### Patch Changes
+
+- 6ceacd8: feat(eslint-config): ban `self` and `global`, prefer `globalThis`
+- Updated dependencies [5b49895]
+  - @git-validator/eslint-plugin@0.11.1
+
 ## 0.8.2
 
 ### Patch Changes

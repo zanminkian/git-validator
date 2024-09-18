@@ -1,5 +1,11 @@
 # @git-validator/eslint-plugin
 
+## 0.11.1
+
+### Patch Changes
+
+- 5b49895: fix(eslint-plugin): enhance `no-instanceof-builtin`
+
 ## 0.11.0
 
 ### Minor Changes
