@@ -13,7 +13,7 @@ const rule: Rule.RuleModule = {
     },
   },
   create: (context) => {
-    let builtins = new Set<string>();
+    let builtins: Set<string> | undefined = undefined;
     return {
       Program: (node) => {
         builtins = new Set(
@@ -28,7 +28,7 @@ const rule: Rule.RuleModule = {
           return;
         }
 
-        if (builtins.has(node.right.name)) {
+        if (builtins?.has(node.right.name) ?? true) {
           context.report({ node: node.right, messageId: `${name}/error` });
         }
       },
