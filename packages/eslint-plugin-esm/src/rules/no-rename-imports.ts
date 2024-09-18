@@ -5,7 +5,10 @@ export const noRenameImports = createRule({
   message: "Disallow renaming the named-imports.",
   create: (context) => ({
     ImportSpecifier: (node) => {
-      if (node.imported.name !== node.local.name) {
+      if (
+        node.imported.type !== "Identifier" ||
+        node.imported.name !== node.local.name
+      ) {
         context.report({ node, messageId: DEFAULT_MESSAGE_ID });
       }
     },
