@@ -43,5 +43,6 @@ export * from "a" // filename: /a/b/c/d/e.js
 export * from "./a" // filename: /a/b/c/d/e.js
 export {a} from "a" // filename: /a/b/c/d/e.js
 export {a} from "./a" // filename: /a/b/c/d/e.js
+import foo from "." // filename: /a/b/c/d/e.js
 ```
 <!-- prettier-ignore-end -->

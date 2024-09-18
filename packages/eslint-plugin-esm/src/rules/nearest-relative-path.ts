@@ -8,7 +8,11 @@ export const nearestRelativePath = createRule({
 });
 
 function check(filename: string, source: string) {
-  if (getSourceType(source) !== "local" || source.startsWith("/")) {
+  if (
+    getSourceType(source) !== "local" ||
+    source.startsWith("/") ||
+    source === "."
+  ) {
     return false;
   }
   const currentPath = path.dirname(filename);

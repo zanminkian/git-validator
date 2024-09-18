@@ -13,6 +13,7 @@ const valid = [
   'export * from "./a"',
   'export {a} from "a"',
   'export {a} from "./a"',
+  'import foo from "."',
 ].map((code) => ({ code, filename: "/a/b/c/d/e.js" }));
 
 const invalid = [
