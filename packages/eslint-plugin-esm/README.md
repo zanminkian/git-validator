@@ -28,7 +28,7 @@ import * as esm from "eslint-plugin-esm";
 export default [
   ...
   {
-    files: ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}"],
+    files: ["**/*.{js,mjs,jsx,ts,mts,tsx}"],
     plugins: { esm },
     rules: {
       "esm/no-git-ignored-imports": "error"
