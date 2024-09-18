@@ -207,6 +207,7 @@ export function typescript(project?: string) {
         "@typescript-eslint/only-throw-error": "error",
         "@typescript-eslint/prefer-as-const": "error",
         "@typescript-eslint/prefer-function-type": "error",
+        "@typescript-eslint/prefer-optional-chain": "error",
         "@typescript-eslint/prefer-readonly": "error",
         "@typescript-eslint/prefer-ts-expect-error": "error",
         "@typescript-eslint/restrict-plus-operands": [
