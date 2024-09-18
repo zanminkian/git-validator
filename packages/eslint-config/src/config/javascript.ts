@@ -446,7 +446,7 @@ export function javascript() {
         "unicorn/prefer-ternary": "error",
         "unicorn/throw-new-error": "error",
 
-        "@git-validator/arguments-length": "error",
+        "@git-validator/call-arguments-length": "error",
         "@git-validator/no-instanceof-builtin": "error",
         "@git-validator/no-restricted-loops": "error",
         "@git-validator/no-unnecessary-template-string": "error",

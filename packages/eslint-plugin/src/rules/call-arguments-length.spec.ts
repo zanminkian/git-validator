@@ -1,5 +1,5 @@
 import { test } from "../test.spec.js";
-import { argumentsLength } from "./arguments-length.js";
+import { callArgumentsLength } from "./call-arguments-length.js";
 
 const valid = [
   "push()",
@@ -41,4 +41,4 @@ const invalid = [
   "new Set(foo,bar)",
 ];
 
-test({ valid, invalid, ...argumentsLength });
+test({ valid, invalid, ...callArgumentsLength });

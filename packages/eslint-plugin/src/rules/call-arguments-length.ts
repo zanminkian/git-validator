@@ -135,4 +135,4 @@ const rule: Rule.RuleModule = {
   },
 };
 
-export const argumentsLength = { name, rule };
+export const callArgumentsLength = { name, rule };
