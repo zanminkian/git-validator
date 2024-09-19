@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "@git-validator/eslint-plugin": "workspace:*",
-    "@git-validator/eslint-plugin-packagejson": "workspace:*",
     "@git-validator/eslint-plugin-ts": "workspace:*",
     "@typescript-eslint/eslint-plugin": "7.16.1",
     "@typescript-eslint/parser": "7.16.1",
@@ -37,6 +36,7 @@
     "eslint-plugin-fp": "2.3.0",
     "eslint-plugin-import": "2.30.0",
     "eslint-plugin-n": "17.10.3",
+    "eslint-plugin-pkg-json": "workspace:*",
     "eslint-plugin-promise": "7.1.0",
     "eslint-plugin-publint": "workspace:*",
     "eslint-plugin-react": "7.36.1",

@@ -1,4 +1,4 @@
-import * as pkg from "@git-validator/eslint-plugin-packagejson";
+import * as pkg from "eslint-plugin-pkg-json";
 import * as publint from "eslint-plugin-publint";
 
 export function packagejson() {
@@ -6,25 +6,25 @@ export function packagejson() {
     {
       name: "git-validator/packagejson",
       files: ["**/package.json"],
-      processor: "packagejson/processor",
+      processor: "pkg-json/processor",
       plugins: {
-        packagejson: pkg,
+        "pkg-json": pkg,
         publint,
       },
       rules: {
-        "packagejson/bottom-default": "error",
-        "packagejson/exact-dependency-version": "error",
-        "packagejson/no-conflict-types": "error",
-        "packagejson/no-lifecycle-script": "error",
-        "packagejson/no-nonstandard-property": "error",
-        "packagejson/no-types-dependency-in-workspace-root": "error",
-        "packagejson/top-types": "error",
-        "packagejson/private-workspace-root": "error",
-        "packagejson/required-engines": "error",
-        "packagejson/required-hashbang": "error",
-        "packagejson/required-repository": "error",
-        "packagejson/type-module": "error",
-        "packagejson/no-dependencies-in-workspace-root": "error",
+        "pkg-json/bottom-default": "error",
+        "pkg-json/exact-dependency-version": "error",
+        "pkg-json/no-conflict-types": "error",
+        "pkg-json/no-lifecycle-script": "error",
+        "pkg-json/no-nonstandard-property": "error",
+        "pkg-json/no-types-dependency-in-workspace-root": "error",
+        "pkg-json/top-types": "error",
+        "pkg-json/private-workspace-root": "error",
+        "pkg-json/required-engines": "error",
+        "pkg-json/required-hashbang": "error",
+        "pkg-json/required-repository": "error",
+        "pkg-json/type-module": "error",
+        "pkg-json/no-dependencies-in-workspace-root": "error",
         // "publint/suggestion": "error",
         "publint/warning": "error",
         "publint/error": "error",
