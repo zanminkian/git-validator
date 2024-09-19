@@ -15,7 +15,7 @@ export const noDeclaresInTsFile = createSimpleRule({
   ],
   create: (context) => {
     const { filename, options } = context;
-    if (/.*\.d\.[mc]?ts$/.test(filename)) {
+    if (/.*\.d\.[mc]?tsx?$/.test(filename)) {
       return {};
     }
     return {
