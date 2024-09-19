@@ -1,5 +1,20 @@
 # @git-validator/eslint-config
 
+## 0.9.0
+
+### Minor Changes
+
+- d564959: refactor: migrate from `@git-validator/eslint-plugin-packagejson` to `eslint-plugin-pkg-json`
+
+### Patch Changes
+
+- d226f01: feat(eslint-config): add rule `@typescript-eslint/no-useless-empty-export`
+- Updated dependencies [9aa9d94]
+- Updated dependencies [d564959]
+- Updated dependencies [5fd6951]
+  - @git-validator/eslint-plugin-ts@0.2.4
+  - eslint-plugin-pkg-json@0.1.0
+
 ## 0.8.3
 
 ### Patch Changes

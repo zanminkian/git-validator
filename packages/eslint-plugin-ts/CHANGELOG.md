@@ -1,5 +1,12 @@
 # @git-validator/eslint-plugin-ts
 
+## 0.2.4
+
+### Patch Changes
+
+- 9aa9d94: fix(eslint-plugin-ts): ignore declaration files for `no-declares-in-ts-file`
+- 5fd6951: fix(eslint-plugin-ts): do not ignore non-ts file for `no-export-assignment`
+
 ## 0.2.3
 
 ### Patch Changes
