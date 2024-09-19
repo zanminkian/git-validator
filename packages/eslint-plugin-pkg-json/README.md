@@ -23,7 +23,7 @@ ESLint plugin for linting `package.json` file.
 Install
 
 ```sh
-pnpm add -D eslint eslint-plugin-pkg-json
+npm i eslint eslint-plugin-pkg-json -D
 ```
 
 Config `eslint.config.js`
