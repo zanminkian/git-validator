@@ -1,11 +1,8 @@
 import { test } from "../test.spec.js";
 import { noExportAssignment } from "./no-export-assignment.js";
 
-const valid = [
-  { code: "export default {}", filename: "test.ts" },
-  { code: "export = {}", filename: "test.js" },
-];
+const valid = ["export default {}", "exports = {}", "module.exports = {}"];
 
-const invalid = [{ code: "export = {}", filename: "test.ts" }];
+const invalid = ["export = {}"];
 
 test({ valid, invalid, ...noExportAssignment });
