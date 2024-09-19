@@ -459,6 +459,7 @@ export function javascript() {
             "ts-nocheck": true,
           },
         ],
+        "@typescript-eslint/no-useless-empty-export": "error",
       },
     },
     {
