@@ -61,11 +61,13 @@ await describe("ts config", async () => {
       }
     });
   });
-  await it("ts rest configs rules values should be off", () => {
-    const [, ...restConfigs] = typescript();
+
+  await it("ts rest configs rules should exist in main rules", () => {
+    const [main, ...restConfigs] = typescript();
     restConfigs.forEach((restConfig) => {
-      Object.entries(restConfig.rules).forEach(([_key, value]) => {
-        assert.strictEqual(getValueString(value), "off");
+      Object.entries(restConfig.rules).forEach(([key, value]) => {
+        assert.strictEqual(key in main.rules, true);
+        assert.notDeepStrictEqual(value, Reflect.get(main.rules, key));
       });
     });
   });
