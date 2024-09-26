@@ -254,6 +254,7 @@ export function typescript(project?: string) {
       rules: {
         "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/unbound-method": "off",
+        "esm/no-phantom-dep-imports": ["error", { allowDevDependencies: true }],
       },
     },
   ] as const;

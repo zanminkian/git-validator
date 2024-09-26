@@ -469,5 +469,16 @@ export function javascript() {
         "import/no-default-export": "off",
       },
     },
+    {
+      // https://github.com/motemen/minimatch-cheat-sheet
+      name: "git-validator/javascript/test",
+      files: [
+        "**/__tests__/**/*.{js,cjs,mjs,jsx}",
+        "**/*.{test,spec}.{js,cjs,mjs,jsx}",
+      ],
+      rules: {
+        "esm/no-phantom-dep-imports": ["error", { allowDevDependencies: true }],
+      },
+    },
   ] as const;
 }

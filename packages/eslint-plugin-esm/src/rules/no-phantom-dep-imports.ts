@@ -1,13 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
-import {
-  create,
-  createRule,
-  getRuleName,
-  getSourceType,
-  type ImportationNode,
-} from "../common.js";
+import { create, createRule, getRuleName, getSourceType } from "../common.js";
 
 function isObject(value: unknown) {
   return value !== null && typeof value === "object";
@@ -52,39 +46,62 @@ export const noPhantomDepImports = createRule({
   name: getRuleName(import.meta.url),
   message:
     "Disallow importing from a module which the nearest `package.json` doesn't include it.",
-  create: (context) => create(context, check),
+  schema: [
+    {
+      type: "object",
+      properties: {
+        allowDevDependencies: { type: "boolean" },
+      },
+      additionalProperties: false,
+    },
+  ],
+  create: (context) =>
+    create(context, (filename, source, node) => {
+      const {
+        allowDevDependencies = false,
+      }: { allowDevDependencies: boolean } = context.options[0] ?? {};
+
+      // ignore `import {foo} from './'`
+      if (getSourceType(source) !== "module") {
+        return false;
+      }
+      const pkgJson = getPkgJson(path.dirname(filename));
+      // cannot find package.json file
+      if (!pkgJson) {
+        return true;
+      }
+      const dep =
+        "dependencies" in pkgJson.content &&
+        isObject(pkgJson.content.dependencies)
+          ? pkgJson.content.dependencies
+          : {};
+      const devDep =
+        "devDependencies" in pkgJson.content &&
+        isObject(pkgJson.content.devDependencies)
+          ? pkgJson.content.devDependencies
+          : {};
+
+      const moduleName = source
+        .split("/")
+        .slice(0, source.startsWith("@") ? 2 : 1)
+        .join("/");
+
+      if ("importKind" in node && node.importKind === "type") {
+        return moduleName.startsWith("@") && moduleName.includes("/")
+          ? !(
+              moduleName in dep ||
+              moduleName in devDep ||
+              `@types/${moduleName.slice(1).replace("/", "_")}` in devDep
+            )
+          : !(
+              moduleName in dep ||
+              moduleName in devDep ||
+              `@types/${moduleName}` in devDep
+            );
+      } else {
+        return allowDevDependencies
+          ? !(moduleName in dep || moduleName in devDep)
+          : !(moduleName in dep);
+      }
+    }),
 });
-
-function check(filename: string, source: string, node: ImportationNode) {
-  // ignore `import type {foo} from 'foo'`
-  if ("importKind" in node && node.importKind === "type") {
-    return false;
-  }
-  // ignore `import {foo} from './'`
-  if (getSourceType(source) !== "module") {
-    return false;
-  }
-  const pkgJson = getPkgJson(path.dirname(filename));
-  // cannot find package.json file
-  if (!pkgJson) {
-    return true;
-  }
-  const dep =
-    "dependencies" in pkgJson.content && isObject(pkgJson.content.dependencies)
-      ? pkgJson.content.dependencies
-      : {};
-  const devDep =
-    "devDependencies" in pkgJson.content &&
-    isObject(pkgJson.content.devDependencies)
-      ? pkgJson.content.devDependencies
-      : {};
-
-  const moduleName = source
-    .split("/")
-    .slice(0, source.startsWith("@") ? 2 : 1)
-    .join("/");
-  if (["test", "spec"].includes(filename.split(".").at(-2) ?? "")) {
-    return !(moduleName in dep || moduleName in devDep);
-  }
-  return !(moduleName in dep);
-}

@@ -7,27 +7,28 @@ import type {
   ImportDeclaration,
   ImportExpression,
 } from "estree";
+import type { JSONSchema4 } from "json-schema";
 
 export const DEFAULT_MESSAGE_ID = "default";
 
 export function createRule({
   name,
   message,
-  // schema,
+  schema,
   fixable,
   type = "suggestion",
   create,
 }: {
   name: string;
   message: string;
-  // schema?: JSONSchema4[];
+  schema?: JSONSchema4[];
   fixable?: Rule.RuleMetaData["fixable"];
   type?: Rule.RuleMetaData["type"];
   create: (context: Rule.RuleContext) => Rule.RuleListener;
 }): { name: string; rule: Rule.RuleModule } {
   const rule: Rule.RuleModule = {
     meta: {
-      // ...(schema && { schema }),
+      ...(schema && { schema }),
       ...(fixable && { fixable }),
       messages: {
         [DEFAULT_MESSAGE_ID]: message,

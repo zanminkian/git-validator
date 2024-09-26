@@ -7,7 +7,9 @@ import { fileURLToPath } from "node:url";
 import { RuleTester, type Rule } from "eslint";
 import { outdent } from "outdent";
 
-export type TestCase = string | { code: string; filename?: string };
+export type TestCase =
+  | string
+  | { code: string; filename?: string; options?: unknown };
 
 const tester = new RuleTester({
   parser: createRequire(import.meta.url).resolve("@typescript-eslint/parser"),
@@ -34,6 +36,9 @@ export async function test({
           tester.run(name, rule, {
             valid: [testCase],
             invalid: [],
+            ...(typeof testCase === "object" && testCase.options
+              ? { options: testCase.options }
+              : {}),
           });
         });
       }),
@@ -48,6 +53,9 @@ export async function test({
           tester.run(name, rule, {
             valid: [],
             invalid: [{ code, errors, filename }],
+            ...(typeof testCase === "object" && testCase.options
+              ? { options: testCase.options }
+              : {}),
           });
         });
       }),
@@ -73,11 +81,16 @@ async function genDoc({
       .map((testCase) =>
         typeof testCase === "string" ? { code: testCase } : testCase,
       )
-      .map((testCase) =>
-        testCase.filename
-          ? `${testCase.code} // filename: ${testCase.filename}`
-          : testCase.code,
-      )
+      .map((testCase) => {
+        if (!testCase.filename && !testCase.options) {
+          return testCase.code;
+        }
+        const filename = testCase.filename && `filename: ${testCase.filename}`;
+        const options =
+          testCase.options && `options: ${JSON.stringify(testCase.options)}`;
+        const comment = [filename, options].filter((i) => !!i).join(", ");
+        return `${testCase.code} // ${comment}`;
+      })
       .join("\n");
   const mdContent = outdent`
     <!-- prettier-ignore-start -->

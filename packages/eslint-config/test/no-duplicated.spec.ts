@@ -20,7 +20,12 @@ await describe("no duplicated", async () => {
     );
 
     Object.keys(javascript()[0].rules)
-      .filter((rule) => !["import/no-default-export"].includes(rule))
+      .filter(
+        (rule) =>
+          !["import/no-default-export", "esm/no-phantom-dep-imports"].includes(
+            rule,
+          ),
+      )
       .forEach((rule) => {
         assert.strictEqual(count(configContent, rule), 1);
       });
