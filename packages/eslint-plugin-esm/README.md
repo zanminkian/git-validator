@@ -8,6 +8,12 @@
 
 ESLint plugin for linting ESM (import/export syntax)
 
+## Feature
+
+- Faster than `eslint-plugin-import`.
+- Easier than `eslint-plugin-import`
+- Zero dependencies.
+
 ## Requirement
 
 - ESLint >= 8.57.0

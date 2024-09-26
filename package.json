@@ -14,7 +14,7 @@
     "test": "pnpm -r test && pnpm style"
   },
   "devDependencies": {
-    "@changesets/cli": "2.27.8",
+    "@changesets/cli": "2.27.9",
     "git-validator": "workspace:*",
     "globstar": "1.0.0",
     "typescript": "5.5.4"
