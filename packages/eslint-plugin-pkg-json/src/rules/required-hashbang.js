@@ -9,7 +9,7 @@ export const rule = {
     },
   },
   create: (context) => ({
-    "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
+    "Program > ExpressionStatement > ObjectExpression": (node) => {
       const bin = node.properties.find((p) => p.key.value === "bin");
       if (!bin) {
         return;

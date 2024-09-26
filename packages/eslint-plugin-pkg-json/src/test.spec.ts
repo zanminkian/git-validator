@@ -31,10 +31,10 @@ export async function test({
         .map((item) =>
           typeof item !== "string"
             ? {
-                code: `export default ${item.code}`,
+                code: `(${item.code})`,
                 filename: item.filename,
               }
-            : { code: `export default ${item}` },
+            : { code: `(${item})` },
         )
         .map(async (item) => {
           await it(item.code, () => {
@@ -51,10 +51,10 @@ export async function test({
         .map((item) =>
           typeof item !== "string"
             ? {
-                code: `export default ${item.code}`,
+                code: `(${item.code})`,
                 filename: item.filename,
               }
-            : { code: `export default ${item}` },
+            : { code: `(${item})` },
         )
         .map(async (item) => {
           await it(item.code, () => {

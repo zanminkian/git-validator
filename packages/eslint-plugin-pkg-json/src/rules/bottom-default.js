@@ -9,8 +9,8 @@ export const rule = {
     },
   },
   create: (context) => ({
-    "Program > ExportDefaultDeclaration ObjectExpression": (node) => {
-      if (node.parent.type === "ExportDefaultDeclaration") {
+    "Program > ExpressionStatement ObjectExpression": (node) => {
+      if (node.parent.type === "ExpressionStatement") {
         return;
       }
       const index = node.properties.findIndex((p) => p.key.value === "default");

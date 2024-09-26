@@ -16,7 +16,7 @@ export const rule = {
       return {};
     }
     return {
-      "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
+      "Program > ExpressionStatement > ObjectExpression": (node) => {
         const privateProperty = node.properties.find(
           (p) => p.key.value === "private",
         );

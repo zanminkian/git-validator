@@ -17,7 +17,7 @@ export const rule = {
       return {};
     }
     return {
-      "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
+      "Program > ExpressionStatement > ObjectExpression": (node) => {
         const engines = node.properties.find((p) => p.key.value === "engines");
         if (!engines) {
           return context.report({ node, messageId: name });

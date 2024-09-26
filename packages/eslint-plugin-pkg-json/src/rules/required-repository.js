@@ -10,7 +10,7 @@ export const rule = {
     },
   },
   create: (context) => ({
-    "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
+    "Program > ExpressionStatement > ObjectExpression": (node) => {
       if (
         node.properties.find((p) => p.key.value === "private")?.value?.value ===
         true

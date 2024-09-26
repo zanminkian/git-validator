@@ -55,7 +55,7 @@ export const rule = {
     },
   },
   create: (context) => ({
-    "Program > ExportDefaultDeclaration > ObjectExpression": (node) => {
+    "Program > ExpressionStatement > ObjectExpression": (node) => {
       node.properties
         .filter((property) => !standardProperties.has(property.key.value))
         .forEach((property) => {

@@ -12,7 +12,7 @@ export function createRule(type: MessageType): Rule.RuleModule {
       const filteredMessages = messages.filter((msg) => msg.type === type);
       if (filteredMessages.length <= 0) return {};
       return {
-        "Program > ExportDefaultDeclaration > ObjectExpression": (
+        "Program > ExpressionStatement > ObjectExpression": (
           node: ObjectExpression,
         ) => {
           filteredMessages.forEach((msg) => {
