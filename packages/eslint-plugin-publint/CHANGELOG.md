@@ -1,5 +1,11 @@
 # eslint-plugin-publint
 
+## 0.0.3
+
+### Patch Changes
+
+- 44584fa: refactor(eslint-plugin-publint,eslint-plugin-pkg-json): change export default to statement
+
 ## 0.0.2
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @git-validator/eslint-config
 
+## 0.9.1
+
+### Patch Changes
+
+- 28edf1c: feat(eslint-plugin-esm)!: support `allowDevDependencies` option
+- Updated dependencies [44584fa]
+- Updated dependencies [28edf1c]
+  - eslint-plugin-pkg-json@0.1.1
+  - eslint-plugin-publint@0.0.3
+  - eslint-plugin-esm@0.2.0
+
 ## 0.9.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # eslint-plugin-esm
 
+## 0.2.0
+
+### Minor Changes
+
+- 28edf1c: feat(eslint-plugin-esm)!: support `allowDevDependencies` option
+
 ## 0.1.1
 
 ### Patch Changes
