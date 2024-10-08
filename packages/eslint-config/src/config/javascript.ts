@@ -438,7 +438,7 @@ export function javascript() {
         "unicorn/no-unreadable-iife": "error",
         "unicorn/no-useless-spread": "error",
         "unicorn/prefer-array-flat-map": "error",
-        // "unicorn/prefer-global-this": "error", // TODO: wait for it
+        "unicorn/prefer-global-this": "error",
         "unicorn/prefer-includes": "error",
         "unicorn/prefer-module": "error",
         "unicorn/prefer-number-properties": "error",
