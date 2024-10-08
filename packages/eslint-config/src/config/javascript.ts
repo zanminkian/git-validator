@@ -430,6 +430,7 @@ export function javascript() {
         "unicorn/new-for-builtins": "error",
         "unicorn/no-abusive-eslint-disable": "error",
         "unicorn/no-array-callback-reference": "error",
+        "unicorn/no-array-method-this-argument": "error",
         "unicorn/no-for-loop": "error",
         "unicorn/no-instanceof-array": "error",
         "unicorn/no-new-array": "error",

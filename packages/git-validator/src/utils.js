@@ -147,6 +147,7 @@ export async function getBinPath(moduleName, cliName = moduleName) {
   const packageJsonPath = createRequire(import.meta.url).resolve(
     `${moduleName}/package.json`,
   );
+  /** @type {any} */
   const packageJson = JSON.parse(await fs.readFile(packageJsonPath, "utf8"));
   const modulePath = packageJsonPath.slice(0, -"/package.json".length);
   const binPath =
