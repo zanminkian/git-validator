@@ -1,0 +1,26 @@
+{
+  "name": "fenge",
+  "version": "0.0.0",
+  "description": "The best practice about using TypeScript, ESLint and Prettier",
+  "keywords": [
+    "typescript",
+    "eslint",
+    "prettier",
+    "style",
+    "code-style",
+    "validator",
+    "pre-commit",
+    "husky",
+    "lint-staged",
+    "xo",
+    "standard"
+  ],
+  "homepage": "https://github.com/zanminkian/fenge",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zanminkian/fenge.git"
+  },
+  "license": "MIT",
+  "author": "hellozmj@qq.com",
+  "type": "module"
+}
