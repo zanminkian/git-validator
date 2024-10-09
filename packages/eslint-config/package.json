@@ -44,7 +44,7 @@
     "eslint-plugin-simple-import-sort": "12.1.1",
     "eslint-plugin-sonarjs": "1.0.4",
     "eslint-plugin-unicorn": "56.0.0",
-    "globals": "15.10.0"
+    "globals": "15.11.0"
   },
   "devDependencies": {
     "@swc-node/register": "1.10.0",
