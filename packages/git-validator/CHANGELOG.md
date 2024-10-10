@@ -1,5 +1,23 @@
 # git-validator
 
+## 0.21.0
+
+### Minor Changes
+
+- b52d915: refactor(git-validator)!: remove `commitlint`
+
+  BREAKING CHANGE: We now remove `commitlint`. It means this tool will not check commit message on git `commit-msg` stage. We encourage to use [git-commit-msg-linter](https://www.npmjs.com/package/git-commit-msg-linter) as the alternative. After upgrading this tool, you will need to delete `commit-msg` file in the `.git/hooks` folder of the project root.
+
+### Patch Changes
+
+- 7c26453: fix: correct the peerDependencies
+- Updated dependencies [332239c]
+- Updated dependencies [b1ae4aa]
+- Updated dependencies [edd988d]
+- Updated dependencies [89ef8e9]
+  - @git-validator/prettier-config@0.6.0
+  - @git-validator/eslint-config@0.9.2
+
 ## 0.20.10
 
 ### Patch Changes
