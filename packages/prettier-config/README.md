@@ -12,7 +12,7 @@ An elegant prettier shareable config.
 
 - Elegant. One-line of config.
 - Compatible with default prettier config `{}`. Only introduced some plugins.
-- Enforce consistent brace style. Powered by `prettier-plugin-curly`.
+- ~~Enforce consistent brace style. Powered by `prettier-plugin-curly`.~~
 - Sort `package.json`. Powered by `prettier-plugin-packagejson`.
 - Sort imports. Powered by `@ianvs/prettier-plugin-sort-imports`.
 - Sort Tailwind CSS classes. Powered by `prettier-plugin-tailwindcss`.

@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.3.1",
-    "prettier-plugin-curly": "0.2.2",
     "prettier-plugin-packagejson": "2.5.3",
     "prettier-plugin-tailwindcss": "0.6.8"
   },
