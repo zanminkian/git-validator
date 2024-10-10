@@ -44,51 +44,14 @@ async function writePreCommit({ noEslint, noPrettier }) {
   await writeGitHook("pre-commit", content);
 }
 
-async function writeCommitMsg() {
-  const content = [
-    "#!/bin/sh",
-    `${await getBinPath("@commitlint/cli", "commitlint")} --config ${path.join(
-      dir(import.meta.url),
-      "..",
-      "config",
-      "commitlint.config.js",
-    )} --edit`,
-  ].join("\n");
-
-  await writeGitHook("commit-msg", content);
-}
-
-/**
- * @param {string} cmd
- */
-async function writePrePush(cmd) {
-  const content = ["#!/bin/sh", cmd].join("\n");
-
-  await writeGitHook("pre-push", content);
-}
-
 /**
  * @param {{preCommit: boolean, commitMsg: boolean, prePush: string, eslint: boolean, prettier: boolean}} options
  */
-export async function install({
-  preCommit,
-  commitMsg,
-  prePush,
-  eslint,
-  prettier,
-}) {
+export async function install({ eslint, prettier }) {
   if (!eslint && !prettier) {
     throw new Error(
       "'--no-eslint' and '--no-prettier' should not be used at the same time",
     );
   }
-  if (preCommit) {
-    await writePreCommit({ noEslint: !eslint, noPrettier: !prettier });
-  }
-  if (commitMsg) {
-    await writeCommitMsg();
-  }
-  if (prePush) {
-    await writePrePush(prePush);
-  }
+  await writePreCommit({ noEslint: !eslint, noPrettier: !prettier });
 }

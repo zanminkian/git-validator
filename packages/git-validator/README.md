@@ -15,13 +15,12 @@
 ## Features
 
 - Check code style (using ESLint and Prettier under the hood).
-- Check git commit message (using commitlint under the hood).
 - Set up git hooks to automatically check code style and commit message.
 
 ## Highlights
 
-- 🔧 **Zero Configuration**: **ZERO** configuration file is needed, while still allowing customization of `eslint`, `prettier` and `commitlint` rules.
-- 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple. You don't need `eslint`, `prettier`, `commitlint`, `lint-staged`, `husky` any more.
+- 🔧 **Zero Configuration**: **ZERO** configuration file is needed, while still allowing customization of `eslint` and `prettier` rules.
+- 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple. You don't need `eslint`, `prettier`, `lint-staged` any more.
 - 🚀 **Simple to use**: Only **TWO** steps required: set up `scripts` and run it once.
 
 ## Requirement
@@ -84,34 +83,6 @@ This tool has integrated [@git-validator/tsconfig](https://www.npmjs.com/package
 
 For more best practices, please refer to the [document](https://www.npmjs.com/package/@git-validator/tsconfig) of `@git-validator/tsconfig`.
 
-### CLI
-
-There are some convenient built-in commands to lint and format code (using eslint and prettier under the hood). You can run `npx git-validator -h` for more details.
-
-```
-Usage: git-validator [options] [command] [paths...]
-
-lint & format code using eslint & prettier
-
-Arguments:
-  paths                        dir or file paths to format and lint
-
-Options:
-  -V, --version                output the version number
-  -f, --fix                    automatically fix problems using eslint
-  -w, --write                  automatically format code using prettier
-  -u, --update                 automatically fix problems and format code using eslint and prettier
-  -d, --dry-run                print what command will be executed under the hood instead of executing
-  -h, --help                   display help for command
-
-Commands:
-  lint [options] [paths...]    lint code using eslint
-  format [options] [paths...]  format code using prettier
-  install [options]            install git-validator config files by writing git hook files to .git/hooks
-  init-tsconfig [options]      init a tsconfig file
-  diff-tsconfig [options]      show differences between recommended tsconfig and current project tsconfig
-```
-
 ### Customizing Linting & Formatting Rules
 
 The default linting rule is [@git-validator/eslint-config](https://www.npmjs.com/package/@git-validator/eslint-config) and the default formatting rule is [@git-validator/prettier-config](https://www.npmjs.com/package/@git-validator/prettier-config). You can add `eslint.config.js` and `prettier.config.js` in the root of project to apply your own linting & formatting rules.
@@ -147,17 +118,6 @@ By default, you don't need `.eslintignore` and `.prettierignore` files in the ro
 
 > We recommend you to use this tool in zero configs. If you have better suggestions about linting and formatting rules, please submit the issue or PR. Any reasonable suggestions are welcome!
 
-### Customizing Commit Message Rules
-
-By default, this tool requires your commit messages to follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines. You can customize it by adding `commitlint.config.js` file in the root of project.
-
-`commitlint.config.js` example.
-
-```js
-// You may need to install '@commitlint/config-angular' first
-export default { extends: ["@commitlint/config-angular"] };
-```
-
 ### Customizing `lint-staged.config.js`
 
 When you commit your code, each file will be linted & formatted by `npx git-validator -w` command. You can change this rule by adding a `lint-staged.config.js` file in the root of your project. Here is an example.
@@ -171,30 +131,6 @@ export default {
 ```
 
 ## Advanced Usage
-
-### Setup `pre-push` Stage
-
-Running `git-validator install` writes `commit-msg` and `pre-commit` files only. As git `pre-push` stage is widely used, you can run `git-validator install --pre-push <cmd>` to set up git `pre-push` stage additionally.
-
-```json
-{
-  "scripts": {
-    "prepare": "git-validator install --pre-push 'npm run test'"
-  }
-}
-```
-
-### Skipping installation
-
-If you don't want to check git commit messages, adding the `--no-commit-msg` option will skip writing `${PROJECT_ROOT}/.git/hooks/commit-msg` file. Similarly, adding the `--no-pre-commit` option will skip writing `${PROJECT_ROOT}/.git/hooks/pre-commit` file. Here is an example:
-
-```json
-{
-  "scripts": {
-    "prepare": "git-validator install --no-commit-msg"
-  }
-}
-```
 
 ### Skipping linting or formatting on `pre-commit` stage
 
@@ -224,14 +160,7 @@ When you commit you code, it will lint (using `eslint`) code first and then form
 
 ### Working with `husky`
 
-This library can work as a standalone package. However, if you have Husky 5 or a later version installed, you'll need to manually add `.husky/commit-msg` and `.husky/pre-commit`, as Husky will ignore the `.git/hooks/commit-msg` and `.git/hooks/pre-commit`:
-
-```sh
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-.git/hooks/commit-msg $1
-```
+This library can work as a standalone package. However, if you have Husky 5 or a later version installed and you have run `git-validator install`, you should add `.husky/pre-commit` file:
 
 ```sh
 #!/usr/bin/env sh

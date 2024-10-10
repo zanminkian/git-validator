@@ -42,8 +42,6 @@
     "build": "tsc --noEmit -p tsconfig.build.json"
   },
   "dependencies": {
-    "@commitlint/cli": "19.5.0",
-    "@commitlint/config-conventional": "19.5.0",
     "@git-validator/eslint-config": "workspace:*",
     "@git-validator/prettier-config": "workspace:*",
     "@git-validator/tsconfig": "workspace:*",
