@@ -45,7 +45,7 @@ async function writePreCommit({ noEslint, noPrettier }) {
 }
 
 /**
- * @param {{preCommit: boolean, commitMsg: boolean, prePush: string, eslint: boolean, prettier: boolean}} options
+ * @param {{eslint: boolean, prettier: boolean}} options
  */
 export async function install({ eslint, prettier }) {
   if (!eslint && !prettier) {

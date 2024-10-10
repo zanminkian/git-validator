@@ -14,14 +14,17 @@
 
 ## Features
 
+This is a cli tool with following features.
+
 - Check code style (using ESLint and Prettier under the hood).
-- Set up git hooks to automatically check code style and commit message.
+- Provide the strictest `tsconfig` and type guard preset for TypeScript project.
+- Set up git hooks to automatically check code style.
 
 ## Highlights
 
 - 🔧 **Zero Configuration**: **ZERO** configuration file is needed, while still allowing customization of `eslint` and `prettier` rules.
 - 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple. You don't need `eslint`, `prettier`, `lint-staged` any more.
-- 🚀 **Simple to use**: Only **TWO** steps required: set up `scripts` and run it once.
+- 🚀 **Simple to use**: **TWO** core commands: `git-validator -u` and `git-validator install`.
 
 ## Requirement
 
@@ -30,7 +33,7 @@
 
 ## Quick Start
 
-Run this command in your project to check code.
+Run this command in your project to check the codebase code style.
 
 ```sh
 npx git-validator
@@ -40,10 +43,10 @@ Usually, we recommend you to install it and set it up in your project. Please co
 
 ## Install
 
-Run command below in **the root of your project** to install this tool. You can replace pnpm with npm or yarn if you want.
+Run command below in **the root of your project** to install this tool.
 
 ```bash
-pnpm add -D git-validator
+npm install -D git-validator
 ```
 
 ## Usage
@@ -63,10 +66,10 @@ Edit `package.json > prepare` script and run it once.
 ```
 
 ```sh
-pnpm run prepare
+npm run prepare
 ```
 
-Now you can commit code (using Git) to your project. Invalid code or commit messages will be automatically blocked.
+After running `git-validator install`, each commit (using Git) will check the committed files' code style.
 
 Powered by [@git-validator/eslint-config](https://www.npmjs.com/package/@git-validator/eslint-config), we now support `.js` / `.mjs` / `.cjs` / `.jsx` / `.ts` / `.mts` / `.cts` / `.tsx` / `package.json` by default.
 
@@ -94,11 +97,9 @@ The default linting rule is [@git-validator/eslint-config](https://www.npmjs.com
 import { Builder } from "@git-validator/eslint-config";
 
 export default new Builder()
+  .enableJavascript()
   .enableTypescript({
-    select: {
-      mode: "omit",
-      rules: ["no-plusplus"], // Omit the rules as you want
-    },
+    omit: ["no-var"], // Omit the rules as you want
   })
   .toConfig();
 ```
@@ -140,9 +141,7 @@ When you commit you code, it will lint (using `eslint`) code first and then form
 {
   "scripts": {
     // it will not lint code and will only format code when you commit your code
-    "prepare": "git-validator install --no-eslint",
-    "format": "git-validator format",
-    "format:update": "git-validator format -u"
+    "prepare": "git-validator install --no-eslint"
   }
 }
 ```
@@ -151,9 +150,7 @@ When you commit you code, it will lint (using `eslint`) code first and then form
 {
   "scripts": {
     // it will not format code and will only lint code when you commit your code
-    "prepare": "git-validator install --no-prettier",
-    "lint": "git-validator lint",
-    "lint:update": "git-validator lint -u"
+    "prepare": "git-validator install --no-prettier"
   }
 }
 ```
