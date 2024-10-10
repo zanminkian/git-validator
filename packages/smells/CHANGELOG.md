@@ -1,5 +1,11 @@
 # smells
 
+## 0.0.3
+
+### Patch Changes
+
+- 7c26453: fix: correct the peerDependencies
+
 ## 0.0.2
 
 ### Patch Changes

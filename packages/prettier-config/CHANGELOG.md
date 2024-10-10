@@ -1,5 +1,15 @@
 # @git-validator/prettier-config
 
+## 0.6.0
+
+### Minor Changes
+
+- edd988d: fix(prettier-config): remove `prettier-plugin-curly` as it doesn't work
+
+### Patch Changes
+
+- 332239c: chore: upgrade deps
+
 ## 0.5.1
 
 ### Patch Changes

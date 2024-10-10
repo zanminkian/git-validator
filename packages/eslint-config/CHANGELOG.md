@@ -1,5 +1,12 @@
 # @git-validator/eslint-config
 
+## 0.9.2
+
+### Patch Changes
+
+- b1ae4aa: feat(eslint-config): enable `unicorn/prefer-global-this`
+- 89ef8e9: feat(eslint-config): add rule `unicorn/no-array-method-this-argument`
+
 ## 0.9.1
 
 ### Patch Changes
