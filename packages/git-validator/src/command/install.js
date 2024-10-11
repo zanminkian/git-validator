@@ -45,13 +45,13 @@ async function writePreCommit({ noEslint, noPrettier }) {
 }
 
 /**
- * @param {{eslint: boolean, prettier: boolean}} options
+ * @param {{lint: boolean, format: boolean}} options
  */
-export async function install({ eslint, prettier }) {
-  if (!eslint && !prettier) {
+export async function install({ lint, format }) {
+  if (!lint && !format) {
     throw new Error(
-      "'--no-eslint' and '--no-prettier' should not be used at the same time",
+      "'--no-lint' and '--no-format' should not be used at the same time",
     );
   }
-  await writePreCommit({ noEslint: !eslint, noPrettier: !prettier });
+  await writePreCommit({ noEslint: !lint, noPrettier: !format });
 }

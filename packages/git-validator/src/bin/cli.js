@@ -15,13 +15,16 @@ const program = new Command().enablePositionalOptions();
 program
   .name(pkgJson.name)
   .version(pkgJson.version)
-  .description("lint & format code using eslint & prettier")
-  .option("-f, --fix", "automatically fix problems using eslint")
-  .option("-w, --write", "automatically format code using prettier")
+  .description("format and then lint code")
   .option(
-    "-u, --update",
-    "automatically fix problems and format code using eslint and prettier",
+    "-f, --fix",
+    "automatically fix linting problems only, will not format code",
   )
+  .option(
+    "-w, --write",
+    "automatically format code only, will not fix linting problems",
+  )
+  .option("-u, --update", "automatically format code and fix linting problems")
   .option(
     "-d, --dry-run",
     "print what command will be executed under the hood instead of executing",
@@ -37,8 +40,8 @@ program
 
 program
   .command("lint")
-  .description("lint code using eslint")
-  .option("-f, --fix", "automatically fix problems")
+  .description("lint code")
+  .option("-f, --fix", "automatically fix linting problems")
   .option("-u, --update", "alias for '--fix' option")
   .option(
     "-d, --dry-run",
@@ -49,7 +52,7 @@ program
 
 program
   .command("format")
-  .description("format code using prettier")
+  .description("format code")
   .option("-w, --write", "automatically format code")
   .option("-u, --update", "alias for '--write' option")
   .option(
@@ -61,15 +64,11 @@ program
 
 program
   .command("install")
-  .description("write `pre-commit` hook file into `.git/hooks` folder")
-  .option(
-    "--no-prettier",
-    "skip formatting code using prettier on git 'pre-commit' stage",
+  .description(
+    "write `pre-commit` hook file into `.git/hooks` folder, after that, the committed code will be formatted and linted",
   )
-  .option(
-    "--no-eslint",
-    "skip linting code using eslint on git 'pre-commit' stage",
-  )
+  .option("--no-format", "skip formatting code on git 'pre-commit' stage")
+  .option("--no-lint", "skip linting code on git 'pre-commit' stage")
   .action(async (options) => await install(options));
 
 setup(program, {

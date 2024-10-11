@@ -130,13 +130,13 @@ export default {
 
 ### Skipping linting or formatting on `pre-commit` stage
 
-When you commit you code, it will lint (using `eslint`) code first and then format (using `prettier`) code. If you want to skip one of them, you can pass `--no-eslint` or `--no-prettier` option when running `git install`.
+When you commit you code, it will lint (using `eslint`) code first and then format (using `prettier`) code. If you want to skip one of them, you can pass `--no-lint` or `--no-format` option when running `git install`.
 
 ```json
 {
   "scripts": {
     // it will not lint code and will only format code when you commit your code
-    "prepare": "git-validator install --no-eslint"
+    "prepare": "git-validator install --no-lint"
   }
 }
 ```
@@ -145,7 +145,7 @@ When you commit you code, it will lint (using `eslint`) code first and then form
 {
   "scripts": {
     // it will not format code and will only lint code when you commit your code
-    "prepare": "git-validator install --no-prettier"
+    "prepare": "git-validator install --no-format"
   }
 }
 ```
