@@ -11,6 +11,17 @@ import sortKeys from "sort-keys";
 /**
  * @param {string} filepath
  */
+async function importJson(filepath) {
+  const absolutePath = path.resolve(
+    path.dirname(fileURLToPath(import.meta.url)),
+    filepath,
+  );
+  return JSON.parse(await fs.readFile(absolutePath, "utf8"));
+}
+
+/**
+ * @param {string} filepath
+ */
 async function exists(filepath) {
   return await fs
     .access(filepath)
@@ -23,7 +34,7 @@ async function exists(filepath) {
  */
 export async function initAction(options) {
   const generatingTsconfigContent = `{
-  "extends": "${options.ext ?? "@git-validator/tsconfig"}",
+  "extends": "${options.ext ?? (await importJson("../package.json")).name}",
   "include": ["src"],
   "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }
