@@ -22,11 +22,11 @@ export async function exists(filepath) {
 
 /**
  * Get current directory of the js file
- * Usage: `dir(import.meta.utl)`
- * @param {string} url
+ * Usage: `dir(import.meta.url)`
+ * @param {string} importMetaUrl
  */
-export function dir(url) {
-  return path.dirname(fileURLToPath(url));
+export function dir(importMetaUrl) {
+  return path.dirname(fileURLToPath(importMetaUrl));
 }
 
 /**

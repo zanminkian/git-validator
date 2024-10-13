@@ -1,5 +1,7 @@
 // @ts-check
-import { resolveConfig } from "../utils.js";
+import path from "node:path";
+import { dir, resolveConfig } from "../utils.js";
 
-const defaultConfig = { "*": ["./node_modules/.bin/git-validator lint"] };
+const cliPath = path.resolve(dir(import.meta.url), "..", "bin", "cli.js");
+const defaultConfig = { "*": [`${cliPath} lint`] };
 export default (await resolveConfig("lint-staged"))?.config ?? defaultConfig;

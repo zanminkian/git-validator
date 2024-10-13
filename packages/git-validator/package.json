@@ -35,8 +35,8 @@
     "./tsconfig/*": "./tsconfig/*"
   },
   "bin": {
-    "git-validator": "./src/bin/git-validator.js",
-    "gv": "./src/bin/git-validator.js"
+    "git-validator": "./src/bin/cli.js",
+    "gv": "./src/bin/cli.js"
   },
   "scripts": {
     "build": "tsc --noEmit -p tsconfig.build.json"

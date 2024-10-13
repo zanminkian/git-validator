@@ -13,7 +13,7 @@ const pkgJson = await importJson(import.meta.url, "../../package.json");
 const program = new Command().enablePositionalOptions();
 
 program
-  .name("git-validator")
+  .name(pkgJson.name)
   .version(pkgJson.version)
   .description("lint & format code using eslint & prettier")
   .option("-f, --fix", "automatically fix problems using eslint")
@@ -76,7 +76,7 @@ setup(program, {
   initCommand: "init-tsconfig",
   diffCommand: "diff-tsconfig",
   initAction: (options) =>
-    initAction({ ...options, ext: "git-validator/tsconfig" }),
+    initAction({ ...options, ext: `${pkgJson.name}/tsconfig` }),
 });
 
 program.parse();
