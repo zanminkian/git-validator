@@ -1,6 +1,6 @@
 {
-  "name": "@git-validator/types",
-  "version": "0.1.0",
+  "name": "@fenge/types",
+  "version": "0.0.0",
   "description": "Type safe for JS built-in api.",
   "keywords": [
     "typescript",
@@ -18,10 +18,18 @@
   "author": "hellozmj@qq.com",
   "type": "module",
   "exports": {
-    "types": "./src/index.d.ts"
+    ".": {
+      "types": "./src/index.d.ts"
+    },
+    "./array-is-array": {
+      "types": "./src/array-is-array.d.ts"
+    },
+    "./json-parse": {
+      "types": "./src/json-parse.d.ts"
+    }
   },
-  "dependencies": {
-    "@fenge/types": "workspace:*"
+  "scripts": {
+    "test": "globstar -- node --test --import @swc-node/register/esm-register test/**/*.spec.ts"
   },
   "devDependencies": {
     "@swc-node/register": "1.10.0",
