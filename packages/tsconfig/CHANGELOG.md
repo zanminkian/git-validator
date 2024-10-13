@@ -1,5 +1,15 @@
 # @git-validator/tsconfig
 
+## 0.8.0
+
+### Minor Changes
+
+- 631222b: feat(tsconfig): add compile option `noUncheckedSideEffectImports`, which is required TS 5.6+
+
+### Patch Changes
+
+- cb8c5bc: refactor(tsconfig): remove hard code
+
 ## 0.7.3
 
 ### Patch Changes

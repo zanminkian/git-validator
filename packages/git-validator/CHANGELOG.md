@@ -1,5 +1,20 @@
 # git-validator
 
+## 0.22.0
+
+### Minor Changes
+
+- 631222b: feat(tsconfig): add compile option `noUncheckedSideEffectImports`, which is required TS 5.6+
+- 7961d46: refactor(git-validator): rename cli options `--no-eslint` and `--no-prettier` to `--no-lint` and `--no-format`
+
+### Patch Changes
+
+- Updated dependencies [631222b]
+- Updated dependencies [3b6023c]
+- Updated dependencies [cb8c5bc]
+  - @git-validator/tsconfig@0.8.0
+  - @git-validator/eslint-config@0.9.3
+
 ## 0.21.0
 
 ### Minor Changes
