@@ -1,5 +1,11 @@
 # @git-validator/eslint-config
 
+## 0.9.3
+
+### Patch Changes
+
+- 3b6023c: chore: upgrade deps
+
 ## 0.9.2
 
 ### Patch Changes
