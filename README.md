@@ -1,1 +1,1 @@
-./packages/git-validator/README.md
+./packages/deprecated-git-validator/README.md
