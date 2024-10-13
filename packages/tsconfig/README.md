@@ -16,11 +16,6 @@ Strict shared tsconfig out-of-box.
 - Support `ESM` and `CommonJS`.
 - Support FE (eg: [React](https://github.com/facebook/react)) & BE (eg: [Nest](https://github.com/nestjs/nest)) project.
 
-## Requirement
-
-- Typescript 5.5+.
-- Node 18+.
-
 ## Usage
 
 ### Install

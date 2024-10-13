@@ -26,11 +26,6 @@ This is a cli tool with following features.
 - 📦 **Unified package**: Just **ONE** npm package to install, replacing multiple. You don't need `eslint`, `prettier`, `lint-staged` any more.
 - 🚀 **Simple to use**: **TWO** core commands: `git-validator -u` and `git-validator install`.
 
-## Requirement
-
-- Node >= 18
-- Typescript >= 5.5
-
 ## Quick Start
 
 Run this command in your project to check the codebase code style.
