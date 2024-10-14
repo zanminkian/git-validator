@@ -30,9 +30,8 @@
       "types": "./types/index.d.ts"
     },
     "./tsconfig": "./tsconfig/tsconfig.json",
-    "./tsconfig/cjs": "./tsconfig/cjs.json",
-    "./tsconfig/esm": "./tsconfig/esm.json",
-    "./tsconfig/*": "./tsconfig/*"
+    "./tsconfig/*": "./tsconfig/*.json",
+    "./tsconfig/*.json": "./tsconfig/*.json"
   },
   "bin": {
     "git-validator": "./src/bin/cli.js",
