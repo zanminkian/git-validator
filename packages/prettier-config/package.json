@@ -1,6 +1,6 @@
 {
-  "name": "@git-validator/prettier-config",
-  "version": "0.6.0",
+  "name": "@fenge/prettier-config",
+  "version": "0.0.0",
   "description": "An elegant prettier shareable config.",
   "keywords": [
     "prettier",
@@ -21,7 +21,9 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@fenge/prettier-config": "workspace:*"
+    "@ianvs/prettier-plugin-sort-imports": "4.3.1",
+    "prettier-plugin-packagejson": "2.5.3",
+    "prettier-plugin-tailwindcss": "0.6.8"
   },
   "devDependencies": {
     "@types/node": "22.7.5",
