@@ -4,7 +4,7 @@ import * as publint from "eslint-plugin-publint";
 export function packagejson() {
   return [
     {
-      name: "git-validator/packagejson",
+      name: "fenge/packagejson",
       files: ["**/package.json"],
       processor: "pkg-json/processor",
       plugins: {

@@ -21,30 +21,10 @@
   "type": "module",
   "exports": "./dist/eslint.config.js",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "test": "globstar -- node --test --import @swc-node/register/esm-register src/**/*.spec.ts test/**/*.spec.ts"
+    "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@git-validator/eslint-plugin": "workspace:*",
-    "@git-validator/eslint-plugin-ts": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "7.16.1",
-    "@typescript-eslint/parser": "7.16.1",
-    "confusing-browser-globals": "1.0.11",
-    "eslint-plugin-deprecation": "3.0.0",
-    "eslint-plugin-es-x": "8.0.0",
-    "eslint-plugin-esm": "workspace:*",
-    "eslint-plugin-fp": "2.3.0",
-    "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-n": "17.11.1",
-    "eslint-plugin-pkg-json": "workspace:*",
-    "eslint-plugin-promise": "7.1.0",
-    "eslint-plugin-publint": "workspace:*",
-    "eslint-plugin-react": "7.37.1",
-    "eslint-plugin-react-hooks": "5.0.0",
-    "eslint-plugin-simple-import-sort": "12.1.1",
-    "eslint-plugin-sonarjs": "1.0.4",
-    "eslint-plugin-unicorn": "56.0.0",
-    "globals": "15.11.0"
+    "@fenge/eslint-config": "workspace:*"
   },
   "devDependencies": {
     "@swc-node/register": "1.10.0",

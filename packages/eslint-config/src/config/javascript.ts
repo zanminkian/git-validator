@@ -1,4 +1,4 @@
-import * as gitValidatorPlugin from "@git-validator/eslint-plugin";
+import * as gitValidatorPlugin from "@fenge/eslint-plugin";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import confusingKeys from "confusing-browser-globals";
 import esxPlugin from "eslint-plugin-es-x";
@@ -255,7 +255,7 @@ export function javascript() {
 
   return [
     {
-      name: "git-validator/javascript",
+      name: "fenge/javascript",
       files: ["**/*.{js,cjs,mjs,jsx}"],
       // https://eslint.org/docs/latest/use/configure/language-options
       languageOptions: {
@@ -293,7 +293,7 @@ export function javascript() {
         "es-x": esxPlugin,
         esm: esmPlugin,
         "simple-import-sort": simpleImportSortPlugin,
-        "@git-validator": gitValidatorPlugin,
+        "@fenge": gitValidatorPlugin,
         "@typescript-eslint": tsPlugin,
       },
       rules: {
@@ -447,10 +447,10 @@ export function javascript() {
         "unicorn/prefer-ternary": "error",
         "unicorn/throw-new-error": "error",
 
-        "@git-validator/call-arguments-length": "error",
-        "@git-validator/no-instanceof-builtin": "error",
-        "@git-validator/no-restricted-loops": "error",
-        "@git-validator/no-unnecessary-template-string": "error",
+        "@fenge/call-arguments-length": "error",
+        "@fenge/no-instanceof-builtin": "error",
+        "@fenge/no-restricted-loops": "error",
+        "@fenge/no-unnecessary-template-string": "error",
 
         "@typescript-eslint/ban-ts-comment": [
           "error",
@@ -464,7 +464,7 @@ export function javascript() {
       },
     },
     {
-      name: "git-validator/javascript/config",
+      name: "fenge/javascript/config",
       files: ["**/*.config.{js,cjs,mjs,jsx}"],
       rules: {
         "import/no-default-export": "off",
@@ -472,7 +472,7 @@ export function javascript() {
     },
     {
       // https://github.com/motemen/minimatch-cheat-sheet
-      name: "git-validator/javascript/test",
+      name: "fenge/javascript/test",
       files: [
         "**/__tests__/**/*.{js,cjs,mjs,jsx}",
         "**/*.{test,spec}.{js,cjs,mjs,jsx}",

@@ -4,7 +4,7 @@
 export function ignore() {
   return [
     {
-      name: "git-validator/ignore",
+      name: "fenge/ignore",
       files: ["**"], // I've tried all. Only '**' works.
       ignores: [
         "**/*.{js,cjs,mjs,jsx}",

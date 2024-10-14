@@ -17,7 +17,7 @@ export function gitignore() {
   return [
     {
       // TODO waiting for eslint 9
-      // name: 'git-validator/ignore',
+      // name: 'fenge/ignore',
       ignores: stdout.split("\n").filter(Boolean),
     },
   ] as const;

@@ -1,5 +1,5 @@
 import process from "node:process";
-import * as gitValidatorTsPlugin from "@git-validator/eslint-plugin-ts";
+import * as gitValidatorTsPlugin from "@fenge/eslint-plugin-ts";
 import tsParser from "@typescript-eslint/parser";
 import deprecationPlugin from "eslint-plugin-deprecation";
 import { javascript } from "./javascript.js";
@@ -89,7 +89,7 @@ export function typescript(project?: string) {
   return [
     {
       ...jsConfig,
-      name: "git-validator/typescript",
+      name: "fenge/typescript",
       files: ["**/*.{ts,cts,mts,tsx}"],
       languageOptions: {
         ...jsConfig.languageOptions,
@@ -103,7 +103,7 @@ export function typescript(project?: string) {
       plugins: {
         ...jsConfig.plugins,
         deprecation: deprecationPlugin,
-        "@git-validator-ts": gitValidatorTsPlugin,
+        "@fenge-ts": gitValidatorTsPlugin,
       },
       rules: {
         ...jsConfig.rules,
@@ -111,13 +111,13 @@ export function typescript(project?: string) {
 
         // deprecation
         "deprecation/deprecation": "error",
-        // git-validator
-        "@git-validator-ts/exact-map-set-type": "error",
-        "@git-validator-ts/no-const-enum": "error",
-        "@git-validator-ts/no-declares-in-ts-file": "error",
-        "@git-validator-ts/no-export-assignment": "error",
-        "@git-validator-ts/no-property-decorator": "error",
-        "@git-validator-ts/no-untyped-empty-array": "error",
+        // fenge
+        "@fenge-ts/exact-map-set-type": "error",
+        "@fenge-ts/no-const-enum": "error",
+        "@fenge-ts/no-declares-in-ts-file": "error",
+        "@fenge-ts/no-export-assignment": "error",
+        "@fenge-ts/no-property-decorator": "error",
+        "@fenge-ts/no-untyped-empty-array": "error",
         // typescript
         "@typescript-eslint/adjacent-overload-signatures": "error",
         // "@typescript-eslint/array-type": ["error", 'array-simple'], // The default option is 'array'. Not very sure if we need to change the option. So disabled it.
@@ -231,14 +231,14 @@ export function typescript(project?: string) {
       },
     },
     {
-      name: "git-validator/typescript/config",
+      name: "fenge/typescript/config",
       files: ["**/*.config.{ts,cts,mts,tsx}"],
       rules: {
         "import/no-default-export": "off",
       },
     },
     {
-      name: "git-validator/typescript/declaration",
+      name: "fenge/typescript/declaration",
       files: ["**/*.d.{ts,cts,mts,tsx}"],
       rules: {
         "import/no-default-export": "off",
@@ -246,7 +246,7 @@ export function typescript(project?: string) {
     },
     {
       // https://github.com/motemen/minimatch-cheat-sheet
-      name: "git-validator/typescript/test",
+      name: "fenge/typescript/test",
       files: [
         "**/__tests__/**/*.{ts,cts,mts,tsx}",
         "**/*.{test,spec}.{ts,cts,mts,tsx}",
