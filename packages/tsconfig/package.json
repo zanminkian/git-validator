@@ -1,6 +1,6 @@
 {
-  "name": "@git-validator/tsconfig",
-  "version": "0.8.0",
+  "name": "@fenge/tsconfig",
+  "version": "0.0.0",
   "description": "Strict shared tsconfig out-of-box.",
   "keywords": [
     "tsconfig",
@@ -38,8 +38,11 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@fenge/tsconfig": "workspace:*",
-    "commander": "12.1.0"
+    "commander": "12.1.0",
+    "get-tsconfig": "4.8.1",
+    "json5": "2.2.3",
+    "print-diff": "2.0.0",
+    "sort-keys": "5.1.0"
   },
   "devDependencies": {
     "@types/node": "22.7.5"

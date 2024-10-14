@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 // @ts-check
 import { Command } from "commander";
-import { setup } from "./setup.js";
+import { initAction, setup } from "./setup.js";
 
 const program = new Command();
 program.name("tsconfig");
-setup(program);
+setup(program, {
+  initAction: (options) =>
+    initAction({ ...options, ext: "@git-validator/tsconfig" }),
+});
 program.parse();
