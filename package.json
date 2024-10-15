@@ -7,15 +7,15 @@
   "scripts": {
     "build": "pnpm -r build",
     "install": "pnpm build",
-    "prepare": "git-validator install",
+    "prepare": "fenge install",
     "release": "changeset publish",
-    "style": "git-validator",
-    "style:update": "git-validator -u",
+    "style": "fenge",
+    "style:update": "fenge -u",
     "test": "pnpm -r test && pnpm style"
   },
   "devDependencies": {
     "@changesets/cli": "2.27.9",
-    "git-validator": "workspace:*",
+    "fenge": "workspace:*",
     "globstar": "1.0.0",
     "typescript": "5.6.3"
   },

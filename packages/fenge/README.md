@@ -2,9 +2,9 @@
 
 <span style="font: 100pt song !important;">😎</span>
 
-# fenge(风格)
+# Fenge(风格)
 
-> A CLI tool for improving JavaScript and TypeScript code quality.
+> A CLI tool for code quality.
 
 <font size=4> 😎 = 🇹 + 💃 + 📏 </font>
 
