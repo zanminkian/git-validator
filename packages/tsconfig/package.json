@@ -11,10 +11,10 @@
     "config",
     "configuration"
   ],
-  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/tsconfig",
+  "homepage": "https://github.com/zanminkian/fenge/tree/main/packages/tsconfig",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zanminkian/git-validator.git",
+    "url": "git+https://github.com/zanminkian/fenge.git",
     "directory": "packages/tsconfig"
   },
   "license": "MIT",

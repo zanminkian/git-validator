@@ -1,6 +1,6 @@
 # eslint-plugin-pkg-json
 
-[![](https://img.shields.io/npm/l/eslint-plugin-pkg-json.svg)](https://github.com/zanminkian/git-validator/blob/main/LICENSE)
+[![](https://img.shields.io/npm/l/eslint-plugin-pkg-json.svg)](https://github.com/zanminkian/fenge/blob/main/LICENSE)
 [![](https://img.shields.io/npm/v/eslint-plugin-pkg-json.svg)](https://www.npmjs.com/package/eslint-plugin-pkg-json)
 [![](https://img.shields.io/npm/dm/eslint-plugin-pkg-json.svg)](https://www.npmjs.com/package/eslint-plugin-pkg-json)
 [![](https://packagephobia.com/badge?p=eslint-plugin-pkg-json)](https://packagephobia.com/result?p=eslint-plugin-pkg-json)
@@ -40,7 +40,7 @@ export default [
     rules: {
       "pkg-json/no-lifecycle-script": "error",
       ...
-      // Visit https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-pkg-json/doc/rules for more other rules
+      // Visit https://github.com/zanminkian/fenge/tree/main/packages/eslint-plugin-pkg-json/doc/rules for more other rules
     },
   },
   ...
@@ -60,7 +60,7 @@ Config `package.json`
 
 ## Rules
 
-Click [here](https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-pkg-json/doc/rules).
+Click [here](https://github.com/zanminkian/fenge/tree/main/packages/eslint-plugin-pkg-json/doc/rules).
 
 ## License
 

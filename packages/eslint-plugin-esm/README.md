@@ -1,6 +1,6 @@
 # eslint-plugin-esm
 
-[![](https://img.shields.io/npm/l/eslint-plugin-esm.svg)](https://github.com/zanminkian/git-validator/blob/main/LICENSE)
+[![](https://img.shields.io/npm/l/eslint-plugin-esm.svg)](https://github.com/zanminkian/fenge/blob/main/LICENSE)
 [![](https://img.shields.io/npm/v/eslint-plugin-esm.svg)](https://www.npmjs.com/package/eslint-plugin-esm)
 [![](https://img.shields.io/npm/dm/eslint-plugin-esm.svg)](https://www.npmjs.com/package/eslint-plugin-esm)
 [![](https://packagephobia.com/badge?p=eslint-plugin-esm)](https://packagephobia.com/result?p=eslint-plugin-esm)
@@ -39,7 +39,7 @@ export default [
     rules: {
       "esm/no-git-ignored-imports": "error"
       ...
-      // Visit https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-esm/doc/rules for more other rules
+      // Visit https://github.com/zanminkian/fenge/tree/main/packages/eslint-plugin-esm/doc/rules for more other rules
     },
   },
   ...
@@ -59,7 +59,7 @@ Config `package.json`
 
 ## Rules
 
-Click [here](https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-esm/doc/rules).
+Click [here](https://github.com/zanminkian/fenge/tree/main/packages/eslint-plugin-esm/doc/rules).
 
 ## License
 

@@ -10,10 +10,10 @@
     "eslint-config",
     "standard"
   ],
-  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-config",
+  "homepage": "https://github.com/zanminkian/fenge/tree/main/packages/eslint-config",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zanminkian/git-validator.git",
+    "url": "git+https://github.com/zanminkian/fenge.git",
     "directory": "packages/eslint-config"
   },
   "license": "MIT",

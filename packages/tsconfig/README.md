@@ -2,7 +2,7 @@
 
 Strict shared tsconfig out-of-box.
 
-[![](https://img.shields.io/npm/l/@fenge/tsconfig.svg)](https://github.com/zanminkian/git-validator/blob/main/LICENSE)
+[![](https://img.shields.io/npm/l/@fenge/tsconfig.svg)](https://github.com/zanminkian/fenge/blob/main/LICENSE)
 [![](https://img.shields.io/npm/v/@fenge/tsconfig.svg)](https://www.npmjs.com/package/@fenge/tsconfig)
 [![](https://img.shields.io/npm/dm/@fenge/tsconfig.svg)](https://www.npmjs.com/package/@fenge/tsconfig)
 [![](https://packagephobia.com/badge?p=@fenge/tsconfig)](https://packagephobia.com/result?p=@fenge/tsconfig)

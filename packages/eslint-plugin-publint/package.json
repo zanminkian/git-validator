@@ -9,10 +9,10 @@
     "publish",
     "lint"
   ],
-  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-publint",
+  "homepage": "https://github.com/zanminkian/fenge/tree/main/packages/eslint-plugin-publint",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zanminkian/git-validator.git",
+    "url": "git+https://github.com/zanminkian/fenge.git",
     "directory": "packages/eslint-plugin-publint"
   },
   "license": "MIT",

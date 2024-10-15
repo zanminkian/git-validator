@@ -13,10 +13,10 @@
     "json",
     "node"
   ],
-  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-pkg-json",
+  "homepage": "https://github.com/zanminkian/fenge/tree/main/packages/eslint-plugin-pkg-json",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zanminkian/git-validator.git",
+    "url": "git+https://github.com/zanminkian/fenge.git",
     "directory": "packages/eslint-plugin-pkg-json"
   },
   "license": "MIT",

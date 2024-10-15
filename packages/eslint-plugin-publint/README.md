@@ -1,6 +1,6 @@
 # eslint-plugin-publint
 
-[![](https://img.shields.io/npm/l/eslint-plugin-publint.svg)](https://github.com/zanminkian/git-validator/blob/main/LICENSE)
+[![](https://img.shields.io/npm/l/eslint-plugin-publint.svg)](https://github.com/zanminkian/fenge/blob/main/LICENSE)
 [![](https://img.shields.io/npm/v/eslint-plugin-publint.svg)](https://www.npmjs.com/package/eslint-plugin-publint)
 [![](https://img.shields.io/npm/dm/eslint-plugin-publint.svg)](https://www.npmjs.com/package/eslint-plugin-publint)
 [![](https://packagephobia.com/badge?p=eslint-plugin-publint)](https://packagephobia.com/result?p=eslint-plugin-publint)

@@ -1,6 +1,6 @@
 # @fenge/eslint-config
 
-[![](https://img.shields.io/npm/l/@fenge/eslint-config.svg)](https://github.com/zanminkian/git-validator/blob/main/LICENSE)
+[![](https://img.shields.io/npm/l/@fenge/eslint-config.svg)](https://github.com/zanminkian/fenge/blob/main/LICENSE)
 [![](https://img.shields.io/npm/v/@fenge/eslint-config.svg)](https://www.npmjs.com/package/@fenge/eslint-config)
 [![](https://img.shields.io/npm/dm/@fenge/eslint-config.svg)](https://www.npmjs.com/package/@fenge/eslint-config)
 [![](https://packagephobia.com/badge?p=@fenge/eslint-config)](https://packagephobia.com/result?p=@fenge/eslint-config)

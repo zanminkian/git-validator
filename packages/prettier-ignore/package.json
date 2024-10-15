@@ -6,10 +6,10 @@
     "prettier",
     "ignore"
   ],
-  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/prettier-ignore",
+  "homepage": "https://github.com/zanminkian/fenge/tree/main/packages/prettier-ignore",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zanminkian/git-validator.git",
+    "url": "git+https://github.com/zanminkian/fenge.git",
     "directory": "packages/prettier-ignore"
   },
   "license": "MIT",

@@ -8,7 +8,7 @@
 
 <font size=4> 😎 = 🇹 + 💃 + 📏 </font>
 
-[![](https://img.shields.io/npm/l/fenge.svg)](https://github.com/zanminkian/git-validator/blob/main/LICENSE)
+[![](https://img.shields.io/npm/l/fenge.svg)](https://github.com/zanminkian/fenge/blob/main/LICENSE)
 [![](https://img.shields.io/npm/v/fenge.svg)](https://www.npmjs.com/package/fenge)
 [![](https://img.shields.io/npm/dm/fenge.svg)](https://www.npmjs.com/package/fenge)
 [![](https://packagephobia.com/badge?p=fenge)](https://packagephobia.com/result?p=fenge)

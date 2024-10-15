@@ -8,15 +8,15 @@
 ### Fail
 
 ```ts
-{} // filename: /root/projects/my/git-validator/package.json
-{"private":false} // filename: /root/projects/my/git-validator/package.json
-{"private":"true"} // filename: /root/projects/my/git-validator/package.json
+{} // filename: /root/projects/my/fenge/package.json
+{"private":false} // filename: /root/projects/my/fenge/package.json
+{"private":"true"} // filename: /root/projects/my/fenge/package.json
 ```
 
 ### Pass
 
 ```ts
 {} // filename: /foo/package.json
-{"private":true} // filename: /root/projects/my/git-validator/package.json
+{"private":true} // filename: /root/projects/my/fenge/package.json
 ```
 <!-- prettier-ignore-end -->

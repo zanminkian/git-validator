@@ -14,10 +14,10 @@
     "es6",
     "module"
   ],
-  "homepage": "https://github.com/zanminkian/git-validator/tree/main/packages/eslint-plugin-esm",
+  "homepage": "https://github.com/zanminkian/fenge/tree/main/packages/eslint-plugin-esm",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zanminkian/git-validator.git",
+    "url": "git+https://github.com/zanminkian/fenge.git",
     "directory": "packages/eslint-plugin-esm"
   },
   "license": "MIT",
