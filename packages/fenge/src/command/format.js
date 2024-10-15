@@ -25,6 +25,7 @@ export async function format(paths = [], options = {}) {
       "--config",
       path.join(dir(import.meta.url), "..", "config", "prettier.config.js"),
       "--ignore-unknown",
+      "--no-error-on-unmatched-pattern", // Not a good option name. It's for skipping formatting symlinks. https://github.com/prettier/prettier/pull/15533
       ...(update || write ? ["--write"] : ["--check"]),
       ...(paths.length <= 0 ? ["."] : paths).map((p) => path.resolve(cwd, p)),
     ],

@@ -30,6 +30,8 @@
   "author": "hellozmj@qq.com",
   "type": "module",
   "exports": {
+    "./eslint-config": "./src/re-export/eslint.config.js",
+    "./prettier-config": "./src/re-export/prettier.config.js",
     "./types": {
       "types": "./types/index.d.ts"
     },
