@@ -22,5 +22,13 @@
     "@fenge/tsconfig": "0.0.0",
     "@fenge/types": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "fair-dogs-sneeze",
+    "fresh-avocados-draw",
+    "fresh-eggs-join",
+    "good-oranges-wave",
+    "old-experts-sniff",
+    "perfect-steaks-invent",
+    "unlucky-paws-trade"
+  ]
 }

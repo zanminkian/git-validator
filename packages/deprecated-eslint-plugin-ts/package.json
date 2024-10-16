@@ -1,6 +1,6 @@
 {
   "name": "@git-validator/eslint-plugin-ts",
-  "version": "0.2.4",
+  "version": "0.3.0-beta.0",
   "description": "An eslint plugin for TypeScript",
   "keywords": [
     "strict",
