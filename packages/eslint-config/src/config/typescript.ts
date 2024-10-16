@@ -1,5 +1,5 @@
 import process from "node:process";
-import * as gitValidatorTsPlugin from "@fenge/eslint-plugin-ts";
+import * as fengeTsPlugin from "@fenge/eslint-plugin-ts";
 import tsParser from "@typescript-eslint/parser";
 import deprecationPlugin from "eslint-plugin-deprecation";
 import { javascript } from "./javascript.js";
@@ -103,7 +103,7 @@ export function typescript(project?: string) {
       plugins: {
         ...jsConfig.plugins,
         deprecation: deprecationPlugin,
-        "@fenge-ts": gitValidatorTsPlugin,
+        "@fenge-ts": fengeTsPlugin,
       },
       rules: {
         ...jsConfig.rules,

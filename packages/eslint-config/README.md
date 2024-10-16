@@ -13,8 +13,9 @@ A strict eslint config for linting `js` / `ts` / `package.json` files. Based on 
 - Lint `js` / `mjs` / `cjs` / `jsx` / `ts` / `mts` / `cts` / `tsx` / `package.json` files only.
 - One-line of config.
 - Type safe. TypeScript friendly.
+- Pure JavaScript project friendly.
 - Respect `.gitignore`.
-- Based on [standard.js](https://github.com/standard/standard).
+- Based on [standard.js](https://github.com/standard/standard), introduced more stricter rules.
 - Have no stylistic opinions. Prettier friendly.
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
 - Strict, but progressive.
@@ -61,7 +62,7 @@ Config `package.json`
 
 ### Config Builder
 
-The default config is very strict. If you don't like the default config, use `Builder` to customize your own.
+You can use `Builder` class to customize for selecting or omitting some rules.
 
 ```ts
 import { Builder } from "@fenge/eslint-config";

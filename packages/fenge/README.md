@@ -109,7 +109,17 @@ Config `tsconfig.build.json` file in sub-package or project root.
 }
 ```
 
-Build your project by executing `tsc -p ./tsconfig.build.json`. Type-check your project by executing `tsc -p ./tsconfig.build.json --noEmit`.
+Build your project by executing:
+
+```sh
+tsc -p ./tsconfig.build.json
+```
+
+Type-check your project by executing:
+
+```sh
+tsc -p ./tsconfig.build.json --noEmit
+```
 
 For more beat practices, please refer to [@fenge/tsconfig](https://www.npmjs.com/package/@fenge/tsconfig).
 

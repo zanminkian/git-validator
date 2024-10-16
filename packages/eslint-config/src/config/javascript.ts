@@ -1,4 +1,4 @@
-import * as gitValidatorPlugin from "@fenge/eslint-plugin";
+import * as fengePlugin from "@fenge/eslint-plugin";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import confusingKeys from "confusing-browser-globals";
 import esxPlugin from "eslint-plugin-es-x";
@@ -293,7 +293,7 @@ export function javascript() {
         "es-x": esxPlugin,
         esm: esmPlugin,
         "simple-import-sort": simpleImportSortPlugin,
-        "@fenge": gitValidatorPlugin,
+        "@fenge": fengePlugin,
         "@typescript-eslint": tsPlugin,
       },
       rules: {
