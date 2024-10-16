@@ -4,6 +4,8 @@
   "description": "A super strict eslint config for linting js/ts/package.json.",
   "keywords": [
     "opinionated",
+    "style",
+    "strictest",
     "strict",
     "eslint",
     "config",

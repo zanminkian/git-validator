@@ -22,9 +22,5 @@
   },
   "dependencies": {
     "@fenge/prettier-config": "workspace:*"
-  },
-  "devDependencies": {
-    "@types/node": "22.7.5",
-    "prettier": "3.3.3"
   }
 }

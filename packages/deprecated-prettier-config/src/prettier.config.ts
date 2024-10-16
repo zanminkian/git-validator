@@ -1,3 +1,1 @@
-import config from "@fenge/prettier-config";
-
-export default config;
+export { default } from "@fenge/prettier-config";

@@ -1,10 +1,10 @@
 <div align="center">
 
-<span style="font: 100pt song !important;">😎</span>
+<img height="180" src="https://raw.githubusercontent.com/zanminkian/static/main/fenge/style.svg">
 
 # Fenge(风格)
 
-> A CLI tool for code quality.
+> A CLI tool for JavaScript and TypeScript code quality.
 
 <font size=4> 😎 = 🇹 + 💃 + 📏 </font>
 
