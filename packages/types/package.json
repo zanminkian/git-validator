@@ -1,8 +1,9 @@
 {
   "name": "@fenge/types",
   "version": "0.0.0",
-  "description": "Type safe for JS built-in api.",
+  "description": "A type patch for TypeScript, enhancing type-safe for built-in JavaScript apis.",
   "keywords": [
+    "ecmascript",
     "typescript",
     "ts-reset",
     "type-fest",
@@ -26,6 +27,12 @@
     },
     "./json-parse": {
       "types": "./src/json-parse.d.ts"
+    },
+    "./map-constructor": {
+      "types": "./src/map-constructor.d.ts"
+    },
+    "./promise-catch": {
+      "types": "./src/promise-catch.d.ts"
     }
   },
   "scripts": {

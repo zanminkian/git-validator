@@ -23,7 +23,7 @@
 <details>
 <summary>简体中文</summary>
 
-经过多年实践，我们发现衡量现代 JavaScript 工程的代码质量，主要有 3 个方面：
+经过多年实践，我们发现，最影响现代 JavaScript 工程的代码质量和开发体验的主要有 3 个方面：
 
 - **类型安全**：用于提前发现类型、拼写错误，例如对象方法是否正确调用、函数参数传递的类型是否符合函数体的期望等。
 - **Formatting**：用于统一格式，提升代码可读性，减少代码冲突。主要关注例如缩进、换行、单/双引号、带/不带分号等问题。
@@ -123,9 +123,9 @@ tsc -p ./tsconfig.build.json --noEmit
 
 For more beat practices, please refer to [@fenge/tsconfig](https://www.npmjs.com/package/@fenge/tsconfig).
 
-#### Import typing patch
+#### Import type patch
 
-Add a [triple-slash-directive](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) `/// <reference types="fenge/types" />` at the top of the ts file that serves as the entry point for your application or package. This will make the entire project more type-safe. The built-in typing patch `fenge/types` re-exports from [@fenge/types](https://www.npmjs.com/package/@fenge/types).
+Add a [triple-slash-directive](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) `/// <reference types="fenge/types" />` at the top of the ts file that serves as the entry point for your application or package. This will make the entire project more type-safe. The built-in type patch `fenge/types` re-exports from [@fenge/types](https://www.npmjs.com/package/@fenge/types).
 
 Application/Package Entry Point (eg: `src/main.ts` or `src/app.ts`)
 
