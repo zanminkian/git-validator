@@ -1,5 +1,16 @@
 # @git-validator/tsconfig
 
+## 0.9.0
+
+### Minor Changes
+
+- 514733a: feat(tsconfig): migrate from `@git-validator/tsconfig` to `@fenge/tsconfig`
+
+### Patch Changes
+
+- Updated dependencies [514733a]
+  - @fenge/tsconfig@0.1.0
+
 ## 0.8.0
 
 ### Minor Changes

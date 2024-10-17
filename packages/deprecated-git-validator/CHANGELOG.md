@@ -1,5 +1,24 @@
 # git-validator
 
+## 0.23.0
+
+### Minor Changes
+
+- 27bbb4a: feat: migrate `git-validator` to fenge
+
+  IMPORTANT: We migrate all the features from `git-validator` to `fenge` now. `git-validator` will be deprecated later.
+
+### Patch Changes
+
+- Updated dependencies [514733a]
+- Updated dependencies [67f298b]
+- Updated dependencies [db5931d]
+- Updated dependencies [b5b70e3]
+  - @git-validator/tsconfig@0.9.0
+  - @git-validator/types@0.2.0
+  - @git-validator/prettier-config@0.7.0
+  - @git-validator/eslint-config@0.10.0
+
 ## 0.22.0
 
 ### Minor Changes
