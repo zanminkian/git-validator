@@ -10,12 +10,11 @@ An elegant prettier shareable config.
 
 ## Features
 
+- Sort ESM import statements.
+- Sort `package.json`.
+- Sort Tailwind CSS classes.
 - Elegant. One-line of config.
 - Compatible with default prettier config `{}`. Only introduced some plugins.
-- ~~Enforce consistent brace style. Powered by `prettier-plugin-curly`.~~
-- Sort `package.json`. Powered by `prettier-plugin-packagejson`.
-- Sort imports. Powered by `@ianvs/prettier-plugin-sort-imports`.
-- Sort Tailwind CSS classes. Powered by `prettier-plugin-tailwindcss`.
 
 ## Usage
 
@@ -31,6 +30,19 @@ Config `prettier.config.js`
 import config from "@fenge/prettier-config";
 
 export default config;
+```
+
+Customize
+
+```js
+import config from "@fenge/prettier-config";
+
+export default {
+  ...config,
+  // Add your own configs below
+  semi: true,
+  singleQuote: true,
+};
 ```
 
 Config `package.json`

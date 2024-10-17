@@ -6,22 +6,23 @@
 [![](https://packagephobia.com/badge?p=@fenge/eslint-config)](https://packagephobia.com/result?p=@fenge/eslint-config)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
 
-A strict eslint config for linting `js` / `ts` / `package.json` files. Based on [standard.js](https://github.com/standard/standard) without any stylistic opinions.
+A strict eslint config preset containing a comprehensive set of rules for linting `js` / `ts` / `package.json` files. Based on [standard.js](https://github.com/standard/standard) without any stylistic opinions.
 
 ## Feature
 
 - Lint `js` / `mjs` / `cjs` / `jsx` / `ts` / `mts` / `cts` / `tsx` / `package.json` files only.
-- One-line of config.
+- Strict. More than 300+ rules.
+- Highly customizable by omitting unwanted.
 - Type safe. TypeScript friendly.
 - Pure JavaScript project friendly.
-- Respect `.gitignore`.
-- Based on [standard.js](https://github.com/standard/standard), introduced more stricter rules.
-- Have no stylistic opinions. Prettier friendly.
-- [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
-- Strict, but progressive.
-- Modern. ESM first.
 - React friendly.
 - NestJS friendly.
+- Based on [standard.js](https://github.com/standard/standard), introduced more stricter rules.
+- Have no stylistic opinions. Prettier friendly.
+- Respect `.gitignore`.
+- [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
+- Modern. ESM first.
+- One-line of config.
 
 ## Usage
 

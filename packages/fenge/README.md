@@ -56,7 +56,7 @@ Based on the philosophy outlined above, this tool offers the following features:
 
 - 💪 **Enhanced Type Safety**: This tool provides the strictest `tsconfig` settings and type patches to bolster the type safety of TypeScript projects. It is also compatible with pure JavaScript projects.
 - 💃 **Formatting**: This tool ensures code consistency across your codebase and minimizes merge conflicts by automatically formatting code. It additionally supports the sorting of imports and `package.json` files.
-- 📏 **Linting**: The tool comes equipped with a comprehensive set of rules for static code analysis, which helps catch errors and prevent poor coding practices in JavaScript.
+- 📏 **Linting**: This tool comes equipped with a comprehensive set of rules for static code analysis, which helps catch errors and prevent poor coding practices in JavaScript.
 - 🪝 **Git Hooks**: After installation, committing code via Git triggers automatic formatting and linting checks. No additional package installations are required.
 
 ## Highlights
@@ -125,7 +125,7 @@ For more beat practices, please refer to [@fenge/tsconfig](https://www.npmjs.com
 
 #### Import typing patch
 
-Add a [triple-slash-directive](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) `/// <reference types="fenge/types" />` at the top of the ts file that serves as the entry point for your application or package. This will make the entire project more type-safe.
+Add a [triple-slash-directive](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) `/// <reference types="fenge/types" />` at the top of the ts file that serves as the entry point for your application or package. This will make the entire project more type-safe. The built-in typing patch `fenge/types` re-exports from [@fenge/types](https://www.npmjs.com/package/@fenge/types).
 
 Application/Package Entry Point (eg: `src/main.ts` or `src/app.ts`)
 
@@ -189,7 +189,7 @@ export default {
 };
 ```
 
-Usually, we recommend reusing the built-in configurations rather than writing them from scratch.
+Usually, we recommend reusing the built-in configurations rather than writing them from scratch. The built-in configurations re-export from [@fenge/prettier-config](https://www.npmjs.com/package/@fenge/prettier-config) and [@fenge/eslint-config](https://www.npmjs.com/package/@fenge/eslint-config).
 
 ```js
 // @ts-check
@@ -231,7 +231,7 @@ You can even install and use other third-party eslint-config, like [@sxzz/eslint
 
 ### Set up Git hooks
 
-Executing `fenge install` will write a `pre-commit` file to the `${PROJECT_ROOT}/.git/hooks` folder. After editing `package.json -> scripts -> prepare` script and executing it once, each commit (via Git) will trigger a code style check for the committed files.
+Executing `fenge install` in the project root will write a `pre-commit` file to the `${PROJECT_ROOT}/.git/hooks` folder. After editing `package.json -> scripts -> prepare` script and executing it once, each commit (via Git) will trigger a code style check for the committed files.
 
 ```json
 {
