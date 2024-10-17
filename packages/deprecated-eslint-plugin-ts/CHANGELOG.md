@@ -1,5 +1,16 @@
 # @git-validator/eslint-plugin-ts
 
+## 0.3.0
+
+### Minor Changes
+
+- 615a726: feat(eslint-plugin-ts): migrate from `@git-validator/eslint-plugin-ts` to `@fenge/eslint-plugin-ts`
+
+### Patch Changes
+
+- Updated dependencies [615a726]
+  - @fenge/eslint-plugin-ts@0.1.0
+
 ## 0.2.4
 
 ### Patch Changes
