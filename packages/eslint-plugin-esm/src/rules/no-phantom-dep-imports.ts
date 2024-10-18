@@ -61,7 +61,7 @@ export const noPhantomDepImports = createRule({
         allowDevDependencies = false,
       }: { allowDevDependencies: boolean } = context.options[0] ?? {};
 
-      // ignore `import {foo} from './'`
+      // ignore `import {foo} from './'` and `import {foo} from 'node:foo'`
       if (getSourceType(source) !== "module") {
         return false;
       }
@@ -75,6 +75,11 @@ export const noPhantomDepImports = createRule({
         isObject(pkgJson.content.dependencies)
           ? pkgJson.content.dependencies
           : {};
+      const peerDep =
+        "peerDependencies" in pkgJson.content &&
+        isObject(pkgJson.content.peerDependencies)
+          ? pkgJson.content.peerDependencies
+          : {};
       const devDep =
         "devDependencies" in pkgJson.content &&
         isObject(pkgJson.content.devDependencies)
@@ -86,22 +91,18 @@ export const noPhantomDepImports = createRule({
         .slice(0, source.startsWith("@") ? 2 : 1)
         .join("/");
 
+      const isInDep = moduleName in dep || moduleName in peerDep;
+      const isInDev = moduleName in devDep;
       if ("importKind" in node && node.importKind === "type") {
         return moduleName.startsWith("@") && moduleName.includes("/")
           ? !(
-              moduleName in dep ||
-              moduleName in devDep ||
+              isInDep ||
+              isInDev ||
               `@types/${moduleName.slice(1).replace("/", "_")}` in devDep
             )
-          : !(
-              moduleName in dep ||
-              moduleName in devDep ||
-              `@types/${moduleName}` in devDep
-            );
+          : !(isInDep || isInDev || `@types/${moduleName}` in devDep);
       } else {
-        return allowDevDependencies
-          ? !(moduleName in dep || moduleName in devDep)
-          : !(moduleName in dep);
+        return allowDevDependencies ? !(isInDep || isInDev) : !isInDep;
       }
     }),
 });
