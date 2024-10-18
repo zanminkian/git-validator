@@ -1,5 +1,12 @@
 # @fenge/eslint-config
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies [2b04bbd]
+  - eslint-plugin-esm@0.2.1
+
 ## 0.1.0
 
 ### Minor Changes
