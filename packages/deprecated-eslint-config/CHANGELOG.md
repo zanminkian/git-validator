@@ -1,5 +1,16 @@
 # @git-validator/eslint-config
 
+## 0.10.0
+
+### Minor Changes
+
+- b5b70e3: feat(eslint-config): migrate from `@git-validator/eslint-config` to `@fenge/eslint-config`
+
+### Patch Changes
+
+- Updated dependencies [b5b70e3]
+  - @fenge/eslint-config@0.1.0
+
 ## 0.9.3
 
 ### Patch Changes
